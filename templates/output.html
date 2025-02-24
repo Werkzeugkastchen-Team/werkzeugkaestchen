@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Base64 Encode Output {% endblock %}</h1>
+    <h3>{{ toolName }}</h3>
+
+    <h1>Output:</h1>
+    <br>
+    <!-- If Output type is file or text, render it differently like in input mask -->
+    <code>{{ output_text }}</code>
+</form>
+{% endblock %}

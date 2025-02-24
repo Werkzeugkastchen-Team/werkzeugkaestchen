@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
+
+    <h1>Input: </h1>
+    <br>
+    <form action="{{ url_for('handle_tool') }}" method="post">
+    <input type="hidden" name="tool_name" value="{{ toolName }}">
+    {% for param, param_type in input_params.items() %}
+        {% if param_type == 'string' %}
+            <label for="{{ param }}">{{ param }}:</label>
+            <input type="text" name="{{ param }}" id="{{ param }}">
+        {% elif param_type == 'boolean' %}
+            <label for="{{ param }}">{{ param }}:</label>
+            <input type="checkbox" name="{{ param }}" id="{{ param }}">
+        {% elif param_type == 'file' %}
+            <label for="{{ param }}">{{ param }}:</label>
+            <input type="file" name="{{ param }}" id="{{ param }}">
+        {% endif %}
+        <br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+    </form>
+{% endblock %}
