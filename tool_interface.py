@@ -4,8 +4,9 @@ class MiniTool(ABC):
     output = ""
     error_message = ""
     
-    def __init__(self, name):
+    def __init__(self, name, identifier):
         self.name = name
+        self.identifier = identifier
         self.input_params = {}
     
     @abstractmethod    

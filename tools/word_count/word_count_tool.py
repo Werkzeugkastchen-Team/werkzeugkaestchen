@@ -4,7 +4,7 @@ from tool_interface import MiniTool
 
 class WordCountTool(MiniTool):
     def __init__(self):
-        super().__init__("Word Counting Tool")
+        super().__init__("Word Counting Tool", "WordCountTool")
         self.input_params = {
             "text": "string",
             "count_hyphens": "boolean"

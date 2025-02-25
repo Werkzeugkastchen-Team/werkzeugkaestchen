@@ -6,7 +6,7 @@
     <h1>Input: </h1>
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post">
-    <input type="hidden" name="tool_name" value="{{ toolName }}">
+    <input type="hidden" name="tool_name" value="{{ identifier }}">
     {% for param, param_type in input_params.items() %}
         {% if param_type == 'string' %}
             <label for="{{ param }}">{{ param }}:</label>

@@ -3,7 +3,7 @@ from tool_interface import MiniTool
 
 class JsonValidatorTool(MiniTool):
     def __init__(self):
-        super().__init__("JSON Validation Tool")
+        super().__init__("JSON Validation Tool", "JsonValidatorTool")
         self.input_params = {
             "json_string": "string"
         }
