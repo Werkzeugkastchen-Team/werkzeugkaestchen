@@ -1,6 +1,8 @@
 Werkzeugkästchen
 
-Projektstruktur ist noch in Entwicklung?
+Projektstruktur ist noch in Entwicklung.
+
+Vorhandene Tools sind nur Beispiele.
 
 ## Setup
 
