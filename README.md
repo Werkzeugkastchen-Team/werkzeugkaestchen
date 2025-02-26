@@ -1,10 +1,36 @@
-Yo was du machen musst
+## Setup
+
+Dies wurde mit **Python 3.10** getestet
 
 - venv erstellen (python 3.10)
-- pip install flask
-- vielleicht noch andere pip installs idk
 
-Dann kann man ausführen im Terminal:
+```sh
+python3 -m venv venv
+```
 
-`flask --app webapp run`
+- venv aktivieren
 
+Windows:
+```sh
+venv\Scripts\activate
+```
+
+MacOS/Linux:
+```sh
+source venv/bin/activate
+```
+
+- Abhängigkeiten installieren
+
+```sh
+pip install -r requirements.txt
+```
+
+
+## Server starten
+
+```sh
+flask --app webapp run
+```
+
+(`webapp.py` ist die Hauptklasse)
