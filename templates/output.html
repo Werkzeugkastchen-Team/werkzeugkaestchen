@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Base64 Encode Output {% endblock %}</h1>
+    <h1>{% block title %} Tool Output {% endblock %}</h1>
     <h3>{{ toolName }}</h3>
 
     <h1>Output:</h1>
     <br>
-    <!-- If Output type is file or text, render it differently like in input mask -->
-    <code>{{ output_text }}</code>
-</form>
+    {% if has_error %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Error:</strong> 
+            <code>{{ output_text }}</code>
+        </div>
+    {% else %}
+        <code>{{ output_text }}</code>
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Tools</a>
+    </div>
 {% endblock %}

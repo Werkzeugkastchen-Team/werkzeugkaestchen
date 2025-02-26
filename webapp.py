@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 
+from tools.error.error_tool import ErrorTool
 from tools.json_validate.json_validate_tool import JsonValidatorTool
 from tools.word_count.word_count_tool import WordCountTool
 from tools.dec_to_bin.dec_to_bin_tool import DecToBinTool
@@ -9,7 +10,8 @@ app = Flask(__name__)
 tools = {
     "WordCountTool": WordCountTool(),
     "JsonValidatorTool": JsonValidatorTool(),
-    "DecToBinTool": DecToBinTool()
+    "DecToBinTool": DecToBinTool(),
+    "ErrorTool": ErrorTool()
 }
 
 # Hauptseite
@@ -31,9 +33,7 @@ def tool_form(tool_name):
 # Output
 @app.route("/handle_tool", methods=["POST"])
 def handle_tool():
-    print(request.form)
     tool_name = request.form.get('tool_name')
-    print("TOOL NAME: ",  tool_name)
     tool = tools.get(tool_name)
     
     if not tool:
@@ -49,6 +49,16 @@ def handle_tool():
         if value == 'on':
             input_params[key] = True
     
-    tool.execute_tool(input_params)
+    success = tool.execute_tool(input_params)
     
-    return render_template('output.html', output_text=tool.output)
+    if not success:
+        return render_template('output.html', 
+                              toolName=tool.name,
+                              output_text=tool.error_message, 
+                              has_error=True)
+    
+    return render_template('output.html', 
+                          toolName=tool.name,
+                          output_text=tool.output)
+    
+        
