@@ -1,5 +1,5 @@
 .logo{
-    width: 100px;
+    width:var(--space-l);
 }
 .navbar{
     display: flex;

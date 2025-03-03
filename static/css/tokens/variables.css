@@ -12,8 +12,7 @@
     --measure-m: 950px;
     --measure-s: 600px;
 
-    --space-l: clamp(3.125rem, 2.5862rem + 2.2989vw, 6.25rem); /** 50px- 100px */
-    --space-md:75px;
+    --space-l: 100px;
     --space-m: 50px;
     --space-s: 20px;
     --space-xs: 10px;

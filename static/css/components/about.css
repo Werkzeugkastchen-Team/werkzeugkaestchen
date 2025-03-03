@@ -1,13 +1,13 @@
 .about-section{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: var(--space-m);
     margin: 0 auto;
 }
 .about-team{
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: var(--space-m);
     justify-content: start;
 }
 .about-team div{
