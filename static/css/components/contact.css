@@ -1,0 +1,20 @@
+.contact{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.contact-info, .contact-form{
+    flex: 50%;
+    width: 100%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px
+}
+.form div{
+    display: flex;
+    flex-direction: column;
+    
+}

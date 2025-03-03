@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% block title %}Kontaktieren Sie uns{% endblock %}</h1>
+     {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+            {% endwith %}
+    <section class="contact">
+        <div class="contact-info" >
+            <p><strong>Werkzeugkästchen
+            GmbH</strong></p>
+
+            <p><strong>T:</strong> 0400-456 06-0</p>
+            <p><strong>M:</strong> mail@xx-werkzeugkästchen.de<p>
+
+            <p><strong>Öffnungszeiten</strong></p>
+
+            <p><strong>Montag – Donnerstag:</strong>
+            8:00 – 17:00 Uhr</p>
+
+            <p><strong>Freitag:</strong>
+            8:00 – 15:00 Uhr</p>
+
+            <p>Xxxstraße 6
+            28844 Bremen
+            </p> 
+        </div>
+        <div class="contact-form" >
+         
+            <form class="form" action="/submit_contact" method="POST">
+                <div>
+                    <label for="name">Ihr Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Ihre E-Mail-Adresse *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="phone">Ihre Telefonnummer</label>
+                    <input type="tel" id="phone" name="phone" value="">
+                </div>
+                <div>
+                    <label for="message">Ihre Anfrage *</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <label for="privacy_policy">
+                    <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+                    Ich stimme der <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu.
+                </label>
+                <button class="btn" type="submit">Absenden</button>
+            </form>
+        </div>
+    </section>
+    
+{% endblock %}

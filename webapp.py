@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 from tools.error.error_tool import ErrorTool
 from tools.json_validate.json_validate_tool import JsonValidatorTool
 from tools.word_count.word_count_tool import WordCountTool
 from tools.dec_to_bin.dec_to_bin_tool import DecToBinTool
+
 app = Flask(__name__)
+app.secret_key = 'supersecretkey' 
 
 # Hier müssen wir nur unsere Tools registrieren
 tools = {
@@ -21,6 +23,16 @@ def index():
     for name,tool in tools.items():
         tools_classes.append(tool)
     return render_template('index.jinja', toolsToRender=tools_classes)
+
+# /contact
+@app.route('/contact')
+def contact():
+    return render_template('contact.jinja') 
+
+#/about
+@app.route('/about')
+def about():
+    return render_template('about.jinja')
 
 # Input
 @app.route("/tool/<tool_name>")
@@ -62,3 +74,23 @@ def handle_tool():
                           output_text=tool.output)
     
         
+@app.route('/submit_contact', methods=['POST'])
+def submit_contact():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+    message = request.form.get('message')
+    privacy_policy = request.form.get('privacy_policy')
+
+    if not name or not email or not message or privacy_policy is None:
+        flash("Bitte füllen Sie alle Pflichtfelder aus und stimmen Sie der Datenschutzerklärung zu.", "error")
+        return redirect(url_for('contact'))
+
+    print(f"Neue Kontaktanfrage von {name} ({email}, {phone}): {message}")
+
+    flash("Vielen Dank für Ihre Nachricht! Wir werden uns so schnell wie möglich bei Ihnen melden.", "success")
+    return redirect(url_for('contact_success'))
+
+@app.route('/contact_success')
+def contact_success():
+    return render_template('contact_success.jinja')

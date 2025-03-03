@@ -1,0 +1,16 @@
+.about-section{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 0 auto;
+}
+.about-team{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: start;
+}
+.about-team div{
+    flex: 50%;
+    width: 100%;
+}
