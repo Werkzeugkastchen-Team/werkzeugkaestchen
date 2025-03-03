@@ -13,6 +13,7 @@ class OutputType(Enum):
 class MiniTool(ABC):
     output = ""
     error_message = ""
+    description = ""
     
     def __init__(self, name, identifier, output_type=OutputType.TEXT):
         self.name = name
