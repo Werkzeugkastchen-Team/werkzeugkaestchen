@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{% block title %} Über uns {% endblock %}</h1>
+  <section class="about-section">
+    <div class="">
+        <h2>Unser Team</h2>
+        <div class="about-team">
+            <div>
+                <p>
+                    Wusstet ihr, dass unser Team ein bisschen wie die Pinguine aus Madagascar ist? 🐧🐧🐧🐧
+                    Wir sehen vielleicht aus wie ein normales Entwicklerteam, aber hinter den Kulissen laufen unsere Tools wie eine geheime Operation ab!
+                </p>
+                <ul>
+                    <li><strong>Skipper 🦾</strong>– unser Chefentwickler, der immer einen Plan hat („Lächeln und winken, Jungs!“).</li>
+                    <li><strong>Kowalski 🧠</strong>– der Analytiker, der Bugs schneller löst als du „JSON-Fehler“ sagen kannst.</li>
+                    <li><strong>Rico 💥 </strong>– unser Code-Zerstörer (…und Fixer), der neue Features im Sekundentakt raushaut.</li>
+                    <li><strong>Private 😊 </strong>– unser Support, immer freundlich, aber unterschätze ihn nicht – er kann dein Problem lösen, bevor du es selbst verstehst!</li>
+                <ul>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='img/about_us.jpg') }}" class="team" alt="Unser Team">
+            </div>        
+        </div>    
+    </div>
+    <div>
+        <h2>Unsere Mission</h2>
+        <p>
+            Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihnen den Arbeitsalltag zu erleichtern.
+            Ob JSON-Validierung, Wortzählung oder Umwandlungen – unsere Tools sind effizient und benutzerfreundlich.
+        </p>
+    </div>
+    <div>
+        <h2>Warum wir?</h2>
+        <ul>
+            <li>Präzise und zuverlässige Softwarelösungen</li>
+            <li>Benutzerfreundliche Oberfläche</li>
+            <li>Engagiertes und erfahrenes Team</li>
+        </ul>
+    </div>
+    <div class="">
+        <p> Also, wenn du mal wieder feststeckst… frag dich einfach:  </p>
+        <a href="{{ url_for('contact') }}" class="btn">Was würden die Pinguine tun?</a>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+:root {
+    /** Color Variables */
+    --primary-color: #FFFFFF;
+    --secondary-color:#1C2A2F;
+    --accent-color: #ca0612;
+    --accent-light-color: #bb3030;
+    --color-background-service :#D8DDDA;
+
+    /** General spacing between sections or elements */
+    --measure-xl: 2550px;
+    --measure-l: 1200px;
+    --measure-m: 950px;
+    --measure-s: 600px;
+
+    --space-l: 100px;
+    --space-m: 50px;
+    --space-s: 20px;
+    --space-xs: 10px;
+
+    --radius-ml: 40px; 
+    --radius-md: 15px;
+
+    /**  Font Size Variables */
+    --size-h1:clamp(2.1875rem, 1.1184rem + 4.5614vw, 6.25rem); /** 35px - 100px */ 
+    --size-h2: clamp(1.875rem, 1.4638rem + 1.7544vw, 3.4375rem); /** 30px - 55px */
+    --size-h3: 30px;
+    --size-highlight: clamp(1.5625rem, 1.4983rem + 0.274vw, 1.875rem); /** 25px- 30px */
+    --size-body:clamp(1.125rem, 1.0993rem + 0.1096vw, 1.25rem); /** 18px-20px */ 
+    --size-logo:clamp(1.875rem, 1.7672rem + 0.4598vw, 2.5rem); /** 30px - 40px */
+
+}
+
