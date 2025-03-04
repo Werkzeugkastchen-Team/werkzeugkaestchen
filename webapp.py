@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 
 from tools.error.error_tool import ErrorTool
 from tools.json_validate.json_validate_tool import JsonValidatorTool
@@ -23,6 +23,16 @@ def index():
     for name,tool in tools.items():
         tools_classes.append(tool)
     return render_template('index.jinja', toolsToRender=tools_classes)
+
+@app.route("/search_tools", methods=["GET"])
+def search_tools():
+    query = request.args.get("q", "").lower()
+    filtered_tools = [tool for tool in tools if query in tool["name"].lower() or query in tool["description"].lower()]
+    return jsonify(filtered_tools)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
 
 # /contact
 @app.route('/contact')
