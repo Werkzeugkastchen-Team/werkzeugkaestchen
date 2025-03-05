@@ -6,7 +6,7 @@
 @import url("/static/css/components/contact.css");
 @import url("/static/css/components/about.css");
 @import url("/static/css/components/search.css");
-
+@import url("/static/css/components/fancy-button.css");
 
 h1 {
     position: relative;
@@ -23,5 +23,5 @@ h1::before {
     width: 10%;
     height: 80%;
     border-left: 2px solid var(--accent-color);
-    border-top:  2px solid var(--accent-color);
+    border-top: 2px solid var(--accent-color);
 }
