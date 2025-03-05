@@ -30,9 +30,6 @@ def search_tools():
     filtered_tools = [tool for tool in tools if query in tool["name"].lower() or query in tool["description"].lower()]
     return jsonify(filtered_tools)
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
 
 # /contact
 @app.route('/contact')
@@ -104,3 +101,7 @@ def submit_contact():
 @app.route('/contact_success')
 def contact_success():
     return render_template('contact_success.jinja')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
