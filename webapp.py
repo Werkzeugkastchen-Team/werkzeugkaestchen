@@ -27,9 +27,17 @@ def index():
 @app.route("/search_tools", methods=["GET"])
 def search_tools():
     query = request.args.get("q", "").lower()
-    filtered_tools = [tool for tool in tools if query in tool["name"].lower() or query in tool["description"].lower()]
+    filtered_tools = []
+    
+    for tool_id, tool in tools.items():
+        if query in tool.name.lower() or query in tool.description.lower():
+            filtered_tools.append({
+                "name": tool.name,
+                "description": tool.description,
+                "identifier": tool.identifier
+            })
+            
     return jsonify(filtered_tools)
-
 
 # /contact
 @app.route('/contact')

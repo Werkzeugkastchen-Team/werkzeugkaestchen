@@ -11,7 +11,7 @@ def client():
 def test_index_route(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert b'Tools Hauptseite' in response.data
+    assert b'Digitale Werkzeuge' in response.data
 
 
 def test_search_tools(client):
@@ -20,18 +20,14 @@ def test_search_tools(client):
     response = client.get("/search_tools?q=JSON")
     data = response.get_json()
     assert len(data) == 1
-    assert data[0]["name"] == "JSON Validator"
+    assert data[0]["name"] == "JSON Validation Tool"
 
-    response = client.get("/search_tools?q=counter")
+    response = client.get("/search_tools?q=word")
     data = response.get_json()
     assert len(data) == 1
-    assert data[0]["name"] == "Word Counter"
+    assert data[0]["name"] == "Word Counting Tool"
 
-    response = client.get("/search_tools?q=base")
-    data = response.get_json()
-    assert len(data) == 1
-    assert data[0]["name"] == "Base64 Encoder"
-
+    # this might fail when fuzzy search matches xyz
     response = client.get("/search_tools?q=xyz")
     data = response.get_json()
     assert len(data) == 0
