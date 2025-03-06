@@ -1,3 +1,4 @@
+
 @import url("/css/fonts");
 
 @import url("/static/css/tokens/variables.css");
@@ -7,21 +8,51 @@
 @import url("/static/css/components/about.css");
 @import url("/static/css/components/search.css");
 @import url("/static/css/components/fancy-button.css");
+@import url("/static/css/components/footer.css");
 
 h1 {
-    position: relative;
-    color: var(--secondary-color);
-    margin: 50px 0;
-    padding: 10px;
+  position: relative;
+  color: var(--secondary-color);
+  margin: 50px 0;
+  padding: 10px;
 }
 
 h1::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10%;
-    height: 80%;
-    border-left: 2px solid var(--accent-color);
-    border-top: 2px solid var(--accent-color);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 80%;
+  border-left: 2px solid var(--accent-color);
+  border-top: 2px solid var(--accent-color);
 }
+
+body {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 247, 247, 1) 49%,
+    rgba(255, 217, 217, 1) 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+    background: rgba(255, 247, 247, 1);
+    transition: all 0.3s ease;
+ }
+
+ .card:hover {
+     background: rgba(255,255,255,1);
+     transform: scale(1.05);
+     transition: all 0.3s ease;
+     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+ }
+
+ .container {
+     flex: 1;
+ }

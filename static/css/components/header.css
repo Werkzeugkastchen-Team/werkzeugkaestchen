@@ -1,7 +1,8 @@
-.logo{
-    width:var(--space-l);
+.logo {
+    width: var(--space-l);
 }
-.navbar{
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,27 +10,40 @@
     padding: 20px 40px;
     background-color: var(--secondary-color);
 }
-.nav-list{
+
+.nav-list {
     display: flex;
     gap: 20px;
     list-style: none;
 }
 
-.nav-list-item a{
+.nav-list-item a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
 }
-.nav-list-item a:hover{
+
+.nav-list-item a:hover {
     color: var(--accent-color);
     text-decoration: underline var(--accent-color);
+    transform: translateY(-3px);
+    text-shadow: 0 3px 5px rgba(202, 6, 18, 0.2);
 }
-.btn{
+
+.nav-list-item a:active {
+    transform: translateY(-1px);
+}
+
+.btn {
     background-color: var(--accent-color);
     border: inherit;
     color: var(--primary-color);
 }
-.btn:hover{
+
+.btn:hover {
     background-color: var(--accent-light-color);
     color: var(--primary-color);
 }
