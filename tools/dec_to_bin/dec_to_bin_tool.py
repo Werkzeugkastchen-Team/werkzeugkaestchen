@@ -1,6 +1,9 @@
 from tool_interface import MiniTool
 
 class DecToBinTool(MiniTool):
+    name = "JsonValidator"
+    description = "test."
+    
     def __init__(self):
         super().__init__("Decimal to Binary Tool", "DecToBinTool")
         self.input_params = {

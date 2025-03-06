@@ -2,6 +2,9 @@ from tool_interface import MiniTool
 
 
 class JsonValidatorTool(MiniTool):
+    name = "JsonValidator"
+    description = "test."
+
     def __init__(self):
         super().__init__("JSON Validation Tool", "JsonValidatorTool")
         self.input_params = {

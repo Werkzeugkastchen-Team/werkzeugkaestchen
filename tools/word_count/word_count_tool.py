@@ -1,8 +1,9 @@
-
 from tool_interface import MiniTool
 
-
 class WordCountTool(MiniTool):
+    name = "Wortzähler"
+    description = "Dieses Tool zählt die Anzahl der Wörter in einem gegebenen Text."
+
     def __init__(self):
         super().__init__("Word Counting Tool", "WordCountTool")
         self.input_params = {
@@ -22,4 +23,3 @@ class WordCountTool(MiniTool):
         except Exception as e:
             self.error_message = str(e)
             return False
-

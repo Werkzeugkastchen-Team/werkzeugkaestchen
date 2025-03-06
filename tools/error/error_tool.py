@@ -1,6 +1,9 @@
 from tool_interface import MiniTool
 
 class ErrorTool(MiniTool):
+    name = "JsonValidator"
+    description = "test."
+    
     def __init__(self):
         super().__init__("Error Tool", "ErrorTool")
         self.input_params = {
