@@ -3,7 +3,7 @@
 {% block content %}
     <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
     <br>
-    <form action="{{ url_for('handle_tool') }}" method="post">
+    <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
     {% for param, param_type in input_params.items() %}
         {% if param_type == 'string' %}

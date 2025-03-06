@@ -1,34 +1,41 @@
+import os
+import tempfile
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 
 from tools.error.error_tool import ErrorTool
 from tools.json_validate.json_validate_tool import JsonValidatorTool
 from tools.word_count.word_count_tool import WordCountTool
 from tools.dec_to_bin.dec_to_bin_tool import DecToBinTool
+from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalculatorTool
 
 app = Flask(__name__)
-app.secret_key = 'supersecretkey' 
+app.secret_key = 'supersecretkey'
 
 # Hier müssen wir nur unsere Tools registrieren
 tools = {
     "WordCountTool": WordCountTool(),
     "JsonValidatorTool": JsonValidatorTool(),
     "DecToBinTool": DecToBinTool(),
-    "ErrorTool": ErrorTool()
+    "ErrorTool": ErrorTool(),
+    "FileSizeCalculatorTool": FileSizeCalculatorTool()
 }
 
 # Hauptseite
+
+
 @app.route('/')
 def index():
     tools_classes = []
-    for name,tool in tools.items():
+    for name, tool in tools.items():
         tools_classes.append(tool)
     return render_template('index.jinja', toolsToRender=tools_classes)
+
 
 @app.route("/search_tools", methods=["GET"])
 def search_tools():
     query = request.args.get("q", "").lower()
     filtered_tools = []
-    
+
     for tool_id, tool in tools.items():
         if query in tool.name.lower() or query in tool.description.lower():
             filtered_tools.append({
@@ -36,20 +43,26 @@ def search_tools():
                 "description": tool.description,
                 "identifier": tool.identifier
             })
-            
+
     return jsonify(filtered_tools)
 
 # /contact
+
+
 @app.route('/contact')
 def contact():
-    return render_template('contact.jinja') 
+    return render_template('contact.jinja')
 
-#/about
+# /about
+
+
 @app.route('/about')
 def about():
     return render_template('about.jinja')
 
 # Input
+
+
 @app.route("/tool/<tool_name>")
 def tool_form(tool_name):
     tool = tools.get(tool_name)
@@ -58,37 +71,55 @@ def tool_form(tool_name):
     return render_template('variable_input_mask.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
 
 # Output
+
+
 @app.route("/handle_tool", methods=["POST"])
 def handle_tool():
     tool_name = request.form.get('tool_name')
     tool = tools.get(tool_name)
-    
+
     if not tool:
         return "Tool not found", 404
-    
-    input_params = request.form.to_dict()
-    
-    # remove non-tool input params
-    input_params.pop('tool_name', None)
-    
-    # from 'on' to True because Forms
-    for key, value in input_params.items():
-        if value == 'on':
-            input_params[key] = True
-    
+
+    input_params = {}
+
+    # Handle file uploads
+    if request.files:
+        temp_dir = tempfile.gettempdir()  # Get system's temp directory
+
+        for key, file in request.files.items():
+            if file.filename != '':
+                # Save the file to the system's temp directory
+                file_path = os.path.join(temp_dir, file.filename)
+                file.save(file_path)
+                # Store both the file object and path
+                input_params[key] = {
+                    "file_obj": file,
+                    "file_path": file_path,
+                    "filename": file.filename
+                }
+
+    # Handle form inputs
+    for key, value in request.form.items():
+        if key != 'tool_name':
+            if value == 'on':
+                input_params[key] = True
+            else:
+                input_params[key] = value
+
     success = tool.execute_tool(input_params)
-    
+
     if not success:
-        return render_template('output.html', 
-                              toolName=tool.name,
-                              output_text=tool.error_message, 
-                              has_error=True)
-    
-    return render_template('output.html', 
-                          toolName=tool.name,
-                          output_text=tool.output)
-    
-        
+        return render_template('output.html',
+                               toolName=tool.name,
+                               output_text=tool.error_message,
+                               has_error=True)
+
+    return render_template('output.html',
+                           toolName=tool.name,
+                           output_text=tool.output)
+
+
 @app.route('/submit_contact', methods=['POST'])
 def submit_contact():
     name = request.form.get('name')
@@ -105,6 +136,7 @@ def submit_contact():
 
     flash("Vielen Dank für Ihre Nachricht! Wir werden uns so schnell wie möglich bei Ihnen melden.", "success")
     return redirect(url_for('contact_success'))
+
 
 @app.route('/contact_success')
 def contact_success():
