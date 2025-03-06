@@ -15,7 +15,7 @@ class TestBase64DecodeTool:
         assert tool.error_message == ""
 
     def test_ascii_decoding(self):
-        """Test basic base64 decoding"""
+        """Test ascii base64 decoding"""
         tool = Base64DecodeTool()
         input_params = {
             "Base64 String to decode": "SGVsbG8gV29ybGQ=",
@@ -29,7 +29,7 @@ class TestBase64DecodeTool:
         assert tool.error_message == ""
 
     def test_utf8_decoding(self):
-        """Test basic base64 decoding"""
+        """Test utf-8 base64 decoding"""
         tool = Base64DecodeTool()
         input_params = {
             "Base64 String to decode": "U8O8cGVy8J+ltA==",
@@ -42,8 +42,8 @@ class TestBase64DecodeTool:
         assert tool.output == "Süper🥴"
         assert tool.error_message == ""
 
-    def test_encoding_mismatch(self):
-        """Test basic base64 decoding"""
+    def test_decoding_mismatch(self):
+        """Test decoding mismatch"""
         tool = Base64DecodeTool()
         input_params = {
             "Base64 String to decode": "U8O8cGVy8J+ltA==",
