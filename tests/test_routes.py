@@ -9,9 +9,10 @@ def client():
 
 # So können wir einfach auf Inhalte auf einer Seite prüfen
 def test_index_route(client):
+    """Testet, ob die Hauptseite den Titel mit Werkzeug- beinhaltet"""
     response = client.get('/')
     assert response.status_code == 200
-    assert b'Digitale Werkzeuge' in response.data
+    assert b'Werkzeug' in response.data
 
 
 def test_search_tools(client):

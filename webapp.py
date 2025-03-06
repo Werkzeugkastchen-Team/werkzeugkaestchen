@@ -7,6 +7,7 @@ from tools.json_validate.json_validate_tool import JsonValidatorTool
 from tools.word_count.word_count_tool import WordCountTool
 from tools.dec_to_bin.dec_to_bin_tool import DecToBinTool
 from tools.base64_encode.base64_encode_tool import Base64EncodeTool
+from tools.base64_decode.base64_decode_tool import Base64DecodeTool
 from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalculatorTool
 
 app = Flask(__name__)
@@ -19,6 +20,7 @@ tools = {
     "DecToBinTool": DecToBinTool(),
     "ErrorTool": ErrorTool(),
     "Base64EncodeTool": Base64EncodeTool(),
+    "Base64DecodeTool": Base64DecodeTool(),
     "FileSizeCalculatorTool": FileSizeCalculatorTool()
 }
 
