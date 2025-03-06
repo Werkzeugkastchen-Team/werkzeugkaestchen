@@ -2,34 +2,42 @@
 
 {% block content %}
     <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
+    
+    {% if toolName == "QR-Code Generator" %}
+    <div class="alert alert-info">
+        Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren. 
+        Die Fehlerkorrektur bestimmt, wie gut der QR-Code auch bei Beschädigung noch lesbar ist.
+    </div>
+    {% endif %}
+    
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
-    {% for param, param_info in input_params.items() %}
-        {% if param_info is string %}
-            {% set param_type = param_info %}
-            {% set param_options = [] %}
-        {% else %}
-            {% set param_type = param_info.type %}
-            {% set param_options = param_info.options %}
-        {% endif %}
-        
+    {% for param, param_type in input_params.items() %}
         {% if param_type == 'string' %}
             <label for="{{ param }}">{{ param }}:</label>
-            <input type="text" name="{{ param }}" id="{{ param }}">
+            {% if param == "error_correction" and identifier == "QrCodeGeneratorTool" %}
+                <select name="{{ param }}" id="{{ param }}" class="form-control">
+                    <option value="L">Niedrig (L) - 7% Korrektur</option>
+                    <option value="M" selected>Mittel (M) - 15% Korrektur</option>
+                    <option value="Q">Quartil (Q) - 25% Korrektur</option>
+                    <option value="H">Hoch (H) - 30% Korrektur</option>
+                </select>
+            {% elif param == "box_size" and identifier == "QrCodeGeneratorTool" %}
+                <input type="number" name="{{ param }}" id="{{ param }}" value="10" min="1" max="50" class="form-control">
+            {% elif param == "border" and identifier == "QrCodeGeneratorTool" %}
+                <input type="number" name="{{ param }}" id="{{ param }}" value="4" min="0" max="10" class="form-control">
+            {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
+                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Text oder URL eingeben" class="form-control">
+            {% else %}
+                <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
+            {% endif %}
         {% elif param_type == 'boolean' %}
             <label for="{{ param }}">{{ param }}:</label>
             <input type="checkbox" name="{{ param }}" id="{{ param }}">
         {% elif param_type == 'file' %}
             <label for="{{ param }}">{{ param }}:</label>
             <input type="file" name="{{ param }}" id="{{ param }}">
-        {% elif param_type == 'enum' %}
-            <label for="{{ param }}">{{ param }}:</label>
-            <select name="{{ param }}" id="{{ param }}">
-                {% for option in param_options %}
-                    <option value="{{ option }}">{{ option }}</option>
-                {% endfor %}
-            </select>
         {% endif %}
         <br>
     {% endfor %}
