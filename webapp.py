@@ -4,6 +4,7 @@ from tools.error.error_tool import ErrorTool
 from tools.json_validate.json_validate_tool import JsonValidatorTool
 from tools.word_count.word_count_tool import WordCountTool
 from tools.dec_to_bin.dec_to_bin_tool import DecToBinTool
+from tools.base64_encode.base64_encode_tool import Base64EncodeTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' 
@@ -13,7 +14,8 @@ tools = {
     "WordCountTool": WordCountTool(),
     "JsonValidatorTool": JsonValidatorTool(),
     "DecToBinTool": DecToBinTool(),
-    "ErrorTool": ErrorTool()
+    "ErrorTool": ErrorTool(),
+    "Base64EncodeTool": Base64EncodeTool()
 }
 
 # Hauptseite
