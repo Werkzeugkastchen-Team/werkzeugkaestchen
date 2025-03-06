@@ -5,7 +5,15 @@
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
-    {% for param, param_type in input_params.items() %}
+    {% for param, param_info in input_params.items() %}
+        {% if param_info is string %}
+            {% set param_type = param_info %}
+            {% set param_options = [] %}
+        {% else %}
+            {% set param_type = param_info.type %}
+            {% set param_options = param_info.options %}
+        {% endif %}
+        
         {% if param_type == 'string' %}
             <label for="{{ param }}">{{ param }}:</label>
             <input type="text" name="{{ param }}" id="{{ param }}">
@@ -15,6 +23,13 @@
         {% elif param_type == 'file' %}
             <label for="{{ param }}">{{ param }}:</label>
             <input type="file" name="{{ param }}" id="{{ param }}">
+        {% elif param_type == 'enum' %}
+            <label for="{{ param }}">{{ param }}:</label>
+            <select name="{{ param }}" id="{{ param }}">
+                {% for option in param_options %}
+                    <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
         {% endif %}
         <br>
     {% endfor %}
