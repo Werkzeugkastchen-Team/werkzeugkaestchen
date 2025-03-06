@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Tool Output {% endblock %}</h1>
+<h1>{% block title %} Tool Output: {% endblock %}</h1>
 <h3>{{ toolName }}</h3>
-
+<br>
 {% if has_error %}
 <div class="alert alert-danger" role="alert">
     <strong>Error:</strong>
