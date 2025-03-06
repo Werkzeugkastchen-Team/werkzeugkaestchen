@@ -7,15 +7,16 @@
     
     <div class="row" id="toolsContainer">
         {% for tool in toolsToRender %}
-        <div class="col-md-4 mb-4 tool-card" data-title="{{ tool.name }}" data-description="{{ tool.description }}">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ tool.name }}</h5>
-                    <p class="card-text">{{ tool.description }}</p>
-                    <a href="{{ url_for('tool_form', tool_name=tool.__class__.__name__) }}" class="fancy-button" id="animatedButton">Öffnen</a>
-                </div>
+    <div class="col-md-4 mb-4 tool-card" data-title="{{ tool.name }}" data-description="{{ tool.description }}">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ tool.name }}</h5>
+                <p class="card-text">{{ tool.description }}</p>
+                <a href="{{ url_for('tool_form', tool_name=tool.__class__.__name__) }}" class="fancy-button">Öffnen</a>
             </div>
         </div>
-        {% endfor %}
+    </div>
+{% endfor %}
+
     </div>
 {% endblock %}

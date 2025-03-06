@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Tool Output {% endblock %}</h1>
+<h1>{% block title %} Tool Output: {% endblock %}</h1>
 <h3>{{ toolName }}</h3>
-
-<h1>Output:</h1>
 <br>
 {% if has_error %}
 <div class="alert alert-danger" role="alert">
@@ -12,7 +10,7 @@
     <code>{{ output_text }}</code>
 </div>
 {% else %}
-<code>{{ output_text }}</code>
+{{ output_text|safe }}
 {% endif %}
 
 <div class="mt-4">
