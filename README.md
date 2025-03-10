@@ -1,22 +1,20 @@
-Werkzeugkästchen
-
-Projektstruktur ist noch in Entwicklung.
-
-Vorhandene Tools sind nur Beispiele.
-
-**Ihr könnt die Struktur gerne ändern, vor allem die Tests.**
-
 ## Setup
 
 Dies wurde mit **Python 3.10** getestet
 
-- venv erstellen (python 3.10)
+- **venv erstellen (python 3.10)**
 
 ```sh
 python3 -m venv venv
 ```
 
-- venv aktivieren
+oder
+
+```sh
+python -m venv venv
+```
+
+- **venv aktivieren**
 
 Windows:
 ```sh
@@ -28,11 +26,13 @@ MacOS/Linux:
 source venv/bin/activate
 ```
 
-- Abhängigkeiten installieren
+- **Abhängigkeiten installieren**
 
 ```sh
 pip install -r requirements.txt
 ```
+
+>Wenn neue Abhängigkeiten hinzugefügt wurde, muss man das nochmal ausführen.
 
 
 ## Server starten
