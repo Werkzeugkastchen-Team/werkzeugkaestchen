@@ -1,0 +1,3 @@
+"""
+Word counter tool package
+""" 
