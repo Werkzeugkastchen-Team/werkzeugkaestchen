@@ -10,6 +10,7 @@ from tools.base64_encode.base64_encode_tool import Base64EncodeTool
 from tools.base64_decode.base64_decode_tool import Base64DecodeTool
 from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalculatorTool
 from tools.qr_code_generator.qr_code_generator_tool import QrCodeGeneratorTool
+from tools.number_converter.number_converter_tool import NumberConverterTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -23,7 +24,8 @@ tools = {
     "Base64EncodeTool": Base64EncodeTool(),
     "Base64DecodeTool": Base64DecodeTool(),
     "FileSizeCalculatorTool": FileSizeCalculatorTool(),
-    "QrCodeGeneratorTool": QrCodeGeneratorTool()
+    "QrCodeGeneratorTool": QrCodeGeneratorTool(),
+    "NumberConverterTool": NumberConverterTool()
 }
 
 # Hauptseite
