@@ -9,13 +9,27 @@
         Die Fehlerkorrektur bestimmt, wie gut der QR-Code auch bei Beschädigung noch lesbar ist.
     </div>
     {% endif %}
+
+    {% if toolName == "Zahlenkonverter" %}
+    <div class="alert alert-info">
+        Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus.
+        Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.
+    </div>
+    {% endif %}
     
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
     {% for param, param_type in input_params.items() %}
         {% if param_type == 'string' %}
-            <label for="{{ param }}">{{ param }}:</label>
+            {% if param == "number" and identifier == "NumberConverterTool" %}
+                <label for="{{ param }}">Zahl:</label>
+            {% elif param == "input_type" and identifier == "NumberConverterTool" %}
+                <label for="{{ param }}">Zahlentyp:</label>
+            {% else %}
+                <label for="{{ param }}">{{ param }}:</label>
+            {% endif %}
+            
             {% if param == "error_correction" and identifier == "QrCodeGeneratorTool" %}
                 <select name="{{ param }}" id="{{ param }}" class="form-control">
                     <option value="L">Niedrig (L) - 7% Korrektur</option>
@@ -29,6 +43,14 @@
                 <input type="number" name="{{ param }}" id="{{ param }}" value="4" min="0" max="10" class="form-control">
             {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
                 <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Text oder URL eingeben" class="form-control">
+            {% elif param == "input_type" and identifier == "NumberConverterTool" %}
+                <select name="{{ param }}" id="{{ param }}" class="form-control">
+                    <option value="binary">Binär</option>
+                    <option value="decimal">Dezimal</option>
+                    <option value="hexadecimal">Hexadezimal</option>
+                </select>
+            {% elif param == "number" and identifier == "NumberConverterTool" %}
+                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
             {% else %}
                 <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
             {% endif %}
