@@ -17,20 +17,24 @@ class RandomNumberGeneratorTool(MiniTool):
         
     def execute_tool(self, input_params: dict) -> bool:
         try:
+            if not input_params.get("Minimum Number") or not input_params.get("Maximum Number") or not input_params.get("Amount of Rolls"):
+                self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
+                return False
+            
             min = int(input_params.get("Minimum Number", ""))
             max = int(input_params.get("Maximum Number", ""))
             amount_of_rolls = int(input_params.get("Amount of Rolls", ""))
             
             if not min or not max or not amount_of_rolls:
-                self.error_message = "Bitte geben Sie ganze Zahlen in alle Eingabefelder ein"
+                self.error_message = "Bitte geben Sie ganze Zahlen in alle Eingabefelder ein."
                 return False
                         
             if min > max:
-                self.error_message = "Das Minimum darf nicht größer als das Maximum sein"
+                self.error_message = "Das Minimum darf nicht größer als das Maximum sein."
                 return False
             
             if min > sys.maxsize or max > sys.maxsize or min < -sys.maxsize:
-                self.error_message = "Zahl zu hoch"
+                self.error_message = "Zahl zu hoch."
                 return False
             
             if amount_of_rolls > 1000:
