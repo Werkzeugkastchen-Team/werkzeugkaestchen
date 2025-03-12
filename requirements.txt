@@ -1,5 +1,5 @@
 flask
 pytest
-qrcode>=8.0
+qrcode
 pillow
 image
