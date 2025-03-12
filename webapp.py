@@ -12,6 +12,7 @@ from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalcula
 from tools.qr_code_generator.qr_code_generator_tool import QrCodeGeneratorTool
 from tools.number_converter.number_converter_tool import NumberConverterTool
 from tools.image_converter.image_converter_tool import ImageConverterTool
+from tools.word_counter.word_counter_tool import WordCounterTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -27,7 +28,8 @@ tools = {
     "FileSizeCalculatorTool": FileSizeCalculatorTool(),
     "QrCodeGeneratorTool": QrCodeGeneratorTool(),
     "NumberConverterTool": NumberConverterTool(),
-    "ImageConverterTool": ImageConverterTool()
+    "ImageConverterTool": ImageConverterTool(),
+    "WordCounterTool": WordCounterTool()
 }
 
 # Hauptseite
