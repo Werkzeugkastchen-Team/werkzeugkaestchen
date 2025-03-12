@@ -48,12 +48,12 @@ def test_word_counter_mixed_hyphen_cases():
     # Test with hyphens as one word
     result = tool.execute_tool({"text": text, "count_hyphens_as_one": True})
     assert result == True
-    assert "5" in tool.output  # "Die", "E-Mail-Adresse", "und", "der", "Web-Server", "sind", "offline"
+    assert "7" in tool.output  # "Die", "E-Mail-Adresse", "und", "der", "Web-Server", "sind", "offline"
     
     # Test with hyphens as separate words
     result = tool.execute_tool({"text": text, "count_hyphens_as_one": False})
     assert result == True
-    assert "9" in tool.output  # "Die", "E", "Mail", "Adresse", "und", "der", "Web", "Server", "sind", "offline"
+    assert "10" in tool.output  # "Die", "E", "Mail", "Adresse", "und", "der", "Web", "Server", "sind", "offline"
 
 def test_word_counter_with_multiple_hyphens_and_spaces():
     tool = WordCounterTool()
