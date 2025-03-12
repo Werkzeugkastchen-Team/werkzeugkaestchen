@@ -13,6 +13,7 @@ from tools.qr_code_generator.qr_code_generator_tool import QrCodeGeneratorTool
 from tools.number_converter.number_converter_tool import NumberConverterTool
 from tools.image_converter.image_converter_tool import ImageConverterTool
 from tools.word_counter.word_counter_tool import WordCounterTool
+from tools.password_generator.password_generator_tool import PasswordGeneratorTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -29,7 +30,8 @@ tools = {
     "QrCodeGeneratorTool": QrCodeGeneratorTool(),
     "NumberConverterTool": NumberConverterTool(),
     "ImageConverterTool": ImageConverterTool(),
-    "WordCounterTool": WordCounterTool()
+    "WordCounterTool": WordCounterTool(),
+    "PasswordGeneratorTool": PasswordGeneratorTool()
 }
 
 # Hauptseite
@@ -160,24 +162,24 @@ def download_converted_image(token):
     image_tool = tools.get("ImageConverterTool")
     if not image_tool:
         return "Tool nicht gefunden", 404
-        
+
     temp_path = image_tool.convert_and_save(token)
     if not temp_path:
         return "Konvertierung fehlgeschlagen oder Token ungültig", 404
-    
+
     # Get the original filename from pending_conversions
     filename = image_tool.pending_conversions[token]['filename']
-    
+
     # Send the file with the original filename
     response = send_file(temp_path, as_attachment=True, download_name=filename)
-    
+
     # Schedule cleanup after response is sent
     @response.call_on_close
     def cleanup():
         # Mark as downloaded and cleanup
         image_tool.pending_conversions[token]['downloaded'] = True
         image_tool.cleanup_old_files()
-    
+
     return response
 
 

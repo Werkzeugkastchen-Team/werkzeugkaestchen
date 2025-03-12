@@ -24,6 +24,13 @@
     </div>
     {% endif %}
     
+    {% if toolName == "Passwortgenerator" %}
+    <div class="alert alert-info">
+        Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für Ihr sicheres Passwort aus.
+        Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.
+    </div>
+    {% endif %}
+    
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
@@ -40,6 +47,10 @@
                         <option value="" disabled selected>Bitte wählen Sie ein Format</option>
                     </select>
                 </div>
+            {% elif param == "length" and identifier == "PasswordGeneratorTool" %}
+                <label for="{{ param }}">Passwortlänge:</label>
+                <input type="number" name="{{ param }}" id="{{ param }}" value="12" min="4" max="128" class="form-control">
+                <small class="form-text text-muted">Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)</small>
             {% else %}
                 <label for="{{ param }}">{{ param }}:</label>
             {% endif %}
@@ -67,12 +78,29 @@
                 <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
             {% elif param == "target_format" and identifier == "ImageConverterTool" %}
                 <!-- Format selection is handled above -->
-            {% else %}
-                <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
+
+            
             {% endif %}
         {% elif param_type == 'boolean' %}
-            <label for="{{ param }}">{{ param }}:</label>
-            <input type="checkbox" name="{{ param }}" id="{{ param }}">
+            {% if identifier == "PasswordGeneratorTool" %}
+                <div class="form-check mb-2">
+                    <input type="checkbox" class="form-check-input" name="{{ param }}" id="{{ param }}" checked>
+                    {% if param == "include_lowercase" %}
+                        <label class="form-check-label" for="{{ param }}">Kleinbuchstaben einschließen (a-z)</label>
+                    {% elif param == "include_uppercase" %}
+                        <label class="form-check-label" for="{{ param }}">Großbuchstaben einschließen (A-Z)</label>
+                    {% elif param == "include_numbers" %}
+                        <label class="form-check-label" for="{{ param }}">Zahlen einschließen (0-9)</label>
+                    {% elif param == "include_special" %}
+                        <label class="form-check-label" for="{{ param }}">Sonderzeichen einschließen (!@#$%^&*...)</label>
+                    {% else %}
+                        <label class="form-check-label" for="{{ param }}">{{ param }}</label>
+                    {% endif %}
+                </div>
+            {% else %}
+                <label for="{{ param }}">{{ param }}:</label>
+                <input type="checkbox" name="{{ param }}" id="{{ param }}">
+            {% endif %}
         {% elif param_type == 'file' %}
             {% if identifier == "ImageConverterTool" %}
                 <div class="form-group">
@@ -92,7 +120,17 @@
         {% endif %}
         <br>
     {% endfor %}
+    
+    {% if identifier == "PasswordGeneratorTool" %}
+    <div class="alert alert-warning mt-3">
+        <strong>Hinweis:</strong> Passwörter werden lokal generiert und nicht an den Server übertragen.
+        Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht gespeichert.
+    </div>
+    <input class="fancy-button" type="submit" value="Passwort generieren" id="submitButton">
+    {% else %}
     <input class="fancy-button" type="submit" value="Konvertieren" id="submitButton">
+    {% endif %}
+    
     </form>
 
     {% if identifier == "ImageConverterTool" %}
@@ -141,4 +179,4 @@
     };
     </script>
     {% endif %}
-{% endblock %}
+{% endblock %}  
