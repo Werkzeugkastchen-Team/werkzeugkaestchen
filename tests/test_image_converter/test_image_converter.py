@@ -18,7 +18,7 @@ def sample_image():
 def test_image_converter_initialization():
     tool = ImageConverterTool()
     assert tool.name == "Bildkonverter"
-    assert "file" in tool.input_params
+    assert "image" in tool.input_params
     assert "target_format" in tool.input_params
 
 def test_convert_to_png(sample_image):
@@ -28,8 +28,9 @@ def test_convert_to_png(sample_image):
         "target_format": "PNG"
     })
     assert result == True
-    assert tool.output.endswith(".png")
-    assert os.path.exists(tool.output)
+    assert "Das Bild wurde erfolgreich in das Format PNG konvertiert" in tool.output
+    assert 'href="/download/' in tool.output
+    assert 'class="btn btn-primary"' in tool.output
 
 def test_convert_to_jpeg(sample_image):
     tool = ImageConverterTool()
@@ -38,8 +39,9 @@ def test_convert_to_jpeg(sample_image):
         "target_format": "JPEG"
     })
     assert result == True
-    assert tool.output.endswith(".jpeg")
-    assert os.path.exists(tool.output)
+    assert "Das Bild wurde erfolgreich in das Format JPEG konvertiert" in tool.output
+    assert 'href="/download/' in tool.output
+    assert 'class="btn btn-primary"' in tool.output
 
 def test_convert_to_gif(sample_image):
     tool = ImageConverterTool()
@@ -48,8 +50,9 @@ def test_convert_to_gif(sample_image):
         "target_format": "GIF"
     })
     assert result == True
-    assert tool.output.endswith(".gif")
-    assert os.path.exists(tool.output)
+    assert "Das Bild wurde erfolgreich in das Format GIF konvertiert" in tool.output
+    assert 'href="/download/' in tool.output
+    assert 'class="btn btn-primary"' in tool.output
 
 def test_convert_to_bmp(sample_image):
     tool = ImageConverterTool()
@@ -58,8 +61,9 @@ def test_convert_to_bmp(sample_image):
         "target_format": "BMP"
     })
     assert result == True
-    assert tool.output.endswith(".bmp")
-    assert os.path.exists(tool.output)
+    assert "Das Bild wurde erfolgreich in das Format BMP konvertiert" in tool.output
+    assert 'href="/download/' in tool.output
+    assert 'class="btn btn-primary"' in tool.output
 
 def test_convert_to_webp(sample_image):
     tool = ImageConverterTool()
@@ -68,8 +72,9 @@ def test_convert_to_webp(sample_image):
         "target_format": "WEBP"
     })
     assert result == True
-    assert tool.output.endswith(".webp")
-    assert os.path.exists(tool.output)
+    assert "Das Bild wurde erfolgreich in das Format WEBP konvertiert" in tool.output
+    assert 'href="/download/' in tool.output
+    assert 'class="btn btn-primary"' in tool.output
 
 def test_unsupported_format(sample_image):
     tool = ImageConverterTool()
@@ -99,4 +104,4 @@ def test_invalid_image():
         "target_format": "PNG"
     })
     assert result == False
-    assert "konnte nicht als Bild gelesen werden" in tool.error_message 
+    assert "konnte nicht als Bild gelesen werden" in tool.error_message
