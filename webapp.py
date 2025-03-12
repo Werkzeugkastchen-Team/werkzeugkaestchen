@@ -13,6 +13,7 @@ from tools.qr_code_generator.qr_code_generator_tool import QrCodeGeneratorTool
 from tools.number_converter.number_converter_tool import NumberConverterTool
 from tools.image_converter.image_converter_tool import ImageConverterTool
 from tools.word_counter.word_counter_tool import WordCounterTool
+from tools.calendar_week.calendar_week_tool import CalendarWeekTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -29,7 +30,8 @@ tools = {
     "QrCodeGeneratorTool": QrCodeGeneratorTool(),
     "NumberConverterTool": NumberConverterTool(),
     "ImageConverterTool": ImageConverterTool(),
-    "WordCounterTool": WordCounterTool()
+    "WordCounterTool": WordCounterTool(),
+    "CalendarWeekTool": CalendarWeekTool()
 }
 
 # Hauptseite
