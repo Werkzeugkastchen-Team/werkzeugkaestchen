@@ -1,6 +1,6 @@
 import os
 import tempfile
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file
 
 from tools.error.error_tool import ErrorTool
 from tools.json_validate.json_validate_tool import JsonValidatorTool
@@ -11,6 +11,7 @@ from tools.base64_decode.base64_decode_tool import Base64DecodeTool
 from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalculatorTool
 from tools.qr_code_generator.qr_code_generator_tool import QrCodeGeneratorTool
 from tools.number_converter.number_converter_tool import NumberConverterTool
+from tools.image_converter.image_converter_tool import ImageConverterTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -25,7 +26,8 @@ tools = {
     "Base64DecodeTool": Base64DecodeTool(),
     "FileSizeCalculatorTool": FileSizeCalculatorTool(),
     "QrCodeGeneratorTool": QrCodeGeneratorTool(),
-    "NumberConverterTool": NumberConverterTool()
+    "NumberConverterTool": NumberConverterTool(),
+    "ImageConverterTool": ImageConverterTool()
 }
 
 # Hauptseite
@@ -149,6 +151,32 @@ def submit_contact():
 @app.route('/contact_success')
 def contact_success():
     return render_template('contact_success.jinja')
+
+
+@app.route('/download/<token>')
+def download_converted_image(token):
+    image_tool = tools.get("ImageConverterTool")
+    if not image_tool:
+        return "Tool nicht gefunden", 404
+        
+    temp_path = image_tool.convert_and_save(token)
+    if not temp_path:
+        return "Konvertierung fehlgeschlagen oder Token ungültig", 404
+    
+    # Get the original filename from pending_conversions
+    filename = image_tool.pending_conversions[token]['filename']
+    
+    # Send the file with the original filename
+    response = send_file(temp_path, as_attachment=True, download_name=filename)
+    
+    # Schedule cleanup after response is sent
+    @response.call_on_close
+    def cleanup():
+        # Mark as downloaded and cleanup
+        image_tool.pending_conversions[token]['downloaded'] = True
+        image_tool.cleanup_old_files()
+    
+    return response
 
 
 if __name__ == "__main__":

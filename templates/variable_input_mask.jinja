@@ -16,9 +16,16 @@
         Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.
     </div>
     {% endif %}
+
+    {% if toolName == "Bildkonverter" %}
+    <div class="alert alert-info">
+        Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus.
+        Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.
+    </div>
+    {% endif %}
     
     <br>
-    <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
     {% for param, param_type in input_params.items() %}
         {% if param_type == 'string' %}
@@ -26,6 +33,13 @@
                 <label for="{{ param }}">Zahl:</label>
             {% elif param == "input_type" and identifier == "NumberConverterTool" %}
                 <label for="{{ param }}">Zahlentyp:</label>
+            {% elif param == "target_format" and identifier == "ImageConverterTool" %}
+                <div class="form-group target-format-group" style="display: none;">
+                    <label for="{{ param }}">Zielformat:</label>
+                    <select name="{{ param }}" id="{{ param }}" class="form-control">
+                        <option value="" disabled selected>Bitte wählen Sie ein Format</option>
+                    </select>
+                </div>
             {% else %}
                 <label for="{{ param }}">{{ param }}:</label>
             {% endif %}
@@ -51,6 +65,8 @@
                 </select>
             {% elif param == "number" and identifier == "NumberConverterTool" %}
                 <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
+            {% elif param == "target_format" and identifier == "ImageConverterTool" %}
+                <!-- Format selection is handled above -->
             {% else %}
                 <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
             {% endif %}
@@ -58,11 +74,71 @@
             <label for="{{ param }}">{{ param }}:</label>
             <input type="checkbox" name="{{ param }}" id="{{ param }}">
         {% elif param_type == 'file' %}
-            <label for="{{ param }}">{{ param }}:</label>
-            <input type="file" name="{{ param }}" id="{{ param }}">
+            {% if identifier == "ImageConverterTool" %}
+                <div class="form-group">
+                    <label for="{{ param }}">Bild auswählen:</label>
+                    <input type="file" name="{{ param }}" id="{{ param }}" class="form-control" accept="image/*" onchange="handleImageSelect(this)">
+                    <small class="form-text text-muted">Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP</small>
+                </div>
+                <div id="progressContainer" style="display: none;">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                    </div>
+                </div>
+            {% else %}
+                <label for="{{ param }}">{{ param }}:</label>
+                <input type="file" name="{{ param }}" id="{{ param }}">
+            {% endif %}
         {% endif %}
         <br>
     {% endfor %}
-    <input class="fancy-button" type="submit" value="Absenden">
+    <input class="fancy-button" type="submit" value="Konvertieren" id="submitButton">
     </form>
+
+    {% if identifier == "ImageConverterTool" %}
+    <script>
+    function handleImageSelect(input) {
+        if (input.files && input.files[0]) {
+            const file = input.files[0];
+            const format = file.name.split('.').pop().toUpperCase();
+            const formatSelect = document.querySelector('select[name="target_format"]');
+            const formatGroup = document.querySelector('.target-format-group');
+            
+            // Clear existing options
+            formatSelect.innerHTML = '<option value="" disabled selected>Bitte wählen Sie ein Format</option>';
+            
+            // Add available formats except the current one
+            const formats = ['PNG', 'JPEG', 'GIF', 'BMP', 'WEBP'];
+            formats.forEach(fmt => {
+                if (fmt !== format) {
+                    const option = document.createElement('option');
+                    option.value = fmt;
+                    option.textContent = fmt;
+                    formatSelect.appendChild(option);
+                }
+            });
+            
+            formatGroup.style.display = 'block';
+        }
+    }
+
+    document.getElementById('toolForm').onsubmit = function() {
+        document.getElementById('progressContainer').style.display = 'block';
+        document.getElementById('submitButton').disabled = true;
+        
+        // Simulate progress (in real application, this would be updated by the server)
+        let progress = 0;
+        const progressBar = document.querySelector('.progress-bar');
+        const interval = setInterval(() => {
+            progress += 5;
+            if (progress <= 90) {
+                progressBar.style.width = progress + '%';
+                progressBar.setAttribute('aria-valuenow', progress);
+            }
+        }, 100);
+        
+        return true;
+    };
+    </script>
+    {% endif %}
 {% endblock %}
