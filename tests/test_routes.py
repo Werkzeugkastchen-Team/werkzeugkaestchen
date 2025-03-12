@@ -18,15 +18,15 @@ def test_index_route(client):
 def test_search_tools(client):
     """Testet die Suchfunktion mit verschiedenen Eingaben"""
     
-    response = client.get("/search_tools?q=JSON")
+    response = client.get("/search_tools?q=Dateigrößenberechner")
     data = response.get_json()
     assert len(data) == 1
-    assert data[0]["name"] == "JSON Validation Tool"
+    assert data[0]["name"] == "Dateigrößenberechner"
 
-    response = client.get("/search_tools?q=word")
+    response = client.get("/search_tools?q=Bildkonverter")
     data = response.get_json()
     assert len(data) == 1
-    assert data[0]["name"] == "Word Counting Tool"
+    assert data[0]["name"] == "Bildkonverter"
 
     # this might fail when fuzzy search matches xyz
     response = client.get("/search_tools?q=xyz")
