@@ -23,6 +23,13 @@
         Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.
     </div>
     {% endif %}
+
+    {% if toolName == "Kalenderwochenberechner" %}
+    <div class="alert alert-info">
+        Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025),
+        um die entsprechende Kalenderwoche zu berechnen.
+    </div>
+    {% endif %}
     
     {% if toolName == "Passwortgenerator" %}
     <div class="alert alert-info">
