@@ -23,6 +23,13 @@
         Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.
     </div>
     {% endif %}
+
+    {% if toolName == "Kalenderwochenberechner" %}
+    <div class="alert alert-info">
+        Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025),
+        um die entsprechende Kalenderwoche zu berechnen.
+    </div>
+    {% endif %}
     
     {% if toolName == "Passwortgenerator" %}
     <div class="alert alert-info">
@@ -52,7 +59,9 @@
                 <input type="number" name="{{ param }}" id="{{ param }}" value="12" min="4" max="128" class="form-control">
                 <small class="form-text text-muted">Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)</small>
             {% else %}
+            <!-- DEFAULT -->
                 <label for="{{ param }}">{{ param }}:</label>
+                <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
             {% endif %}
             
             {% if param == "error_correction" and identifier == "QrCodeGeneratorTool" %}
@@ -120,7 +129,7 @@
         {% endif %}
         <br>
     {% endfor %}
-    
+
     {% if identifier == "PasswordGeneratorTool" %}
     <div class="alert alert-warning mt-3">
         <strong>Hinweis:</strong> Passwörter werden lokal generiert und nicht an den Server übertragen.
@@ -128,9 +137,8 @@
     </div>
     <input class="fancy-button" type="submit" value="Passwort generieren" id="submitButton">
     {% else %}
-    <input class="fancy-button" type="submit" value="Konvertieren" id="submitButton">
+    <input class="fancy-button" type="submit" value="Ausführen" id="submitButton">
     {% endif %}
-    
     </form>
 
     {% if identifier == "ImageConverterTool" %}

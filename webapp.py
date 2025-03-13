@@ -2,10 +2,6 @@ import os
 import tempfile
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file
 
-from tools.error.error_tool import ErrorTool
-from tools.json_validate.json_validate_tool import JsonValidatorTool
-from tools.word_count.word_count_tool import WordCountTool
-from tools.dec_to_bin.dec_to_bin_tool import DecToBinTool
 from tools.base64_encode.base64_encode_tool import Base64EncodeTool
 from tools.base64_decode.base64_decode_tool import Base64DecodeTool
 from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalculatorTool
@@ -14,16 +10,16 @@ from tools.number_converter.number_converter_tool import NumberConverterTool
 from tools.image_converter.image_converter_tool import ImageConverterTool
 from tools.word_counter.word_counter_tool import WordCounterTool
 from tools.password_generator.password_generator_tool import PasswordGeneratorTool
+from tools.calendar_week.calendar_week_tool import CalendarWeekTool
+from tools.image_cropper.image_cropper_tool import ImageCropperTool
+from tools.random_number_generator.random_number_generator_tool import RandomNumberGeneratorTool
+
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
 # Hier müssen wir nur unsere Tools registrieren
 tools = {
-    "WordCountTool": WordCountTool(),
-    "JsonValidatorTool": JsonValidatorTool(),
-    "DecToBinTool": DecToBinTool(),
-    "ErrorTool": ErrorTool(),
     "Base64EncodeTool": Base64EncodeTool(),
     "Base64DecodeTool": Base64DecodeTool(),
     "FileSizeCalculatorTool": FileSizeCalculatorTool(),
@@ -31,7 +27,11 @@ tools = {
     "NumberConverterTool": NumberConverterTool(),
     "ImageConverterTool": ImageConverterTool(),
     "WordCounterTool": WordCounterTool(),
-    "PasswordGeneratorTool": PasswordGeneratorTool()
+    "CalendarWeekTool": CalendarWeekTool(),
+    "RandomNumberGeneratorTool": RandomNumberGeneratorTool(),
+    "PasswordGeneratorTool": PasswordGeneratorTool(),
+    "CalendarWeekTool": CalendarWeekTool(),
+    "ImageCropperTool": ImageCropperTool()
 }
 
 # Hauptseite
@@ -82,6 +82,11 @@ def tool_form(tool_name):
     tool = tools.get(tool_name)
     if not tool:
         return "Tool not found", 404
+    
+    # Use custom template for image cropper
+    if tool_name == "ImageCropperTool":
+        return render_template('image_cropper.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
+    
     return render_template('variable_input_mask.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
 
 # Output
@@ -178,6 +183,32 @@ def download_converted_image(token):
     def cleanup():
         # Mark as downloaded and cleanup
         image_tool.pending_conversions[token]['downloaded'] = True
+        image_tool.cleanup_old_files()
+
+    return response
+
+
+@app.route('/download_crop/<token>')
+def download_cropped_image(token):
+    image_tool = tools.get("ImageCropperTool")
+    if not image_tool:
+        return "Tool nicht gefunden", 404
+
+    temp_path = image_tool.crop_and_save(token)
+    if not temp_path:
+        return "Zuschneiden fehlgeschlagen oder Token ungültig", 404
+
+    # Get the original filename from pending_crops
+    filename = image_tool.pending_crops[token]['filename']
+
+    # Send the file with the original filename
+    response = send_file(temp_path, as_attachment=True, download_name=f"cropped_{filename}")
+
+    # Schedule cleanup after response is sent
+    @response.call_on_close
+    def cleanup():
+        # Mark as downloaded and cleanup
+        image_tool.pending_crops[token]['downloaded'] = True
         image_tool.cleanup_old_files()
 
     return response
