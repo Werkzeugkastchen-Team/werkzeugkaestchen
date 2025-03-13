@@ -1,19 +1,75 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Tool Output: {% endblock %}</h1>
-<h3>{{ toolName }}</h3>
-<br>
+<h1>{% block title %}{{ toolName }}{% endblock %}</h1>
+
 {% if has_error %}
 <div class="alert alert-danger" role="alert">
-    <strong>Error:</strong>
-    <code>{{ output_text }}</code>
+    <h4 class="alert-heading">Fehler beim Verarbeiten:</h4>
+    <p>{{ output_text }}</p>
+    <hr>
+    <p class="mb-0">
+        <a href="javascript:history.back()" class="btn btn-outline-danger">
+            <i class="fas fa-arrow-left"></i> Zurück und erneut versuchen
+        </a>
+    </p>
 </div>
 {% else %}
-{{ output_text|safe }}
+    {{ output_text|safe }}
 {% endif %}
 
-<div class="mt-4">
-    <a href="{{ url_for('index') }}" class="fancy-button">Zurück zu den Tools</a>
+<div class="mt-4 text-center">
+    <a href="{{ url_for('index') }}" class="fancy-button">
+        <i class="fas fa-tools"></i> Zurück zu den Tools
+    </a>
 </div>
+
+<!-- Include Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+.alert {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.btn-group {
+    margin: 10px 0;
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+/* Download button animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-primary {
+    animation: pulse 2s infinite;
+}
+
+.btn-primary:hover {
+    animation: none;
+}
+</style>
 {% endblock %}
