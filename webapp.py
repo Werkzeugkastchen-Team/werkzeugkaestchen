@@ -11,6 +11,7 @@ from tools.image_converter.image_converter_tool import ImageConverterTool
 from tools.word_counter.word_counter_tool import WordCounterTool
 from tools.password_generator.password_generator_tool import PasswordGeneratorTool
 from tools.calendar_week.calendar_week_tool import CalendarWeekTool
+from tools.random_number_generator.random_number_generator_tool import RandomNumberGeneratorTool
 
 
 app = Flask(__name__)
@@ -25,6 +26,8 @@ tools = {
     "NumberConverterTool": NumberConverterTool(),
     "ImageConverterTool": ImageConverterTool(),
     "WordCounterTool": WordCounterTool(),
+    "CalendarWeekTool": CalendarWeekTool(),
+    "RandomNumberGeneratorTool": RandomNumberGeneratorTool(),
     "PasswordGeneratorTool": PasswordGeneratorTool(),
     "CalendarWeekTool": CalendarWeekTool()
 }
