@@ -3,3 +3,4 @@ pytest
 qrcode
 pillow
 image
+beautifulsoup4
