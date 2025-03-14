@@ -3,5 +3,9 @@ pytest
 qrcode
 pillow
 image
+LW-24-tool-audio-in-andere-formate-konvertieren
 ffmpeg-python
 pydub
+=======
+beautifulsoup4
+master
