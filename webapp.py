@@ -13,6 +13,7 @@ from tools.password_generator.password_generator_tool import PasswordGeneratorTo
 from tools.calendar_week.calendar_week_tool import CalendarWeekTool
 from tools.image_cropper.image_cropper_tool import ImageCropperTool
 from tools.random_number_generator.random_number_generator_tool import RandomNumberGeneratorTool
+from tools.text_to_speech.text_to_speech_tool import TextToSpeechTool
 
 
 app = Flask(__name__)
@@ -30,7 +31,7 @@ tools = {
     "CalendarWeekTool": CalendarWeekTool(),
     "RandomNumberGeneratorTool": RandomNumberGeneratorTool(),
     "PasswordGeneratorTool": PasswordGeneratorTool(),
-    "CalendarWeekTool": CalendarWeekTool(),
+    "TextToSpeechTool": TextToSpeechTool(),
     "ImageCropperTool": ImageCropperTool()
 }
 
