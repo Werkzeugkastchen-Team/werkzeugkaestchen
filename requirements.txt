@@ -3,3 +3,5 @@ pytest
 qrcode
 pillow
 image
+ffmpeg-python
+pydub

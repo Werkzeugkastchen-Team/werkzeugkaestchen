@@ -13,6 +13,7 @@ from tools.password_generator.password_generator_tool import PasswordGeneratorTo
 from tools.calendar_week.calendar_week_tool import CalendarWeekTool
 from tools.image_cropper.image_cropper_tool import ImageCropperTool
 from tools.random_number_generator.random_number_generator_tool import RandomNumberGeneratorTool
+from tools.audio_converter.audio_converter_tool import AudioConverterTool
 
 
 app = Flask(__name__)
@@ -31,7 +32,8 @@ tools = {
     "RandomNumberGeneratorTool": RandomNumberGeneratorTool(),
     "PasswordGeneratorTool": PasswordGeneratorTool(),
     "CalendarWeekTool": CalendarWeekTool(),
-    "ImageCropperTool": ImageCropperTool()
+    "ImageCropperTool": ImageCropperTool(),
+    "AudioConverterTool": AudioConverterTool()
 }
 
 # Hauptseite
@@ -86,6 +88,10 @@ def tool_form(tool_name):
     # Use custom template for image cropper
     if tool_name == "ImageCropperTool":
         return render_template('image_cropper.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
+    
+    # Use custom template for audio converter
+    if tool_name == "AudioConverterTool":
+        return render_template('audio_converter.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
     
     return render_template('variable_input_mask.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
 
@@ -212,6 +218,78 @@ def download_cropped_image(token):
         image_tool.cleanup_old_files()
 
     return response
+
+
+@app.route('/download_audio/<token>')
+def download_converted_audio(token):
+    audio_tool = tools.get("AudioConverterTool")
+    if not audio_tool:
+        print("Error: AudioConverterTool not found")
+        return "Tool nicht gefunden", 404
+
+    # Check if the conversion exists
+    if token not in audio_tool.pending_conversions:
+        print(f"Error: Invalid or expired download token: {token}")
+        return "Ungültiger oder abgelaufener Download-Token", 404
+
+    try:
+        # Convert the audio file
+        temp_path = audio_tool.convert_and_save(token)
+        if not temp_path:
+            print(f"Error: Failed to convert audio file for token: {token}")
+            return "Konvertierung fehlgeschlagen", 500
+
+        if not os.path.exists(temp_path):
+            print(f"Error: Converted file not found at: {temp_path}")
+            return "Konvertierte Datei nicht gefunden", 404
+
+        # Get file info
+        conversion = audio_tool.pending_conversions[token]
+        filename = conversion['filename']
+        target_format = conversion['target_format']
+
+        # Set the correct content type based on the target format
+        content_types = {
+            'mp3': 'audio/mpeg',
+            'wav': 'audio/wav',
+            'aac': 'audio/mp4',  # Changed from audio/aac to audio/mp4 for .m4a files
+            'flac': 'audio/flac'
+        }
+        content_type = content_types.get(target_format, 'application/octet-stream')
+
+        # Verify file size
+        file_size = os.path.getsize(temp_path)
+        if file_size == 0:
+            print(f"Error: Converted file is empty: {temp_path}")
+            return "Konvertierte Datei ist leer", 500
+
+        print(f"Sending file: {filename} ({content_type}, {file_size} bytes)")
+        
+        # Send the file with the correct content type and filename
+        response = send_file(
+            temp_path,
+            as_attachment=True,
+            download_name=filename,
+            mimetype=content_type
+        )
+
+        # Schedule cleanup after response is sent
+        @response.call_on_close
+        def cleanup():
+            try:
+                # Mark as downloaded and cleanup
+                audio_tool.pending_conversions[token]['downloaded'] = True
+                audio_tool.cleanup_old_files()
+            except Exception as e:
+                print(f"Error during cleanup: {str(e)}")
+
+        return response
+
+    except Exception as e:
+        print(f"Error in download_converted_audio: {str(e)}")
+        import traceback
+        print(f"Traceback: {traceback.format_exc()}")
+        return "Fehler beim Senden der Datei", 500
 
 
 if __name__ == "__main__":
