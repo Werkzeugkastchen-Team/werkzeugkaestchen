@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} {{ toolName }} {% endblock %}</h1>
+
+<div class="alert alert-info">
+    <h4 class="alert-heading">Anleitung zur Audio-Konvertierung:</h4>
+    <ol>
+        <li>Wählen Sie eine Audiodatei aus (MP3, WAV, AAC oder FLAC)</li>
+        <li>Wählen Sie das gewünschte Zielformat aus</li>
+        <li>Klicken Sie auf "Konvertieren"</li>
+        <li>Laden Sie die konvertierte Datei herunter</li>
+    </ol>
+    <p class="mb-0"><strong>Hinweis:</strong> Die maximale Dateigröße beträgt 50 MB.</p>
+</div>
+
+<div class="editor__container">
+    <div id="errorContainer"></div>
+    <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="audioForm">
+        <input type="hidden" name="tool_name" value="{{ identifier }}">
+        
+        <div class="form-group">
+            <label for="audio_file">Audiodatei auswählen:</label>
+            <div class="custom-file">
+                <input type="file" name="audio_file" id="audio_file" class="custom-file-input" accept=".mp3,.wav,.aac,.flac" onchange="handleAudioSelect(this)">
+                <label class="custom-file-label" for="audio_file">Datei auswählen...</label>
+            </div>
+            <small class="form-text text-muted">Unterstützte Formate: MP3, WAV, AAC, FLAC</small>
+        </div>
+
+        <div class="form-group target-format-group" style="display: none;">
+            <label for="target_format">Zielformat:</label>
+            <select name="target_format" id="target_format" class="form-control">
+                <option value="" disabled selected>Bitte wählen Sie ein Format</option>
+            </select>
+        </div>
+
+        <div id="progressContainer" style="display: none;">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button type="submit" class="fancy-button" id="submitButton" disabled>
+                <i class="fas fa-exchange-alt"></i> Konvertieren
+            </button>
+        </div>
+    </form>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+.editor__container {
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.custom-file-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.progress {
+    height: 20px;
+    margin-top: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(202, 6, 18, 0.25);
+}
+
+.alert {
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+
+.alert-info {
+    background-color: #e3f2fd;
+    border-color: #90caf9;
+    color: #0d47a1;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    border-color: #a5d6a7;
+    color: #1b5e20;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+</style>
+
+<script>
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
+
+function showError(message, type = 'error') {
+    const existingErrors = document.querySelectorAll('.alert');
+    existingErrors.forEach(error => {
+        if (error.classList.contains('alert-danger') || error.classList.contains('alert-warning')) {
+            error.remove();
+        }
+    });
+
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type === 'error' ? 'danger' : 'warning'} alert-dismissible fade show`;
+    alertDiv.role = 'alert';
+    alertDiv.innerHTML = `
+        <strong>${type === 'error' ? 'Fehler' : 'Warnung'}:</strong> ${message}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    `;
+    document.getElementById('errorContainer').appendChild(alertDiv);
+
+    if (type === 'warning') {
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 5000);
+    }
+
+    alertDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function handleAudioSelect(input) {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        
+        const fileLabel = input.nextElementSibling;
+        fileLabel.textContent = file.name;
+        
+        if (file.size > MAX_FILE_SIZE) {
+            const sizeMB = (file.size / 1024 / 1024).toFixed(2);
+            showError(`Die ausgewählte Datei "${file.name}" ist zu groß (${sizeMB} MB). 
+                      <br>Die maximale Dateigröße beträgt 50 MB.`);
+            input.value = '';
+            fileLabel.textContent = 'Datei auswählen...';
+            document.getElementById('target_format').style.display = 'none';
+            document.getElementById('submitButton').disabled = true;
+            return;
+        }
+        
+        const fileExt = file.name.split('.').pop().toLowerCase();
+        const validExts = ['mp3', 'wav', 'aac', 'flac'];
+        if (!validExts.includes(fileExt)) {
+            showError(`Die ausgewählte Datei "${file.name}" hat ein nicht unterstütztes Format. 
+                      <br>Bitte wählen Sie eine der folgenden Dateiformate: ${validExts.map(ext => '.' + ext.toUpperCase()).join(', ')}`);
+            input.value = '';
+            fileLabel.textContent = 'Datei auswählen...';
+            document.getElementById('target_format').style.display = 'none';
+            document.getElementById('submitButton').disabled = true;
+            return;
+        }
+        
+        const formatSelect = document.getElementById('target_format');
+        const formatGroup = document.querySelector('.target-format-group');
+        
+        formatSelect.innerHTML = '<option value="" disabled selected>Bitte wählen Sie ein Format</option>';
+        
+        const formats = ['MP3', 'WAV', 'AAC', 'FLAC'];
+        formats.forEach(fmt => {
+            if (fmt.toLowerCase() !== fileExt) {
+                const option = document.createElement('option');
+                option.value = fmt;
+                option.textContent = fmt;
+                formatSelect.appendChild(option);
+            }
+        });
+        
+        formatGroup.style.display = 'block';
+        document.getElementById('submitButton').disabled = false;
+        
+        showError(`Audiodatei "${file.name}" erfolgreich ausgewählt. 
+                  <br>Bitte wählen Sie ein Zielformat aus.`, 'success');
+    }
+}
+
+document.getElementById('audioForm').onsubmit = function() {
+    document.getElementById('progressContainer').style.display = 'block';
+    document.getElementById('submitButton').disabled = true;
+    
+    let progress = 0;
+    const progressBar = document.querySelector('.progress-bar');
+    const interval = setInterval(() => {
+        progress += 5;
+        if (progress <= 90) {
+            progressBar.style.width = progress + '%';
+            progressBar.setAttribute('aria-valuenow', progress);
+        }
+    }, 100);
+    
+    return true;
+};
+</script>
+{% endblock %} 
