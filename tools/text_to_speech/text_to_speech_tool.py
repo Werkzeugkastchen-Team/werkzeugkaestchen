@@ -25,6 +25,7 @@ class TextToSpeechTool(MiniTool):
             text = input_params.get("text", "")
             if not text:
                 self.error_message = "Bitte geben Sie einen Text ein"
+                self.output = None
                 return False
 
             # Get optional parameters with defaults
@@ -74,6 +75,7 @@ class TextToSpeechTool(MiniTool):
 
             # Create a base64 representation of the audio file for embedding
             audio_base64 = self._get_audio_base64(audio_file)
+            self.error_message = None
 
             # Create HTML output with audio player and download link
             result = f"""
