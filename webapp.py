@@ -14,10 +14,10 @@ from tools.calendar_week.calendar_week_tool import CalendarWeekTool
 from tools.image_cropper.image_cropper_tool import ImageCropperTool
 from tools.random_number_generator.random_number_generator_tool import RandomNumberGeneratorTool
 from tools.audio_converter.audio_converter_tool import AudioConverterTool
-
+from tools.text_to_speech.text_to_speech_tool import TextToSpeechTool
 
 app = Flask(__name__)
-app.secret_key = 'supersecretkey'
+app.secret_key = 'supersecretkey' # ???
 
 # Hier müssen wir nur unsere Tools registrieren
 tools = {
@@ -33,7 +33,8 @@ tools = {
     "PasswordGeneratorTool": PasswordGeneratorTool(),
     "CalendarWeekTool": CalendarWeekTool(),
     "ImageCropperTool": ImageCropperTool(),
-    "AudioConverterTool": AudioConverterTool()
+    "AudioConverterTool": AudioConverterTool(),
+    "TextToSpeechTool":TextToSpeechTool()
 }
 
 # Hauptseite
