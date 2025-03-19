@@ -5,8 +5,7 @@
     
     {% if toolName == "QR-Code Generator" %}
     <div class="alert alert-info">
-        Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren. 
-        Die Fehlerkorrektur bestimmt, wie gut der QR-Code auch bei Beschädigung noch lesbar ist.
+        Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren.
     </div>
     {% endif %}
 
@@ -45,8 +44,14 @@
         {% if param_type == 'string' %}
             {% if param == "number" and identifier == "NumberConverterTool" %}
                 <label for="{{ param }}">Zahl:</label>
+                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
             {% elif param == "input_type" and identifier == "NumberConverterTool" %}
                 <label for="{{ param }}">Zahlentyp:</label>
+                <select name="{{ param }}" id="{{ param }}" class="form-control">
+                    <option value="binary">Binär</option>
+                    <option value="decimal">Dezimal</option>
+                    <option value="hexadecimal">Hexadezimal</option>
+                </select>
             {% elif param == "target_format" and identifier == "ImageConverterTool" %}
                 <div class="form-group target-format-group" style="display: none;">
                     <label for="{{ param }}">Zielformat:</label>
@@ -58,37 +63,12 @@
                 <label for="{{ param }}">Passwortlänge:</label>
                 <input type="number" name="{{ param }}" id="{{ param }}" value="12" min="4" max="128" class="form-control">
                 <small class="form-text text-muted">Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)</small>
+            {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
+                <label for="{{ param }}">Text oder URL:</label>
+                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Text oder URL eingeben" class="form-control">
             {% else %}
-            <!-- DEFAULT -->
                 <label for="{{ param }}">{{ param }}:</label>
                 <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
-            {% endif %}
-            
-            {% if param == "error_correction" and identifier == "QrCodeGeneratorTool" %}
-                <select name="{{ param }}" id="{{ param }}" class="form-control">
-                    <option value="L">Niedrig (L) - 7% Korrektur</option>
-                    <option value="M" selected>Mittel (M) - 15% Korrektur</option>
-                    <option value="Q">Quartil (Q) - 25% Korrektur</option>
-                    <option value="H">Hoch (H) - 30% Korrektur</option>
-                </select>
-            {% elif param == "box_size" and identifier == "QrCodeGeneratorTool" %}
-                <input type="number" name="{{ param }}" id="{{ param }}" value="10" min="1" max="50" class="form-control">
-            {% elif param == "border" and identifier == "QrCodeGeneratorTool" %}
-                <input type="number" name="{{ param }}" id="{{ param }}" value="4" min="0" max="10" class="form-control">
-            {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
-                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Text oder URL eingeben" class="form-control">
-            {% elif param == "input_type" and identifier == "NumberConverterTool" %}
-                <select name="{{ param }}" id="{{ param }}" class="form-control">
-                    <option value="binary">Binär</option>
-                    <option value="decimal">Dezimal</option>
-                    <option value="hexadecimal">Hexadezimal</option>
-                </select>
-            {% elif param == "number" and identifier == "NumberConverterTool" %}
-                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
-            {% elif param == "target_format" and identifier == "ImageConverterTool" %}
-                <!-- Format selection is handled above -->
-
-            
             {% endif %}
         {% elif param_type == 'boolean' %}
             {% if identifier == "PasswordGeneratorTool" %}
@@ -136,6 +116,8 @@
         Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht gespeichert.
     </div>
     <input class="fancy-button" type="submit" value="Passwort generieren" id="submitButton">
+    {% elif identifier == "QrCodeGeneratorTool" %}
+    <input class="fancy-button" type="submit" value="QR-Code erstellen" id="submitButton">
     {% else %}
     <input class="fancy-button" type="submit" value="Ausführen" id="submitButton">
     {% endif %}
@@ -187,4 +169,4 @@
     };
     </script>
     {% endif %}
-{% endblock %}  
+{% endblock %}
