@@ -32,7 +32,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
->Wenn neue Abhängigkeiten hinzugefügt wurde, muss man das nochmal ausführen.
+>Wenn neue Abhängigkeiten hinzugefügt wurden, muss man das nochmal ausführen.
+
+>Wegen des TTS Tools wird PyTorch mit heruntergeladen und kann bis zu 4GB groß sein!
 
 
 ## Server starten
@@ -58,3 +60,13 @@ pytest
 ```
 
 `pytest -v` für mehr Details.
+
+# Troubleshooting
+
+Wenn man keine KI-Tools wie TTS Verwenden will, folende Einträge in requirements.txt entfernen:
+
+```
+torch
+torchaudio
+coqui-tts
+```
