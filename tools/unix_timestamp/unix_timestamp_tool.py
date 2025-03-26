@@ -7,7 +7,7 @@ class UnixTimestampTool(MiniTool):
     name = "Unix-Timestamp Konverter"
     description = "Konvertiert Unix-Timestamps in lesbare Datums- und Zeitformate und umgekehrt. Mit Unterstützung für verschiedene Zeitzonen."
 
-    # Common timezones for the dropdown
+    # Common timezones for the dropdow/easy to add more if needed
     COMMON_TIMEZONES = [
         "UTC", "Europe/Berlin", "Europe/London", "America/New_York",
         "America/Los_Angeles", "Asia/Tokyo", "Australia/Sydney"
