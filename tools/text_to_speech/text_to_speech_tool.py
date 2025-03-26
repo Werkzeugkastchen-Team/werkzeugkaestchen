@@ -8,13 +8,13 @@ import base64
 class TextToSpeechTool(MiniTool):
     name = "Text zu Sprache"
     description = "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
+    
+    TTS_TOOL_CHARACTER_LIMIT = 600
 
     def _get_audio_base64(self, audio_path):
         """Convert audio to base64 string for embedding in HTML"""
         with open(audio_path, "rb") as audio_file:
             return base64.b64encode(audio_file.read()).decode("utf-8")
-
-    # input...
 
     def __init__(self):
         super().__init__(self.name, "TextToSpeechTool")
@@ -22,12 +22,17 @@ class TextToSpeechTool(MiniTool):
 
     def execute_tool(self, input_params:dict) -> bool:
         try:
+            self.error_message = None
             if not input_params.get("Text") or not input_params.get("Sprache"):
                 self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
                 return False
 
             text = input_params.get("Text", "")
             language = input_params.get("Sprache", "de")
+            
+            if len(text) > self.TTS_TOOL_CHARACTER_LIMIT:
+                self.error_message = f"Eingabetext darf wegen technischen Limitationen nicht länger als {self.TTS_TOOL_CHARACTER_LIMIT} Zeichen sein."
+                return False
             
             temp_dir = tempfile.gettempdir()
             id = str(uuid.uuid4())
@@ -102,23 +107,3 @@ class TextToSpeechTool(MiniTool):
         except Exception as e:
             self.error_message = str(e)
             return False
-
-# temp:
-# def main():
-#     # Initialize TTS with a pre-trained model
-#     tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
-
-#     # Generate speech using a built-in speaker
-#     tts.tts_to_file(
-#         text="Hallo und herzlich willkommen zu unserem Werkzeugkasten.",
-#         file_path="output.wav",
-#         speaker="Ana Florence",
-#         language="de",
-#         split_sentences=True,
-#     )
-
-#     # en
-
-
-# if __name__ == "__main__":
-#     main()
