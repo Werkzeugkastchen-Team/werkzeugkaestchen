@@ -40,74 +40,138 @@
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
+    
+    {% if toolName == "Unix-Timestamp Konverter" %}
+    <div class="alert alert-info">
+        Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und Zeitangaben umwandeln und umgekehrt.
+    </div>
+
+    <div id="conversionTypeContainer" class="form-group">
+        <label for="conversion_type">Konvertierungsrichtung:</label>
+        <select name="conversion_type" id="conversion_type" class="form-control" onchange="toggleInputFields()">
+            <option value="timestamp_to_date">Timestamp zu Datum</option>
+            <option value="date_to_timestamp">Datum zu Timestamp</option>
+        </select>
+    </div>
+
+    <div id="timestampInputs">
+        <div class="form-group">
+            <label for="timestamp">Unix-Timestamp:</label>
+            <input type="text" name="timestamp" id="timestamp" class="form-control" placeholder="z.B. 1640995200">
+            <small class="form-text text-muted">Geben Sie einen Unix-Timestamp ein (Sekunden seit dem 01.01.1970 00:00:00 UTC).</small>
+        </div>
+    </div>
+
+    <div id="dateInputs" style="display: none;">
+        <div class="form-group">
+            <label for="date">Datum:</label>
+            <input type="text" name="date" id="date" class="form-control" placeholder="TT.MM.JJJJ (z.B. 01.01.2022)">
+            <small class="form-text text-muted">Geben Sie ein Datum im Format TT.MM.JJJJ ein.</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="time">Uhrzeit (optional):</label>
+            <input type="text" name="time" id="time" class="form-control" placeholder="HH:MM:SS (z.B. 12:30:00)">
+            <small class="form-text text-muted">Geben Sie eine Uhrzeit im Format HH:MM:SS ein. Standard ist 00:00:00 wenn leer.</small>
+        </div>
+    </div>
+
+    <script>
+    function toggleInputFields() {
+        const conversionType = document.getElementById('conversion_type').value;
+        const timestampInputs = document.getElementById('timestampInputs');
+        const dateInputs = document.getElementById('dateInputs');
+        
+        if (conversionType === 'timestamp_to_date') {
+            timestampInputs.style.display = 'block';
+            dateInputs.style.display = 'none';
+        } else {
+            timestampInputs.style.display = 'none';
+            dateInputs.style.display = 'block';
+        }
+    }
+    </script>
+    {% endif %}
+    
     {% for param, param_type in input_params.items() %}
-        {% if param_type == 'string' %}
-            {% if param == "number" and identifier == "NumberConverterTool" %}
-                <label for="{{ param }}">Zahl:</label>
-                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
-            {% elif param == "input_type" and identifier == "NumberConverterTool" %}
-                <label for="{{ param }}">Zahlentyp:</label>
-                <select name="{{ param }}" id="{{ param }}" class="form-control">
-                    <option value="binary">Binär</option>
-                    <option value="decimal">Dezimal</option>
-                    <option value="hexadecimal">Hexadezimal</option>
-                </select>
-            {% elif param == "target_format" and identifier == "ImageConverterTool" %}
-                <div class="form-group target-format-group" style="display: none;">
-                    <label for="{{ param }}">Zielformat:</label>
+        {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (toolName != "Unix-Timestamp Konverter" or param == "timezone") %}
+            {% if param_type == 'string' %}
+                {% if param == "number" and identifier == "NumberConverterTool" %}
+                    <label for="{{ param }}">Zahl:</label>
+                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
+                {% elif param == "input_type" and identifier == "NumberConverterTool" %}
+                    <label for="{{ param }}">Zahlentyp:</label>
                     <select name="{{ param }}" id="{{ param }}" class="form-control">
-                        <option value="" disabled selected>Bitte wählen Sie ein Format</option>
+                        <option value="binary">Binär</option>
+                        <option value="decimal">Dezimal</option>
+                        <option value="hexadecimal">Hexadezimal</option>
+                    </select>
+                {% elif param == "target_format" and identifier == "ImageConverterTool" %}
+                    <div class="form-group target-format-group" style="display: none;">
+                        <label for="{{ param }}">Zielformat:</label>
+                        <select name="{{ param }}" id="{{ param }}" class="form-control">
+                            <option value="" disabled selected>Bitte wählen Sie ein Format</option>
+                        </select>
+                    </div>
+                {% elif param == "length" and identifier == "PasswordGeneratorTool" %}
+                    <label for="{{ param }}">Passwortlänge:</label>
+                    <input type="number" name="{{ param }}" id="{{ param }}" value="12" min="4" max="128" class="form-control">
+                    <small class="form-text text-muted">Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)</small>
+                {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
+                    <label for="{{ param }}">Text oder URL:</label>
+                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Text oder URL eingeben" class="form-control">
+                {% else %}
+                    <label for="{{ param }}">{{ param }}:</label>
+                    <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
+                {% endif %}
+            {% elif param_type == 'boolean' %}
+                {% if identifier == "PasswordGeneratorTool" %}
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" name="{{ param }}" id="{{ param }}" checked>
+                        {% if param == "include_lowercase" %}
+                            <label class="form-check-label" for="{{ param }}">Kleinbuchstaben einschließen (a-z)</label>
+                        {% elif param == "include_uppercase" %}
+                            <label class="form-check-label" for="{{ param }}">Großbuchstaben einschließen (A-Z)</label>
+                        {% elif param == "include_numbers" %}
+                            <label class="form-check-label" for="{{ param }}">Zahlen einschließen (0-9)</label>
+                        {% elif param == "include_special" %}
+                            <label class="form-check-label" for="{{ param }}">Sonderzeichen einschließen (!@#$%^&*...)</label>
+                        {% else %}
+                            <label class="form-check-label" for="{{ param }}">{{ param }}</label>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <label for="{{ param }}">{{ param }}:</label>
+                    <input type="checkbox" name="{{ param }}" id="{{ param }}">
+                {% endif %}
+            {% elif param_type == 'file' %}
+                {% if identifier == "ImageConverterTool" %}
+                    <div class="form-group">
+                        <label for="{{ param }}">Bild auswählen:</label>
+                        <input type="file" name="{{ param }}" id="{{ param }}" class="form-control" accept="image/*" onchange="handleImageSelect(this)">
+                        <small class="form-text text-muted">Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP</small>
+                    </div>
+                    <div id="progressContainer" style="display: none;">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                {% else %}
+                    <label for="{{ param }}">{{ param }}:</label>
+                    <input type="file" name="{{ param }}" id="{{ param }}">
+                {% endif %}
+            {% elif param_type.type == 'enum' %}
+                <div class="form-group">
+                    <label for="{{ param }}">{{ param }}:</label>
+                    <select name="{{ param }}" id="{{ param }}" class="form-control">
+                        {% for option in param_type.options %}
+                            <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
                     </select>
                 </div>
-            {% elif param == "length" and identifier == "PasswordGeneratorTool" %}
-                <label for="{{ param }}">Passwortlänge:</label>
-                <input type="number" name="{{ param }}" id="{{ param }}" value="12" min="4" max="128" class="form-control">
-                <small class="form-text text-muted">Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)</small>
-            {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
-                <label for="{{ param }}">Text oder URL:</label>
-                <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Text oder URL eingeben" class="form-control">
-            {% else %}
-                <label for="{{ param }}">{{ param }}:</label>
-                <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
             {% endif %}
-        {% elif param_type == 'boolean' %}
-            {% if identifier == "PasswordGeneratorTool" %}
-                <div class="form-check mb-2">
-                    <input type="checkbox" class="form-check-input" name="{{ param }}" id="{{ param }}" checked>
-                    {% if param == "include_lowercase" %}
-                        <label class="form-check-label" for="{{ param }}">Kleinbuchstaben einschließen (a-z)</label>
-                    {% elif param == "include_uppercase" %}
-                        <label class="form-check-label" for="{{ param }}">Großbuchstaben einschließen (A-Z)</label>
-                    {% elif param == "include_numbers" %}
-                        <label class="form-check-label" for="{{ param }}">Zahlen einschließen (0-9)</label>
-                    {% elif param == "include_special" %}
-                        <label class="form-check-label" for="{{ param }}">Sonderzeichen einschließen (!@#$%^&*...)</label>
-                    {% else %}
-                        <label class="form-check-label" for="{{ param }}">{{ param }}</label>
-                    {% endif %}
-                </div>
-            {% else %}
-                <label for="{{ param }}">{{ param }}:</label>
-                <input type="checkbox" name="{{ param }}" id="{{ param }}">
-            {% endif %}
-        {% elif param_type == 'file' %}
-            {% if identifier == "ImageConverterTool" %}
-                <div class="form-group">
-                    <label for="{{ param }}">Bild auswählen:</label>
-                    <input type="file" name="{{ param }}" id="{{ param }}" class="form-control" accept="image/*" onchange="handleImageSelect(this)">
-                    <small class="form-text text-muted">Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP</small>
-                </div>
-                <div id="progressContainer" style="display: none;">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
-                    </div>
-                </div>
-            {% else %}
-                <label for="{{ param }}">{{ param }}:</label>
-                <input type="file" name="{{ param }}" id="{{ param }}">
-            {% endif %}
+            <br>
         {% endif %}
-        <br>
     {% endfor %}
 
     {% if identifier == "PasswordGeneratorTool" %}
@@ -118,6 +182,8 @@
     <input class="fancy-button" type="submit" value="Passwort generieren" id="submitButton">
     {% elif identifier == "QrCodeGeneratorTool" %}
     <input class="fancy-button" type="submit" value="QR-Code erstellen" id="submitButton">
+    {% elif identifier == "UnixTimestampTool" %}
+    <input class="fancy-button" type="submit" value="Konvertieren" id="submitButton">
     {% else %}
     <input class="fancy-button" type="submit" value="Ausführen" id="submitButton">
     {% endif %}

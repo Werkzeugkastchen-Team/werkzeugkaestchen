@@ -14,7 +14,7 @@ from tools.calendar_week.calendar_week_tool import CalendarWeekTool
 from tools.image_cropper.image_cropper_tool import ImageCropperTool
 from tools.random_number_generator.random_number_generator_tool import RandomNumberGeneratorTool
 from tools.audio_converter.audio_converter_tool import AudioConverterTool
-
+from tools.unix_timestamp.unix_timestamp_tool import UnixTimestampTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -33,7 +33,8 @@ tools = {
     "PasswordGeneratorTool": PasswordGeneratorTool(),
     "CalendarWeekTool": CalendarWeekTool(),
     "ImageCropperTool": ImageCropperTool(),
-    "AudioConverterTool": AudioConverterTool()
+    "AudioConverterTool": AudioConverterTool(),
+    "UnixTimestampTool": UnixTimestampTool()
 }
 
 # Hauptseite
@@ -84,15 +85,15 @@ def tool_form(tool_name):
     tool = tools.get(tool_name)
     if not tool:
         return "Tool not found", 404
-    
+
     # Use custom template for image cropper
     if tool_name == "ImageCropperTool":
         return render_template('image_cropper.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
-    
+
     # Use custom template for audio converter
     if tool_name == "AudioConverterTool":
         return render_template('audio_converter.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
-    
+
     return render_template('variable_input_mask.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
 
 # Output
@@ -208,7 +209,8 @@ def download_cropped_image(token):
     filename = image_tool.pending_crops[token]['filename']
 
     # Send the file with the original filename
-    response = send_file(temp_path, as_attachment=True, download_name=f"cropped_{filename}")
+    response = send_file(temp_path, as_attachment=True,
+                         download_name=f"cropped_{filename}")
 
     # Schedule cleanup after response is sent
     @response.call_on_close
@@ -255,7 +257,8 @@ def download_converted_audio(token):
             'aac': 'audio/mp4',  # Changed from audio/aac to audio/mp4 for .m4a files
             'flac': 'audio/flac'
         }
-        content_type = content_types.get(target_format, 'application/octet-stream')
+        content_type = content_types.get(
+            target_format, 'application/octet-stream')
 
         # Verify file size
         file_size = os.path.getsize(temp_path)
@@ -264,7 +267,7 @@ def download_converted_audio(token):
             return "Konvertierte Datei ist leer", 500
 
         print(f"Sending file: {filename} ({content_type}, {file_size} bytes)")
-        
+
         # Send the file with the correct content type and filename
         response = send_file(
             temp_path,
