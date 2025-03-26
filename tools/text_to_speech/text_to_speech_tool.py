@@ -1,4 +1,3 @@
-from TTS.api import TTS
 import uuid
 import tempfile
 import os
@@ -23,6 +22,7 @@ class TextToSpeechTool(MiniTool):
     def execute_tool(self, input_params:dict) -> bool:
         try:
             self.error_message = None
+            from TTS.api import TTS
             if not input_params.get("Text") or not input_params.get("Sprache"):
                 self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
                 return False
