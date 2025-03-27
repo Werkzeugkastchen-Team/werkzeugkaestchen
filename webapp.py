@@ -16,6 +16,7 @@ from tools.random_number_generator.random_number_generator_tool import RandomNum
 from tools.audio_converter.audio_converter_tool import AudioConverterTool
 from tools.text_to_speech.text_to_speech_tool import TextToSpeechTool
 from tools.unix_timestamp.unix_timestamp_tool import UnixTimestampTool
+from tools.json_formatieren.json_formatieren_tool import JSONFormatierungTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' # ???
@@ -36,7 +37,8 @@ tools = {
     "ImageCropperTool": ImageCropperTool(),
     "AudioConverterTool": AudioConverterTool(),
     "TextToSpeechTool": TextToSpeechTool(),
-    "UnixTimestampTool": UnixTimestampTool()
+    "UnixTimestampTool": UnixTimestampTool(),
+    "JSONFormatierungTool": JSONFormatierungTool()
 }
 
 # Hauptseite
