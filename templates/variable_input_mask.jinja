@@ -94,6 +94,22 @@
     {% endif %}
     
     {% for param, param_type in input_params.items() %}
+        {% if param in ["text1", "text2"] and identifier == "TexteVergleichenTool" %}
+            <div class="mb-4">
+                {# Verwende eine feste Beschriftung mit korrekter Großschreibung #}
+                <label for="{{ param }}" class="form-label">
+                    {% if param == "text1" %}TEXT 1{% else %}TEXT 2{% endif %}:
+                </label>
+                <textarea 
+                    name="{{ param }}" 
+                    id="{{ param }}" 
+                    class="form-control"
+                    rows="6" 
+                    placeholder="Text hier einfügen..."
+                    style="font-family: monospace;"
+                ></textarea>
+            </div>
+        {% endif %}
         {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (toolName != "Unix-Timestamp Konverter" or param == "timezone") %}
             {% if param_type == 'string' %}
                 {% if param == "number" and identifier == "NumberConverterTool" %}
