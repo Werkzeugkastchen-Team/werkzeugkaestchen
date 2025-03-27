@@ -94,6 +94,19 @@
     {% endif %}
     
     {% for param, param_type in input_params.items() %}
+        {% if param == "json_text" and identifier == "JSONValidierungTool" %}
+            <div class="mb-4">
+                <label for="{{ param }}" class="form-label">JSON-TEXT:</label>
+                <textarea 
+                    name="{{ param }}" 
+                    id="{{ param }}" 
+                    class="form-control"
+                    rows="12" 
+                    placeholder="Beispiel: { 'name': 'Max', 'alter': 30 }"
+                    style="font-family: monospace;"
+                ></textarea>
+            </div>
+        {% endif %}
         {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (toolName != "Unix-Timestamp Konverter" or param == "timezone") %}
             {% if param_type == 'string' %}
                 {% if param == "number" and identifier == "NumberConverterTool" %}
