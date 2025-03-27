@@ -94,19 +94,6 @@
     {% endif %}
     
     {% for param, param_type in input_params.items() %}
-        {% if identifier == "JSONFormatierungTool" %}
-            <div class="mb-4">
-                <label for="json_text" class="form-label">JSON-EINGABE:</label>
-                <textarea 
-                    name="json_text" 
-                    id="json_text" 
-                    class="form-control"
-                    rows="15"
-                    placeholder='{"beispiel": "hier einfügen...", "daten": [1, 2, 3]}'
-                    style="font-family: monospace;"
-                ></textarea>
-            </div>
-        {% endif %}
         {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (toolName != "Unix-Timestamp Konverter" or param == "timezone") %}
             {% if param_type == 'string' %}
                 {% if param == "number" and identifier == "NumberConverterTool" %}
@@ -182,6 +169,9 @@
                         {% endfor %}
                     </select>
                 </div>
+            {% elif param_type.type == 'textarea'%}
+                <label for="{{ param }}">{{ param }}</label>
+                <textarea name="{{ param }}"></textarea>
             {% endif %}
             <br>
         {% endif %}

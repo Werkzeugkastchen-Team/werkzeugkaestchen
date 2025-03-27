@@ -7,17 +7,16 @@ class JSONFormatierungTool(MiniTool):
     def __init__(self):
         super().__init__("JSON-Formatierung", "JSONFormatierungTool")
         self.input_params = {
-            "json_text": {
-                "type": "string",
-                "label": "JSON-Eingabe",
-                "placeholder": "Einfügen Sie JSON hier..."
+            "JSON Text": {
+                "type": "textarea"
             }
         }
         self.formatted_json = ""
+        self.description = "Formatiert JSON in ein lesbares Foramt (Pretty Print)"
         
     def execute_tool(self, input_params: Dict[str, Any]) -> bool:
         try:
-            json_input = input_params.get("json_text", "").strip()
+            json_input = input_params.get("JSON Text", "").strip()
             
             if not json_input:
                 self.error_message = "Bitte geben Sie JSON ein."

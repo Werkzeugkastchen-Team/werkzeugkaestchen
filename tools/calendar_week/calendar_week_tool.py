@@ -9,12 +9,12 @@ class CalendarWeekTool(MiniTool):
     def __init__(self):
         super().__init__(self.name, "CalendarWeekTool")
         self.input_params = {
-            "date": "string"
+            "Datum": "string"
         }
 
     def execute_tool(self, input_params: dict) -> bool:
         try:
-            date_str = input_params.get("date", "")
+            date_str = input_params.get("Datum", "")
 
             if not date_str:
                 self.error_message = "Bitte geben Sie ein Datum ein."

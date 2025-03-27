@@ -46,6 +46,12 @@ body {
     transition: all 0.3s ease;
  }
 
+textarea {
+  margin-bottom: 1em;  
+  width: 100%;
+  height: 30vh;
+}
+
  .card:hover {
      background: rgba(255,255,255,1);
      transform: scale(1.05);
