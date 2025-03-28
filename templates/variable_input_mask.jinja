@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
-{% extends 'base.html' %}
 
 {% block content %}
+    <!-- Debug info -->
+    <div style="display: none;">
+        Tool Name: {{ toolName }}<br>
+        Identifier: {{ identifier }}<br>
+        Tool Description: {{ tool.description }}<br>
+    </div>
+
     <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
     
     {% if toolName == "QR-Code Generator" %}
@@ -42,6 +48,45 @@
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
+
+    {% if identifier == "PlaceholderTextTool" %}
+        <div class="alert alert-info">
+            <p>Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der gewünschten Länge generieren.</p>
+                
+               <p> Funktionen:</p>
+               <ul>
+                    <li>Wählen Sie die gewünschte Textlänge (1-1000 Wörter)</li>
+                    <li>Generieren Sie professionellen Lorem Ipsum Text</li>
+                    <li>Kopieren Sie den Text mit einem Klick in die Zwischenablage</li>
+                    <li>Ideal für Layout- und Designarbeiten</li>
+                </ul>
+        </div>
+        <div class="card mb-4">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="length"><strong>Textlänge:</strong></label>
+                <input type="number" 
+                       class="form-control" 
+                       id="length" 
+                       name="length" 
+                       min="1" 
+                       max="1000" 
+                       placeholder="Anzahl der Wörter (1-1000)" 
+                       required>
+                <small class="form-text text-muted">Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.</small>
+            </div>
+
+            <input class="btn btn-primary mt-3" type="submit" value="Text generieren" id="submitButton">
+        </div>
+    </div>
+
+    {% if tool.error_message %}
+    <div class="alert alert-danger mt-3">
+        <i class="fas fa-exclamation-triangle"></i>
+        {{ tool.error_message }}
+    </div>
+    {% endif %}
+    {% endif %}
     
 {% if toolName == "Einheitenrechner" %}
 <div class="alert alert-info">

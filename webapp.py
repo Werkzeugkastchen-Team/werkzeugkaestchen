@@ -1,6 +1,7 @@
 import os
 import tempfile
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file
+from markupsafe import Markup
 
 from tools.base64_encode.base64_encode_tool import Base64EncodeTool
 from tools.base64_decode.base64_decode_tool import Base64DecodeTool
@@ -21,6 +22,7 @@ from tools.json_validieren.json_validieren_tool import JSONValidierungTool
 from tools.json_formatieren.json_formatieren_tool import JSONFormatierungTool
 from tools.unit_converter.unit_converter_tool import UnitConverterTool
 from tools.date_calculator.date_calculator_tool import DateCalculatorTool
+from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' # ???
@@ -47,6 +49,7 @@ tools = {
     "JSONFormatierungTool": JSONFormatierungTool(),
     "UnitConverterTool": UnitConverterTool(),
     "DateCalculatorTool": DateCalculatorTool(),
+    "PlaceholderTextTool": PlaceholderTextTool(),
 }
 
 # Hauptseite
@@ -95,18 +98,13 @@ def about():
 @app.route("/tool/<tool_name>")
 def tool_form(tool_name):
     tool = tools.get(tool_name)
-    if not tool:
-        return "Tool not found", 404
-
-    # Use custom template for image cropper
-    if tool_name == "ImageCropperTool":
-        return render_template('image_cropper.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
-
-    # Use custom template for audio converter
-    if tool_name == "AudioConverterTool":
-        return render_template('audio_converter.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
-
-    return render_template('variable_input_mask.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
+    if tool:
+        return render_template('variable_input_mask.jinja',
+                             tool=tool,
+                             toolName=tool.name,
+                             input_params=tool.input_params,
+                             identifier=tool.identifier)
+    return "Tool not found", 404
 
 # Output
 
