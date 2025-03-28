@@ -19,6 +19,7 @@ from tools.unix_timestamp.unix_timestamp_tool import UnixTimestampTool
 from tools.texte_vergleichen.texte_vergleichen_tool import TexteVergleichenTool
 from tools.json_validieren.json_validieren_tool import JSONValidierungTool
 from tools.json_formatieren.json_formatieren_tool import JSONFormatierungTool
+from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' # ???
@@ -42,7 +43,8 @@ tools = {
     "UnixTimestampTool": UnixTimestampTool(),
     "TexteVergleichenTool": TexteVergleichenTool(),
     "JSONValidierungTool": JSONValidierungTool(),
-    "JSONFormatierungTool": JSONFormatierungTool()
+    "JSONFormatierungTool": JSONFormatierungTool(),
+    "DateCalculatorTool": DateCalculatorTool(),
 }
 
 # Hauptseite
@@ -93,16 +95,14 @@ def tool_form(tool_name):
     tool = tools.get(tool_name)
     if not tool:
         return "Tool not found", 404
+    return render_template('variable_input_mask.jinja', 
+                       toolName=tool.name,
+                       identifier=tool.identifier,
+                       description=tool.description,
+                       input_params=tool.input_params,
+                       result=tool.output,
+                       error_message=tool.error_message)
 
-    # Use custom template for image cropper
-    if tool_name == "ImageCropperTool":
-        return render_template('image_cropper.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
-
-    # Use custom template for audio converter
-    if tool_name == "AudioConverterTool":
-        return render_template('audio_converter.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
-
-    return render_template('variable_input_mask.jinja', toolName=tool.name, input_params=tool.input_params, identifier=tool.identifier)
 
 # Output
 
@@ -111,47 +111,25 @@ def tool_form(tool_name):
 def handle_tool():
     tool_name = request.form.get('tool_name')
     tool = tools.get(tool_name)
-
     if not tool:
         return "Tool not found", 404
 
     input_params = {}
-
-    # Handle file uploads
-    if request.files:
-        temp_dir = tempfile.gettempdir()  # Get system's temp directory
-
-        for key, file in request.files.items():
-            if file.filename != '':
-                # Save the file to the system's temp directory
-                file_path = os.path.join(temp_dir, file.filename)
-                file.save(file_path)
-                # Store both the file object and path
-                input_params[key] = {
-                    "file_obj": file,
-                    "file_path": file_path,
-                    "filename": file.filename
-                }
-
-    # Handle form inputs
     for key, value in request.form.items():
         if key != 'tool_name':
-            if value == 'on':
-                input_params[key] = True
-            else:
-                input_params[key] = value
+            input_params[key] = value
 
     success = tool.execute_tool(input_params)
 
     if not success:
         return render_template('output.html',
-                               toolName=tool.name,
-                               output_text=tool.error_message,
-                               has_error=True)
+                           toolName=tool.name,
+                           output_text=tool.error_message,
+                           has_error=True)
 
     return render_template('output.html',
-                           toolName=tool.name,
-                           output_text=tool.output)
+                       toolName=tool.name,
+                       output_text=tool.output)
 
 
 @app.route('/submit_contact', methods=['POST'])
