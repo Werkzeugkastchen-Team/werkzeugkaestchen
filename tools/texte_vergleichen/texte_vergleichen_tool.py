@@ -56,8 +56,23 @@ class TexteVergleichenTool(MiniTool):
 
     def _generate_detailed_comparison(self, text1: str, text2: str) -> List[Dict[str, Any]]:
         """Erstellt einen detaillierten Vergleich zwischen zwei Texten"""
-        words1 = text1.split()
-        words2 = text2.split()
+        # Split while preserving line breaks
+        words1 = []
+        for line in text1.splitlines(keepends=True):
+            if line.endswith('\n'):
+                words1.extend(line[:-1].split())
+                words1.append('\n')
+            else:
+                words1.extend(line.split())
+                
+        words2 = []
+        for line in text2.splitlines(keepends=True):
+            if line.endswith('\n'):
+                words2.extend(line[:-1].split())
+                words2.append('\n')
+            else:
+                words2.extend(line.split())
+                
         matcher = difflib.SequenceMatcher(None, words1, words2)
         
         diff_results = []
@@ -91,19 +106,43 @@ class TexteVergleichenTool(MiniTool):
         
         for diff in diff_results:
             if diff['type'] == 'similar':
-                similarities.append(f'<span class="similar">{html.escape(diff["text"])}</span> ')
+                text = diff["text"]
+                if text == '\n':
+                    similarities.append('<br>')
+                else:
+                    similarities.append(f'<span class="similar">{html.escape(text)}</span> ')
             elif diff['type'] == 'different':
                 if diff['status'] == 'gelöscht':
-                    differences.append(f'<span class="deleted">{html.escape(diff["text"])}</span> ')
+                    text = diff["text"]
+                    if text == '\n':
+                        differences.append('<span class="deleted">&crarr;</span><br>')
+                    else:
+                        differences.append(f'<span class="deleted">{html.escape(text)}</span> ')
                 elif diff['status'] == 'hinzugefügt':
-                    differences.append(f'<span class="added">{html.escape(diff["text"])}</span> ')
+                    text = diff["text"]
+                    if text == '\n':
+                        differences.append('<span class="added">&crarr;</span><br>')
+                    else:
+                        differences.append(f'<span class="added">{html.escape(text)}</span> ')
                 elif diff['status'] == 'ersetzt':
-                    differences.append(
+                    old_text = diff["old_text"]
+                    new_text = diff["new_text"]
+                    if old_text == '\n' or new_text == '\n':
+                        old_display = "↵" if old_text == "\n" else html.escape(old_text)
+                        new_display = "↵" if new_text == "\n" else html.escape(new_text)
+                        differences.append(
                         f'<span class="replaced">'
-                        f'<span class="replaced-old">{html.escape(diff["old_text"])}</span> → '
-                        f'<span class="replaced-new">{html.escape(diff["new_text"])}</span>'
+                        f'<span class="replaced-old">{old_display}</span> → '
+                        f'<span class="replaced-new">{new_display}</span>'
+                        f'</span><br>'
+                        )
+                    else:
+                        differences.append(
+                        f'<span class="replaced">'
+                        f'<span class="replaced-old">{html.escape(old_text)}</span> → '
+                        f'<span class="replaced-new">{html.escape(new_text)}</span>'
                         f'</span> '
-                    )
+                        )
 
         result_html = f"""
         <!DOCTYPE html>
