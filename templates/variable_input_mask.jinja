@@ -36,11 +36,73 @@
         Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.
     </div>
     {% endif %}
+
     
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
     
+{% if toolName == "Einheitenrechner" %}
+<div class="alert alert-info">
+    Wählen Sie eine Kategorie und geben Sie den Wert sowie die Quell- und Zieleinheit an, um eine Umrechnung durchzuführen.
+</div>
+
+<div class="form-group">
+    <label for="category">Kategorie:</label>
+    <select name="category" id="category" class="form-control" onchange="updateUnitOptions()">
+        <option value="länge">Länge</option>
+        <option value="gewicht">Gewicht</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="value">Wert:</label>
+    <input type="text" name="value" id="value" class="form-control" placeholder="z.B. 100">
+</div>
+
+<div class="form-group">
+    <label for="from_unit">Von Einheit:</label>
+    <select name="from_unit" id="from_unit" class="form-control"></select>
+</div>
+
+<div class="form-group">
+    <label for="to_unit">Nach Einheit:</label>
+    <select name="to_unit" id="to_unit" class="form-control"></select>
+</div>
+
+<script>
+function updateUnitOptions() {
+    const category = document.getElementById("category").value;
+    const fromUnit = document.getElementById("from_unit");
+    const toUnit = document.getElementById("to_unit");
+
+    const lengthUnits = ["meter", "zentimeter", "millimeter", "kilometer", "inch", "fuß"];
+    const weightUnits = ["kilogramm", "gramm", "milligramm", "tonne", "pfund", "unze"];
+
+    let units = category === "length" ? lengthUnits : weightUnits;
+
+    fromUnit.innerHTML = "";
+    toUnit.innerHTML = "";
+
+    units.forEach(unit => {
+        const option1 = document.createElement("option");
+        option1.value = unit;
+        option1.textContent = unit;
+        fromUnit.appendChild(option1);
+
+        const option2 = document.createElement("option");
+        option2.value = unit;
+        option2.textContent = unit;
+        toUnit.appendChild(option2);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", updateUnitOptions);
+</script>
+{% endif %}
+
+
+
     {% if toolName == "Unix-Timestamp Konverter" %}
     <div class="alert alert-info">
         Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und Zeitangaben umwandeln und umgekehrt.
