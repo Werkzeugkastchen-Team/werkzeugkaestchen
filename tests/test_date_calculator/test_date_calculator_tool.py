@@ -13,6 +13,17 @@ def test_valid_dates():
     assert "Die Differenz beträgt <strong>1</strong> Tage." in tool.output
     assert not tool.error_message
 
+def test_over_one_year():
+    """Test mit gültigen Daten über ein Jahr"""
+    tool = DateCalculatorTool()
+    input_params = {
+        'start_date': '01.01.2024',
+        'end_date': '02.01.2025'
+    }
+    success = tool.execute_tool(input_params)
+    assert success is True
+    assert "367" in tool.output
+    assert not tool.error_message
 
 def test_invalid_format():
     """Test mit falschem Format"""

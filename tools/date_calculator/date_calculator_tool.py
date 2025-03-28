@@ -37,15 +37,7 @@ class DateCalculatorTool(MiniTool):
 
             difference = abs((end_date_obj - start_date_obj).days)
 
-            self.output = f"""
-            <div class="date-diff-results">
-                <h4 class="text-primary">Datumsvergleich</h4>
-                <p>Startdatum: <strong>{start_date}</strong></p>
-                <p>Enddatum: <strong>{end_date}</strong></p>
-                <hr>
-                <p class="lead">Die Differenz beträgt <strong>{difference}</strong> Tage.</p>
-            </div>
-            """
+            self.output = f"Die Differenz beträgt <strong>{difference}</strong> Tage."
             return True
 
         except Exception as e:
@@ -57,6 +49,8 @@ class DateCalculatorTool(MiniTool):
             return False, None, "Bitte geben Sie ein gültiges Datum ein."
         try:
             date_obj = datetime.strptime(date_str, '%d.%m.%Y')
+            if date_obj.year < 1900:
+                return False, None, "Jahresangaben müssen ab 1900 sein."
             return True, date_obj, ""
         except ValueError:
             return False, None, "Bitte geben Sie ein gültiges Datum im Format DD.MM.YYYY ein."
