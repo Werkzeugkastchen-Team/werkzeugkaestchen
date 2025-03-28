@@ -1,10 +1,11 @@
 from tool_interface import MiniTool
 
 class PlaceholderTextTool(MiniTool):
-    name = "Placeholder text Generator "
-    description="Platzhalter-Text Generator"
+    name = "Platzhalter-Text Generator"
+    description = "Platzhalter-Text Generator"
+
     def __init__(self):
-        super().__init__("Placeholder text Generator", "PlaceholderTextTool")
+        super().__init__("Platzhalter-Text Generator", "PlaceholderTextTool")
         self.input_params = {
             "length": {
                 "name": "Textlänge",
@@ -15,7 +16,7 @@ class PlaceholderTextTool(MiniTool):
                 "placeholder": "Anzahl der Wörter (1-1000)"
             }
         }
-        
+
         self.lorem_words = [
             "Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", 
             "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", 
@@ -28,20 +29,23 @@ class PlaceholderTextTool(MiniTool):
 
     def execute_tool(self, input_params):
         try:
-            length = int(input_params.get("length", 0))
-            
+            if "length" not in input_params:
+                self.error_message = "Bitte geben Sie eine gültige Zahl ein."
+                return False
+
+            length = int(input_params.get("length"))
+
             if length <= 0 or length > 1000:
                 self.error_message = "Bitte geben Sie eine Zahl zwischen 1 und 1000 ein."
                 return False
-                
+
             words = []
             while len(words) < length:
                 words.extend(self.lorem_words[:min(length - len(words), len(self.lorem_words))])
-            
+
             text = " ".join(words)
             text = text[0].upper() + text[1:]
-            
-            # Formatăm output-ul ca HTML cu funcționalitate de copiere
+
             self.output = f"""
             <div class="generated-text-container">
                 <p id="generatedText">{text}</p>
@@ -96,10 +100,10 @@ class PlaceholderTextTool(MiniTool):
             </style>
             """
             return True
-            
+
         except ValueError:
             self.error_message = "Bitte geben Sie eine gültige Zahl ein."
             return False
         except Exception as e:
             self.error_message = f"Ein Fehler ist aufgetreten: {str(e)}"
-            return False 
+            return False
