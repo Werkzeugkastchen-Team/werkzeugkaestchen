@@ -16,6 +16,7 @@ from tools.random_number_generator.random_number_generator_tool import RandomNum
 from tools.audio_converter.audio_converter_tool import AudioConverterTool
 from tools.text_to_speech.text_to_speech_tool import TextToSpeechTool
 from tools.unix_timestamp.unix_timestamp_tool import UnixTimestampTool
+from tools.texte_vergleichen.texte_vergleichen_tool import TexteVergleichenTool
 from tools.json_validieren.json_validieren_tool import JSONValidierungTool
 from tools.json_formatieren.json_formatieren_tool import JSONFormatierungTool
 
@@ -39,6 +40,7 @@ tools = {
     "AudioConverterTool": AudioConverterTool(),
     "TextToSpeechTool": TextToSpeechTool(),
     "UnixTimestampTool": UnixTimestampTool(),
+    "TexteVergleichenTool": TexteVergleichenTool(),
     "JSONValidierungTool": JSONValidierungTool(),
     "JSONFormatierungTool": JSONFormatierungTool()
 }
