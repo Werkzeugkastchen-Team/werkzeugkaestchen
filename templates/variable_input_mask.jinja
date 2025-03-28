@@ -41,6 +41,21 @@
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
     
+    {% if identifier == "DateCalculatorTool" %}
+        {% for param, param_info in input_params.items() %}
+        <div class="form-group mb-3">
+            <label for="{{ param }}">{{ param_info.name }}</label>
+            <input 
+                type="{{ param_info.type }}"
+                class="form-control"
+                id="{{ param }}"
+                name="{{ param }}"
+                placeholder="{{ param_info.placeholder }}"
+                {% if param_info.required %}required{% endif %}>
+        </div>
+        {% endfor %}
+    {% endif %}
+    
     {% if toolName == "Unix-Timestamp Konverter" %}
     <div class="alert alert-info">
         Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und Zeitangaben umwandeln und umgekehrt.
