@@ -11,7 +11,8 @@ def test_valid_dates():
     success = tool.execute_tool(input_params)
     assert success is True
     assert "Die Differenz beträgt <strong>1</strong> Tage." in tool.output
-    assert tool.error_message is None
+    assert not tool.error_message
+
 
 def test_invalid_format():
     """Test mit falschem Format"""
@@ -22,7 +23,7 @@ def test_invalid_format():
     }
     success = tool.execute_tool(input_params)
     assert success is False
-    assert tool.output is None
+    assert not tool.output
     assert tool.error_message == "Bitte geben Sie ein gültiges Datum im Format DD.MM.YYYY ein."
 
 def test_invalid_year():
@@ -34,5 +35,5 @@ def test_invalid_year():
     }
     success = tool.execute_tool(input_params)
     assert success is False
-    assert tool.output is None
+    assert not tool.output
     assert tool.error_message == "Jahresangaben müssen ab 1900 sein."
