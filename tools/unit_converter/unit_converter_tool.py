@@ -38,7 +38,6 @@ class UnitConverterTool(MiniTool):
             raw_from = input_params.get("from_unit", "").lower().strip()
             raw_to = input_params.get("to_unit", "").lower().strip()
 
-            # Mapare sinonime germană → engleză
             category_map = {
                 "länge": "length",
                 "length": "length",
@@ -92,7 +91,9 @@ class UnitConverterTool(MiniTool):
 
             base_value = value / conversions[category][from_unit]
             converted_value = base_value * conversions[category][to_unit]
-            self.output = f"{value} {raw_from} = {converted_value} {raw_to}"
+
+
+            self.output = f"{value:.4f} {from_unit} = {converted_value:.4f} {to_unit}"
             return True
 
         except Exception as e:
