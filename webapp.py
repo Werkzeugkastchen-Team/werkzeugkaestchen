@@ -20,6 +20,8 @@ from tools.texte_vergleichen.texte_vergleichen_tool import TexteVergleichenTool
 from tools.json_validieren.json_validieren_tool import JSONValidierungTool
 from tools.json_formatieren.json_formatieren_tool import JSONFormatierungTool
 from tools.unit_converter.unit_converter_tool import UnitConverterTool
+from tools.date_calculator.date_calculator_tool import DateCalculatorTool
+
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' # ???
 
@@ -44,6 +46,7 @@ tools = {
     "JSONValidierungTool": JSONValidierungTool(),
     "JSONFormatierungTool": JSONFormatierungTool(),
     "UnitConverterTool": UnitConverterTool(),
+    "DateCalculatorTool": DateCalculatorTool(),
 }
 
 # Hauptseite

@@ -101,7 +101,20 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
 </script>
 {% endif %}
 
-
+    {% if identifier == "DateCalculatorTool" %}
+        {% for param, param_info in input_params.items() %}
+        <div class="form-group mb-3">
+            <label for="{{ param }}">{{ param_info.name }}</label>
+            <input 
+                type="{{ param_info.type }}"
+                class="form-control"
+                id="{{ param }}"
+                name="{{ param }}"
+                placeholder="{{ param_info.placeholder }}"
+                {% if param_info.required %}required{% endif %}>
+        </div>
+        {% endfor %}
+    {% endif %}
 
     {% if toolName == "Unix-Timestamp Konverter" %}
     <div class="alert alert-info">
