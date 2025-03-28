@@ -17,6 +17,8 @@ from tools.audio_converter.audio_converter_tool import AudioConverterTool
 from tools.text_to_speech.text_to_speech_tool import TextToSpeechTool
 from tools.unix_timestamp.unix_timestamp_tool import UnixTimestampTool
 from tools.texte_vergleichen.texte_vergleichen_tool import TexteVergleichenTool
+from tools.json_validieren.json_validieren_tool import JSONValidierungTool
+from tools.json_formatieren.json_formatieren_tool import JSONFormatierungTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' # ???
@@ -38,7 +40,9 @@ tools = {
     "AudioConverterTool": AudioConverterTool(),
     "TextToSpeechTool": TextToSpeechTool(),
     "UnixTimestampTool": UnixTimestampTool(),
-    "TexteVergleichenTool": TexteVergleichenTool()
+    "TexteVergleichenTool": TexteVergleichenTool(),
+    "JSONValidierungTool": JSONValidierungTool(),
+    "JSONFormatierungTool": JSONFormatierungTool()
 }
 
 # Hauptseite
