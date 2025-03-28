@@ -6,18 +6,17 @@ class JSONValidierungTool(MiniTool):
     def __init__(self):
         super().__init__("JSON-Validierung", "JSONValidierungTool")
         self.input_params = {
-            "json_text": {
-                "type": "string",
-                "label": "JSON-Text",
-                "placeholder": "Fügen Sie Ihren JSON-Text hier ein"
+            "JSON Text": {
+                "type": "textarea"
             }
         }
         self.is_valid = False
         self.error_details = {}
+        self.description = "Validiert JSON und schaut, ob der Text syntaktisch korrektes JSON ist."
 
     def execute_tool(self, input_params: Dict[str, Any]) -> bool:
         try:
-            json_text = input_params.get("json_text", "").strip()
+            json_text = input_params.get("JSON Text", "").strip()
             
             if not json_text:
                 self.error_message = "Bitte geben Sie JSON-Text ein."
