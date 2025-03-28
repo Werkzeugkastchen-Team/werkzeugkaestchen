@@ -9,7 +9,7 @@ class UnitConverterTool(MiniTool):
                 "name": "Kategorie",
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. Länge oder Gewicht"
+                "placeholder": "z.B. length oder weight"
             },
             "value": {
                 "name": "Wert",
@@ -21,13 +21,13 @@ class UnitConverterTool(MiniTool):
                 "name": "Von Einheit",
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. Meter oder Kilogramm"
+                "placeholder": "z.B. m oder kg"
             },
             "to_unit": {
                 "name": "Zu Einheit",
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. Zentimeter oder Gramm"
+                "placeholder": "z.B. km oder g"
             }
         }
 
@@ -39,40 +39,39 @@ class UnitConverterTool(MiniTool):
             to_unit = input_params.get("to_unit", "").lower().strip()
 
             conversions = {
-                "länge": {
-                    "meter": 1.0,
-                    "zentimeter": 100.0,
-                    "millimeter": 1000.0,
-                    "kilometer": 0.001,
-                    "inch": 39.3701,
-                    "fuß": 3.28084
+                "length": {
+                    "m": 1.0,
+                    "km": 0.001,
+                    "cm": 100.0,
+                    "mm": 1000.0
                 },
-                "gewicht": {
-                    "kilogramm": 1.0,
-                    "gramm": 1000.0,
-                    "milligramm": 1000000.0,
-                    "tonne": 0.001,
-                    "pfund": 2.20462,
-                    "unze": 35.274
+                "weight": {
+                    "kg": 1.0,
+                    "g": 1000.0,
+                    "mg": 1000000.0,
+                    "t": 0.001
                 }
             }
 
             if category not in conversions:
-                self.error_message = "Ungültige Kategorie. Bitte 'Länge' oder 'Gewicht' verwenden."
+                self.error_message = f"Kategorie '{category}' wird nicht unterstützt"
                 return False
 
             if from_unit not in conversions[category] or to_unit not in conversions[category]:
-                self.error_message = "Ungültige Einheit für gewählte Kategorie."
+                self.error_message = "Unbekannte Einheit"
                 return False
 
-            base_value = value / conversions[category][from_unit]
-            converted_value = base_value * conversions[category][to_unit]
-
-            self.output = f"{value} {from_unit} = {converted_value:.4f} {to_unit}"
-            return True
+            try:
+                base_value = value / conversions[category][from_unit]
+                converted_value = base_value * conversions[category][to_unit]
+                self.output = f"{value} {from_unit} = {converted_value} {to_unit}"
+                return True
+            except ValueError:
+                self.error_message = "Ungültiger Zahlenwert"
+                return False
 
         except ValueError:
-            self.error_message = "Bitte geben Sie einen gültigen numerischen Wert ein."
+            self.error_message = "Ungültiger Zahlenwert"
             return False
         except Exception as e:
             self.error_message = f"Ein Fehler ist aufgetreten: {str(e)}"

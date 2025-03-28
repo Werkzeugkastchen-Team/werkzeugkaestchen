@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
@@ -50,8 +51,8 @@
 <div class="form-group">
     <label for="category">Kategorie:</label>
     <select name="category" id="category" class="form-control" onchange="updateUnitOptions()">
-        <option value="länge">Länge</option>
-        <option value="gewicht">Gewicht</option>
+        <option value="length">Length</option>
+        <option value="weight">Weight</option>
     </select>
 </div>
 
@@ -76,8 +77,8 @@ function updateUnitOptions() {
     const fromUnit = document.getElementById("from_unit");
     const toUnit = document.getElementById("to_unit");
 
-    const lengthUnits = ["meter", "zentimeter", "millimeter", "kilometer", "inch", "fuß"];
-    const weightUnits = ["kilogramm", "gramm", "milligramm", "tonne", "pfund", "unze"];
+    const lengthUnits = ["m", "km", "cm", "mm"];
+    const weightUnits = ["kg", "g", "mg", "t"];
 
     let units = category === "length" ? lengthUnits : weightUnits;
 

@@ -6,30 +6,30 @@ class TestUnitConverterTool:
     def test_length_m_to_km(self):
         tool = UnitConverterTool()
         input_params = {
-            "category": "length",
+            "category": "länge",
             "value": "1000",
-            "from_unit": "m",
-            "to_unit": "km"
+            "from_unit": "meter",
+            "to_unit": "kilometer"
         }
 
         result = tool.execute_tool(input_params)
 
         assert result is True
-        assert "1.0 km" in tool.output
+        assert "1000 meter = 1.0 kilometer" in tool.output
 
     def test_weight_kg_to_g(self):
         tool = UnitConverterTool()
         input_params = {
-            "category": "weight",
+            "category": "gewicht",
             "value": "2.5",
-            "from_unit": "kg",
-            "to_unit": "g"
+            "from_unit": "kilogramm",
+            "to_unit": "gramm"
         }
 
         result = tool.execute_tool(input_params)
 
         assert result is True
-        assert "2500.0 g" in tool.output
+        assert "2.5 kilogramm = 2500.0 gramm" in tool.output
 
     def test_invalid_category(self):
         tool = UnitConverterTool()
@@ -48,9 +48,9 @@ class TestUnitConverterTool:
     def test_unknown_unit(self):
         tool = UnitConverterTool()
         input_params = {
-            "category": "length",
+            "category": "länge",
             "value": "10",
-            "from_unit": "m",
+            "from_unit": "meter",
             "to_unit": "parsec"
         }
 
@@ -62,10 +62,10 @@ class TestUnitConverterTool:
     def test_invalid_value(self):
         tool = UnitConverterTool()
         input_params = {
-            "category": "length",
+            "category": "länge",
             "value": "abc",
-            "from_unit": "m",
-            "to_unit": "km"
+            "from_unit": "meter",
+            "to_unit": "kilometer"
         }
 
         result = tool.execute_tool(input_params)
