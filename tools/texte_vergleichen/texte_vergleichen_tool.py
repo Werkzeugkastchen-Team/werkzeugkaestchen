@@ -7,16 +7,21 @@ class TexteVergleichenTool(MiniTool):
     def __init__(self):
         super().__init__("Textvergleich", "TexteVergleichenTool")
         self.input_params = {
-            "text1": {"type": "string", "label": "Erster Text", "placeholder": "Geben Sie den ersten Text ein"},
-            "text2": {"type": "string", "label": "Zweiter Text", "placeholder": "Geben Sie den zweiten Text ein"}
+            "Text 1": {
+                "type": "textarea"
+            },
+            "Text 2": {
+                "type": "textarea"
+            }
         }
         self.similarity_score = 0.0
+        self.description = "Vergleicht zwei Texte und zeigt Unterschiede und Ähnlichkeiten zwischen ihnen (Diff)."
 
     def execute_tool(self, input_params: Dict[str, Any]) -> bool:
         try:
             # Eingabeparameter extrahieren
-            text1 = input_params.get("text1", "").strip()
-            text2 = input_params.get("text2", "").strip()
+            text1 = input_params.get("Text 1", "").strip()
+            text2 = input_params.get("Text 2", "").strip()
 
             # Eingaben validieren
             if not text1 or not text2:
