@@ -15,7 +15,7 @@ class TestUnitConverterTool:
         result = tool.execute_tool(input_params)
 
         assert result is True
-        assert "1000 meter = 1.0 kilometer" in tool.output
+        assert "1000.0 meter = 1.0 kilometer" in tool.output
 
     def test_weight_kg_to_g(self):
         tool = UnitConverterTool()

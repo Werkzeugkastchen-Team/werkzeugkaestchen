@@ -9,7 +9,7 @@ class UnitConverterTool(MiniTool):
                 "name": "Kategorie",
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. length oder weight"
+                "placeholder": "z.B. länge oder gewicht"
             },
             "value": {
                 "name": "Wert",
@@ -33,10 +33,37 @@ class UnitConverterTool(MiniTool):
 
     def execute_tool(self, input_params):
         try:
-            category = input_params.get("category", "").lower().strip()
-            value = float(input_params.get("value", "0"))
-            from_unit = input_params.get("from_unit", "").lower().strip()
-            to_unit = input_params.get("to_unit", "").lower().strip()
+            raw_category = input_params.get("category", "").lower().strip()
+            raw_value = input_params.get("value", "0").strip()
+            raw_from = input_params.get("from_unit", "").lower().strip()
+            raw_to = input_params.get("to_unit", "").lower().strip()
+
+            # Mapare sinonime germană → engleză
+            category_map = {
+                "länge": "length",
+                "length": "length",
+                "gewicht": "weight",
+                "weight": "weight"
+            }
+
+            unit_map = {
+                "meter": "m", "m": "m",
+                "kilometer": "km", "km": "km",
+                "zentimeter": "cm", "cm": "cm",
+                "millimeter": "mm", "mm": "mm",
+                "kilogramm": "kg", "kg": "kg",
+                "gramm": "g", "g": "g",
+                "milligramm": "mg", "mg": "mg",
+                "tonne": "t", "t": "t"
+            }
+
+            category = category_map.get(raw_category)
+            from_unit = unit_map.get(raw_from)
+            to_unit = unit_map.get(raw_to)
+
+            if category is None:
+                self.error_message = f"Kategorie '{raw_category}' wird nicht unterstützt"
+                return False
 
             conversions = {
                 "length": {
@@ -53,26 +80,21 @@ class UnitConverterTool(MiniTool):
                 }
             }
 
-            if category not in conversions:
-                self.error_message = f"Kategorie '{category}' wird nicht unterstützt"
-                return False
-
             if from_unit not in conversions[category] or to_unit not in conversions[category]:
                 self.error_message = "Unbekannte Einheit"
                 return False
 
             try:
-                base_value = value / conversions[category][from_unit]
-                converted_value = base_value * conversions[category][to_unit]
-                self.output = f"{value} {from_unit} = {converted_value} {to_unit}"
-                return True
+                value = float(raw_value)
             except ValueError:
                 self.error_message = "Ungültiger Zahlenwert"
                 return False
 
-        except ValueError:
-            self.error_message = "Ungültiger Zahlenwert"
-            return False
+            base_value = value / conversions[category][from_unit]
+            converted_value = base_value * conversions[category][to_unit]
+            self.output = f"{value} {raw_from} = {converted_value} {raw_to}"
+            return True
+
         except Exception as e:
             self.error_message = f"Ein Fehler ist aufgetreten: {str(e)}"
             return False
