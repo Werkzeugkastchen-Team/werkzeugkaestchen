@@ -1,8 +1,8 @@
-import unittest
+import pytest
 from datetime import datetime
 from tools.date_calculator.date_calculator_tool import calculate_days_difference
 
-class TestDateCalculatorTool(unittest.TestCase):
+class TestDateCalculatorTool(pytest.TestCase):
     def test_valid_dates(self):
         """Test mit gültigen Daten"""
         success, days, error = calculate_days_difference("01.01.2024", "02.01.2024")
@@ -25,4 +25,4 @@ class TestDateCalculatorTool(unittest.TestCase):
         self.assertEqual(error, "Jahresangaben müssen ab 1900 sein.")
 
 if __name__ == '__main__':
-    unittest.main()
+    pytest.main()
