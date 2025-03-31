@@ -9,6 +9,7 @@
     </div>
 
     <div class="color-inputs">
+        <div id="validationMessage" class="validation-message" style="display: none;"></div>
         <div class="input-group mb-3">
             <span class="input-group-text">HEX:</span>
             <input type="text" id="hexInput" class="form-control" placeholder="#FF0000" value="#FF0000">
@@ -150,6 +151,15 @@
 
     .color-swatch:hover {
         transform: scale(1.1);
+    }
+
+    .validation-message {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        border: 1px solid #ffeeba;
     }
 </style>
 
@@ -438,9 +448,14 @@
                 }
             }
 
+           // Zu den Event-Handler-Funktionen hinzufügen:
+
             // Event-Handler für Hex-Eingabe
             hexInput.addEventListener('input', function() {
                 let hex = this.value;
+
+                // Validationsmeldung zurücksetzen
+                hideValidationMessage();
 
                 // Füge # hinzu, wenn es fehlt
                 if (hex && !hex.startsWith('#')) {
@@ -449,6 +464,11 @@
 
                 // Validiere Hex-Format
                 const hexRegex = /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/;
+                if (hex && !hexRegex.test(hex)) {
+                    showValidationMessage("Ungültiges HEX-Format. Gültige Formate: #ABC oder #AABBCC");
+                    return;
+                }
+
                 if (hexRegex.test(hex)) {
                     const rgb = hexToRgb(hex);
                     updateUi(rgb.r, rgb.g, rgb.b);
@@ -457,7 +477,12 @@
 
             // Event-Handler für RGB-Eingabe
             rgbInput.addEventListener('input', function() {
+                hideValidationMessage();
                 const rgb = parseRgbInput(this.value);
+                if (this.value && !rgb) {
+                    showValidationMessage("Ungültiges RGB-Format. Gültige Formate: 255, 0, 0");
+                    return;
+                }
                 if (rgb) {
                     updateUi(rgb.r, rgb.g, rgb.b);
                 }
@@ -465,7 +490,12 @@
 
             // Event-Handler für HSL-Eingabe
             hslInput.addEventListener('input', function() {
+                hideValidationMessage();
                 const hsl = parseHslInput(this.value);
+                if (this.value && !hsl) {
+                    showValidationMessage("Ungültiges HSL-Format. Gültige Formate: 0, 100%, 50%");
+                    return;
+                }
                 if (hsl) {
                     const rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
                     updateUi(rgb.r, rgb.g, rgb.b);
@@ -474,12 +504,29 @@
 
             // Event-Handler für HSV-Eingabe
             hsvInput.addEventListener('input', function() {
+                hideValidationMessage();
                 const hsv = parseHsvInput(this.value);
+                if (this.value && !hsv) {
+                    showValidationMessage("Ungültiges HSV-Format. Gültige Formate: 0, 100%, 100%");
+                    return;
+                }
                 if (hsv) {
                     const rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
                     updateUi(rgb.r, rgb.g, rgb.b);
                 }
             });
+
+            // Funktionen für Validierungsmeldungen
+            function showValidationMessage(message) {
+                const validationMessage = document.getElementById('validationMessage');
+                validationMessage.textContent = message;
+                validationMessage.style.display = 'block';
+            }
+
+            function hideValidationMessage() {
+                const validationMessage = document.getElementById('validationMessage');
+                validationMessage.style.display = 'none';
+            }
 
             // Event-Handler für RGB-Schieberegler
             redSlider.addEventListener('input', function() {
