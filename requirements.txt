@@ -6,7 +6,5 @@ image
 ffmpeg-python
 pydub
 beautifulsoup4
-torch
-torchaudio
-coqui-tts
 pytz
+piper-tts
