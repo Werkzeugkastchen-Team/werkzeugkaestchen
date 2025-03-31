@@ -7,4 +7,3 @@ ffmpeg-python
 pydub
 beautifulsoup4
 pytz
-piper-tts
