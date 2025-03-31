@@ -17,7 +17,13 @@ class TextToSpeechTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "TextToSpeechTool")
-        self.input_params = {"Text": "string", "Sprache": "string"}
+        self.input_params = {
+            "Text": "string",
+            "Sprache": {
+                "type": "enum",
+                "options": ["en", "de"]
+            }
+        }
 
     def execute_tool(self, input_params:dict) -> bool:
         try:
@@ -44,7 +50,6 @@ class TextToSpeechTool(MiniTool):
                 return False
 
             # Determine voice
-            # TODO: just do an enum here by the gods
             voice = "en_US-lessac-medium"
             if language == "de":
                 voice = "de_DE-thorsten-medium"
