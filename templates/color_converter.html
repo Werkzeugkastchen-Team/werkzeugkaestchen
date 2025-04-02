@@ -1,0 +1,563 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Farbkonvertierer {% endblock %}</h1>
+
+<div class="color-converter-container">
+    <div class="live-color-preview">
+        <div id="colorPreview" class="color-preview"></div>
+    </div>
+
+    <div class="color-inputs">
+        <div id="validationMessage" class="validation-message" style="display: none;"></div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">HEX:</span>
+            <input type="text" id="hexInput" class="form-control" placeholder="#FF0000" value="#FF0000">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">RGB:</span>
+            <input type="text" id="rgbInput" class="form-control" placeholder="255, 0, 0" value="255, 0, 0">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">HSL:</span>
+            <input type="text" id="hslInput" class="form-control" placeholder="0, 100%, 50%" value="0, 100%, 50%">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">HSV:</span>
+            <input type="text" id="hsvInput" class="form-control" placeholder="0, 100%, 100%" value="0, 100%, 100%">
+        </div>
+    </div>
+
+    <div class="color-sliders mt-4">
+        <div class="row mb-2">
+            <div class="col-1 text-right pr-0">
+                <label for="redSlider">R:</label>
+            </div>
+            <div class="col-10">
+                <input type="range" id="redSlider" class="form-range" min="0" max="255" value="255">
+            </div>
+            <div class="col-1 pl-0">
+                <span id="redValue">255</span>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-1 text-right pr-0">
+                <label for="greenSlider">G:</label>
+            </div>
+            <div class="col-10">
+                <input type="range" id="greenSlider" class="form-range" min="0" max="255" value="0">
+            </div>
+            <div class="col-1 pl-0">
+                <span id="greenValue">0</span>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-1 text-right pr-0">
+                <label for="blueSlider">B:</label>
+            </div>
+            <div class="col-10">
+                <input type="range" id="blueSlider" class="form-range" min="0" max="255" value="0">
+            </div>
+            <div class="col-1 pl-0">
+                <span id="blueValue">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="color-examples mt-4">
+        <h5>Standardfarben</h5>
+        <div class="d-flex flex-wrap">
+            <div class="color-swatch" style="background-color: #FF0000;" data-color="#FF0000" title="Rot"></div>
+            <div class="color-swatch" style="background-color: #00FF00;" data-color="#00FF00" title="Grün"></div>
+            <div class="color-swatch" style="background-color: #0000FF;" data-color="#0000FF" title="Blau"></div>
+            <div class="color-swatch" style="background-color: #FFFF00;" data-color="#FFFF00" title="Gelb"></div>
+            <div class="color-swatch" style="background-color: #FF00FF;" data-color="#FF00FF" title="Magenta"></div>
+            <div class="color-swatch" style="background-color: #00FFFF;" data-color="#00FFFF" title="Cyan"></div>
+            <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" data-color="#FFFFFF" title="Weiß"></div>
+            <div class="color-swatch" style="background-color: #000000;" data-color="#000000" title="Schwarz"></div>
+            <div class="color-swatch" style="background-color: #808080;" data-color="#808080" title="Grau"></div>
+            <div class="color-swatch" style="background-color: #800000;" data-color="#800000" title="Dunkelrot"></div>
+            <div class="color-swatch" style="background-color: #808000;" data-color="#808000" title="Olive"></div>
+            <div class="color-swatch" style="background-color: #008000;" data-color="#008000" title="Dunkelgrün"></div>
+            <div class="color-swatch" style="background-color: #800080;" data-color="#800080" title="Lila"></div>
+            <div class="color-swatch" style="background-color: #008080;" data-color="#008080" title="Petrol"></div>
+            <div class="color-swatch" style="background-color: #000080;" data-color="#000080" title="Dunkelblau"></div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h5>Was bedeuten diese Farbformate?</h5>
+        <div class="row">
+            <div class="col-md-6">
+                <h6>HEX-Format (Hexadezimalwert)</h6>
+                <p>Eine Farbnotation mit 6 Hexadezimalziffern. Beginnt mit #, gefolgt von den Werten für Rot, Grün und Blau.</p>
+                <p><strong>Beispiel:</strong> #FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)</p>
+                <br><br>
+                <h6>HSL (Hue, Saturation, Lightness)</h6>
+                <p><strong>Hue (Farbton)</strong>: Ein Wert von 0–360° für die Farbe selbst. 0° ist Rot, 120° Grün, 240° Blau usw. Stellt quasi dar, welche Farbe. </p>
+                <p><strong>Saturation (Sättigung)</strong>: Wie kräftig oder ausgewaschen die Farbe ist. 0 % = grau, 100 % = volle Farbe.</p>
+                <p><strong>Lightness (Helligkeit)</strong>: Wie hell oder dunkel die Farbe ist. 0 % = schwarz, 50 % = normale Farbe, 100 % = weiß.</p>
+                <p><strong>Beispiel:</strong> HSL(0, 100%, 50%) = reines Rot. HSL(0, 100%, 25%) = dunkles Rot. HSL(0, 0%, 50%) = grauer Farbton (kein Rot mehr da, weil 0% Sättigung).</p>
+
+            </div>
+            <div class="col-md-6">
+                <h6>RGB-Format (Rot, Grün, Blau)</h6>
+                <p>Eine Farbnotation mit drei Werten (0-255) für Rot, Grün und Blau.</p>
+                <p><strong>Beispiel:</strong> rgb(255, 0, 0) ist Rot</p>
+                <br><br>
+                <h6>HSV (Hue, Saturation, Value)</h6>
+                <p><strong>Hue (Farbton)</strong>: Ein Wert von 0–360° für die Farbe selbst. 0° ist Rot, 120° Grün, 240° Blau usw. Stellt quasi dar, welche Farbe.</p>
+                <p><strong>Saturation (Sättigung)</strong>: Wie kräftig oder ausgewaschen die Farbe ist. 0 % = grau, 100 % = volle Farbe.</p>
+                <p><strong>Value: 0 %</strong> = schwarz, 100 % = hellste Version der Farbe (aber kein Weiß dazugemischt wie bei HSL)</p>
+                <p><strong>Beispiel:</strong> HSV(0, 100%, 100%) = leuchtendes Rot HSV(0, 100%, 50%) = dunkelrot, aber kräftig (0, 0%, 50%) = grauton (weil Sättigung null)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .color-converter-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .live-color-preview {
+        width: 250px;
+        margin: 0 auto 30px auto;
+    }
+
+    .color-preview {
+        width: 100%;
+        height: 80px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        background-color: #FF0000;
+    }
+
+    .color-swatch {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .color-swatch:hover {
+        transform: scale(1.1);
+    }
+
+    .validation-message {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        border: 1px solid #ffeeba;
+    }
+</style>
+
+<script>
+    // Direkt ausführbare Funktion, die nicht auf DOMContentLoaded wartet
+    (function() {
+        initColorConverter();
+
+        function initColorConverter() {
+            // Erst prüfen, ob die DOM-Elemente vorhanden sind
+            if (!document.getElementById('colorPreview')) {
+                // Falls nötig, auf DOMContentLoaded warten
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initColorConverter);
+                    return;
+                } else {
+                    console.error('Farbkonverter: Elemente nicht gefunden');
+                    return;
+                }
+            }
+
+            // Elemente für die Farbanzeige und Eingabefelder
+            const colorPreview = document.getElementById('colorPreview');
+            const hexInput = document.getElementById('hexInput');
+            const rgbInput = document.getElementById('rgbInput');
+            const hslInput = document.getElementById('hslInput');
+            const hsvInput = document.getElementById('hsvInput');
+
+            // RGB-Schieberegler
+            const redSlider = document.getElementById('redSlider');
+            const greenSlider = document.getElementById('greenSlider');
+            const blueSlider = document.getElementById('blueSlider');
+            const redValue = document.getElementById('redValue');
+            const greenValue = document.getElementById('greenValue');
+            const blueValue = document.getElementById('blueValue');
+
+            // Farbbeispiele
+            const colorSwatches = document.querySelectorAll('.color-swatch');
+
+            // Konvertierungsfunktionen
+            function hexToRgb(hex) {
+                // Entferne # wenn vorhanden
+                hex = hex.charAt(0) === '#' ? hex.substring(1) : hex;
+
+                // Konvertiere kurzen Hex-Code (3 Zeichen) in langen (6 Zeichen)
+                if (hex.length === 3) {
+                    hex = hex.split('').map(char => char + char).join('');
+                }
+
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+
+                return { r, g, b };
+            }
+
+            function rgbToHex(r, g, b) {
+                return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`.toUpperCase();
+            }
+
+            function rgbToHsl(r, g, b) {
+                r /= 255;
+                g /= 255;
+                b /= 255;
+
+                const max = Math.max(r, g, b);
+                const min = Math.min(r, g, b);
+                let h, s, l = (max + min) / 2;
+
+                if (max === min) {
+                    h = s = 0; // Graustufe
+                } else {
+                    const d = max - min;
+                    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+                    switch (max) {
+                        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                        case g: h = (b - r) / d + 2; break;
+                        case b: h = (r - g) / d + 4; break;
+                    }
+
+                    h /= 6;
+                }
+
+                return {
+                    h: Math.round(h * 360),
+                    s: Math.round(s * 100),
+                    l: Math.round(l * 100)
+                };
+            }
+
+            function rgbToHsv(r, g, b) {
+                r /= 255;
+                g /= 255;
+                b /= 255;
+
+                const max = Math.max(r, g, b);
+                const min = Math.min(r, g, b);
+                let h, s, v = max;
+
+                const d = max - min;
+                s = max === 0 ? 0 : d / max;
+
+                if (max === min) {
+                    h = 0; // Graustufe
+                } else {
+                    switch (max) {
+                        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                        case g: h = (b - r) / d + 2; break;
+                        case b: h = (r - g) / d + 4; break;
+                    }
+
+                    h /= 6;
+                }
+
+                return {
+                    h: Math.round(h * 360),
+                    s: Math.round(s * 100),
+                    v: Math.round(v * 100)
+                };
+            }
+
+            function hslToRgb(h, s, l) {
+                h /= 360;
+                s /= 100;
+                l /= 100;
+
+                let r, g, b;
+
+                if (s === 0) {
+                    r = g = b = l; // Graustufe
+                } else {
+                    const hue2rgb = (p, q, t) => {
+                        if (t < 0) t += 1;
+                        if (t > 1) t -= 1;
+                        if (t < 1/6) return p + (q - p) * 6 * t;
+                        if (t < 1/2) return q;
+                        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                        return p;
+                    };
+
+                    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                    const p = 2 * l - q;
+
+                    r = hue2rgb(p, q, h + 1/3);
+                    g = hue2rgb(p, q, h);
+                    b = hue2rgb(p, q, h - 1/3);
+                }
+
+                return {
+                    r: Math.round(r * 255),
+                    g: Math.round(g * 255),
+                    b: Math.round(b * 255)
+                };
+            }
+
+            function hsvToRgb(h, s, v) {
+                h /= 360;
+                s /= 100;
+                v /= 100;
+
+                let r, g, b;
+
+                if (s === 0) {
+                    r = g = b = v; // Graustufe
+                } else {
+                    const i = Math.floor(h * 6);
+                    const f = h * 6 - i;
+                    const p = v * (1 - s);
+                    const q = v * (1 - f * s);
+                    const t = v * (1 - (1 - f) * s);
+
+                    switch (i % 6) {
+                        case 0: r = v, g = t, b = p; break;
+                        case 1: r = q, g = v, b = p; break;
+                        case 2: r = p, g = v, b = t; break;
+                        case 3: r = p, g = q, b = v; break;
+                        case 4: r = t, g = p, b = v; break;
+                        case 5: r = v, g = p, b = q; break;
+                    }
+                }
+
+                return {
+                    r: Math.round(r * 255),
+                    g: Math.round(g * 255),
+                    b: Math.round(b * 255)
+                };
+            }
+
+            // Funktion zum Parsen der RGB-Eingabe
+            function parseRgbInput(rgbString) {
+                // Entferne rgb() und Leerzeichen wenn vorhanden
+                const cleaned = rgbString.replace('rgb(', '').replace(')', '').replace(/\s/g, '');
+                const parts = cleaned.split(',');
+
+                if (parts.length !== 3) {
+                    return null;
+                }
+
+                const r = parseInt(parts[0]);
+                const g = parseInt(parts[1]);
+                const b = parseInt(parts[2]);
+
+                if (isNaN(r) || isNaN(g) || isNaN(b) ||
+                    r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
+                    return null;
+                }
+
+                return { r, g, b };
+            }
+
+            // Funktion zum Parsen der HSL-Eingabe
+            function parseHslInput(hslString) {
+                // Entferne hsl() und Leerzeichen wenn vorhanden
+                const cleaned = hslString.replace('hsl(', '').replace(')', '').replace(/\s/g, '');
+                const parts = cleaned.split(',');
+
+                if (parts.length !== 3) {
+                    return null;
+                }
+
+                const h = parseInt(parts[0]);
+                const s = parseInt(parts[1]);
+                const l = parseInt(parts[2]);
+
+                if (isNaN(h) || isNaN(s) || isNaN(l) ||
+                    h < 0 || h > 360 || s < 0 || s > 100 || l < 0 || l > 100) {
+                    return null;
+                }
+
+                return { h, s, l };
+            }
+
+            // Funktion zum Parsen der HSV-Eingabe
+            function parseHsvInput(hsvString) {
+                // Entferne hsv() und Leerzeichen wenn vorhanden
+                const cleaned = hsvString.replace('hsv(', '').replace(')', '').replace(/\s/g, '');
+                const parts = cleaned.split(',');
+
+                if (parts.length !== 3) {
+                    return null;
+                }
+
+                const h = parseInt(parts[0]);
+                const s = parseInt(parts[1]);
+                const v = parseInt(parts[2]);
+
+                if (isNaN(h) || isNaN(s) || isNaN(v) ||
+                    h < 0 || h > 360 || s < 0 || s > 100 || v < 0 || v > 100) {
+                    return null;
+                }
+
+                return { h, s, v };
+            }
+
+            // Funktion zum Aktualisieren der Benutzeroberfläche mit aktuellen Farbwerten
+            function updateUi(r, g, b) {
+                // Aktualisiere Farbvorschau
+                colorPreview.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+                // Aktualisiere RGB-Schieberegler
+                redSlider.value = r;
+                greenSlider.value = g;
+                blueSlider.value = b;
+                redValue.textContent = r;
+                greenValue.textContent = g;
+                blueValue.textContent = b;
+
+                // Aktualisiere Eingabefelder (wenn sie nicht im Fokus sind)
+                if (document.activeElement !== hexInput) {
+                    hexInput.value = rgbToHex(r, g, b);
+                }
+
+                if (document.activeElement !== rgbInput) {
+                    rgbInput.value = `${r}, ${g}, ${b}`;
+                }
+
+                const hsl = rgbToHsl(r, g, b);
+                if (document.activeElement !== hslInput) {
+                    hslInput.value = `${hsl.h}, ${hsl.s}%, ${hsl.l}%`;
+                }
+
+                const hsv = rgbToHsv(r, g, b);
+                if (document.activeElement !== hsvInput) {
+                    hsvInput.value = `${hsv.h}, ${hsv.s}%, ${hsv.v}%`;
+                }
+            }
+
+           // Zu den Event-Handler-Funktionen hinzufügen:
+
+            // Event-Handler für Hex-Eingabe
+            hexInput.addEventListener('input', function() {
+                let hex = this.value;
+
+                // Validationsmeldung zurücksetzen
+                hideValidationMessage();
+
+                // Füge # hinzu, wenn es fehlt
+                if (hex && !hex.startsWith('#')) {
+                    hex = '#' + hex;
+                }
+
+                // Validiere Hex-Format
+                const hexRegex = /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/;
+                if (hex && !hexRegex.test(hex)) {
+                    showValidationMessage("Ungültiges HEX-Format. Gültige Formate: #ABC oder #AABBCC");
+                    return;
+                }
+
+                if (hexRegex.test(hex)) {
+                    const rgb = hexToRgb(hex);
+                    updateUi(rgb.r, rgb.g, rgb.b);
+                }
+            });
+
+            // Event-Handler für RGB-Eingabe
+            rgbInput.addEventListener('input', function() {
+                hideValidationMessage();
+                const rgb = parseRgbInput(this.value);
+                if (this.value && !rgb) {
+                    showValidationMessage("Ungültiges RGB-Format. Gültige Formate: 255, 0, 0");
+                    return;
+                }
+                if (rgb) {
+                    updateUi(rgb.r, rgb.g, rgb.b);
+                }
+            });
+
+            // Event-Handler für HSL-Eingabe
+            hslInput.addEventListener('input', function() {
+                hideValidationMessage();
+                const hsl = parseHslInput(this.value);
+                if (this.value && !hsl) {
+                    showValidationMessage("Ungültiges HSL-Format. Gültige Formate: 0, 100%, 50%");
+                    return;
+                }
+                if (hsl) {
+                    const rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+                    updateUi(rgb.r, rgb.g, rgb.b);
+                }
+            });
+
+            // Event-Handler für HSV-Eingabe
+            hsvInput.addEventListener('input', function() {
+                hideValidationMessage();
+                const hsv = parseHsvInput(this.value);
+                if (this.value && !hsv) {
+                    showValidationMessage("Ungültiges HSV-Format. Gültige Formate: 0, 100%, 100%");
+                    return;
+                }
+                if (hsv) {
+                    const rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
+                    updateUi(rgb.r, rgb.g, rgb.b);
+                }
+            });
+
+            // Funktionen für Validierungsmeldungen
+            function showValidationMessage(message) {
+                const validationMessage = document.getElementById('validationMessage');
+                validationMessage.textContent = message;
+                validationMessage.style.display = 'block';
+            }
+
+            function hideValidationMessage() {
+                const validationMessage = document.getElementById('validationMessage');
+                validationMessage.style.display = 'none';
+            }
+
+            // Event-Handler für RGB-Schieberegler
+            redSlider.addEventListener('input', function() {
+                redValue.textContent = this.value;
+                updateUi(parseInt(redSlider.value), parseInt(greenSlider.value), parseInt(blueSlider.value));
+            });
+
+            greenSlider.addEventListener('input', function() {
+                greenValue.textContent = this.value;
+                updateUi(parseInt(redSlider.value), parseInt(greenSlider.value), parseInt(blueSlider.value));
+            });
+
+            blueSlider.addEventListener('input', function() {
+                blueValue.textContent = this.value;
+                updateUi(parseInt(redSlider.value), parseInt(greenSlider.value), parseInt(blueSlider.value));
+            });
+
+            // Event-Handler für Farbbeispiele
+            colorSwatches.forEach(swatch => {
+                swatch.addEventListener('click', function() {
+                    const hex = this.getAttribute('data-color');
+                    hexInput.value = hex;
+
+                    const rgb = hexToRgb(hex);
+                    updateUi(rgb.r, rgb.g, rgb.b);
+                });
+            });
+
+            // Initialisiere mit einer Standardfarbe
+            updateUi(255, 0, 0);
+        }
+    })();
+</script>
+{% endblock %}

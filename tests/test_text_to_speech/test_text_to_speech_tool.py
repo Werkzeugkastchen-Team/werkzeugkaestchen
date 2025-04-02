@@ -20,11 +20,11 @@ def test_successful_execution(tool):
         assert "<audio controls>" in tool.output
 
 def test_error_handling_missing_input(tool):
-    with patch("builtins.input", return_value="y"):
-        input_params = {"Text": ""}
-        result = tool.execute_tool(input_params)
-        assert result is False
-        assert tool.error_message is not None
+    input_params = {"Text": ""}
+    result = tool.execute_tool(input_params)
+    assert result is False
+    assert tool.error_message is not None
+    assert tool.error_message == "Alle Eingabefelder müssen ausgefüllt sein."
 
 def test_output_contains_base64_audio(tool):
     with patch("builtins.input", return_value="y"):
