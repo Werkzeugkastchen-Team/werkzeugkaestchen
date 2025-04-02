@@ -31,4 +31,3 @@ def test_output_contains_base64_audio(tool):
         input_params = {"Text": "This is a test.", "Sprache": "de"}
         tool.execute_tool(input_params)
         assert "base64," in tool.output
-
