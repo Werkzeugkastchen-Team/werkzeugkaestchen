@@ -7,3 +7,6 @@ ffmpeg-python
 pydub
 beautifulsoup4
 pytz
+torch
+torchaudio
+coqui-tts
