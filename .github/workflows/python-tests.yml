@@ -21,10 +21,13 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install ffmpeg
+      - name: Install ffmpeg and piper
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y ffmpeg piper
+          mkdir -p ~/.local/share/piper/voices
+          cp de_DE-thorsten-medium.onnx ~/.local/share/piper/voices/
+          cp en_US-lessac-medium.onnx ~/.local/share/piper/voices/
 
       - name: Install dependencies
         run: |
