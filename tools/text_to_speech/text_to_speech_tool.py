@@ -17,62 +17,40 @@ class TextToSpeechTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "TextToSpeechTool")
-        self.input_params = {
-            "Text": "string",
-            "Sprache": {
-                "type": "enum",
-                "options": ["en", "de"]
-            }
-        }
+        self.input_params = {"Text": "string", "Sprache": "string"}
 
     def execute_tool(self, input_params:dict) -> bool:
         try:
             self.error_message = None
-            import subprocess
-
+            from TTS.api import TTS
             if not input_params.get("Text") or not input_params.get("Sprache"):
                 self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
                 return False
 
             text = input_params.get("Text", "")
             language = input_params.get("Sprache", "de")
-
+            
             if len(text) > self.TTS_TOOL_CHARACTER_LIMIT:
                 self.error_message = f"Eingabetext darf wegen technischen Limitationen nicht länger als {self.TTS_TOOL_CHARACTER_LIMIT} Zeichen sein."
                 return False
-
+            
             temp_dir = tempfile.gettempdir()
             id = str(uuid.uuid4())
             filename = str("output_" + id + ".wav")
-            filepath = os.path.join(temp_dir, filename)
+            filepath = os.path.join(temp_dir,filename)
             if text == "":
                 self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
                 return False
 
-            # Determine voice
-            voice = "en_US-lessac-medium"
-            if language == "de":
-                voice = "de_DE-thorsten-medium"
+            tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
 
-            # Construct Piper command
-            command = [
-                "piper",
-                "--model",
-                voice,
-                "--output_file",
-                filepath,
-            ]
-
-            # Execute Piper command
-            try:
-                process = subprocess.Popen(command, stdin=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-                process.communicate(input=text)
-                if process.returncode != 0:
-                    self.error_message = f"Piper execution failed: {process.stderr.read()}"
-                    return False
-            except Exception as e:
-                self.error_message = str(e)
-                return False
+            tts.tts_to_file(
+                text=text,
+                file_path=filepath,
+                speaker="Ana Florence",
+                language=language,
+                split_sentences=True,
+            )
 
             audio_base64 = self._get_audio_base64(filepath)
 
