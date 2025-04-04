@@ -23,6 +23,7 @@ from tools.json_formatieren.json_formatieren_tool import JSONFormatierungTool
 from tools.unit_converter.unit_converter_tool import UnitConverterTool
 from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
+from tools.time_zone_converter.time_zone_converter_tool import TimeZoneConverterTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' # ???
@@ -50,6 +51,7 @@ tools = {
     "UnitConverterTool": UnitConverterTool(),
     "DateCalculatorTool": DateCalculatorTool(),
     "PlaceholderTextTool": PlaceholderTextTool(),
+    "TimeZoneConverterTool": TimeZoneConverterTool(),
 }
 
 # Hauptseite
