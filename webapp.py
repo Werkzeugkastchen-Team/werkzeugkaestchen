@@ -24,6 +24,7 @@ from tools.unit_converter.unit_converter_tool import UnitConverterTool
 from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.time_zone_converter.time_zone_converter_tool import TimeZoneConverterTool
+from tools.color_converter.color_converter_tool import ColorConverterTool
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey' # ???
@@ -51,7 +52,8 @@ tools = {
     "UnitConverterTool": UnitConverterTool(),
     "DateCalculatorTool": DateCalculatorTool(),
     "PlaceholderTextTool": PlaceholderTextTool(),
-    "TimeZoneConverterTool": TimeZoneConverterTool(),
+    "TimeZoneConverterTool": TimeZoneConverterTool(), 
+    "ColorConverterTool": ColorConverterTool()
 }
 
 # Hauptseite
@@ -100,13 +102,19 @@ def about():
 @app.route("/tool/<tool_name>")
 def tool_form(tool_name):
     tool = tools.get(tool_name)
-    if tool:
-        return render_template('variable_input_mask.jinja',
-                             tool=tool,
-                             toolName=tool.name,
-                             input_params=tool.input_params,
-                             identifier=tool.identifier)
-    return "Tool not found", 404
+    if not tool:
+        return "Tool not found", 404
+
+    # Spezielle Behandlung für den Farbkonverter - direkt die Seite anzeigen
+    elif tool_name == "ColorConverterTool":
+        return render_template('color_converter.html')
+
+    # Regulärer Ablauf für andere Tools
+    return render_template('variable_input_mask.jinja',
+                           tool=tool,
+                           toolName=tool.name,
+                           input_params=tool.input_params,
+                           identifier=tool.identifier)
 
 # Output
 
@@ -305,6 +313,9 @@ def download_converted_audio(token):
         import traceback
         print(f"Traceback: {traceback.format_exc()}")
         return "Fehler beim Senden der Datei", 500
+
+
+
 
 
 if __name__ == "__main__":
