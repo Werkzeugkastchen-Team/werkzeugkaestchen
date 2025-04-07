@@ -57,8 +57,23 @@ class WhisperSubtitleTool(MiniTool):
                 self.error_message = "No input file provided."
                 return False
 
-            # ytdlp_functions will give us a string, gradio filepicker an actual file
-            input_file_cleared = input_file if isinstance(input_file, str) else input_file.name
+            # Handle different input types: string path, dictionary (from Flask), or object with 'name'
+            if isinstance(input_file, str):
+                input_file_cleared = input_file
+            elif isinstance(input_file, dict):
+                input_file_cleared = input_file.get('file_path') # Use 'file_path' key
+            else:
+                input_file_cleared = getattr(input_file, 'name', None)
+
+            # Validate that we obtained a valid path string
+            if not input_file_cleared or not isinstance(input_file_cleared, str):
+                self.error_message = "Could not determine input file path from provided input."
+                return False
+
+            # Validate input file existence
+            if not os.path.exists(input_file_cleared):
+                self.error_message = f"Input file '{input_file_cleared}' does not exist."
+                return False
 
             print("gpu available: " + str(torch.cuda.is_available()))
             gpu = torch.cuda.is_available()
@@ -73,8 +88,13 @@ class WhisperSubtitleTool(MiniTool):
             )
 
             temp_dir = str(tempfile.gettempdir())
+            audio = whisper.load_audio(input_file_cleared)
+            if audio is None or len(audio) == 0:
+                self.error_message = f"Failed to load audio data from '{input_file_cleared}'"
+                return False
+
             writer = get_writer("srt", temp_dir)
-            writer(whisper_output, input_file_cleared)
+            writer(whisper_output, audio)
 
             srt_file = os.path.join(
                 temp_dir, os.path.basename(input_file_cleared).rsplit(".", 1)[0] + ".srt"
