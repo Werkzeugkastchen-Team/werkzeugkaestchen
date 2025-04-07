@@ -40,10 +40,18 @@ class WhisperSubtitleTool(MiniTool):
         self.description = "Generates subtitles (SRT) for an audio/video file using Whisper." # Updated description
         self.input_params = {
             "input_file": "file",
-            "language": "string",
-            "model_size": "string",
-            "task": "string",
-            # Removed "embed_subtitles"
+            "language": {
+                "type": "enum",
+                "options": list(LANGUAGES.values()) # Use full language names from the imported dict
+            },
+            "model_size": {
+                "type": "enum",
+                "options": [e.value for e in ModelSize] # Get values from ModelSize enum
+            },
+            "task": {
+                "type": "enum",
+                "options": [e.value for e in Task] # Get values from Task enum
+            }
         }
 
     def execute_tool(self, input_params: dict) -> bool:
@@ -61,6 +69,7 @@ class WhisperSubtitleTool(MiniTool):
             # Handle different input types: string path, dictionary (from Flask), or object with 'name'
             if isinstance(input_file, str):
                 input_file_cleared = input_file
+                input_filename = os.path.basename(input_file_cleared) # Assign filename for string input
             elif isinstance(input_file, dict):
                 input_file_cleared = input_file.get('file_path') # Use 'file_path' key
                 input_filename = input_file.get('filename', os.path.basename(input_file_cleared) if input_file_cleared else 'unknown_file') # Get original filename if possible
