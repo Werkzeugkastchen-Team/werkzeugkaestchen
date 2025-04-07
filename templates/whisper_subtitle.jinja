@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Whisper Subtitle Tool</h1>
+    <p>Generate subtitles for your video files.</p>
+
+    <form method="post" enctype="multipart/form-data">
+        <label for="input_file">Video File:</label>
+        <input type="file" name="input_file" id="input_file" required><br><br>
+
+        <label for="language">Language:</label>
+        <select name="language" id="language">
+            {% for code, language in languages.items() %}
+                <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="model_size">Model Size:</label>
+        <select name="model_size" id="model_size">
+            <option value="tiny">Tiny</option>
+            <option value="base">Base</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="large-v3-turbo">Large Turbo</option>
+            <option value="turbo">Turbo</option>
+            <option value="tiny.en">Tiny EN</option>
+            <option value="base.en">Base EN</option>
+            <option value="small.en">Small EN</option>
+            <option value="medium.en">Medium EN</option>
+        </select><br><br>
+
+        <label for="task">Task:</label>
+        <select name="task" id="task">
+            <option value="transcribe">Transcribe</option>
+            <option value="translate">Translate</option>
+        </select><br><br>
+
+        <label for="embed_subtitles">Embed Subtitles:</label>
+        <input type="checkbox" name="embed_subtitles" id="embed_subtitles"><br><br>
+
+        <button type="submit">Generate Subtitles</button>
+    </form>
+
+    {% if output %}
+        <h2>Output:</h2>
+        <a href="{{ output }}" download>Download Subtitles</a>
+    {% endif %}
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+{% endblock %}
