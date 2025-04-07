@@ -33,43 +33,16 @@ class WhisperSubtitleTool(MiniTool):
     def __init__(self):
         super().__init__(
             name="Whisper Subtitle",
-            identifier="whisper_subtitle",
+            identifier="WhisperSubtitleTool",
             output_type=OutputType.FILE,
         )
         self.description = "Generates subtitles for a video file using Whisper."
         self.input_params = {
-            "input_file": {
-                "type": "file",
-                "description": "Path to the video file.",
-                "required": True,
-            },
-            "language": {
-                "type": "string",
-                "description": "Language of the video.",
-                "required": True,
-                "options": list(LANGUAGES.values()),
-                "default": LANGUAGES["en"],
-            },
-            "model_size": {
-                "type": "string",
-                "description": "Whisper model size.",
-                "required": True,
-                "options": [e.value for e in ModelSize],
-                "default": ModelSize.TINY.value,
-            },
-            "task": {
-                "type": "string",
-                "description": "Task to perform (transcribe or translate).",
-                "required": True,
-                "options": [e.value for e in Task],
-                "default": Task.TRANSCRIBE.value,
-            },
-            "embed_subtitles": {
-                "type": "boolean",
-                "description": "Embed subtitles into the video file (ffmpeg required).",
-                "required": False,
-                "default": False,
-            },
+            "input_file": "file",
+            "language": "string", 
+            "model_size": "string",
+            "task": "string",
+            "embed_subtitles": "boolean"
         }
 
     def execute_tool(self, input_params: dict) -> bool:

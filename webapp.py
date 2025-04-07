@@ -57,27 +57,6 @@ tools = {
     "WhisperSubtitleTool": WhisperSubtitleTool()
 }
 
-@app.route('/whisper_subtitle', methods=['GET', 'POST'])
-def whisper_subtitle():
-    tool = tools.get("WhisperSubtitleTool")
-    if request.method == 'POST':
-        input_params = {}
-        input_params['input_file'] = request.files['input_file']
-        input_params['language'] = request.form['language']
-        input_params['model_size'] = request.form['model_size']
-        input_params['task'] = request.form['task']
-        input_params['embed_subtitles'] = 'embed_subtitles' in request.form
-
-        success = tool.execute_tool(input_params)
-
-        if success:
-            return render_template('whisper_subtitle.jinja', output=tool.output, languages = LANGUAGES)
-        else:
-            return render_template('whisper_subtitle.jinja', error=tool.error_message, languages = LANGUAGES)
-    return render_template('whisper_subtitle.jinja', languages = LANGUAGES)
-
-# Hauptseite
-
 
 @app.route('/')
 def index():
