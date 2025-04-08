@@ -25,6 +25,7 @@ from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
 from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
+from tools.pdf_split.pdf_split_tool import PdfSplitTool
 
 
 app = Flask(__name__)
@@ -54,6 +55,7 @@ tools = {
     "DateCalculatorTool": DateCalculatorTool(),
     "PlaceholderTextTool": PlaceholderTextTool(),
     "ColorConverterTool": ColorConverterTool(),
+    "PdfSplitTool": PdfSplitTool()
     "GifVideoConverterTool": GifVideoConverterTool()
 }
 
