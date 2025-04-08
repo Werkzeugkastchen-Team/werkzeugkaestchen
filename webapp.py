@@ -25,6 +25,7 @@ from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
 from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
+from tools.pdf_split.pdf_split_tool import PdfSplitTool
 
 
 app = Flask(__name__)
@@ -54,7 +55,8 @@ tools = {
     "DateCalculatorTool": DateCalculatorTool(),
     "PlaceholderTextTool": PlaceholderTextTool(),
     "ColorConverterTool": ColorConverterTool(),
-    "WhisperSubtitleTool": WhisperSubtitleTool()
+    "WhisperSubtitleTool": WhisperSubtitleTool(),
+    "PdfSplitTool": PdfSplitTool()
 }
 
 

@@ -12,3 +12,4 @@ torchaudio
 coqui-tts
 openai-whisper
 yt-dlp
+PyPDF2
