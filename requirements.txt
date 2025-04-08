@@ -10,3 +10,4 @@ pytz
 torch
 torchaudio
 coqui-tts
+PyPDF2
