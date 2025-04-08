@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} GIF/Video Konverter {% endblock %}</h1>
+
+<div class="alert alert-info">
+  <p>Laden Sie ein Video oder ein GIF hoch, um es in das jeweils andere Format zu konvertieren.</p>
+  <p>Maximale Dateigröße: 1GB</p>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Video- oder GIF-Datei konvertieren</h5>
+        <p class="card-text">Laden Sie eine Videodatei oder GIF-Datei hoch. Das Format wird automatisch erkannt.</p>
+
+        <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
+            <input type="hidden" name="tool_name" value="GifVideoConverterTool">
+
+            <div class="form-group mb-3">
+                <label for="file">Datei auswählen (max. 1GB):</label>
+                <input type="file" class="form-control" name="file" id="file" accept="image/gif,video/*" required onchange="handleFileSelect(this)">
+            </div>
+
+            <div id="conversionOptions" style="display: none;">
+                <div id="videoToGifOptions" style="display: none;">
+                    <h6>Video zu GIF Optionen:</h6>
+                    <div class="form-group mb-2">
+                        <label for="fps">Bildrate (FPS):</label>
+                        <select name="fps" id="fps" class="form-control">
+                            <option value="5">5 FPS (langsamer, kleinere Datei)</option>
+                            <option value="10" selected>10 FPS (Standard)</option>
+                            <option value="15">15 FPS (flüssiger, größere Datei)</option>
+                            <option value="24">24 FPS (sehr flüssig, große Datei)</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="quality">Qualität:</label>
+                        <select name="quality" id="quality" class="form-control">
+                            <option value="low">Niedrig (kleine Dateigröße)</option>
+                            <option value="medium" selected>Mittel (ausgewogenes Verhältnis)</option>
+                            <option value="high">Hoch (beste Qualität, große Datei)</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="resize">Größe anpassen:</label>
+                        <select name="resize" id="resize" class="form-control">
+                            <option value="none" selected>Original (keine Änderung)</option>
+                            <option value="small">Klein (320px Breite)</option>
+                            <option value="medium">Mittel (480px Breite)</option>
+                            <option value="large">Groß (640px Breite)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="gifToVideoOptions" style="display: none;">
+                    <h6>GIF zu Video Optionen:</h6>
+                    <div class="form-group mb-2">
+                        <label for="format">Videoformat:</label>
+                        <select name="format" id="format" class="form-control">
+                            <option value="mp4" selected>MP4 (am besten unterstützt)</option>
+                            <option value="avi">AVI (gute Qualität)</option>
+                            <option value="webm">WebM (kleine Dateigröße)</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="quality_gif">Qualität:</label>
+                        <select name="quality" id="quality_gif" class="form-control">
+                            <option value="low">Niedrig (kleine Dateigröße)</option>
+                            <option value="medium" selected>Mittel (ausgewogenes Verhältnis)</option>
+                            <option value="high">Hoch (beste Qualität, große Datei)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="progressContainer" style="display: none;" class="mt-3">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                </div>
+                <div id="progressText" class="text-center mt-1">0%</div>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="fancy-button" id="submitButton">Konvertieren</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="mt-5">
+    <h5>Erklärungen</h5>
+    <div class="row">
+        <div class="col-md-6">
+            <h6>GIF und Video</h6>
+            <p><strong>GIF (Graphics Interchange Format)</strong> ist ein Bildformat, das Animationen unterstützt. GIFs sind beliebt für kurze Loops und können ohne Player in Browsern und Nachrichten-Apps angezeigt werden. Sie haben jedoch eine begrenzte Farbpalette (maximal 256 Farben) und oft größere Dateien als Videos.</p>
+            <p><strong>Videoformate</strong> (MP4, AVI, WebM) bieten bessere Kompression, höhere Qualität und Funktionen wie Ton. Sie benötigen jedoch in der Regel einen Video-Player zur Wiedergabe.</p>
+            <br><br>
+            <h6>Bildrate (FPS)</h6>
+            <p><strong>FPS (Frames per Second)</strong> bestimmt, wie viele Einzelbilder pro Sekunde angezeigt werden:</p>
+            <ul>
+                <li><strong>5 FPS:</strong> Minimale Flüssigkeit, kleinste Dateigröße</li>
+                <li><strong>10 FPS:</strong> Guter Kompromiss für die meisten GIFs</li>
+                <li><strong>15 FPS:</strong> Flüssigere Bewegung, größere Datei</li>
+                <li><strong>24 FPS:</strong> Sehr flüssig (Kinostandard), größte Dateien</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h6>Qualitätseinstellungen</h6>
+            <p>Die Qualität beeinflusst das Aussehen und die Dateigröße:</p>
+            <ul>
+                <li><strong>Niedrig:</strong> Stärkere Kompression, sichtbarer Qualitätsverlust, kleinste Dateigröße</li>
+                <li><strong>Mittel:</strong> Ausgewogenes Verhältnis zwischen Qualität und Dateigröße</li>
+                <li><strong>Hoch:</strong> Beste visuelle Qualität, größte Dateigröße</li>
+            </ul>
+            <br>
+            <h6>Größenanpassung</h6>
+            <p><strong>Original:</strong> Behält die ursprüngliche Auflösung bei</p>
+            <p><strong>Klein (320px):</strong> Gut für Messaging-Apps und kleine Einbettungen</p>
+            <p><strong>Mittel (480px):</strong> Standard für die meisten Web-Inhalte</p>
+            <p><strong>Groß (640px):</strong> Mehr Details, gut für größere Inhalte</p>
+            <br>
+            <h6>Videoformate</h6>
+            <p><strong>MP4:</strong> Universell unterstützt, gute Qualität bei kompakter Größe</p>
+            <p><strong>AVI:</strong> Weniger Kompression, höhere Qualität, größere Dateien</p>
+            <p><strong>WebM:</strong> Modernes, offenes Format, sehr effiziente Kompression</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+/* Anpassung für den Hover-Effekt */
+.card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Anpassung für die Auswahlfelder */
+#conversionOptions {
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+}
+
+#videoToGifOptions, #gifToVideoOptions {
+    padding-top: 10px;
+}
+
+/* Verbesserter Progress-Balken */
+.progress {
+    height: 20px;
+}
+
+.progress-bar {
+    background-color: var(--accent-color);
+}
+
+#progressText {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+}
+</style>
+
+<script>
+function handleFileSelect(input) {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const filename = file.name.toLowerCase();
+        const isGif = filename.endsWith('.gif');
+
+        // Zeige die entsprechenden Optionen
+        document.getElementById('conversionOptions').style.display = 'block';
+        document.getElementById('videoToGifOptions').style.display = isGif ? 'none' : 'block';
+        document.getElementById('gifToVideoOptions').style.display = isGif ? 'block' : 'none';
+
+        // Überprüfe die Dateigröße
+        const maxSize = 1024 * 1024 * 1024; // 1GB
+        if (file.size > maxSize) {
+            alert('Die Datei ist zu groß. Maximale Größe ist 1GB.');
+            input.value = '';
+            document.getElementById('conversionOptions').style.display = 'none';
+        }
+    }
+}
+</script>
+
+{% endblock %}
+
