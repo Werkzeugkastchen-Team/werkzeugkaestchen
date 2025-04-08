@@ -24,6 +24,7 @@ from tools.unit_converter.unit_converter_tool import UnitConverterTool
 from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
+from tools.pdf_split.pdf_split_tool import PdfSplitTool
 
 
 app = Flask(__name__)
@@ -52,7 +53,8 @@ tools = {
     "UnitConverterTool": UnitConverterTool(),
     "DateCalculatorTool": DateCalculatorTool(),
     "PlaceholderTextTool": PlaceholderTextTool(),
-    "ColorConverterTool": ColorConverterTool()
+    "ColorConverterTool": ColorConverterTool(),
+    "PdfSplitTool": PdfSplitTool()
 }
 
 # Hauptseite
