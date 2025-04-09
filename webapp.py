@@ -24,7 +24,7 @@ from tools.unit_converter.unit_converter_tool import UnitConverterTool
 from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
-from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
+from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
 
 
@@ -56,7 +56,8 @@ tools = {
     "PlaceholderTextTool": PlaceholderTextTool(),
     "ColorConverterTool": ColorConverterTool(),
     "WhisperSubtitleTool": WhisperSubtitleTool(),
-    "PdfSplitTool": PdfSplitTool()
+    "PdfSplitTool": PdfSplitTool(),
+    "GifVideoConverterTool": GifVideoConverterTool()
 }
 
 
@@ -109,6 +110,9 @@ def tool_form(tool_name):
     # Spezielle Behandlung für den Farbkonverter - direkt die Seite anzeigen
     elif tool_name == "ColorConverterTool":
         return render_template('color_converter.html')
+
+    elif tool_name == "GifVideoConverterTool":
+        return render_template('gif_video_converter.jinja')
 
     # Regulärer Ablauf für andere Tools
     return render_template('variable_input_mask.jinja',
@@ -315,6 +319,41 @@ def download_converted_audio(token):
         print(f"Traceback: {traceback.format_exc()}")
         return "Fehler beim Senden der Datei", 500
 
+
+@app.route('/download_converted_media/<token>')
+def download_converted_media(token):
+    converter_tool = tools.get("GifVideoConverterTool")
+    if not converter_tool:
+        return "Tool nicht gefunden", 404
+
+    temp_path = converter_tool.convert_and_save(token)
+    if not temp_path:
+        return "Konvertierung fehlgeschlagen oder Token ungültig", 404
+
+    # Original-Dateiname aus pending_conversions abrufen
+    conversion = converter_tool.pending_conversions[token]
+    is_gif = conversion["is_gif"]
+
+    # Ausgabenamen bestimmen
+    if is_gif:
+        # GIF zu Video
+        format = conversion.get("format", "mp4")
+        filename = os.path.splitext(conversion["filename"])[0] + f".{format}"
+    else:
+        # Video zu GIF
+        filename = os.path.splitext(conversion["filename"])[0] + ".gif"
+
+    # Datei mit dem Original-Dateinamen senden
+    response = send_file(temp_path, as_attachment=True, download_name=filename)
+
+    # Cleanup nach dem Senden der Antwort planen
+    @response.call_on_close
+    def cleanup():
+        # Als heruntergeladen markieren und aufräumen
+        converter_tool.pending_conversions[token]['downloaded'] = True
+        converter_tool.cleanup_old_files()
+
+    return response
 
 
 
