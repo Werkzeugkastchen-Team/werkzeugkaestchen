@@ -55,7 +55,7 @@ tools = {
     "DateCalculatorTool": DateCalculatorTool(),
     "PlaceholderTextTool": PlaceholderTextTool(),
     "ColorConverterTool": ColorConverterTool(),
-    "PdfSplitTool": PdfSplitTool()
+    "PdfSplitTool": PdfSplitTool(),
     "GifVideoConverterTool": GifVideoConverterTool()
 }
 
