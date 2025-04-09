@@ -11,3 +11,4 @@ torch
 torchaudio
 coqui-tts
 PyPDF2
+flask-babel
