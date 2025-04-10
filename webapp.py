@@ -26,6 +26,7 @@ from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
 from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
+from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
 
 
