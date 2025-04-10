@@ -45,6 +45,28 @@ flask --app webapp run
 
 (`webapp.py` ist die Hauptklasse)
 
+## Ollama aufsetzen (für Texte zusammenfassen Tool)
+
+Dies ist ein Docker Container der im Hintergrund ausgeführt werden muss, damit das Tool funktioniert.
+
+Linux und MacOS:
+```sh
+sudo docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama && docker exec -it ollama ollama run gemma3:1b
+```
+
+Windows:
+```sh
+docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+```
+
+```sh
+docker exec -it ollama ollama run gemma3:1b
+```
+
+Wenn das Model ändern will (etwa von gemma3:1b zu gemma3:4b), dann muss man das Tool und den ollama run Befehl anpassen.
+
+>Gemma 3 1B ist sehr leicht (~1GB), jedoch nicht so gut wie größere Modelle.
+
 ## Development Environment
 
 Am Besten funktioniert VSCode mit den Python Extensions

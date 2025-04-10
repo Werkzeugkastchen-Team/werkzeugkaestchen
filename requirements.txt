@@ -12,3 +12,4 @@ torchaudio
 coqui-tts
 PyPDF2
 flask-babel
+litellm

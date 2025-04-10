@@ -27,6 +27,7 @@ from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
 from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
+from tools.text_summary.text_summary_tool import TextSummaryTool
 
 
 # Erstellen einer Flask-Anwendung
@@ -79,7 +80,8 @@ tools = {
     "PlaceholderTextTool": PlaceholderTextTool(),
     "ColorConverterTool": ColorConverterTool(),
     "PdfSplitTool": PdfSplitTool(),
-    "GifVideoConverterTool": GifVideoConverterTool()
+    "GifVideoConverterTool": GifVideoConverterTool(),
+    "TextSummaryTool": TextSummaryTool()
 }
 
 # Hauptseite
