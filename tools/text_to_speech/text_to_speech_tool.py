@@ -8,7 +8,7 @@ class TextToSpeechTool(MiniTool):
     name = "Text zu Sprache"
     description = "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
     
-    TTS_TOOL_CHARACTER_LIMIT = 600
+    TTS_TOOL_CHARACTER_LIMIT = 6000
 
     def _get_audio_base64(self, audio_path):
         """Convert audio to base64 string for embedding in HTML"""

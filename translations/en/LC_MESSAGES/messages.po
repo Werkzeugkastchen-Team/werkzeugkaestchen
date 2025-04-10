@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-09 15:22+0200\n"
+"POT-Creation-Date: 2025-04-10 16:05+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -72,38 +72,416 @@ msgstr "🔍 Search for a tool..."
 msgid "Öffnen"
 msgstr "Open"
 
-#: tools/base64_decode/base64_decode_tool.py:12
+#: templates/output.html:8
+msgid "Fehler beim Verarbeiten:"
+msgstr "Error processing:"
+
+#: templates/output.html:13
+msgid "Zurück und erneut versuchen"
+msgstr "Go back and try again"
+
+#: templates/output.html:23
+msgid "Zurück zu den Tools"
+msgstr "Back to Tools"
+
+#: tools/base64_decode/base64_decode_tool.py:7
 msgid "Base64 Dekodierungstool"
 msgstr "Base64 Decoding Tool"
 
+#: tools/base64_decode/base64_decode_tool.py:9
+#: tools/base64_decode/base64_decode_tool.py:19
+msgid "Zu dekodierender Base64-String"
+msgstr "Base64 string to decode"
+
+#: tools/base64_decode/base64_decode_tool.py:10
 #: tools/base64_decode/base64_decode_tool.py:20
-msgid ""
-"Dekodiert einen Base64-String zu Text. Unterstützt ASCII- und "
-"UTF-8-Kodierung"
-msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding"
-
-#: tools/base64_encode/base64_encode_tool.py:7
-msgid "Base64 Kodierungstool"
-msgstr "Base64 Encoding Tool"
-
-#: tools/base64_encode/base64_encode_tool.py:9
-#: tools/base64_encode/base64_encode_tool.py:19
-msgid "Zu kodierender Text"
-msgstr "Text to encode"
-
-#: tools/base64_encode/base64_encode_tool.py:10
-#: tools/base64_encode/base64_encode_tool.py:20
+#: tools/base64_encode/base64_encode_tool.py:14
+#: tools/base64_encode/base64_encode_tool.py:25
 msgid "Kodierung"
 msgstr "Encoding"
 
-#: tools/base64_encode/base64_encode_tool.py:15
-#, fuzzy
+#: tools/base64_decode/base64_decode_tool.py:15
 msgid ""
-"Kodiert jeden Eingabetext in einen Base64-String. Unterstützt ASCII- und "
+"Dekodiert einen Base64-String zu Text. Unterstützt ASCII- und "
 "UTF-8-Kodierung"
-msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding"
+msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding."
 
-#: tools/base64_encode/base64_encode_tool.py:23
+#: tools/base64_decode/base64_decode_tool.py:23
+msgid "Base64-Eingabestring ist leer oder ungültig"
+msgstr "Base64 input string is empty or invalid"
+
+#: tools/base64_encode/base64_encode_tool.py:8
+msgid "Base64 Kodierungstool"
+msgstr "Base64 Encoding Tool"
+
+#: tools/base64_encode/base64_encode_tool.py:13
+#: tools/base64_encode/base64_encode_tool.py:24
+msgid "Zu kodierender Text"
+msgstr "Text to encode"
+
+#: tools/base64_encode/base64_encode_tool.py:19
+msgid "base64_encode_tool_description"
+msgstr ""
+"Encodes any input text into a Base64 string. Supports ASCII and UTF-8 "
+"encoding"
+
+#: tools/base64_encode/base64_encode_tool.py:30
 msgid "Eingabetext ist leer oder ungültig"
 msgstr "Input text is empty or invalid"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:8
+msgid "Dateigrößenberechner"
+msgstr "File Size Calculator"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:9
+msgid "Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)"
+msgstr "Calculates the file size in different units (MB, MiB, etc.)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:20
+msgid "Keine Datei hochgeladen"
+msgstr "No file uploaded"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:36
+msgid "Datei"
+msgstr "File"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:37
+msgid "Gesamtgröße"
+msgstr "Total size"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:38
+msgid "Bytes"
+msgstr "Bytes"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:39
+msgid "Dezimale Einheiten (SI)"
+msgstr "Decimal units (SI)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:40
+msgid "Binäre Einheiten (IEC)"
+msgstr "Binary units (IEC)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:41
+msgid "Einheit"
+msgstr "Unit"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:42
+msgid "Wert"
+msgstr "Value"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:43
+msgid "Beschreibung"
+msgstr "Description"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:44
+msgid "Kilobyte (1000 Bytes)"
+msgstr "Kilobyte (1000 Bytes)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:45
+msgid "Megabyte (1000 KB)"
+msgstr "Megabyte (1000 KB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:46
+msgid "Gigabyte (1000 MB)"
+msgstr "Gigabyte (1000 MB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:47
+msgid "Kibibyte (1024 Bytes)"
+msgstr "Kibibyte (1024 Bytes)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:48
+msgid "Mebibyte (1024 KiB)"
+msgstr "Mebibyte (1024 KiB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:49
+msgid "Gibibyte (1024 MiB)"
+msgstr "Gibibyte (1024 MiB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:147
+msgid "Fehler bei der Berechnung der Dateigröße:"
+msgstr "Error calculating file size:"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:10
+msgid "QR\\-Code Generator"
+msgstr "QR Code Generator"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:11
+msgid "Erstellt QR\\-Codes aus Text oder URLs"
+msgstr "Creates QR codes from text or URLs"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:13
+#: tools/qr_code_generator/qr_code_generator_tool.py:19
+msgid "Text oder URL"
+msgstr "Text or URL"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:21
+msgid "Bitte geben Sie einen Text oder eine URL ein"
+msgstr "Please enter a text or URL"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:51
+msgid "Ihr QR\\-Code"
+msgstr "Your QR Code"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:55
+msgid "QR\\-Code"
+msgstr "QR Code"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:58
+msgid "QR\\-Code herunterladen"
+msgstr "Download QR Code"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:71
+msgid "Fehler bei der QR\\-Code Erstellung:"
+msgstr "Error creating QR Code:"
+
+#~ msgid "Tool Name:"
+#~ msgstr "Tool Name:"
+
+#~ msgid "Identifier:"
+#~ msgstr "Identifier:"
+
+#~ msgid "Tool Description:"
+#~ msgstr "Tool Description:"
+
+#~ msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
+#~ msgstr "Enter text or a URL to generate a QR code."
+
+#~ msgid ""
+#~ "Geben Sie eine Zahl ein und wählen"
+#~ " Sie den entsprechenden Zahlentyp aus. "
+#~ "Das Tool wird die Zahl automatisch "
+#~ "in die anderen Formate konvertieren."
+#~ msgstr ""
+#~ "Enter a number and select the "
+#~ "corresponding number type. The tool will"
+#~ " automatically convert the number into "
+#~ "other formats."
+
+#~ msgid ""
+#~ "Laden Sie ein Bild hoch und wählen"
+#~ " Sie das gewünschte Zielformat aus. "
+#~ "Unterstützte Formate sind: PNG, JPEG, "
+#~ "GIF, BMP und WEBP."
+#~ msgstr ""
+#~ "Upload an image and select the "
+#~ "desired target format. Supported formats "
+#~ "are: PNG, JPEG, GIF, BMP and WEBP."
+
+#~ msgid "Geben Sie ein Datum im Format"
+#~ msgstr "Enter a date in the format"
+
+#~ msgid "TT.MM.JJJJ"
+#~ msgstr "DD.MM.YYYY"
+
+#~ msgid "ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
+#~ msgstr "(e.g. 15.03.2025) to calculate the corresponding calendar week."
+
+#~ msgid ""
+#~ "Wählen Sie die gewünschte Länge und "
+#~ "die zu verwendenden Zeichentypen für Ihr"
+#~ " sicheres Passwort aus. Ein starkes "
+#~ "Passwort sollte mindestens 12 Zeichen "
+#~ "lang sein und verschiedene Zeichentypen "
+#~ "enthalten."
+#~ msgstr ""
+#~ "Select the desired length and character"
+#~ " types for your secure password. A"
+#~ " strong password should be at least"
+#~ " 12 characters long and contain "
+#~ "various types of characters."
+
+#~ msgid ""
+#~ "Mit diesem Tool können Sie Lorem "
+#~ "Ipsum Platzhalter-Text in der "
+#~ "gewünschten Länge generieren."
+#~ msgstr ""
+#~ "With this tool you can generate "
+#~ "Lorem Ipsum placeholder text in the "
+#~ "desired length."
+
+#~ msgid "Funktionen:"
+#~ msgstr "Features:"
+
+#~ msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
+#~ msgstr "Select the desired text length (1-1000 words)"
+
+#~ msgid "Generieren Sie professionellen Lorem Ipsum Text"
+#~ msgstr "Generate professional Lorem Ipsum text"
+
+#~ msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
+#~ msgstr "Copy the text to the clipboard with one click"
+
+#~ msgid "Ideal für Layout- und Designarbeiten"
+#~ msgstr "Ideal for layout and design work"
+
+#~ msgid "Textlänge:"
+#~ msgstr "Text length:"
+
+#~ msgid "Anzahl der Wörter (1-1000)"
+#~ msgstr "Number of words (1-1000)"
+
+#~ msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+#~ msgstr "Choose a length between 1 and 1000 words."
+
+#~ msgid "Text generieren"
+#~ msgstr "Generate Text"
+
+#~ msgid ""
+#~ "Wählen Sie eine Kategorie und geben "
+#~ "Sie den Wert sowie die Quell- und"
+#~ " Zieleinheit an, um eine Umrechnung "
+#~ "durchzuführen."
+#~ msgstr ""
+#~ "Select a category and enter the "
+#~ "value as well as the source and"
+#~ " target unit to perform a conversion."
+
+#~ msgid "Kategorie:"
+#~ msgstr "Category:"
+
+#~ msgid "Length"
+#~ msgstr "Length"
+
+#~ msgid "Weight"
+#~ msgstr "Weight"
+
+#~ msgid "Wert:"
+#~ msgstr "Value:"
+
+#~ msgid "z.B. 100"
+#~ msgstr "e.g. 100"
+
+#~ msgid "Von Einheit:"
+#~ msgstr "From Unit:"
+
+#~ msgid "Nach Einheit:"
+#~ msgstr "To Unit:"
+
+#~ msgid ""
+#~ "Mit diesem Tool können Sie Unix-"
+#~ "Timestamps in lesbare Datums- und "
+#~ "Zeitangaben umwandeln und umgekehrt."
+#~ msgstr ""
+#~ "With this tool you can convert "
+#~ "Unix timestamps to readable date and "
+#~ "time information and vice versa."
+
+#~ msgid "Konvertierungsrichtung:"
+#~ msgstr "Conversion direction:"
+
+#~ msgid "Timestamp zu Datum"
+#~ msgstr "Timestamp to Date"
+
+#~ msgid "Datum zu Timestamp"
+#~ msgstr "Date to Timestamp"
+
+#~ msgid "Unix-Timestamp:"
+#~ msgstr "Unix Timestamp:"
+
+#~ msgid "z.B. 1640995200"
+#~ msgstr "e.g. 1640995200"
+
+#~ msgid ""
+#~ "Geben Sie einen Unix-Timestamp ein "
+#~ "(Sekunden seit dem 01.01.1970 00:00:00 "
+#~ "UTC)."
+#~ msgstr "Enter a Unix timestamp (seconds since 01.01.1970 00:00:00 UTC)."
+
+#~ msgid "Datum:"
+#~ msgstr "Date:"
+
+#~ msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
+#~ msgstr "DD.MM.YYYY (e.g. 01.01.2022)"
+
+#~ msgid "Geben Sie ein Datum im Format TT.MM.JJJJ ein."
+#~ msgstr "Enter a date in the format DD.MM.YYYY."
+
+#~ msgid "Uhrzeit (optional):"
+#~ msgstr "Time (optional):"
+
+#~ msgid "HH:MM:SS (z.B. 12:30:00)"
+#~ msgstr "HH:MM:SS (e.g. 12:30:00)"
+
+#~ msgid ""
+#~ "Geben Sie eine Uhrzeit im Format "
+#~ "HH:MM:SS ein. Standard ist 00:00:00 wenn"
+#~ " leer."
+#~ msgstr "Enter a time in the format HH:MM:SS. Default is 00:00:00 if left empty."
+
+#~ msgid "Zahl:"
+#~ msgstr "Number:"
+
+#~ msgid "Geben Sie eine Zahl ein"
+#~ msgstr "Enter a number"
+
+#~ msgid "Zahlentyp:"
+#~ msgstr "Number type:"
+
+#~ msgid "Binär"
+#~ msgstr "Binary"
+
+#~ msgid "Dezimal"
+#~ msgstr "Decimal"
+
+#~ msgid "Hexadezimal"
+#~ msgstr "Hexadecimal"
+
+#~ msgid "Bild auswählen:"
+#~ msgstr "Select image:"
+
+#~ msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
+#~ msgstr "Supported formats: PNG, JPEG, GIF, BMP, WEBP"
+
+#~ msgid "Hinweis:"
+#~ msgstr "Note:"
+
+#~ msgid ""
+#~ "Passwörter werden lokal generiert und "
+#~ "nicht an den Server übertragen. Kopieren"
+#~ " Sie Ihr Passwort sofort nach der "
+#~ "Erstellung, es wird nicht gespeichert."
+#~ msgstr ""
+#~ "Passwords are generated locally and not"
+#~ " transmitted to the server. Copy your"
+#~ " password immediately after creation, it"
+#~ " is not stored."
+
+#~ msgid "Passwort generieren"
+#~ msgstr "Generate Password"
+
+#~ msgid "QR-Code erstellen"
+#~ msgstr "Create QR Code"
+
+#~ msgid "Konvertieren"
+#~ msgstr "Convert"
+
+#~ msgid "Ausführen"
+#~ msgstr "Run"
+
+#~ msgid "Bitte wählen Sie ein Format"
+#~ msgstr "Please select a format"
+
+#~ msgid "Zahlenkonverter"
+#~ msgstr "Number Converter"
+
+#~ msgid "Konvertiert zwischen Binär-, Dezimal- und Hexadezimalzahlen."
+#~ msgstr "Converts between binary, decimal and hexadecimal numbers."
+
+#~ msgid "Bitte geben Sie eine Zahl und den Zahlentyp ein."
+#~ msgstr "Please enter a number and the number type."
+
+#~ msgid "Ungültiger Zahlentyp"
+#~ msgstr "Invalid number type"
+
+#~ msgid "Konvertierungsergebnisse:"
+#~ msgstr "Conversion results:"
+
+#~ msgid "Binär:"
+#~ msgstr "Binary:"
+
+#~ msgid "Dezimal:"
+#~ msgstr "Decimal:"
+
+#~ msgid "Hexadezimal:"
+#~ msgstr "Hexadecimal:"
 
