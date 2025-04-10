@@ -13,3 +13,4 @@ coqui-tts
 openai-whisper
 yt-dlp
 PyPDF2
+flask-babel

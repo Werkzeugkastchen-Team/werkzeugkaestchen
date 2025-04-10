@@ -1,0 +1,109 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-04-09 15:22+0200\n"
+"PO-Revision-Date: 2025-04-09 14:20+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:29 templates/base.html:51 templates/base.html:59
+msgid "Über uns"
+msgstr "About us"
+
+#: templates/base.html:32 templates/base.html:60
+msgid "Kontakt"
+msgstr "Contact"
+
+#: templates/base.html:52
+msgid ""
+"Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
+" zu erleichtern."
+msgstr "We develop powerful digital tools to make your daily work easier."
+
+#: templates/base.html:56
+msgid "Schnelllinks"
+msgstr "Quick Links"
+
+#: templates/base.html:58
+msgid "Startseite"
+msgstr "Home"
+
+#: templates/base.html:65
+msgid "Rechtliches"
+msgstr "Legal"
+
+#: templates/base.html:67
+msgid "Impressum"
+msgstr "Imprint"
+
+#: templates/base.html:68
+msgid "Datenschutz"
+msgstr "Privacy Policy"
+
+#: templates/base.html:69
+msgid "AGB"
+msgstr "Terms and Conditions"
+
+#: templates/base.html:75
+msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
+msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
+
+#: templates/index.jinja:4
+msgid "Werkzeugkästchen"
+msgstr "ToolTiles"
+
+#: templates/index.jinja:6
+msgid "🔍 Suche nach einem Tool..."
+msgstr "🔍 Search for a tool..."
+
+#: templates/index.jinja:14
+msgid "Öffnen"
+msgstr "Open"
+
+#: tools/base64_decode/base64_decode_tool.py:12
+msgid "Base64 Dekodierungstool"
+msgstr "Base64 Decoding Tool"
+
+#: tools/base64_decode/base64_decode_tool.py:20
+msgid ""
+"Dekodiert einen Base64-String zu Text. Unterstützt ASCII- und "
+"UTF-8-Kodierung"
+msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding"
+
+#: tools/base64_encode/base64_encode_tool.py:7
+msgid "Base64 Kodierungstool"
+msgstr "Base64 Encoding Tool"
+
+#: tools/base64_encode/base64_encode_tool.py:9
+#: tools/base64_encode/base64_encode_tool.py:19
+msgid "Zu kodierender Text"
+msgstr "Text to encode"
+
+#: tools/base64_encode/base64_encode_tool.py:10
+#: tools/base64_encode/base64_encode_tool.py:20
+msgid "Kodierung"
+msgstr "Encoding"
+
+#: tools/base64_encode/base64_encode_tool.py:15
+#, fuzzy
+msgid ""
+"Kodiert jeden Eingabetext in einen Base64-String. Unterstützt ASCII- und "
+"UTF-8-Kodierung"
+msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding"
+
+#: tools/base64_encode/base64_encode_tool.py:23
+msgid "Eingabetext ist leer oder ungültig"
+msgstr "Input text is empty or invalid"
+

@@ -1,6 +1,7 @@
 import os
 import tempfile
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file, session
+from flask_babel import Babel, gettext as _
 from markupsafe import Markup
 
 from tools.base64_encode.base64_encode_tool import Base64EncodeTool
@@ -28,8 +29,30 @@ from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverter
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
 
 
+# Erstellen einer Flask-Anwendung
 app = Flask(__name__)
-app.secret_key = 'supersecretkey' # ???
+
+# Festlegen eines geheimen Schlüssels für die Anwendung.
+# Dieser Schlüssel wird für die Sitzungsverwaltung und andere sicherheitsrelevante Funktionen verwendet.
+app.secret_key = 'supersecretkey'
+
+
+# Sprachauswahl-Funktion
+def get_locale():
+    # Versuche Sprache aus der Session zu holen (wenn Benutzer manuell gewählt hat)
+    if 'language' in request.args:
+        session['language'] = request.args.get('language')
+    if 'language' in session:
+        return session['language']
+    # Ansonsten Browser-Einstellungen verwenden
+    return request.accept_languages.best_match(['de', 'en'])
+
+# Babel konfigurieren mit neuerer API
+babel = Babel(app)
+app.config['BABEL_DEFAULT_LOCALE'] = 'de'
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
+babel.init_app(app, locale_selector=get_locale)
+
 
 # Hier müssen wir nur unsere Tools registrieren
 tools = {
