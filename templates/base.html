@@ -31,10 +31,16 @@
         <li class="nav-list-item">
           <a href="contact">{{ _('Kontakt') }}</a>
         </li>
-          <div class="language-switcher">
-             <a href="?language=de" {% if session.get('language') == 'de' %}class="active"{% endif %}>DE</a> |
-             <a href="?language=en" {% if session.get('language') == 'en' %}class="active"{% endif %}>EN</a>
-          </div>
+            <div class="language-switcher">   <!-- Wenn man die Sprache ändert bei Seiten wo ergebnisse entstehen dann kommt ne fehler Seite
+            mir Gefählt das nicht aber es umgeht das-->
+                {% if not request.path.startswith('/download_') and not request.path.startswith('/handle_tool') %}
+                    <a href="?language=de" {% if session.get('language') == 'de' %}class="active"{% endif %}>DE</a> |
+                    <a href="?language=en" {% if session.get('language') == 'en' %}class="active"{% endif %}>EN</a>
+                {% else %}
+                    <span class="disabled-link">DE</span> |
+                    <span class="disabled-link">EN</span>
+                {% endif %}
+            </div>
       </ul>
     </div>
   </nav>

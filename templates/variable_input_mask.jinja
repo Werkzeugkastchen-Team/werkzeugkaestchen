@@ -10,37 +10,37 @@
 
     <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
     
-    {% if toolName == "QR Code Generator" %}
+    {% if identifier == "QrCodeGeneratorTool" %}
     <div class="alert alert-info">
         {{ _('Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren.') }}
     </div>
     {% endif %}
 
-    {% if toolName == "Zahlenkonverter" %}
+    {% if identifier == "NumberConverterTool" %}
     <div class="alert alert-info">
         {{ _('Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.') }}
     </div>
     {% endif %}
 
-    {% if toolName == "Bildkonverter" %}
+    {% if identifier == "ImageConverterTool" %}
     <div class="alert alert-info">
         {{ _('Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.') }}
     </div>
     {% endif %}
 
-    {% if toolName == "Kalenderwochenberechner" %}
+    {% if identifier == "CalendarWeekTool" %}
     <div class="alert alert-info">
         {{ _('Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen.') }}
     </div>
     {% endif %}
 
-    {% if toolName == "Passwortgenerator" %}
+    {% if identifier == "PasswordGeneratorTool" %}
     <div class="alert alert-info">
         {{ _('Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.') }}
     </div>
     {% endif %}
 
-    
+
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
@@ -61,12 +61,12 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="length"><strong>Textlänge:</strong></label>
-                <input type="number" 
-                       class="form-control" 
-                       id="length" 
-                       name="length" 
-                       min="1" 
-                       max="1000" 
+                <input type="number"
+                       class="form-control"
+                       id="length"
+                       name="length"
+                       min="1"
+                       max="1000"
                        placeholder="{{ _('Anzahl der Wörter (1-1000)') }}"
                        required>
             <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.') }}</small>
@@ -83,8 +83,8 @@
     </div>
     {% endif %}
     {% endif %}
-    
-{% if toolName == "Einheitenrechner" %}
+
+{% if identifier == "UnitConverterTool" %}
 <div class="alert alert-info">
     Wählen Sie eine Kategorie und geben Sie den Wert sowie die Quell- und Zieleinheit an, um eine Umrechnung durchzuführen.
 </div>
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
         {% for param, param_info in input_params.items() %}
         <div class="form-group mb-3">
             <label for="{{ param }}">{{ param_info.name }}</label>
-            <input 
+            <input
                 type="{{ param_info.type }}"
                 class="form-control"
                 id="{{ param }}"
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
         {% endfor %}
     {% endif %}
 
-    {% if toolName == "Unix-Timestamp Konverter" %}
+    {% if identifier == "UnixTimestampTool" %}
     <div class="alert alert-info">
         Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und Zeitangaben umwandeln und umgekehrt.
     </div>
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
             <input type="text" name="date" id="date" class="form-control" placeholder="TT.MM.JJJJ (z.B. 01.01.2022)">
             <small class="form-text text-muted">Geben Sie ein Datum im Format TT.MM.JJJJ ein.</small>
         </div>
-        
+
         <div class="form-group">
             <label for="time">Uhrzeit (optional):</label>
             <input type="text" name="time" id="time" class="form-control" placeholder="HH:MM:SS (z.B. 12:30:00)">
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
         const conversionType = document.getElementById('conversion_type').value;
         const timestampInputs = document.getElementById('timestampInputs');
         const dateInputs = document.getElementById('dateInputs');
-        
+
         if (conversionType === 'timestamp_to_date') {
             timestampInputs.style.display = 'block';
             dateInputs.style.display = 'none';
@@ -209,9 +209,9 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
     }
     </script>
     {% endif %}
-    
+
     {% for param, param_type in input_params.items() %}
-        {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (toolName != "Unix-Timestamp Konverter" or param == "timezone") %}
+        {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (identifier != "UnixTimestampTool" or param == "timezone") %}
             {% if param_type == 'string' %}
                 {% if param == "number" and identifier == "NumberConverterTool" %}
                     <label for="{{ param }}">{{ _('Zahl:') }}</label>
