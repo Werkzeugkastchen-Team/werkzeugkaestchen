@@ -1,4 +1,5 @@
 from tool_interface import MiniTool
+from pydantic import ConfigDict
 
 
 METAPROMPT = """
@@ -6,6 +7,8 @@ Summarize the following text. The Summary must be in the same language as the so
 """
 
 class TextSummaryTool(MiniTool):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
     def __init__(self):
         super().__init__("Text zusammenfassen Tool", "TextSummaryTool")
         # TODO: parameter for model. Gemma3:1b and Gemma3:4b
