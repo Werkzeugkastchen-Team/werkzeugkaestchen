@@ -1,0 +1,432 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-04-11 17:27+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:29 templates/base.html:51 templates/base.html:59
+msgid "Über uns"
+msgstr ""
+
+#: templates/base.html:32 templates/base.html:60
+msgid "Kontakt"
+msgstr ""
+
+#: templates/base.html:52
+msgid ""
+"Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
+" zu erleichtern."
+msgstr ""
+
+#: templates/base.html:56
+msgid "Schnelllinks"
+msgstr ""
+
+#: templates/base.html:58
+msgid "Startseite"
+msgstr ""
+
+#: templates/base.html:65
+msgid "Rechtliches"
+msgstr ""
+
+#: templates/base.html:67
+msgid "Impressum"
+msgstr ""
+
+#: templates/base.html:68
+msgid "Datenschutz"
+msgstr ""
+
+#: templates/base.html:69
+msgid "AGB"
+msgstr ""
+
+#: templates/base.html:75
+msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
+msgstr ""
+
+#: templates/index.jinja:4
+msgid "Werkzeugkästchen"
+msgstr ""
+
+#: templates/index.jinja:6
+msgid "🔍 Suche nach einem Tool..."
+msgstr ""
+
+#: templates/index.jinja:14
+msgid "Öffnen"
+msgstr ""
+
+#: templates/output.html:8
+msgid "Fehler beim Verarbeiten:"
+msgstr ""
+
+#: templates/output.html:13
+msgid "Zurück und erneut versuchen"
+msgstr ""
+
+#: templates/output.html:23
+msgid "Zurück zu den Tools"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:15
+msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:21
+msgid ""
+"Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. "
+"Das Tool wird die Zahl automatisch in die anderen Formate konvertieren."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:27
+msgid ""
+"Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. "
+"Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:33
+msgid ""
+"Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. "
+"15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:39
+msgid ""
+"Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für "
+"Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 "
+"Zeichen lang sein und verschiedene Zeichentypen enthalten."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:50
+msgid ""
+"Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der "
+"gewünschten Länge generieren."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:52
+msgid "Funktionen:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:54
+msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:55
+msgid "Generieren Sie professionellen Lorem Ipsum Text"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:56
+msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:57
+msgid "Ideal für Layout- und Designarbeiten"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:70
+msgid "Anzahl der Wörter (1-1000)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:72
+msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:217
+msgid "Zahl:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:218
+msgid "Geben Sie eine Zahl ein"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:220
+msgid "Zahlentyp:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:222
+msgid "Binär"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:223
+msgid "Dezimal"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:224
+msgid "Hexadezimal"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:228
+msgid "Zielformat:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:230
+msgid "Bitte wählen Sie ein Format"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:234
+msgid "Passwortlänge:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:236
+msgid "Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:238
+msgid "Text oder URL:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:239
+msgid "Text oder URL eingeben"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:249
+msgid "Kleinbuchstaben einschließen (a-z)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:251
+msgid "Großbuchstaben einschließen (A-Z)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:253
+msgid "Zahlen einschließen (0-9)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:255
+msgid "Sonderzeichen einschließen (!@#$%^&*...)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:267
+msgid "Bild auswählen:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:269
+msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:299
+msgid "Hinweis:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:299
+msgid ""
+"Passwörter werden lokal generiert und nicht an den Server übertragen. "
+"Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
+"gespeichert."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:301
+msgid "Passwort generieren"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:303
+msgid "QR-Code erstellen"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:305
+msgid "Konvertieren"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:307
+msgid "Ausführen"
+msgstr ""
+
+#: tools/base64_decode/base64_decode_tool.py:7
+msgid "Base64 Dekodierungstool"
+msgstr ""
+
+#: tools/base64_decode/base64_decode_tool.py:9
+#: tools/base64_decode/base64_decode_tool.py:19
+msgid "Zu dekodierender Base64-String"
+msgstr ""
+
+#: tools/base64_decode/base64_decode_tool.py:10
+#: tools/base64_decode/base64_decode_tool.py:20
+#: tools/base64_encode/base64_encode_tool.py:14
+#: tools/base64_encode/base64_encode_tool.py:25
+msgid "Kodierung"
+msgstr ""
+
+#: tools/base64_decode/base64_decode_tool.py:15
+msgid ""
+"Dekodiert einen Base64-String zu Text. Unterstützt ASCII- und "
+"UTF-8-Kodierung"
+msgstr ""
+
+#: tools/base64_decode/base64_decode_tool.py:23
+msgid "Base64-Eingabestring ist leer oder ungültig"
+msgstr ""
+
+#: tools/base64_encode/base64_encode_tool.py:8
+msgid "Base64 Kodierungstool"
+msgstr ""
+
+#: tools/base64_encode/base64_encode_tool.py:13
+#: tools/base64_encode/base64_encode_tool.py:24
+msgid "Zu kodierender Text"
+msgstr ""
+
+#: tools/base64_encode/base64_encode_tool.py:19
+msgid "base64_encode_tool_description"
+msgstr ""
+
+#: tools/base64_encode/base64_encode_tool.py:30
+msgid "Eingabetext ist leer oder ungültig"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:8
+msgid "Dateigrößenberechner"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:9
+msgid "Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:20
+msgid "Keine Datei hochgeladen"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:36
+msgid "Datei"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:37
+msgid "Gesamtgröße"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:38
+msgid "Bytes"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:39
+msgid "Dezimale Einheiten (SI)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:40
+msgid "Binäre Einheiten (IEC)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:41
+msgid "Einheit"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:42
+msgid "Wert"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:43
+msgid "Beschreibung"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:44
+msgid "Kilobyte (1000 Bytes)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:45
+msgid "Megabyte (1000 KB)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:46
+msgid "Gigabyte (1000 MB)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:47
+msgid "Kibibyte (1024 Bytes)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:48
+msgid "Mebibyte (1024 KiB)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:49
+msgid "Gibibyte (1024 MiB)"
+msgstr ""
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:147
+msgid "Fehler bei der Berechnung der Dateigröße:"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:5
+msgid "Zahlenkonverter"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:6
+msgid "Konvertiert zwischen Binär-, Dezimal- und Hexadezimalzahlen."
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:21
+msgid "Bitte geben Sie eine Zahl und den Zahlentyp ein."
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:34
+msgid "Ungültiger Zahlentyp"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:37
+#, python-format
+msgid "Ungültige Eingabe für den Typ %(type)s"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:45
+msgid "Konvertierungsergebnisse:"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:46
+msgid "Binär:"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:47
+msgid "Dezimal:"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:48
+msgid "Hexadezimal:"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:10
+msgid "QR Code Generator"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:11
+msgid "Erstellt QR\\-Codes aus Text oder URLs"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:13
+#: tools/qr_code_generator/qr_code_generator_tool.py:19
+msgid "Text oder URL"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:21
+msgid "Bitte geben Sie einen Text oder eine URL ein"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:51
+msgid "Ihr QR\\-Code"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:55
+msgid "QR\\-Code"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:58
+msgid "QR\\-Code herunterladen"
+msgstr ""
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:71
+msgid "Fehler bei der QR\\-Code Erstellung:"
+msgstr ""
+
