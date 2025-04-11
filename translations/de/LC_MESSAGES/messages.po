@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-10 16:05+0200\n"
+"POT-Creation-Date: 2025-04-11 17:27+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -82,6 +82,168 @@ msgstr ""
 
 #: templates/output.html:23
 msgid "Zurück zu den Tools"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:15
+msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:21
+msgid ""
+"Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. "
+"Das Tool wird die Zahl automatisch in die anderen Formate konvertieren."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:27
+msgid ""
+"Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. "
+"Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:33
+msgid ""
+"Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. "
+"15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:39
+msgid ""
+"Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für "
+"Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 "
+"Zeichen lang sein und verschiedene Zeichentypen enthalten."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:50
+msgid ""
+"Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der "
+"gewünschten Länge generieren."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:52
+msgid "Funktionen:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:54
+msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:55
+msgid "Generieren Sie professionellen Lorem Ipsum Text"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:56
+msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:57
+msgid "Ideal für Layout- und Designarbeiten"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:70
+msgid "Anzahl der Wörter (1-1000)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:72
+msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:217
+msgid "Zahl:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:218
+msgid "Geben Sie eine Zahl ein"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:220
+msgid "Zahlentyp:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:222
+msgid "Binär"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:223
+msgid "Dezimal"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:224
+msgid "Hexadezimal"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:228
+msgid "Zielformat:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:230
+msgid "Bitte wählen Sie ein Format"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:234
+msgid "Passwortlänge:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:236
+msgid "Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:238
+msgid "Text oder URL:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:239
+msgid "Text oder URL eingeben"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:249
+msgid "Kleinbuchstaben einschließen (a-z)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:251
+msgid "Großbuchstaben einschließen (A-Z)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:253
+msgid "Zahlen einschließen (0-9)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:255
+msgid "Sonderzeichen einschließen (!@#$%^&*...)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:267
+msgid "Bild auswählen:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:269
+msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:299
+msgid "Hinweis:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:299
+msgid ""
+"Passwörter werden lokal generiert und nicht an den Server übertragen. "
+"Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
+"gespeichert."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:301
+msgid "Passwort generieren"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:303
+msgid "QR-Code erstellen"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:305
+msgid "Konvertieren"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:307
+msgid "Ausführen"
 msgstr ""
 
 #: tools/base64_decode/base64_decode_tool.py:7
@@ -201,8 +363,45 @@ msgstr ""
 msgid "Fehler bei der Berechnung der Dateigröße:"
 msgstr ""
 
+#: tools/number_converter/number_converter_tool.py:5
+msgid "Zahlenkonverter"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:6
+msgid "Konvertiert zwischen Binär-, Dezimal- und Hexadezimalzahlen."
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:21
+msgid "Bitte geben Sie eine Zahl und den Zahlentyp ein."
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:34
+msgid "Ungültiger Zahlentyp"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:37
+#, python-format
+msgid "Ungültige Eingabe für den Typ %(type)s"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:45
+msgid "Konvertierungsergebnisse:"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:46
+msgid "Binär:"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:47
+msgid "Dezimal:"
+msgstr ""
+
+#: tools/number_converter/number_converter_tool.py:48
+msgid "Hexadezimal:"
+msgstr ""
+
 #: tools/qr_code_generator/qr_code_generator_tool.py:10
-msgid "QR\\-Code Generator"
+msgid "QR Code Generator"
 msgstr ""
 
 #: tools/qr_code_generator/qr_code_generator_tool.py:11
@@ -451,7 +650,7 @@ msgstr ""
 #~ msgid "Ungültiger Zahlentyp"
 #~ msgstr ""
 
-#~ msgid "Konvertierungsergebnisse:"
+#~ msgid "QR\\-Code Generator"
 #~ msgstr ""
 
 #~ msgid "Binär:"

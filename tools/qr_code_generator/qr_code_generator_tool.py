@@ -7,7 +7,7 @@ from tool_interface import MiniTool
 
 class QrCodeGeneratorTool(MiniTool):
     def __init__(self):
-        super().__init__(_(r"QR\-Code Generator"), "QrCodeGeneratorTool")
+        super().__init__(_(r"QR Code Generator"), "QrCodeGeneratorTool")
         self.description = _(r"Erstellt QR\-Codes aus Text oder URLs")
         self.input_params = {
             _(r"Text oder URL"): "string"

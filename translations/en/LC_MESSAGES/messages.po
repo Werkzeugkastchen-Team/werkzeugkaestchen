@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-10 16:05+0200\n"
+"POT-Creation-Date: 2025-04-11 17:27+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -83,6 +83,179 @@ msgstr "Go back and try again"
 #: templates/output.html:23
 msgid "Zurück zu den Tools"
 msgstr "Back to Tools"
+
+#: templates/variable_input_mask.jinja:15
+msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
+msgstr "Enter text or a URL to generate a QR code."
+
+#: templates/variable_input_mask.jinja:21
+msgid ""
+"Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. "
+"Das Tool wird die Zahl automatisch in die anderen Formate konvertieren."
+msgstr ""
+"Enter a number and select the corresponding number type. The tool will "
+"automatically convert the number into other formats."
+
+#: templates/variable_input_mask.jinja:27
+msgid ""
+"Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. "
+"Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP."
+msgstr ""
+"Upload an image and select the desired target format. Supported formats "
+"are: PNG, JPEG, GIF, BMP and WEBP."
+
+#: templates/variable_input_mask.jinja:33
+msgid ""
+"Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. "
+"15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
+msgstr ""
+"Enter a date in the format <strong>DD.MM.YYYY</strong> (e.g. 15.03.2025) "
+"to calculate the corresponding calendar week."
+
+#: templates/variable_input_mask.jinja:39
+msgid ""
+"Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für "
+"Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 "
+"Zeichen lang sein und verschiedene Zeichentypen enthalten."
+msgstr ""
+"Select the desired length and character types for your secure password. A"
+" strong password should be at least 12 characters long and contain "
+"various types of characters."
+
+#: templates/variable_input_mask.jinja:50
+msgid ""
+"Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der "
+"gewünschten Länge generieren."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:52
+msgid "Funktionen:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:54
+msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:55
+msgid "Generieren Sie professionellen Lorem Ipsum Text"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:56
+msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:57
+msgid "Ideal für Layout- und Designarbeiten"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:70
+msgid "Anzahl der Wörter (1-1000)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:72
+msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:217
+msgid "Zahl:"
+msgstr "Number:"
+
+#: templates/variable_input_mask.jinja:218
+msgid "Geben Sie eine Zahl ein"
+msgstr "Please enter a number"
+
+#: templates/variable_input_mask.jinja:220
+msgid "Zahlentyp:"
+msgstr "Number type:"
+
+#: templates/variable_input_mask.jinja:222
+msgid "Binär"
+msgstr "Binary"
+
+#: templates/variable_input_mask.jinja:223
+msgid "Dezimal"
+msgstr "Decimal"
+
+#: templates/variable_input_mask.jinja:224
+msgid "Hexadezimal"
+msgstr "Hexadecimal"
+
+#: templates/variable_input_mask.jinja:228
+msgid "Zielformat:"
+msgstr "Target format:"
+
+#: templates/variable_input_mask.jinja:230
+msgid "Bitte wählen Sie ein Format"
+msgstr "Please select a format"
+
+#: templates/variable_input_mask.jinja:234
+msgid "Passwortlänge:"
+msgstr "Password length:"
+
+#: templates/variable_input_mask.jinja:236
+msgid "Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)"
+msgstr "Enter a length between 4 and 128 characters (12+ recommended)"
+
+#: templates/variable_input_mask.jinja:238
+msgid "Text oder URL:"
+msgstr "Text or URL"
+
+#: templates/variable_input_mask.jinja:239
+msgid "Text oder URL eingeben"
+msgstr "Enter Text or URL"
+
+#: templates/variable_input_mask.jinja:249
+msgid "Kleinbuchstaben einschließen (a-z)"
+msgstr "Lowercase letters (a-z)"
+
+#: templates/variable_input_mask.jinja:251
+msgid "Großbuchstaben einschließen (A-Z)"
+msgstr "Uppercase letters (A-Z)"
+
+#: templates/variable_input_mask.jinja:253
+msgid "Zahlen einschließen (0-9)"
+msgstr "Include numbers (0-9)"
+
+#: templates/variable_input_mask.jinja:255
+msgid "Sonderzeichen einschließen (!@#$%^&*...)"
+msgstr "Special characters (!@#$%^&*...)"
+
+#: templates/variable_input_mask.jinja:267
+msgid "Bild auswählen:"
+msgstr "Select image:"
+
+#: templates/variable_input_mask.jinja:269
+msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
+msgstr "Supported formats: PNG, JPEG, GIF, BMP, WEBP"
+
+#: templates/variable_input_mask.jinja:299
+msgid "Hinweis:"
+msgstr "Attantion:"
+
+#: templates/variable_input_mask.jinja:299
+msgid ""
+"Passwörter werden lokal generiert und nicht an den Server übertragen. "
+"Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
+"gespeichert."
+msgstr ""
+"Passwords are generated locally and not transmitted to the server. Copy "
+"your password immediately after creation, it is not stored."
+
+#: templates/variable_input_mask.jinja:301
+msgid "Passwort generieren"
+msgstr "Generate Password"
+
+#: templates/variable_input_mask.jinja:303
+msgid "QR-Code erstellen"
+msgstr "Create QR Code"
+
+#: templates/variable_input_mask.jinja:305
+msgid "Konvertieren"
+msgstr "Convert"
+
+#: templates/variable_input_mask.jinja:307
+msgid "Ausführen"
+msgstr "Run"
 
 #: tools/base64_decode/base64_decode_tool.py:7
 msgid "Base64 Dekodierungstool"
@@ -201,8 +374,45 @@ msgstr "Gibibyte (1024 MiB)"
 msgid "Fehler bei der Berechnung der Dateigröße:"
 msgstr "Error calculating file size:"
 
+#: tools/number_converter/number_converter_tool.py:5
+msgid "Zahlenkonverter"
+msgstr "Number Converter"
+
+#: tools/number_converter/number_converter_tool.py:6
+msgid "Konvertiert zwischen Binär-, Dezimal- und Hexadezimalzahlen."
+msgstr "Converts between binary, decimal and hexadecimal numbers."
+
+#: tools/number_converter/number_converter_tool.py:21
+msgid "Bitte geben Sie eine Zahl und den Zahlentyp ein."
+msgstr "Please enter a number and the number type."
+
+#: tools/number_converter/number_converter_tool.py:34
+msgid "Ungültiger Zahlentyp"
+msgstr "Invalid number type"
+
+#: tools/number_converter/number_converter_tool.py:37
+#, python-format
+msgid "Ungültige Eingabe für den Typ %(type)s"
+msgstr "Invalid input for type %(type)s"
+
+#: tools/number_converter/number_converter_tool.py:45
+msgid "Konvertierungsergebnisse:"
+msgstr "Conversion results:"
+
+#: tools/number_converter/number_converter_tool.py:46
+msgid "Binär:"
+msgstr "Binary:"
+
+#: tools/number_converter/number_converter_tool.py:47
+msgid "Dezimal:"
+msgstr "Decimal:"
+
+#: tools/number_converter/number_converter_tool.py:48
+msgid "Hexadezimal:"
+msgstr "Hexadecimal:"
+
 #: tools/qr_code_generator/qr_code_generator_tool.py:10
-msgid "QR\\-Code Generator"
+msgid "QR Code Generator"
 msgstr "QR Code Generator"
 
 #: tools/qr_code_generator/qr_code_generator_tool.py:11
@@ -233,255 +443,4 @@ msgstr "Download QR Code"
 #: tools/qr_code_generator/qr_code_generator_tool.py:71
 msgid "Fehler bei der QR\\-Code Erstellung:"
 msgstr "Error creating QR Code:"
-
-#~ msgid "Tool Name:"
-#~ msgstr "Tool Name:"
-
-#~ msgid "Identifier:"
-#~ msgstr "Identifier:"
-
-#~ msgid "Tool Description:"
-#~ msgstr "Tool Description:"
-
-#~ msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
-#~ msgstr "Enter text or a URL to generate a QR code."
-
-#~ msgid ""
-#~ "Geben Sie eine Zahl ein und wählen"
-#~ " Sie den entsprechenden Zahlentyp aus. "
-#~ "Das Tool wird die Zahl automatisch "
-#~ "in die anderen Formate konvertieren."
-#~ msgstr ""
-#~ "Enter a number and select the "
-#~ "corresponding number type. The tool will"
-#~ " automatically convert the number into "
-#~ "other formats."
-
-#~ msgid ""
-#~ "Laden Sie ein Bild hoch und wählen"
-#~ " Sie das gewünschte Zielformat aus. "
-#~ "Unterstützte Formate sind: PNG, JPEG, "
-#~ "GIF, BMP und WEBP."
-#~ msgstr ""
-#~ "Upload an image and select the "
-#~ "desired target format. Supported formats "
-#~ "are: PNG, JPEG, GIF, BMP and WEBP."
-
-#~ msgid "Geben Sie ein Datum im Format"
-#~ msgstr "Enter a date in the format"
-
-#~ msgid "TT.MM.JJJJ"
-#~ msgstr "DD.MM.YYYY"
-
-#~ msgid "ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
-#~ msgstr "(e.g. 15.03.2025) to calculate the corresponding calendar week."
-
-#~ msgid ""
-#~ "Wählen Sie die gewünschte Länge und "
-#~ "die zu verwendenden Zeichentypen für Ihr"
-#~ " sicheres Passwort aus. Ein starkes "
-#~ "Passwort sollte mindestens 12 Zeichen "
-#~ "lang sein und verschiedene Zeichentypen "
-#~ "enthalten."
-#~ msgstr ""
-#~ "Select the desired length and character"
-#~ " types for your secure password. A"
-#~ " strong password should be at least"
-#~ " 12 characters long and contain "
-#~ "various types of characters."
-
-#~ msgid ""
-#~ "Mit diesem Tool können Sie Lorem "
-#~ "Ipsum Platzhalter-Text in der "
-#~ "gewünschten Länge generieren."
-#~ msgstr ""
-#~ "With this tool you can generate "
-#~ "Lorem Ipsum placeholder text in the "
-#~ "desired length."
-
-#~ msgid "Funktionen:"
-#~ msgstr "Features:"
-
-#~ msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
-#~ msgstr "Select the desired text length (1-1000 words)"
-
-#~ msgid "Generieren Sie professionellen Lorem Ipsum Text"
-#~ msgstr "Generate professional Lorem Ipsum text"
-
-#~ msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
-#~ msgstr "Copy the text to the clipboard with one click"
-
-#~ msgid "Ideal für Layout- und Designarbeiten"
-#~ msgstr "Ideal for layout and design work"
-
-#~ msgid "Textlänge:"
-#~ msgstr "Text length:"
-
-#~ msgid "Anzahl der Wörter (1-1000)"
-#~ msgstr "Number of words (1-1000)"
-
-#~ msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
-#~ msgstr "Choose a length between 1 and 1000 words."
-
-#~ msgid "Text generieren"
-#~ msgstr "Generate Text"
-
-#~ msgid ""
-#~ "Wählen Sie eine Kategorie und geben "
-#~ "Sie den Wert sowie die Quell- und"
-#~ " Zieleinheit an, um eine Umrechnung "
-#~ "durchzuführen."
-#~ msgstr ""
-#~ "Select a category and enter the "
-#~ "value as well as the source and"
-#~ " target unit to perform a conversion."
-
-#~ msgid "Kategorie:"
-#~ msgstr "Category:"
-
-#~ msgid "Length"
-#~ msgstr "Length"
-
-#~ msgid "Weight"
-#~ msgstr "Weight"
-
-#~ msgid "Wert:"
-#~ msgstr "Value:"
-
-#~ msgid "z.B. 100"
-#~ msgstr "e.g. 100"
-
-#~ msgid "Von Einheit:"
-#~ msgstr "From Unit:"
-
-#~ msgid "Nach Einheit:"
-#~ msgstr "To Unit:"
-
-#~ msgid ""
-#~ "Mit diesem Tool können Sie Unix-"
-#~ "Timestamps in lesbare Datums- und "
-#~ "Zeitangaben umwandeln und umgekehrt."
-#~ msgstr ""
-#~ "With this tool you can convert "
-#~ "Unix timestamps to readable date and "
-#~ "time information and vice versa."
-
-#~ msgid "Konvertierungsrichtung:"
-#~ msgstr "Conversion direction:"
-
-#~ msgid "Timestamp zu Datum"
-#~ msgstr "Timestamp to Date"
-
-#~ msgid "Datum zu Timestamp"
-#~ msgstr "Date to Timestamp"
-
-#~ msgid "Unix-Timestamp:"
-#~ msgstr "Unix Timestamp:"
-
-#~ msgid "z.B. 1640995200"
-#~ msgstr "e.g. 1640995200"
-
-#~ msgid ""
-#~ "Geben Sie einen Unix-Timestamp ein "
-#~ "(Sekunden seit dem 01.01.1970 00:00:00 "
-#~ "UTC)."
-#~ msgstr "Enter a Unix timestamp (seconds since 01.01.1970 00:00:00 UTC)."
-
-#~ msgid "Datum:"
-#~ msgstr "Date:"
-
-#~ msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
-#~ msgstr "DD.MM.YYYY (e.g. 01.01.2022)"
-
-#~ msgid "Geben Sie ein Datum im Format TT.MM.JJJJ ein."
-#~ msgstr "Enter a date in the format DD.MM.YYYY."
-
-#~ msgid "Uhrzeit (optional):"
-#~ msgstr "Time (optional):"
-
-#~ msgid "HH:MM:SS (z.B. 12:30:00)"
-#~ msgstr "HH:MM:SS (e.g. 12:30:00)"
-
-#~ msgid ""
-#~ "Geben Sie eine Uhrzeit im Format "
-#~ "HH:MM:SS ein. Standard ist 00:00:00 wenn"
-#~ " leer."
-#~ msgstr "Enter a time in the format HH:MM:SS. Default is 00:00:00 if left empty."
-
-#~ msgid "Zahl:"
-#~ msgstr "Number:"
-
-#~ msgid "Geben Sie eine Zahl ein"
-#~ msgstr "Enter a number"
-
-#~ msgid "Zahlentyp:"
-#~ msgstr "Number type:"
-
-#~ msgid "Binär"
-#~ msgstr "Binary"
-
-#~ msgid "Dezimal"
-#~ msgstr "Decimal"
-
-#~ msgid "Hexadezimal"
-#~ msgstr "Hexadecimal"
-
-#~ msgid "Bild auswählen:"
-#~ msgstr "Select image:"
-
-#~ msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
-#~ msgstr "Supported formats: PNG, JPEG, GIF, BMP, WEBP"
-
-#~ msgid "Hinweis:"
-#~ msgstr "Note:"
-
-#~ msgid ""
-#~ "Passwörter werden lokal generiert und "
-#~ "nicht an den Server übertragen. Kopieren"
-#~ " Sie Ihr Passwort sofort nach der "
-#~ "Erstellung, es wird nicht gespeichert."
-#~ msgstr ""
-#~ "Passwords are generated locally and not"
-#~ " transmitted to the server. Copy your"
-#~ " password immediately after creation, it"
-#~ " is not stored."
-
-#~ msgid "Passwort generieren"
-#~ msgstr "Generate Password"
-
-#~ msgid "QR-Code erstellen"
-#~ msgstr "Create QR Code"
-
-#~ msgid "Konvertieren"
-#~ msgstr "Convert"
-
-#~ msgid "Ausführen"
-#~ msgstr "Run"
-
-#~ msgid "Bitte wählen Sie ein Format"
-#~ msgstr "Please select a format"
-
-#~ msgid "Zahlenkonverter"
-#~ msgstr "Number Converter"
-
-#~ msgid "Konvertiert zwischen Binär-, Dezimal- und Hexadezimalzahlen."
-#~ msgstr "Converts between binary, decimal and hexadecimal numbers."
-
-#~ msgid "Bitte geben Sie eine Zahl und den Zahlentyp ein."
-#~ msgstr "Please enter a number and the number type."
-
-#~ msgid "Ungültiger Zahlentyp"
-#~ msgstr "Invalid number type"
-
-#~ msgid "Konvertierungsergebnisse:"
-#~ msgstr "Conversion results:"
-
-#~ msgid "Binär:"
-#~ msgstr "Binary:"
-
-#~ msgid "Dezimal:"
-#~ msgstr "Decimal:"
-
-#~ msgid "Hexadezimal:"
-#~ msgstr "Hexadecimal:"
 
