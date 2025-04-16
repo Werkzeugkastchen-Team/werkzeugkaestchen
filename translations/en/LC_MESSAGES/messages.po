@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-11 20:21+0200\n"
+"POT-Creation-Date: 2025-04-16 17:56+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -302,6 +302,37 @@ msgstr ""
 msgid "Eingabetext ist leer oder ungültig"
 msgstr "Input text is empty or invalid"
 
+#: tools/calendar_week/calendar_week_tool.py:7
+msgid "Kalenderwochenberechner"
+msgstr "Calendar Week Calculator"
+
+#: tools/calendar_week/calendar_week_tool.py:8
+msgid "Berechnet die Kalenderwoche für ein gegebenes Datum (Format: TT.MM.JJJJ)."
+msgstr "Calculates the calendar week for a given date (format: DD.MM.YYYY)."
+
+#: tools/calendar_week/calendar_week_tool.py:20
+msgid "Datum"
+msgstr "Date"
+
+#: tools/calendar_week/calendar_week_tool.py:21
+msgid "TT.MM.JJJJ"
+msgstr "DD.MM.YYYY"
+
+#: tools/calendar_week/calendar_week_tool.py:30
+msgid "Bitte geben Sie ein Datum ein."
+msgstr "Please enter a date."
+
+#: tools/calendar_week/calendar_week_tool.py:42
+msgid ""
+"Ungültiges Datumsformat. Bitte verwenden Sie das Format TT.MM.JJJJ (z.B. "
+"01.12.2025)."
+msgstr "Invalid date format. Please use the format DD.MM.YYYY (e.g. 01.12.2025)."
+
+#: tools/calendar_week/calendar_week_tool.py:45
+#: tools/word_counter/word_counter_tool.py:52
+msgid "Ein Fehler ist aufgetreten: "
+msgstr "An error occurred: "
+
 #: tools/file_size_calculator/file_size_calculator_tool.py:8
 msgid "Dateigrößenberechner"
 msgstr "File Size Calculator"
@@ -484,4 +515,28 @@ msgstr "Download QR Code"
 #: tools/qr_code_generator/qr_code_generator_tool.py:71
 msgid "Fehler bei der QR\\-Code Erstellung:"
 msgstr "Error creating QR Code:"
+
+#: tools/word_counter/word_counter_tool.py:6
+msgid "Wortzähler"
+msgstr "Word Counter"
+
+#: tools/word_counter/word_counter_tool.py:8
+msgid ""
+"Zählt die Anzahl der Wörter in einem Text, unter Berücksichtigung von "
+"Bindestrichen und Zeilenumbrüchen."
+msgstr ""
+"Counts the number of words in a text, taking hyphens and line breaks into"
+" account."
+
+#: tools/word_counter/word_counter_tool.py:23
+msgid "Bitte geben Sie einen Text ein."
+msgstr "Please enter a text."
+
+#: tools/word_counter/word_counter_tool.py:36
+msgid "Ergebnis der Wortzählung:"
+msgstr "Word Count Result:"
+
+#: tools/word_counter/word_counter_tool.py:37
+msgid "Anzahl der Wörter:"
+msgstr "Number of words:"
 

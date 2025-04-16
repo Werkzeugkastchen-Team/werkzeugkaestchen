@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-11 20:21+0200\n"
+"POT-Creation-Date: 2025-04-16 17:56+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -291,6 +291,37 @@ msgstr ""
 msgid "Eingabetext ist leer oder ungültig"
 msgstr ""
 
+#: tools/calendar_week/calendar_week_tool.py:7
+msgid "Kalenderwochenberechner"
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:8
+msgid "Berechnet die Kalenderwoche für ein gegebenes Datum (Format: TT.MM.JJJJ)."
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:20
+msgid "Datum"
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:21
+msgid "TT.MM.JJJJ"
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:30
+msgid "Bitte geben Sie ein Datum ein."
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:42
+msgid ""
+"Ungültiges Datumsformat. Bitte verwenden Sie das Format TT.MM.JJJJ (z.B. "
+"01.12.2025)."
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:45
+#: tools/word_counter/word_counter_tool.py:52
+msgid "Ein Fehler ist aufgetreten: "
+msgstr ""
+
 #: tools/file_size_calculator/file_size_calculator_tool.py:8
 msgid "Dateigrößenberechner"
 msgstr ""
@@ -470,6 +501,28 @@ msgstr ""
 
 #: tools/qr_code_generator/qr_code_generator_tool.py:71
 msgid "Fehler bei der QR\\-Code Erstellung:"
+msgstr ""
+
+#: tools/word_counter/word_counter_tool.py:6
+msgid "Wortzähler"
+msgstr ""
+
+#: tools/word_counter/word_counter_tool.py:8
+msgid ""
+"Zählt die Anzahl der Wörter in einem Text, unter Berücksichtigung von "
+"Bindestrichen und Zeilenumbrüchen."
+msgstr ""
+
+#: tools/word_counter/word_counter_tool.py:23
+msgid "Bitte geben Sie einen Text ein."
+msgstr ""
+
+#: tools/word_counter/word_counter_tool.py:36
+msgid "Ergebnis der Wortzählung:"
+msgstr ""
+
+#: tools/word_counter/word_counter_tool.py:37
+msgid "Anzahl der Wörter:"
 msgstr ""
 
 #~ msgid "Tool Name:"
@@ -699,5 +752,36 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Hexadezimal:"
+#~ msgstr ""
+
+#~ msgid "Kalenderwochenberechner"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Berechnet die Kalenderwoche für ein "
+#~ "gegebenes Datum (Format: TT.MM.JJJJ)."
+#~ msgstr ""
+
+#~ msgid "Bitte geben Sie ein Datum ein."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Ungültiges Datumsformat. Bitte verwenden Sie"
+#~ " das Format TT.MM.JJJJ (z.B. 01.12.2025)."
+#~ msgstr ""
+
+#~ msgid "Kalenderwochenberechnung:"
+#~ msgstr ""
+
+#~ msgid "Das Datum"
+#~ msgstr ""
+
+#~ msgid "liegt in:"
+#~ msgstr ""
+
+#~ msgid "KW"
+#~ msgstr ""
+
+#~ msgid "im Jahr"
 #~ msgstr ""
 
