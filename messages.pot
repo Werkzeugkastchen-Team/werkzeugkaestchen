@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-17 14:55+0200\n"
+"POT-Creation-Date: 2025-04-17 15:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,41 +207,41 @@ msgid "Zahlen einschließen (0-9)"
 msgstr ""
 
 #: templates/variable_input_mask.jinja:255
-msgid "Sonderzeichen einschließen (!@#$%^&*...)"
+msgid "Sonderzeichen einschließen (!, @, #, $, usw.)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:267
+#: templates/variable_input_mask.jinja:266
 msgid "Bild auswählen:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:269
+#: templates/variable_input_mask.jinja:268
 msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:299
+#: templates/variable_input_mask.jinja:298
 msgid "Hinweis:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:299
+#: templates/variable_input_mask.jinja:298
 msgid ""
 "Passwörter werden lokal generiert und nicht an den Server übertragen. "
 "Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
 "gespeichert."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:301
+#: templates/variable_input_mask.jinja:300
 msgid "Passwort generieren"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:303
+#: templates/variable_input_mask.jinja:302
 msgid "QR-Code erstellen"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:305
+#: templates/variable_input_mask.jinja:304
 msgid "Konvertieren"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:307
+#: templates/variable_input_mask.jinja:306
 msgid "Ausführen"
 msgstr ""
 
@@ -476,6 +476,107 @@ msgstr ""
 
 #: tools/number_converter/number_converter_tool.py:48
 msgid "Hexadezimal:"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:8
+msgid "Passwortgenerator"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:9
+msgid ""
+"Generiert starke, zufällige Passwörter mit anpassbaren Optionen für Länge"
+" und Zeichentypen."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:27
+msgid "Die Passwortlänge muss eine Zahl sein."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:31
+msgid "Die Passwortlänge muss zwischen 4 und 128 Zeichen liegen."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:42
+msgid "Bitte wählen Sie mindestens einen Zeichentyp aus."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:68
+msgid "Fehler bei der Passwortgenerierung:"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:92
+msgid "Stark"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:94
+msgid "Dieses Passwort bietet guten Schutz."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:98
+msgid "Mittel"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:100
+msgid "Dieses Passwort bietet angemessenen Schutz."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:104
+msgid "Schwach"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:106
+msgid "Dieses Passwort könnte stärker sein."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:115
+msgid "Ihr generiertes Passwort"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:116
+msgid "Passwort:"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:117
+msgid "Kopieren"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:118
+msgid "Länge:"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:119
+msgid "Zeichen"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:120
+msgid "Stärke:"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:121
+msgid "Neues Passwort generieren"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:122
+msgid "Tipp:"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:123
+msgid ""
+"Verwenden Sie für jeden Online-Dienst ein einzigartiges Passwort und "
+"erwägen Sie die Nutzung eines Passwort-Managers, um Ihre Passwörter "
+"sicher zu verwalten."
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:124
+msgid "Kopiert!"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:125
+msgid "Kopierfehler:"
+msgstr ""
+
+#: tools/password_generator/password_generator_tool.py:126
+msgid "Kopieren fehlgeschlagen. Bitte manuell kopieren."
 msgstr ""
 
 #: tools/qr_code_generator/qr_code_generator_tool.py:10

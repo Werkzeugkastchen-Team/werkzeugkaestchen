@@ -252,8 +252,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
                         {% elif param == "include_numbers" %}
                             <label class="form-check-label" for="{{ param }}">{{ _('Zahlen einschließen (0-9)') }}</label>
                         {% elif param == "include_special" %}
-                            <label class="form-check-label" for="{{ param }}">{{ _('Sonderzeichen einschließen (!@#$%^&*...)') }}</label>
-                        {% else %}
+                            <label class="form-check-label" for="{{ param }}">{{ _('Sonderzeichen einschließen (!, @, #, $, usw.)') }}</label>                        {% else %}
                             <label class="form-check-label" for="{{ param }}">{{ param }}</label>
                         {% endif %}
                     </div>
