@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-17 14:27+0200\n"
+"POT-Creation-Date: 2025-04-17 14:55+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -528,6 +528,51 @@ msgstr "Download QR Code"
 #: tools/qr_code_generator/qr_code_generator_tool.py:71
 msgid "Fehler bei der QR\\-Code Erstellung:"
 msgstr "Error creating QR Code:"
+
+#: tools/random_number_generator/random_number_generator_tool.py:8
+msgid "Zufallszahlengenerator"
+msgstr "Random Number Generator"
+
+#: tools/random_number_generator/random_number_generator_tool.py:9
+msgid ""
+"Generiere eine Zufallszahl. Beispiel: Nenne mit eine Zahl zwischen 1 und "
+"10"
+msgstr "Generate a random number. Example: Name a number between 1 and 10"
+
+#: tools/random_number_generator/random_number_generator_tool.py:13
+#: tools/random_number_generator/random_number_generator_tool.py:26
+msgid "Minimum Number"
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:14
+#: tools/random_number_generator/random_number_generator_tool.py:27
+msgid "Maximum Number"
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:15
+#: tools/random_number_generator/random_number_generator_tool.py:28
+msgid "Amount of Rolls"
+msgstr "Amount of Rolls"
+
+#: tools/random_number_generator/random_number_generator_tool.py:32
+msgid "Alle Eingabefelder müssen ausgefüllt sein."
+msgstr "All input fields must be filled."
+
+#: tools/random_number_generator/random_number_generator_tool.py:41
+msgid "Bitte geben Sie ganze Zahlen in alle Eingabefelder ein."
+msgstr "Please enter whole numbers in all input fields."
+
+#: tools/random_number_generator/random_number_generator_tool.py:46
+msgid "Das Minimum darf nicht größer als das Maximum sein."
+msgstr "The minimum must not be greater than the maximum."
+
+#: tools/random_number_generator/random_number_generator_tool.py:51
+msgid "Zahl zu hoch."
+msgstr "Number too high."
+
+#: tools/random_number_generator/random_number_generator_tool.py:56
+msgid "Anzahl Würfe zu hoch."
+msgstr "Amount of rolls too high."
 
 #: tools/word_counter/word_counter_tool.py:6
 msgid "Wortzähler"

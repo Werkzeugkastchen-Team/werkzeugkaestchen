@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-17 14:27+0200\n"
+"POT-Creation-Date: 2025-04-17 14:55+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -514,6 +514,51 @@ msgstr ""
 msgid "Fehler bei der QR\\-Code Erstellung:"
 msgstr ""
 
+#: tools/random_number_generator/random_number_generator_tool.py:8
+msgid "Zufallszahlengenerator"
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:9
+msgid ""
+"Generiere eine Zufallszahl. Beispiel: Nenne mit eine Zahl zwischen 1 und "
+"10"
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:13
+#: tools/random_number_generator/random_number_generator_tool.py:26
+msgid "Minimum Number"
+msgstr "Kleinste Zahl"
+
+#: tools/random_number_generator/random_number_generator_tool.py:14
+#: tools/random_number_generator/random_number_generator_tool.py:27
+msgid "Maximum Number"
+msgstr "Größte Zahl"
+
+#: tools/random_number_generator/random_number_generator_tool.py:15
+#: tools/random_number_generator/random_number_generator_tool.py:28
+msgid "Amount of Rolls"
+msgstr "Anzahl der Würfe"
+
+#: tools/random_number_generator/random_number_generator_tool.py:32
+msgid "Alle Eingabefelder müssen ausgefüllt sein."
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:41
+msgid "Bitte geben Sie ganze Zahlen in alle Eingabefelder ein."
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:46
+msgid "Das Minimum darf nicht größer als das Maximum sein."
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:51
+msgid "Zahl zu hoch."
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:56
+msgid "Anzahl Würfe zu hoch."
+msgstr ""
+
 #: tools/word_counter/word_counter_tool.py:6
 msgid "Wortzähler"
 msgstr ""
@@ -539,267 +584,4 @@ msgstr ""
 #: tools/word_counter/word_counter_tool.py:52
 msgid "Ein Fehler ist aufgetreten: "
 msgstr ""
-
-#~ msgid "Tool Name:"
-#~ msgstr ""
-
-#~ msgid "Identifier:"
-#~ msgstr ""
-
-#~ msgid "Tool Description:"
-#~ msgstr ""
-#~ "Kodiert jeden Eingabetext in einen "
-#~ "Base64-String. Unterstützt ASCII- und "
-#~ "UTF-8-Kodierung"
-
-#~ msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Geben Sie eine Zahl ein und wählen"
-#~ " Sie den entsprechenden Zahlentyp aus. "
-#~ "Das Tool wird die Zahl automatisch "
-#~ "in die anderen Formate konvertieren."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Laden Sie ein Bild hoch und wählen"
-#~ " Sie das gewünschte Zielformat aus. "
-#~ "Unterstützte Formate sind: PNG, JPEG, "
-#~ "GIF, BMP und WEBP."
-#~ msgstr ""
-
-#~ msgid "Geben Sie ein Datum im Format"
-#~ msgstr ""
-
-#~ msgid "TT.MM.JJJJ"
-#~ msgstr ""
-
-#~ msgid "ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Wählen Sie die gewünschte Länge und "
-#~ "die zu verwendenden Zeichentypen für Ihr"
-#~ " sicheres Passwort aus. Ein starkes "
-#~ "Passwort sollte mindestens 12 Zeichen "
-#~ "lang sein und verschiedene Zeichentypen "
-#~ "enthalten."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Mit diesem Tool können Sie Lorem "
-#~ "Ipsum Platzhalter-Text in der "
-#~ "gewünschten Länge generieren."
-#~ msgstr ""
-
-#~ msgid "Funktionen:"
-#~ msgstr ""
-
-#~ msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
-#~ msgstr ""
-
-#~ msgid "Generieren Sie professionellen Lorem Ipsum Text"
-#~ msgstr ""
-
-#~ msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
-#~ msgstr ""
-
-#~ msgid "Ideal für Layout- und Designarbeiten"
-#~ msgstr ""
-
-#~ msgid "Textlänge:"
-#~ msgstr ""
-
-#~ msgid "Anzahl der Wörter (1-1000)"
-#~ msgstr ""
-
-#~ msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
-#~ msgstr ""
-
-#~ msgid "Text generieren"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Wählen Sie eine Kategorie und geben "
-#~ "Sie den Wert sowie die Quell- und"
-#~ " Zieleinheit an, um eine Umrechnung "
-#~ "durchzuführen."
-#~ msgstr ""
-
-#~ msgid "Kategorie:"
-#~ msgstr ""
-
-#~ msgid "Length"
-#~ msgstr ""
-
-#~ msgid "Weight"
-#~ msgstr ""
-
-#~ msgid "Wert:"
-#~ msgstr ""
-
-#~ msgid "z.B. 100"
-#~ msgstr ""
-
-#~ msgid "Von Einheit:"
-#~ msgstr ""
-
-#~ msgid "Nach Einheit:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Mit diesem Tool können Sie Unix-"
-#~ "Timestamps in lesbare Datums- und "
-#~ "Zeitangaben umwandeln und umgekehrt."
-#~ msgstr ""
-
-#~ msgid "Konvertierungsrichtung:"
-#~ msgstr ""
-
-#~ msgid "Timestamp zu Datum"
-#~ msgstr ""
-
-#~ msgid "Datum zu Timestamp"
-#~ msgstr ""
-
-#~ msgid "Unix-Timestamp:"
-#~ msgstr ""
-
-#~ msgid "z.B. 1640995200"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Geben Sie einen Unix-Timestamp ein "
-#~ "(Sekunden seit dem 01.01.1970 00:00:00 "
-#~ "UTC)."
-#~ msgstr ""
-
-#~ msgid "Datum:"
-#~ msgstr ""
-
-#~ msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
-#~ msgstr ""
-
-#~ msgid "Geben Sie ein Datum im Format TT.MM.JJJJ ein."
-#~ msgstr ""
-
-#~ msgid "Uhrzeit (optional):"
-#~ msgstr ""
-
-#~ msgid "HH:MM:SS (z.B. 12:30:00)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Geben Sie eine Uhrzeit im Format "
-#~ "HH:MM:SS ein. Standard ist 00:00:00 wenn"
-#~ " leer."
-#~ msgstr ""
-
-#~ msgid "Zahl:"
-#~ msgstr ""
-
-#~ msgid "Geben Sie eine Zahl ein"
-#~ msgstr ""
-
-#~ msgid "Zahlentyp:"
-#~ msgstr ""
-
-#~ msgid "Binär"
-#~ msgstr ""
-
-#~ msgid "Dezimal"
-#~ msgstr ""
-
-#~ msgid "Hexadezimal"
-#~ msgstr ""
-
-#~ msgid "Bild auswählen:"
-#~ msgstr ""
-
-#~ msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
-#~ msgstr ""
-
-#~ msgid "Hinweis:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Passwörter werden lokal generiert und "
-#~ "nicht an den Server übertragen. Kopieren"
-#~ " Sie Ihr Passwort sofort nach der "
-#~ "Erstellung, es wird nicht gespeichert."
-#~ msgstr ""
-
-#~ msgid "Passwort generieren"
-#~ msgstr ""
-
-#~ msgid "QR-Code erstellen"
-#~ msgstr ""
-
-#~ msgid "Konvertieren"
-#~ msgstr ""
-
-#~ msgid "Ausführen"
-#~ msgstr ""
-
-#~ msgid "Bitte wählen Sie ein Format"
-#~ msgstr ""
-
-#~ msgid "Zahlenkonverter"
-#~ msgstr ""
-
-#~ msgid "Konvertiert zwischen Binär-, Dezimal- und Hexadezimalzahlen."
-#~ msgstr ""
-
-#~ msgid "Bitte geben Sie eine Zahl und den Zahlentyp ein."
-#~ msgstr ""
-
-#~ msgid "Ungültiger Zahlentyp"
-#~ msgstr ""
-
-#~ msgid "QR\\-Code Generator"
-#~ msgstr ""
-
-#~ msgid "Binär:"
-#~ msgstr ""
-
-#~ msgid "Dezimal:"
-#~ msgstr ""
-
-#~ msgid "Hexadezimal:"
-#~ msgstr ""
-
-#~ msgid "Kalenderwochenberechner"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Berechnet die Kalenderwoche für ein "
-#~ "gegebenes Datum (Format: TT.MM.JJJJ)."
-#~ msgstr ""
-
-#~ msgid "Bitte geben Sie ein Datum ein."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Ungültiges Datumsformat. Bitte verwenden Sie"
-#~ " das Format TT.MM.JJJJ (z.B. 01.12.2025)."
-#~ msgstr ""
-
-#~ msgid "Kalenderwochenberechnung:"
-#~ msgstr ""
-
-#~ msgid "Das Datum"
-#~ msgstr ""
-
-#~ msgid "liegt in:"
-#~ msgstr ""
-
-#~ msgid "KW"
-#~ msgstr ""
-
-#~ msgid "im Jahr"
-#~ msgstr ""
-
-#~ msgid "Datum"
-#~ msgstr ""
 
