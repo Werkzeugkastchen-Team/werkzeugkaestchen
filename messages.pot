@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-16 17:56+0200\n"
+"POT-Creation-Date: 2025-04-17 14:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -288,35 +288,46 @@ msgstr ""
 msgid "Eingabetext ist leer oder ungültig"
 msgstr ""
 
-#: tools/calendar_week/calendar_week_tool.py:7
+#: tools/calendar_week/calendar_week_tool.py:10
 msgid "Kalenderwochenberechner"
 msgstr ""
 
-#: tools/calendar_week/calendar_week_tool.py:8
+#: tools/calendar_week/calendar_week_tool.py:11
 msgid "Berechnet die Kalenderwoche für ein gegebenes Datum (Format: TT.MM.JJJJ)."
 msgstr ""
 
-#: tools/calendar_week/calendar_week_tool.py:20
+#: tools/calendar_week/calendar_week_tool.py:16
 msgid "Datum"
-msgstr ""
-
-#: tools/calendar_week/calendar_week_tool.py:21
-msgid "TT.MM.JJJJ"
 msgstr ""
 
 #: tools/calendar_week/calendar_week_tool.py:30
 msgid "Bitte geben Sie ein Datum ein."
 msgstr ""
 
-#: tools/calendar_week/calendar_week_tool.py:42
+#: tools/calendar_week/calendar_week_tool.py:41
 msgid ""
 "Ungültiges Datumsformat. Bitte verwenden Sie das Format TT.MM.JJJJ (z.B. "
 "01.12.2025)."
 msgstr ""
 
-#: tools/calendar_week/calendar_week_tool.py:45
-#: tools/word_counter/word_counter_tool.py:52
-msgid "Ein Fehler ist aufgetreten: "
+#: tools/calendar_week/calendar_week_tool.py:49
+msgid "Kalenderwochenberechnung:"
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:50
+msgid "Das Datum"
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:51
+msgid "liegt in:"
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:52
+msgid "KW"
+msgstr ""
+
+#: tools/calendar_week/calendar_week_tool.py:53
+msgid "im Jahr"
 msgstr ""
 
 #: tools/file_size_calculator/file_size_calculator_tool.py:8
@@ -520,5 +531,9 @@ msgstr ""
 
 #: tools/word_counter/word_counter_tool.py:37
 msgid "Anzahl der Wörter:"
+msgstr ""
+
+#: tools/word_counter/word_counter_tool.py:52
+msgid "Ein Fehler ist aufgetreten: "
 msgstr ""
 

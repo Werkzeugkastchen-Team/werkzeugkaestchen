@@ -66,7 +66,6 @@ tools = {
     "CalendarWeekTool": CalendarWeekTool(),
     "RandomNumberGeneratorTool": RandomNumberGeneratorTool(),
     "PasswordGeneratorTool": PasswordGeneratorTool(),
-    "CalendarWeekTool": CalendarWeekTool(),
     "ImageCropperTool": ImageCropperTool(),
     "AudioConverterTool": AudioConverterTool(),
     "TextToSpeechTool": TextToSpeechTool(),
