@@ -260,6 +260,68 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
                     <label for="{{ param }}">{{ param }}:</label>
                     <input type="checkbox" name="{{ param }}" id="{{ param }}">
                 {% endif %}
+                {% elif param_type == 'file[]' %}
+                <div class="form-group">
+                    <label for="{{ param }}"><strong>{{ _('PDF-Dateien hochladen:') }}</strong></label>
+                    <input type="file"
+                        name="{{ param }}"
+                        id="{{ param }}"
+                        multiple
+                        accept=".pdf"
+                        class="form-control"
+                        onchange="handlePdfUpload(this)">
+                    <small class="form-text text-muted">{{ _('Sie können die Reihenfolge nach dem Hochladen anpassen.') }}</small>
+                </div>
+
+                <ul id="pdfList" class="list-group mt-2"></ul>
+                <input type="hidden" name="pdf_order" id="pdf_order">
+
+                <script>
+                function handlePdfUpload(input) {
+                    const list = document.getElementById("pdfList");
+                    const orderInput = document.getElementById("pdf_order");
+                    list.innerHTML = "";
+
+                    Array.from(input.files).forEach((file, index) => {
+                        const li = document.createElement("li");
+                        li.className = "list-group-item d-flex justify-content-between align-items-center";
+                        li.draggable = true;
+                        li.textContent = file.name;
+                        li.dataset.index = index;
+                        list.appendChild(li);
+                    });
+
+                    updateOrderInput();
+                    enableReordering();
+                }
+
+                function updateOrderInput() {
+                    const items = document.querySelectorAll("#pdfList li");
+                    const filenames = Array.from(items).map(li => li.textContent);
+                    document.getElementById("pdf_order").value = filenames.join(",");
+                }
+
+                function enableReordering() {
+                    let dragging;
+
+                    document.querySelectorAll("#pdfList li").forEach(item => {
+                        item.addEventListener("dragstart", () => dragging = item);
+                        item.addEventListener("dragover", e => e.preventDefault());
+                        item.addEventListener("drop", function () {
+                            if (dragging !== this) {
+                                const list = this.parentNode;
+                                const siblings = Array.from(list.children);
+                                const draggedIndex = siblings.indexOf(dragging);
+                                const droppedIndex = siblings.indexOf(this);
+
+                                list.insertBefore(dragging, draggedIndex < droppedIndex ? this.nextSibling : this);
+                                updateOrderInput();
+                            }
+                        });
+                    });
+                }
+                </script>
+
             {% elif param_type == 'file' %}
                 {% if identifier == "ImageConverterTool" %}
                     <div class="form-group">
