@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-09 15:22+0200\n"
+"POT-Creation-Date: 2025-04-17 15:21+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,45 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: templates/base.html:29 templates/base.html:51 templates/base.html:59
+#: templates/base.html:29 templates/base.html:57 templates/base.html:65
 msgid "Über uns"
 msgstr "About us"
 
-#: templates/base.html:32 templates/base.html:60
+#: templates/base.html:32 templates/base.html:66
 msgid "Kontakt"
 msgstr "Contact"
 
-#: templates/base.html:52
+#: templates/base.html:58
 msgid ""
 "Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
 " zu erleichtern."
 msgstr "We develop powerful digital tools to make your daily work easier."
 
-#: templates/base.html:56
+#: templates/base.html:62
 msgid "Schnelllinks"
 msgstr "Quick Links"
 
-#: templates/base.html:58
+#: templates/base.html:64
 msgid "Startseite"
 msgstr "Home"
 
-#: templates/base.html:65
+#: templates/base.html:71
 msgid "Rechtliches"
 msgstr "Legal"
 
-#: templates/base.html:67
+#: templates/base.html:73
 msgid "Impressum"
 msgstr "Imprint"
 
-#: templates/base.html:68
+#: templates/base.html:74
 msgid "Datenschutz"
 msgstr "Privacy Policy"
 
-#: templates/base.html:69
+#: templates/base.html:75
 msgid "AGB"
 msgstr "Terms and Conditions"
 
-#: templates/base.html:75
+#: templates/base.html:81
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
 
@@ -72,38 +72,638 @@ msgstr "🔍 Search for a tool..."
 msgid "Öffnen"
 msgstr "Open"
 
-#: tools/base64_decode/base64_decode_tool.py:12
+#: templates/output.html:8
+msgid "Fehler beim Verarbeiten:"
+msgstr "Error processing:"
+
+#: templates/output.html:13
+msgid "Zurück und erneut versuchen"
+msgstr "Go back and try again"
+
+#: templates/output.html:23
+msgid "Zurück zu den Tools"
+msgstr "Back to Tools"
+
+#: templates/variable_input_mask.jinja:15
+msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
+msgstr "Enter text or a URL to generate a QR code."
+
+#: templates/variable_input_mask.jinja:21
+msgid ""
+"Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. "
+"Das Tool wird die Zahl automatisch in die anderen Formate konvertieren."
+msgstr ""
+"Enter a number and select the corresponding number type. The tool will "
+"automatically convert the number into other formats."
+
+#: templates/variable_input_mask.jinja:27
+msgid ""
+"Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. "
+"Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP."
+msgstr ""
+"Upload an image and select the desired target format. Supported formats "
+"are: PNG, JPEG, GIF, BMP and WEBP."
+
+#: templates/variable_input_mask.jinja:33
+msgid ""
+"Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. "
+"15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
+msgstr ""
+"Enter a date in the format <strong>DD.MM.YYYY</strong> (e.g. 15.03.2025) "
+"to calculate the corresponding calendar week."
+
+#: templates/variable_input_mask.jinja:39
+msgid ""
+"Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für "
+"Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 "
+"Zeichen lang sein und verschiedene Zeichentypen enthalten."
+msgstr ""
+"Select the desired length and character types for your secure password. A"
+" strong password should be at least 12 characters long and contain "
+"various types of characters."
+
+#: templates/variable_input_mask.jinja:50
+msgid ""
+"Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der "
+"gewünschten Länge generieren."
+msgstr ""
+"With this tool you can generate Lorem Ipsum placeholder text in your "
+"desired length."
+
+#: templates/variable_input_mask.jinja:52
+msgid "Funktionen:"
+msgstr "Features:"
+
+#: templates/variable_input_mask.jinja:54
+msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
+msgstr "Select your desired text length (1-1000 words)"
+
+#: templates/variable_input_mask.jinja:55
+msgid "Generieren Sie professionellen Lorem Ipsum Text"
+msgstr "Generate professional Lorem Ipsum text"
+
+#: templates/variable_input_mask.jinja:56
+msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
+msgstr "Copy the text to clipboard with a single click"
+
+#: templates/variable_input_mask.jinja:57
+msgid "Ideal für Layout- und Designarbeiten"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:70
+msgid "Anzahl der Wörter (1-1000)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:72
+msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:217
+msgid "Zahl:"
+msgstr "Number:"
+
+#: templates/variable_input_mask.jinja:218
+msgid "Geben Sie eine Zahl ein"
+msgstr "Please enter a number"
+
+#: templates/variable_input_mask.jinja:220
+msgid "Zahlentyp:"
+msgstr "Number type:"
+
+#: templates/variable_input_mask.jinja:222
+msgid "Binär"
+msgstr "Binary"
+
+#: templates/variable_input_mask.jinja:223
+msgid "Dezimal"
+msgstr "Decimal"
+
+#: templates/variable_input_mask.jinja:224
+msgid "Hexadezimal"
+msgstr "Hexadecimal"
+
+#: templates/variable_input_mask.jinja:228
+msgid "Zielformat:"
+msgstr "Target format:"
+
+#: templates/variable_input_mask.jinja:230
+msgid "Bitte wählen Sie ein Format"
+msgstr "Please select a format"
+
+#: templates/variable_input_mask.jinja:234
+msgid "Passwortlänge:"
+msgstr "Password length:"
+
+#: templates/variable_input_mask.jinja:236
+msgid "Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)"
+msgstr "Enter a length between 4 and 128 characters (12+ recommended)"
+
+#: templates/variable_input_mask.jinja:238
+msgid "Text oder URL:"
+msgstr "Text or URL"
+
+#: templates/variable_input_mask.jinja:239
+msgid "Text oder URL eingeben"
+msgstr "Enter Text or URL"
+
+#: templates/variable_input_mask.jinja:249
+msgid "Kleinbuchstaben einschließen (a-z)"
+msgstr "Lowercase letters (a-z)"
+
+#: templates/variable_input_mask.jinja:251
+msgid "Großbuchstaben einschließen (A-Z)"
+msgstr "Uppercase letters (A-Z)"
+
+#: templates/variable_input_mask.jinja:253
+msgid "Zahlen einschließen (0-9)"
+msgstr "Include numbers (0-9)"
+
+#: templates/variable_input_mask.jinja:255
+msgid "Sonderzeichen einschließen (!, @, #, $, usw.)"
+msgstr "Include special characters (!, @, #, $, etc.)"
+
+#: templates/variable_input_mask.jinja:266
+msgid "Bild auswählen:"
+msgstr "Select image:"
+
+#: templates/variable_input_mask.jinja:268
+msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
+msgstr "Supported formats: PNG, JPEG, GIF, BMP, WEBP"
+
+#: templates/variable_input_mask.jinja:298
+msgid "Hinweis:"
+msgstr "Attantion:"
+
+#: templates/variable_input_mask.jinja:298
+msgid ""
+"Passwörter werden lokal generiert und nicht an den Server übertragen. "
+"Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
+"gespeichert."
+msgstr ""
+"Passwords are generated locally and not transmitted to the server. Copy "
+"your password immediately after creation, it is not stored."
+
+#: templates/variable_input_mask.jinja:300
+msgid "Passwort generieren"
+msgstr "Generate Password"
+
+#: templates/variable_input_mask.jinja:302
+msgid "QR-Code erstellen"
+msgstr "Create QR Code"
+
+#: templates/variable_input_mask.jinja:304
+msgid "Konvertieren"
+msgstr "Convert"
+
+#: templates/variable_input_mask.jinja:306
+msgid "Ausführen"
+msgstr "Run"
+
+#: tools/base64_decode/base64_decode_tool.py:7
 msgid "Base64 Dekodierungstool"
 msgstr "Base64 Decoding Tool"
 
+#: tools/base64_decode/base64_decode_tool.py:9
+#: tools/base64_decode/base64_decode_tool.py:19
+msgid "Zu dekodierender Base64-String"
+msgstr "Base64 string to decode"
+
+#: tools/base64_decode/base64_decode_tool.py:10
 #: tools/base64_decode/base64_decode_tool.py:20
-msgid ""
-"Dekodiert einen Base64-String zu Text. Unterstützt ASCII- und "
-"UTF-8-Kodierung"
-msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding"
-
-#: tools/base64_encode/base64_encode_tool.py:7
-msgid "Base64 Kodierungstool"
-msgstr "Base64 Encoding Tool"
-
-#: tools/base64_encode/base64_encode_tool.py:9
-#: tools/base64_encode/base64_encode_tool.py:19
-msgid "Zu kodierender Text"
-msgstr "Text to encode"
-
-#: tools/base64_encode/base64_encode_tool.py:10
-#: tools/base64_encode/base64_encode_tool.py:20
+#: tools/base64_encode/base64_encode_tool.py:14
+#: tools/base64_encode/base64_encode_tool.py:25
 msgid "Kodierung"
 msgstr "Encoding"
 
-#: tools/base64_encode/base64_encode_tool.py:15
-#, fuzzy
+#: tools/base64_decode/base64_decode_tool.py:15
 msgid ""
-"Kodiert jeden Eingabetext in einen Base64-String. Unterstützt ASCII- und "
+"Dekodiert einen Base64-String zu Text. Unterstützt ASCII- und "
 "UTF-8-Kodierung"
-msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding"
+msgstr "Decodes a Base64 string to text. Supports ASCII and UTF-8 encoding."
 
-#: tools/base64_encode/base64_encode_tool.py:23
+#: tools/base64_decode/base64_decode_tool.py:23
+msgid "Base64-Eingabestring ist leer oder ungültig"
+msgstr "Base64 input string is empty or invalid"
+
+#: tools/base64_encode/base64_encode_tool.py:8
+msgid "Base64 Kodierungstool"
+msgstr "Base64 Encoding Tool"
+
+#: tools/base64_encode/base64_encode_tool.py:13
+#: tools/base64_encode/base64_encode_tool.py:24
+msgid "Zu kodierender Text"
+msgstr "Text to encode"
+
+#: tools/base64_encode/base64_encode_tool.py:19
+msgid "base64_encode_tool_description"
+msgstr ""
+"Encodes any input text into a Base64 string. Supports ASCII and UTF-8 "
+"encoding"
+
+#: tools/base64_encode/base64_encode_tool.py:30
 msgid "Eingabetext ist leer oder ungültig"
 msgstr "Input text is empty or invalid"
+
+#: tools/calendar_week/calendar_week_tool.py:10
+msgid "Kalenderwochenberechner"
+msgstr "Calendar Week Calculator"
+
+#: tools/calendar_week/calendar_week_tool.py:11
+msgid "Berechnet die Kalenderwoche für ein gegebenes Datum (Format: TT.MM.JJJJ)."
+msgstr "Calculates the calendar week for a given date (format: DD.MM.YYYY)."
+
+#: tools/calendar_week/calendar_week_tool.py:16
+msgid "Datum"
+msgstr "Date"
+
+#: tools/calendar_week/calendar_week_tool.py:30
+msgid "Bitte geben Sie ein Datum ein."
+msgstr "Please enter a date."
+
+#: tools/calendar_week/calendar_week_tool.py:41
+msgid ""
+"Ungültiges Datumsformat. Bitte verwenden Sie das Format TT.MM.JJJJ (z.B. "
+"01.12.2025)."
+msgstr "Invalid date format. Please use the format DD.MM.YYYY (e.g. 01.12.2025)."
+
+#: tools/calendar_week/calendar_week_tool.py:49
+msgid "Kalenderwochenberechnung:"
+msgstr "Calendar Week Calculation:"
+
+#: tools/calendar_week/calendar_week_tool.py:50
+msgid "Das Datum"
+msgstr "The date"
+
+#: tools/calendar_week/calendar_week_tool.py:51
+msgid "liegt in:"
+msgstr "is in:"
+
+#: tools/calendar_week/calendar_week_tool.py:52
+msgid "KW"
+msgstr "CW"
+
+#: tools/calendar_week/calendar_week_tool.py:53
+msgid "im Jahr"
+msgstr "in the year"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:8
+msgid "Dateigrößenberechner"
+msgstr "File Size Calculator"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:9
+msgid "Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)"
+msgstr "Calculates the file size in different units (MB, MiB, etc.)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:20
+msgid "Keine Datei hochgeladen"
+msgstr "No file uploaded"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:36
+msgid "Datei"
+msgstr "File"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:37
+msgid "Gesamtgröße"
+msgstr "Total size"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:38
+msgid "Bytes"
+msgstr "Bytes"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:39
+msgid "Dezimale Einheiten (SI)"
+msgstr "Decimal units (SI)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:40
+msgid "Binäre Einheiten (IEC)"
+msgstr "Binary units (IEC)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:41
+msgid "Einheit"
+msgstr "Unit"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:42
+msgid "Wert"
+msgstr "Value"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:43
+msgid "Beschreibung"
+msgstr "Description"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:44
+msgid "Kilobyte (1000 Bytes)"
+msgstr "Kilobyte (1000 Bytes)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:45
+msgid "Megabyte (1000 KB)"
+msgstr "Megabyte (1000 KB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:46
+msgid "Gigabyte (1000 MB)"
+msgstr "Gigabyte (1000 MB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:47
+msgid "Kibibyte (1024 Bytes)"
+msgstr "Kibibyte (1024 Bytes)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:48
+msgid "Mebibyte (1024 KiB)"
+msgstr "Mebibyte (1024 KiB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:49
+msgid "Gibibyte (1024 MiB)"
+msgstr "Gibibyte (1024 MiB)"
+
+#: tools/file_size_calculator/file_size_calculator_tool.py:147
+msgid "Fehler bei der Berechnung der Dateigröße:"
+msgstr "Error calculating file size:"
+
+#: tools/image_converter/image_converter_tool.py:11
+msgid "Bildkonverter"
+msgstr "Image Converter"
+
+#: tools/image_converter/image_converter_tool.py:12
+msgid "Konvertiert Bilder in verschiedene Formate (PNG, JPG, GIF, BMP, WEBP)."
+msgstr "Converts images to various formats (PNG, JPG, GIF, BMP, WEBP)."
+
+#: tools/image_converter/image_converter_tool.py:59
+msgid "Bitte wählen Sie ein Bild aus."
+msgstr "Please select an image."
+
+#: tools/image_converter/image_converter_tool.py:66
+msgid "Bitte wählen Sie ein Zielformat aus."
+msgstr "Please select a target format."
+
+#: tools/image_converter/image_converter_tool.py:82
+msgid "Konvertierung erfolgreich!"
+msgstr "Conversion successful!"
+
+#: tools/image_converter/image_converter_tool.py:84
+msgid ""
+"Ihr Bild wurde erfolgreich konvertiert. Klicken Sie auf den Button unten,"
+" um es herunterzuladen."
+msgstr ""
+"Your image has been successfully converted. Click the button below to "
+"download it."
+
+#: tools/image_converter/image_converter_tool.py:85
+msgid "Konvertiertes Bild herunterladen"
+msgstr "Download converted image"
+
+#: tools/image_converter/image_converter_tool.py:86
+msgid "Anderes Bild konvertieren"
+msgstr "Convert another image"
+
+#: tools/image_converter/image_converter_tool.py:108
+#, python-format
+msgid "Fehler bei der Konvertierung: %(error)s"
+msgstr "Error during conversion: %(error)s"
+
+#: tools/number_converter/number_converter_tool.py:5
+msgid "Zahlenkonverter"
+msgstr "Number Converter"
+
+#: tools/number_converter/number_converter_tool.py:6
+msgid "Konvertiert zwischen Binär-, Dezimal- und Hexadezimalzahlen."
+msgstr "Converts between binary, decimal and hexadecimal numbers."
+
+#: tools/number_converter/number_converter_tool.py:21
+msgid "Bitte geben Sie eine Zahl und den Zahlentyp ein."
+msgstr "Please enter a number and the number type."
+
+#: tools/number_converter/number_converter_tool.py:34
+msgid "Ungültiger Zahlentyp"
+msgstr "Invalid number type"
+
+#: tools/number_converter/number_converter_tool.py:37
+#, python-format
+msgid "Ungültige Eingabe für den Typ %(type)s"
+msgstr "Invalid input for type %(type)s"
+
+#: tools/number_converter/number_converter_tool.py:45
+msgid "Konvertierungsergebnisse:"
+msgstr "Conversion results:"
+
+#: tools/number_converter/number_converter_tool.py:46
+msgid "Binär:"
+msgstr "Binary:"
+
+#: tools/number_converter/number_converter_tool.py:47
+msgid "Dezimal:"
+msgstr "Decimal:"
+
+#: tools/number_converter/number_converter_tool.py:48
+msgid "Hexadezimal:"
+msgstr "Hexadecimal:"
+
+#: tools/password_generator/password_generator_tool.py:8
+msgid "Passwortgenerator"
+msgstr "Password Generator"
+
+#: tools/password_generator/password_generator_tool.py:9
+msgid ""
+"Generiert starke, zufällige Passwörter mit anpassbaren Optionen für Länge"
+" und Zeichentypen."
+msgstr ""
+"Generates strong, random passwords with customizable options for length "
+"and character types."
+
+#: tools/password_generator/password_generator_tool.py:27
+msgid "Die Passwortlänge muss eine Zahl sein."
+msgstr "The password length must be a number."
+
+#: tools/password_generator/password_generator_tool.py:31
+msgid "Die Passwortlänge muss zwischen 4 und 128 Zeichen liegen."
+msgstr "The password length must be between 4 and 128 characters."
+
+#: tools/password_generator/password_generator_tool.py:42
+msgid "Bitte wählen Sie mindestens einen Zeichentyp aus."
+msgstr "Please select at least one character type."
+
+#: tools/password_generator/password_generator_tool.py:68
+msgid "Fehler bei der Passwortgenerierung:"
+msgstr "Error generating password:"
+
+#: tools/password_generator/password_generator_tool.py:92
+msgid "Stark"
+msgstr "Strong"
+
+#: tools/password_generator/password_generator_tool.py:94
+msgid "Dieses Passwort bietet guten Schutz."
+msgstr "This password provides good protection."
+
+#: tools/password_generator/password_generator_tool.py:98
+msgid "Mittel"
+msgstr "medium"
+
+#: tools/password_generator/password_generator_tool.py:100
+msgid "Dieses Passwort bietet angemessenen Schutz."
+msgstr "This password provides reasonable protection."
+
+#: tools/password_generator/password_generator_tool.py:104
+msgid "Schwach"
+msgstr "Weak"
+
+#: tools/password_generator/password_generator_tool.py:106
+msgid "Dieses Passwort könnte stärker sein."
+msgstr "This password could be stronger."
+
+#: tools/password_generator/password_generator_tool.py:115
+msgid "Ihr generiertes Passwort"
+msgstr "Your generated password"
+
+#: tools/password_generator/password_generator_tool.py:116
+msgid "Passwort:"
+msgstr "Password:"
+
+#: tools/password_generator/password_generator_tool.py:117
+msgid "Kopieren"
+msgstr "Copy"
+
+#: tools/password_generator/password_generator_tool.py:118
+msgid "Länge:"
+msgstr "Length:"
+
+#: tools/password_generator/password_generator_tool.py:119
+msgid "Zeichen"
+msgstr "Characters"
+
+#: tools/password_generator/password_generator_tool.py:120
+msgid "Stärke:"
+msgstr "Strength:"
+
+#: tools/password_generator/password_generator_tool.py:121
+msgid "Neues Passwort generieren"
+msgstr "Generate new password"
+
+#: tools/password_generator/password_generator_tool.py:122
+msgid "Tipp:"
+msgstr "Hint:"
+
+#: tools/password_generator/password_generator_tool.py:123
+msgid ""
+"Verwenden Sie für jeden Online-Dienst ein einzigartiges Passwort und "
+"erwägen Sie die Nutzung eines Passwort-Managers, um Ihre Passwörter "
+"sicher zu verwalten."
+msgstr ""
+"When using online services, use a unique password for each service and "
+"consider using a password manager to securely manage your passwords."
+
+#: tools/password_generator/password_generator_tool.py:124
+msgid "Kopiert!"
+msgstr "Copied!"
+
+#: tools/password_generator/password_generator_tool.py:125
+msgid "Kopierfehler:"
+msgstr "Copy error:"
+
+#: tools/password_generator/password_generator_tool.py:126
+msgid "Kopieren fehlgeschlagen. Bitte manuell kopieren."
+msgstr "Copying failed. Please copy manually."
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:10
+msgid "QR Code Generator"
+msgstr "QR Code Generator"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:11
+msgid "Erstellt QR\\-Codes aus Text oder URLs"
+msgstr "Creates QR codes from text or URLs"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:13
+#: tools/qr_code_generator/qr_code_generator_tool.py:19
+msgid "Text oder URL"
+msgstr "Text or URL"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:21
+msgid "Bitte geben Sie einen Text oder eine URL ein"
+msgstr "Please enter a text or URL"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:51
+msgid "Ihr QR\\-Code"
+msgstr "Your QR Code"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:55
+msgid "QR\\-Code"
+msgstr "QR Code"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:58
+msgid "QR\\-Code herunterladen"
+msgstr "Download QR Code"
+
+#: tools/qr_code_generator/qr_code_generator_tool.py:71
+msgid "Fehler bei der QR\\-Code Erstellung:"
+msgstr "Error creating QR Code:"
+
+#: tools/random_number_generator/random_number_generator_tool.py:8
+msgid "Zufallszahlengenerator"
+msgstr "Random Number Generator"
+
+#: tools/random_number_generator/random_number_generator_tool.py:9
+msgid ""
+"Generiere eine Zufallszahl. Beispiel: Nenne mit eine Zahl zwischen 1 und "
+"10"
+msgstr "Generate a random number. Example: Name a number between 1 and 10"
+
+#: tools/random_number_generator/random_number_generator_tool.py:13
+#: tools/random_number_generator/random_number_generator_tool.py:26
+msgid "Minimum Number"
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:14
+#: tools/random_number_generator/random_number_generator_tool.py:27
+msgid "Maximum Number"
+msgstr ""
+
+#: tools/random_number_generator/random_number_generator_tool.py:15
+#: tools/random_number_generator/random_number_generator_tool.py:28
+msgid "Amount of Rolls"
+msgstr "Amount of Rolls"
+
+#: tools/random_number_generator/random_number_generator_tool.py:32
+msgid "Alle Eingabefelder müssen ausgefüllt sein."
+msgstr "All input fields must be filled."
+
+#: tools/random_number_generator/random_number_generator_tool.py:41
+msgid "Bitte geben Sie ganze Zahlen in alle Eingabefelder ein."
+msgstr "Please enter whole numbers in all input fields."
+
+#: tools/random_number_generator/random_number_generator_tool.py:46
+msgid "Das Minimum darf nicht größer als das Maximum sein."
+msgstr "The minimum must not be greater than the maximum."
+
+#: tools/random_number_generator/random_number_generator_tool.py:51
+msgid "Zahl zu hoch."
+msgstr "Number too high."
+
+#: tools/random_number_generator/random_number_generator_tool.py:56
+msgid "Anzahl Würfe zu hoch."
+msgstr "Amount of rolls too high."
+
+#: tools/word_counter/word_counter_tool.py:6
+msgid "Wortzähler"
+msgstr "Word Counter"
+
+#: tools/word_counter/word_counter_tool.py:8
+msgid ""
+"Zählt die Anzahl der Wörter in einem Text, unter Berücksichtigung von "
+"Bindestrichen und Zeilenumbrüchen."
+msgstr ""
+"Counts the number of words in a text, taking hyphens and line breaks into"
+" account."
+
+#: tools/word_counter/word_counter_tool.py:23
+msgid "Bitte geben Sie einen Text ein."
+msgstr "Please enter a text."
+
+#: tools/word_counter/word_counter_tool.py:36
+msgid "Ergebnis der Wortzählung:"
+msgstr "Word Count Result:"
+
+#: tools/word_counter/word_counter_tool.py:37
+msgid "Anzahl der Wörter:"
+msgstr "Number of words:"
+
+#: tools/word_counter/word_counter_tool.py:52
+msgid "Ein Fehler ist aufgetreten: "
+msgstr "An error occurred: "
 

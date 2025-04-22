@@ -1,11 +1,12 @@
 import random
 import string
 from tool_interface import MiniTool
+from flask_babel import lazy_gettext as _
 
 
 class PasswordGeneratorTool(MiniTool):
-    name = "Passwortgenerator"
-    description = "Generiert starke, zufällige Passwörter mit anpassbaren Optionen für Länge und Zeichentypen."
+    name = _("Passwortgenerator")
+    description = _("Generiert starke, zufällige Passwörter mit anpassbaren Optionen für Länge und Zeichentypen.")
 
     def __init__(self):
         super().__init__(self.name, "PasswordGeneratorTool")
@@ -23,15 +24,14 @@ class PasswordGeneratorTool(MiniTool):
             try:
                 length = int(input_params.get("length", "12"))
             except ValueError:
-                self.error_message = "Die Passwortlänge muss eine Zahl sein."
+                self.error_message = _("Die Passwortlänge muss eine Zahl sein.")
                 return False
 
             if length < 4 or length > 128:
-                self.error_message = "Die Passwortlänge muss zwischen 4 und 128 Zeichen liegen."
+                self.error_message = _("Die Passwortlänge muss zwischen 4 und 128 Zeichen liegen.")
                 return False
 
             # Explizit prüfen, ob die Schlüssel im Dictionary vorhanden sind
-            # Falls nicht, sind die Checkboxen nicht angekreuzt
             include_lowercase = 'include_lowercase' in input_params
             include_uppercase = 'include_uppercase' in input_params
             include_numbers = 'include_numbers' in input_params
@@ -39,7 +39,7 @@ class PasswordGeneratorTool(MiniTool):
 
             # Check if at least one character type is selected
             if not any([include_lowercase, include_uppercase, include_numbers, include_special]):
-                self.error_message = "Bitte wählen Sie mindestens einen Zeichentyp aus."
+                self.error_message = _("Bitte wählen Sie mindestens einen Zeichentyp aus.")
                 return False
 
             # Create character pool based on selections
@@ -65,7 +65,8 @@ class PasswordGeneratorTool(MiniTool):
             return True
 
         except Exception as e:
-            self.error_message = f"Fehler bei der Passwortgenerierung: {str(e)}"
+            error_prefix = _("Fehler bei der Passwortgenerierung:")
+            self.error_message = f"{error_prefix} {str(e)}"
             return False
 
     def _calculate_strength(self, password, has_lower, has_upper, has_numbers, has_special):
@@ -87,73 +88,102 @@ class PasswordGeneratorTool(MiniTool):
 
         # Categorize strength
         if score >= 6:
-            return {"level": "Stark", "color": "success", "description": "Dieses Passwort bietet guten Schutz."}
+            return {
+                "level": _("Stark"),
+                "color": "success",
+                "description": _("Dieses Passwort bietet guten Schutz.")
+            }
         elif score >= 4:
-            return {"level": "Mittel", "color": "warning", "description": "Dieses Passwort bietet angemessenen Schutz."}
+            return {
+                "level": _("Mittel"),
+                "color": "warning",
+                "description": _("Dieses Passwort bietet angemessenen Schutz.")
+            }
         else:
-            return {"level": "Schwach", "color": "danger", "description": "Dieses Passwort könnte stärker sein."}
+            return {
+                "level": _("Schwach"),
+                "color": "danger",
+                "description": _("Dieses Passwort könnte stärker sein.")
+            }
 
     def _format_output(self, password, length, strength):
         """Format the output HTML with modern clipboard handling"""
+        # Escape special characters in the password for safe use in the HTML template
+        escaped_password = password.replace("{", "{{").replace("}", "}}").replace("%", "%%")
+
+        # Definieren der übersetzten Strings
+        title = _("Ihr generiertes Passwort")
+        label_password = _("Passwort:")
+        btn_copy = _("Kopieren")
+        length_text = _("Länge:")
+        characters = _("Zeichen")
+        strength_text = _("Stärke:")
+        btn_new = _("Neues Passwort generieren")
+        tip_title = _("Tipp:")
+        tip_text = _("Verwenden Sie für jeden Online-Dienst ein einzigartiges Passwort und erwägen Sie die Nutzung eines Passwort-Managers, um Ihre Passwörter sicher zu verwalten.")
+        copied_text = _("Kopiert!")
+        copy_error = _("Kopierfehler:")
+        copy_failed = _("Kopieren fehlgeschlagen. Bitte manuell kopieren.")
+
         return f"""
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Ihr generiertes Passwort</h5>
+                <h5 class="mb-0">{title}</h5>
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="password-output">Passwort:</label>
+                    <label for="password-output">{label_password}</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="password-output" value="{password}" readonly>
+                        <input type="text" class="form-control" id="password-output" value="{escaped_password}" readonly>
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary copy-password-btn" 
-                                    data-password="{password}" 
+                            <button class="btn btn-outline-secondary copy-password-btn"
+                                    data-password="{escaped_password}"
                                     type="button">
-                                Kopieren
+                                {btn_copy}
                             </button>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="password-info mt-3">
-                    <p><strong>Länge:</strong> {length} Zeichen</p>
-                    <p><strong>Stärke:</strong> <span class="badge bg-{strength['color']}">{strength['level']}</span></p>
+                    <p><strong>{length_text}</strong> {length} {characters}</p>
+                    <p><strong>{strength_text}</strong> <span class="badge bg-{strength['color']}">{strength['level']}</span></p>
                     <p>{strength['description']}</p>
-                    
+
                     <div class="mt-3">
-                    <a href="/tool/PasswordGeneratorTool" class="btn btn-primary">Neues Passwort generieren</a>                    </div>
+                    <a href="/tool/PasswordGeneratorTool" class="btn btn-primary">{btn_new}</a>
+                    </div>
                 </div>
-                
+
                 <div class="alert alert-info mt-3">
-                    <strong>Tipp:</strong> Verwenden Sie für jeden Online-Dienst ein einzigartiges Passwort und 
-                    erwägen Sie die Nutzung eines Passwort-Managers, um Ihre Passwörter sicher zu verwalten.
+                    <strong>{tip_title}</strong> {tip_text}
                 </div>
-                
+
                 <script type="text/javascript">
                 document.addEventListener('DOMContentLoaded', () => {{
-                    // Event delegation for dynamic content [[4]][[8]]
+                    // Event delegation for dynamic content
                     document.body.addEventListener('click', (e) => {{
                         if (e.target.matches('.copy-password-btn')) {{
                             const password = e.target.dataset.password;
-                            
-                            // Modern clipboard API [[5]]
+
+                            // Modern clipboard API
                             navigator.clipboard.writeText(password)
                                 .then(() => {{
                                     const btn = e.target;
                                     const originalText = btn.textContent;
-                                    
+
                                     // Update button state
-                                    btn.textContent = 'Kopiert!';
+                                    btn.textContent = '{copied_text}';
                                     btn.classList.replace('btn-outline-secondary', 'btn-success');
-                                    
+
                                     setTimeout(() => {{
                                         btn.textContent = originalText;
                                         btn.classList.replace('btn-success', 'btn-outline-secondary');
                                     }}, 1500);
                                 }})
                                 .catch(err => {{
-                                    console.error('Kopierfehler:', err);
-                                    alert('Kopieren fehlgeschlagen. Bitte manuell kopieren.');
+                                    console.error('{copy_error}', err);
+                                    alert('{copy_failed}');
                                 }});
                         }}
                     }});

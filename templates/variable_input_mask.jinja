@@ -10,70 +10,66 @@
 
     <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
     
-    {% if toolName == "QR-Code Generator" %}
+    {% if identifier == "QrCodeGeneratorTool" %}
     <div class="alert alert-info">
-        Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren.
+        {{ _('Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren.') }}
     </div>
     {% endif %}
 
-    {% if toolName == "Zahlenkonverter" %}
+    {% if identifier == "NumberConverterTool" %}
     <div class="alert alert-info">
-        Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus.
-        Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.
+        {{ _('Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.') }}
     </div>
     {% endif %}
 
-    {% if toolName == "Bildkonverter" %}
+    {% if identifier == "ImageConverterTool" %}
     <div class="alert alert-info">
-        Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus.
-        Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.
+        {{ _('Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.') }}
     </div>
     {% endif %}
 
-    {% if toolName == "Kalenderwochenberechner" %}
+    {% if identifier == "CalendarWeekTool" %}
     <div class="alert alert-info">
-        Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025),
-        um die entsprechende Kalenderwoche zu berechnen.
-    </div>
-    {% endif %}
-    
-    {% if toolName == "Passwortgenerator" %}
-    <div class="alert alert-info">
-        Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für Ihr sicheres Passwort aus.
-        Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.
+        {{ _('Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen.') }}
     </div>
     {% endif %}
 
-    
+    {% if identifier == "PasswordGeneratorTool" %}
+    <div class="alert alert-info">
+        {{ _('Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.') }}
+    </div>
+    {% endif %}
+
+
     <br>
     <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
 
     {% if identifier == "PlaceholderTextTool" %}
-        <div class="alert alert-info">
-            <p>Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der gewünschten Länge generieren.</p>
-                
-               <p> Funktionen:</p>
-               <ul>
-                    <li>Wählen Sie die gewünschte Textlänge (1-1000 Wörter)</li>
-                    <li>Generieren Sie professionellen Lorem Ipsum Text</li>
-                    <li>Kopieren Sie den Text mit einem Klick in die Zwischenablage</li>
-                    <li>Ideal für Layout- und Designarbeiten</li>
+            <div class="alert alert-info">
+                <p>{{ _('Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der gewünschten Länge generieren.') }}</p>
+
+                <p>{{ _('Funktionen:') }}</p>
+                <ul>
+                    <li>{{ _('Wählen Sie die gewünschte Textlänge (1-1000 Wörter)') }}</li>
+                    <li>{{ _('Generieren Sie professionellen Lorem Ipsum Text') }}</li>
+                    <li>{{ _('Kopieren Sie den Text mit einem Klick in die Zwischenablage') }}</li>
+                    <li>{{ _('Ideal für Layout- und Designarbeiten') }}</li>
                 </ul>
-        </div>
+            </div>
         <div class="card mb-4">
         <div class="card-body">
             <div class="form-group">
                 <label for="length"><strong>Textlänge:</strong></label>
-                <input type="number" 
-                       class="form-control" 
-                       id="length" 
-                       name="length" 
-                       min="1" 
-                       max="1000" 
-                       placeholder="Anzahl der Wörter (1-1000)" 
+                <input type="number"
+                       class="form-control"
+                       id="length"
+                       name="length"
+                       min="1"
+                       max="1000"
+                       placeholder="{{ _('Anzahl der Wörter (1-1000)') }}"
                        required>
-                <small class="form-text text-muted">Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.</small>
+            <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.') }}</small>
             </div>
 
             <input class="btn btn-primary mt-3" type="submit" value="Text generieren" id="submitButton">
@@ -87,8 +83,8 @@
     </div>
     {% endif %}
     {% endif %}
-    
-{% if toolName == "Einheitenrechner" %}
+
+{% if identifier == "UnitConverterTool" %}
 <div class="alert alert-info">
     Wählen Sie eine Kategorie und geben Sie den Wert sowie die Quell- und Zieleinheit an, um eine Umrechnung durchzuführen.
 </div>
@@ -151,7 +147,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
         {% for param, param_info in input_params.items() %}
         <div class="form-group mb-3">
             <label for="{{ param }}">{{ param_info.name }}</label>
-            <input 
+            <input
                 type="{{ param_info.type }}"
                 class="form-control"
                 id="{{ param }}"
@@ -162,7 +158,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
         {% endfor %}
     {% endif %}
 
-    {% if toolName == "Unix-Timestamp Konverter" %}
+    {% if identifier == "UnixTimestampTool" %}
     <div class="alert alert-info">
         Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und Zeitangaben umwandeln und umgekehrt.
     </div>
@@ -189,7 +185,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
             <input type="text" name="date" id="date" class="form-control" placeholder="TT.MM.JJJJ (z.B. 01.01.2022)">
             <small class="form-text text-muted">Geben Sie ein Datum im Format TT.MM.JJJJ ein.</small>
         </div>
-        
+
         <div class="form-group">
             <label for="time">Uhrzeit (optional):</label>
             <input type="text" name="time" id="time" class="form-control" placeholder="HH:MM:SS (z.B. 12:30:00)">
@@ -202,7 +198,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
         const conversionType = document.getElementById('conversion_type').value;
         const timestampInputs = document.getElementById('timestampInputs');
         const dateInputs = document.getElementById('dateInputs');
-        
+
         if (conversionType === 'timestamp_to_date') {
             timestampInputs.style.display = 'block';
             dateInputs.style.display = 'none';
@@ -213,34 +209,34 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
     }
     </script>
     {% endif %}
-    
+
     {% for param, param_type in input_params.items() %}
-        {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (toolName != "Unix-Timestamp Konverter" or param == "timezone") %}
+        {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (identifier != "UnixTimestampTool" or param == "timezone") %}
             {% if param_type == 'string' %}
                 {% if param == "number" and identifier == "NumberConverterTool" %}
-                    <label for="{{ param }}">Zahl:</label>
-                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Geben Sie eine Zahl ein" class="form-control">
+                    <label for="{{ param }}">{{ _('Zahl:') }}</label>
+                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="{{ _('Geben Sie eine Zahl ein') }}" class="form-control">
                 {% elif param == "input_type" and identifier == "NumberConverterTool" %}
-                    <label for="{{ param }}">Zahlentyp:</label>
+                    <label for="{{ param }}">{{ _('Zahlentyp:') }}</label>
                     <select name="{{ param }}" id="{{ param }}" class="form-control">
-                        <option value="binary">Binär</option>
-                        <option value="decimal">Dezimal</option>
-                        <option value="hexadecimal">Hexadezimal</option>
+                        <option value="binary">{{ _('Binär') }}</option>
+                        <option value="decimal">{{ _('Dezimal') }}</option>
+                        <option value="hexadecimal">{{ _('Hexadezimal') }}</option>
                     </select>
                 {% elif param == "target_format" and identifier == "ImageConverterTool" %}
                     <div class="form-group target-format-group" style="display: none;">
-                        <label for="{{ param }}">Zielformat:</label>
+                        <label for="{{ param }}">{{ _('Zielformat:') }}</label>
                         <select name="{{ param }}" id="{{ param }}" class="form-control">
-                            <option value="" disabled selected>Bitte wählen Sie ein Format</option>
+                            <option value="" disabled selected>{{ _('Bitte wählen Sie ein Format') }}</option>
                         </select>
                     </div>
                 {% elif param == "length" and identifier == "PasswordGeneratorTool" %}
-                    <label for="{{ param }}">Passwortlänge:</label>
+                    <label for="{{ param }}">{{ _('Passwortlänge:') }}</label>
                     <input type="number" name="{{ param }}" id="{{ param }}" value="12" min="4" max="128" class="form-control">
-                    <small class="form-text text-muted">Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)</small>
+                    <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)') }}</small>
                 {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
-                    <label for="{{ param }}">Text oder URL:</label>
-                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="Text oder URL eingeben" class="form-control">
+                    <label for="{{ param }}">{{ _('Text oder URL:') }}</label>
+                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="{{ _('Text oder URL eingeben') }}" class="form-control">
                 {% else %}
                     <label for="{{ param }}">{{ param }}:</label>
                     <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
@@ -250,14 +246,13 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
                     <div class="form-check mb-2">
                         <input type="checkbox" class="form-check-input" name="{{ param }}" id="{{ param }}" checked>
                         {% if param == "include_lowercase" %}
-                            <label class="form-check-label" for="{{ param }}">Kleinbuchstaben einschließen (a-z)</label>
+                            <label class="form-check-label" for="{{ param }}">{{ _('Kleinbuchstaben einschließen (a-z)') }}</label>
                         {% elif param == "include_uppercase" %}
-                            <label class="form-check-label" for="{{ param }}">Großbuchstaben einschließen (A-Z)</label>
+                            <label class="form-check-label" for="{{ param }}">{{ _('Großbuchstaben einschließen (A-Z)') }}</label>
                         {% elif param == "include_numbers" %}
-                            <label class="form-check-label" for="{{ param }}">Zahlen einschließen (0-9)</label>
+                            <label class="form-check-label" for="{{ param }}">{{ _('Zahlen einschließen (0-9)') }}</label>
                         {% elif param == "include_special" %}
-                            <label class="form-check-label" for="{{ param }}">Sonderzeichen einschließen (!@#$%^&*...)</label>
-                        {% else %}
+                            <label class="form-check-label" for="{{ param }}">{{ _('Sonderzeichen einschließen (!, @, #, $, usw.)') }}</label>                        {% else %}
                             <label class="form-check-label" for="{{ param }}">{{ param }}</label>
                         {% endif %}
                     </div>
@@ -268,9 +263,9 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
             {% elif param_type == 'file' %}
                 {% if identifier == "ImageConverterTool" %}
                     <div class="form-group">
-                        <label for="{{ param }}">Bild auswählen:</label>
+                        <label for="{{ param }}">{{ _('Bild auswählen:') }}</label>
                         <input type="file" name="{{ param }}" id="{{ param }}" class="form-control" accept="image/*" onchange="handleImageSelect(this)">
-                        <small class="form-text text-muted">Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP</small>
+                        <small class="form-text text-muted">{{ _('Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP') }}</small>
                     </div>
                     <div id="progressContainer" style="display: none;">
                         <div class="progress">
@@ -300,16 +295,15 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
 
     {% if identifier == "PasswordGeneratorTool" %}
     <div class="alert alert-warning mt-3">
-        <strong>Hinweis:</strong> Passwörter werden lokal generiert und nicht an den Server übertragen.
-        Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht gespeichert.
+        <strong>{{ _('Hinweis:') }}</strong> {{ _('Passwörter werden lokal generiert und nicht an den Server übertragen. Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht gespeichert.') }}
     </div>
-    <input class="fancy-button" type="submit" value="Passwort generieren" id="submitButton">
+    <input class="fancy-button" type="submit" value="{{ _('Passwort generieren') }}" id="submitButton">
     {% elif identifier == "QrCodeGeneratorTool" %}
-    <input class="fancy-button" type="submit" value="QR-Code erstellen" id="submitButton">
+    <input class="fancy-button" type="submit" value="{{ _('QR-Code erstellen') }}" id="submitButton">
     {% elif identifier == "UnixTimestampTool" %}
-    <input class="fancy-button" type="submit" value="Konvertieren" id="submitButton">
+    <input class="fancy-button" type="submit" value="{{ _('Konvertieren') }}" id="submitButton">
     {% else %}
-    <input class="fancy-button" type="submit" value="Ausführen" id="submitButton">
+    <input class="fancy-button" type="submit" value="{{ _('Ausführen') }}" id="submitButton">
     {% endif %}
     </form>
 

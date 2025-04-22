@@ -67,7 +67,6 @@ tools = {
     "CalendarWeekTool": CalendarWeekTool(),
     "RandomNumberGeneratorTool": RandomNumberGeneratorTool(),
     "PasswordGeneratorTool": PasswordGeneratorTool(),
-    "CalendarWeekTool": CalendarWeekTool(),
     "ImageCropperTool": ImageCropperTool(),
     "AudioConverterTool": AudioConverterTool(),
     "TextToSpeechTool": TextToSpeechTool(),
@@ -344,7 +343,7 @@ def download_converted_audio(token):
         return "Fehler beim Senden der Datei", 500
 
 
-@app.route('/download_converted_media/<token>')
+@app.route('/download_converted_media/<token>', methods=['GET', 'POST'])
 def download_converted_media(token):
     converter_tool = tools.get("GifVideoConverterTool")
     if not converter_tool:
@@ -378,6 +377,7 @@ def download_converted_media(token):
         converter_tool.cleanup_old_files()
 
     return response
+
 
 
 

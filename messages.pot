@@ -1,18 +1,17 @@
-# German translations for PROJECT.
+# Translations template for PROJECT.
 # Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-17 15:21+0200\n"
-"PO-Revision-Date: 2025-04-09 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: de\n"
-"Language-Team: de <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -284,8 +283,6 @@ msgstr ""
 #: tools/base64_encode/base64_encode_tool.py:19
 msgid "base64_encode_tool_description"
 msgstr ""
-"Kodiert jeden Eingabetext in einen Base64-String. Unterstützt ASCII- und "
-"UTF-8-Kodierung"
 
 #: tools/base64_encode/base64_encode_tool.py:30
 msgid "Eingabetext ist leer oder ungültig"
@@ -628,17 +625,17 @@ msgstr ""
 #: tools/random_number_generator/random_number_generator_tool.py:13
 #: tools/random_number_generator/random_number_generator_tool.py:26
 msgid "Minimum Number"
-msgstr "Kleinste Zahl"
+msgstr ""
 
 #: tools/random_number_generator/random_number_generator_tool.py:14
 #: tools/random_number_generator/random_number_generator_tool.py:27
 msgid "Maximum Number"
-msgstr "Größte Zahl"
+msgstr ""
 
 #: tools/random_number_generator/random_number_generator_tool.py:15
 #: tools/random_number_generator/random_number_generator_tool.py:28
 msgid "Amount of Rolls"
-msgstr "Anzahl der Würfe"
+msgstr ""
 
 #: tools/random_number_generator/random_number_generator_tool.py:32
 msgid "Alle Eingabefelder müssen ausgefüllt sein."
@@ -685,7 +682,4 @@ msgstr ""
 #: tools/word_counter/word_counter_tool.py:52
 msgid "Ein Fehler ist aufgetreten: "
 msgstr ""
-
-#~ msgid "Sonderzeichen einschließen (!@#$%^&*...)"
-#~ msgstr ""
 
