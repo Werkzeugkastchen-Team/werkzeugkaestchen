@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-22 13:59+0200\n"
+"POT-Creation-Date: 2025-04-22 14:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -279,6 +279,113 @@ msgstr ""
 msgid "Ausführen"
 msgstr ""
 
+#: tools/audio_converter/audio_converter_tool.py:10
+msgid "Audio Konverter"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:11
+msgid "Konvertiert Audiodateien in verschiedene Formate (MP3, WAV, AAC, FLAC)."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:51
+msgid "Bitte wählen Sie eine Audiodatei aus."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:57
+#: tools/image_converter/image_converter_tool.py:66
+msgid "Bitte wählen Sie ein Zielformat aus."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:62
+#, python-brace-format
+msgid ""
+"Das Format {} wird nicht unterstützt. Bitte wählen Sie eine MP3, WAV, AAC"
+" oder FLAC Datei."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:74
+#: tools/image_converter/image_converter_tool.py:82
+msgid "Konvertierung erfolgreich!"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:75
+msgid ""
+"Ihre Audiodatei wurde erfolgreich konvertiert. Klicken Sie auf den Button"
+" unten, um sie herunterzuladen."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:76
+msgid "Konvertierte Audiodatei herunterladen"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:77
+msgid "Andere Audiodatei konvertieren"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:98
+msgid "Fehler bei der Konvertierung: "
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:103
+#, python-brace-format
+msgid "Error: Token {} not found in pending conversions"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:108
+#, python-brace-format
+msgid "Error: File for token {} was already downloaded"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:113
+#, python-brace-format
+msgid "Error: Source file not found: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:117
+#, python-brace-format
+msgid "Error: Source file is empty: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:120
+#, python-brace-format
+msgid "Loading audio file: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:127
+#, python-brace-format
+msgid "Converting to: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:135
+#, python-brace-format
+msgid "Error: Converted file was not created: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:140
+#, python-brace-format
+msgid "Error: Converted file is empty: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:143
+#, python-brace-format
+msgid "Success: Converted file created with size {} bytes"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:147
+#, python-brace-format
+msgid "Error converting audio: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:149
+#, python-brace-format
+msgid "Traceback: {}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:168
+#, python-brace-format
+msgid "Error cleaning up files: {}"
+msgstr ""
+
 #: tools/base64_decode/base64_decode_tool.py:7
 msgid "Base64 Dekodierungstool"
 msgstr ""
@@ -447,14 +554,6 @@ msgstr ""
 #: tools/image_converter/image_converter_tool.py:59
 #: tools/image_cropper/image_cropper_tool.py:28
 msgid "Bitte wählen Sie ein Bild aus."
-msgstr ""
-
-#: tools/image_converter/image_converter_tool.py:66
-msgid "Bitte wählen Sie ein Zielformat aus."
-msgstr ""
-
-#: tools/image_converter/image_converter_tool.py:82
-msgid "Konvertierung erfolgreich!"
 msgstr ""
 
 #: tools/image_converter/image_converter_tool.py:84
