@@ -28,6 +28,7 @@ from tools.color_converter.color_converter_tool import ColorConverterTool
 from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
 from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
+from tools.pdf_merge.pdf_merge_tool import PdfMergeTool
 
 
 # Erstellen einer Flask-Anwendung
@@ -80,7 +81,8 @@ tools = {
     "ColorConverterTool": ColorConverterTool(),
     "WhisperSubtitleTool": WhisperSubtitleTool(),
     "PdfSplitTool": PdfSplitTool(),
-    "GifVideoConverterTool": GifVideoConverterTool()
+    "GifVideoConverterTool": GifVideoConverterTool(),
+    "PdfMergeTool": PdfMergeTool(),
 }
 
 
@@ -157,20 +159,36 @@ def handle_tool():
     input_params = {}
 
     # Handle file uploads
-    if request.files:
-        temp_dir = tempfile.gettempdir()  # Get system's temp directory
+    temp_dir = tempfile.gettempdir()
 
-        for key, file in request.files.items():
-            if file.filename != '':
-                # Save the file to the system's temp directory
+    if request.form.get("tool_name") == "PdfMergeTool":
+        uploaded_files = request.files.getlist("pdf_files")
+        files_info = []
+
+        for file in uploaded_files:
+            if file and file.filename.lower().endswith(".pdf"):
                 file_path = os.path.join(temp_dir, file.filename)
                 file.save(file_path)
-                # Store both the file object and path
+                files_info.append({
+                    "file_obj": file,
+                    "file_path": file_path,
+                    "filename": file.filename
+                })
+
+        input_params["pdf_files"] = files_info
+        input_params["pdf_order"] = request.form.get("pdf_order", "")
+
+    else:
+        for key, file in request.files.items():
+            if file and file.filename != '':
+                file_path = os.path.join(temp_dir, file.filename)
+                file.save(file_path)
                 input_params[key] = {
                     "file_obj": file,
                     "file_path": file_path,
                     "filename": file.filename
                 }
+
 
     # Handle form inputs
     for key, value in request.form.items():
