@@ -1,11 +1,10 @@
-<!-- templates/image_cropper_tool.jinja -->
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Bilder zuschneiden {% endblock %}</h1>
+<h1>{% block title %}{{ _("Bilder zuschneiden") }}{% endblock %}</h1>
 
 <div class="alert alert-info">
-  <p>Laden Sie ein Bild hoch und wählen Sie den Bereich aus, den Sie zuschneiden möchten.</p>
+  <p>{{ _("Laden Sie ein Bild hoch und wählen Sie den Bereich aus, den Sie zuschneiden möchten.") }}</p>
 </div>
 
 <div class="card mb-4">
@@ -13,31 +12,31 @@
         <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="cropperForm">
             <input type="hidden" name="tool_name" value="ImageCropperTool">
             <input type="hidden" name="crop_data" id="crop_data" value="">
-            
+
             <div class="form-group mb-3">
-                <label for="image">Bild auswählen:</label>
+                <label for="image">{{ _("Bild auswählen:") }}</label>
                 <input type="file" class="form-control" name="image" id="image" accept="image/*" required onchange="handleImageSelect(this)">
             </div>
-            
+
             <div id="image-cropper-container" style="display: none;" class="mb-3">
                 <div class="img-container">
-                    <img id="image-to-crop" src="" alt="Hochgeladenes Bild" style="max-width: 100%;">
+                    <img id="image-to-crop" src="" alt="{{ _('Hochgeladenes Bild') }}" style="max-width: 100%;">
                 </div>
             </div>
-            
+
             <div id="cropper-controls" style="display: none;" class="mb-3">
-                <button type="button" class="btn btn-primary" id="crop-btn">Zuschneiden</button>
-                <button type="button" class="btn btn-secondary" id="reset-btn">Zurücksetzen</button>
+                <button type="button" class="btn btn-primary" id="crop-btn">{{ _("Zuschneiden") }}</button>
+                <button type="button" class="btn btn-secondary" id="reset-btn">{{ _("Zurücksetzen") }}</button>
             </div>
-            
+
             <div id="cropped-preview" style="display: none;" class="mb-3">
-                <h5>Vorschau:</h5>
+                <h5>{{ _("Vorschau:") }}</h5>
                 <div style="max-width: 300px; overflow: hidden;">
-                    <img id="cropped-image" src="" alt="Zugeschnittenes Bild" style="max-width: 100%;">
+                    <img id="cropped-image" src="" alt="{{ _('Zugeschnittenes Bild') }}" style="max-width: 100%;">
                 </div>
             </div>
-            
-            <button type="submit" class="fancy-button" id="submitButton" style="display: none;">Auswahl übernehmen</button>
+
+            <button type="submit" class="fancy-button" id="submitButton" style="display: none;">{{ _("Auswahl übernehmen") }}</button>
         </form>
     </div>
 </div>
@@ -48,23 +47,23 @@
 
 <script>
     let cropper;
-    
+
     function handleImageSelect(input) {
         if (input.files && input.files[0]) {
             const file = input.files[0];
             const reader = new FileReader();
-            
+
             reader.onload = function(e) {
                 const imageElement = document.getElementById('image-to-crop');
                 imageElement.src = e.target.result;
-                
+
                 document.getElementById('image-cropper-container').style.display = 'block';
                 document.getElementById('cropper-controls').style.display = 'block';
-                
+
                 if (cropper) {
                     cropper.destroy();
                 }
-                
+
                 // Initialisiere Cropper.js
                 cropper = new Cropper(imageElement, {
                     aspectRatio: NaN, // Freies Seitenverhältnis
@@ -73,19 +72,19 @@
                     background: false
                 });
             }
-            
+
             reader.readAsDataURL(file);
         }
     }
-    
+
     document.addEventListener('DOMContentLoaded', function() {
         const cropBtn = document.getElementById('crop-btn');
         const resetBtn = document.getElementById('reset-btn');
         const submitButton = document.getElementById('submitButton');
-        
+
         cropBtn.addEventListener('click', function() {
             if (!cropper) return;
-            
+
             const cropData = cropper.getData();
             document.getElementById('crop_data').value = JSON.stringify({
                 x: Math.round(cropData.x),
@@ -93,7 +92,7 @@
                 width: Math.round(cropData.width),
                 height: Math.round(cropData.height)
             });
-            
+
             // Zeige Vorschau des zugeschnittenen Bildes
             const canvas = cropper.getCroppedCanvas();
             if (canvas) {
@@ -102,7 +101,7 @@
                 submitButton.style.display = 'block';
             }
         });
-        
+
         resetBtn.addEventListener('click', function() {
             if (cropper) {
                 cropper.reset();

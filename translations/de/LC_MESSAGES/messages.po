@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-17 15:21+0200\n"
+"POT-Creation-Date: 2025-04-22 13:59+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -58,6 +58,44 @@ msgstr ""
 
 #: templates/base.html:81
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
+msgstr ""
+
+#: templates/image_cropper.jinja:4 tools/image_cropper/image_cropper_tool.py:11
+msgid "Bilder zuschneiden"
+msgstr ""
+
+#: templates/image_cropper.jinja:7
+msgid ""
+"Laden Sie ein Bild hoch und wählen Sie den Bereich aus, den Sie "
+"zuschneiden möchten."
+msgstr ""
+
+#: templates/image_cropper.jinja:17 templates/variable_input_mask.jinja:266
+msgid "Bild auswählen:"
+msgstr ""
+
+#: templates/image_cropper.jinja:23
+msgid "Hochgeladenes Bild"
+msgstr ""
+
+#: templates/image_cropper.jinja:28
+msgid "Zuschneiden"
+msgstr ""
+
+#: templates/image_cropper.jinja:29
+msgid "Zurücksetzen"
+msgstr ""
+
+#: templates/image_cropper.jinja:33
+msgid "Vorschau:"
+msgstr ""
+
+#: templates/image_cropper.jinja:35
+msgid "Zugeschnittenes Bild"
+msgstr ""
+
+#: templates/image_cropper.jinja:39
+msgid "Auswahl übernehmen"
 msgstr ""
 
 #: templates/index.jinja:4
@@ -209,10 +247,6 @@ msgstr ""
 
 #: templates/variable_input_mask.jinja:255
 msgid "Sonderzeichen einschließen (!, @, #, $, usw.)"
-msgstr ""
-
-#: templates/variable_input_mask.jinja:266
-msgid "Bild auswählen:"
 msgstr ""
 
 #: templates/variable_input_mask.jinja:268
@@ -414,6 +448,7 @@ msgid "Konvertiert Bilder in verschiedene Formate (PNG, JPG, GIF, BMP, WEBP)."
 msgstr ""
 
 #: tools/image_converter/image_converter_tool.py:59
+#: tools/image_cropper/image_cropper_tool.py:28
 msgid "Bitte wählen Sie ein Bild aus."
 msgstr ""
 
@@ -442,6 +477,68 @@ msgstr ""
 #: tools/image_converter/image_converter_tool.py:108
 #, python-format
 msgid "Fehler bei der Konvertierung: %(error)s"
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:12
+msgid ""
+"Schneiden Sie Ihre Bilder interaktiv zu. Wählen Sie den gewünschten "
+"Bereich mit der Maus aus."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:32
+msgid "Keine Zuschnittdaten erhalten."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:44
+msgid "Ungültige Zuschnittdaten: Fehlende Koordinaten oder Dimensionen."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:55
+msgid "Die Koordinaten dürfen nicht negativ sein."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:60
+msgid ""
+"Der ausgewählte Bereich ist zu klein. Die minimale Größe beträgt 20x20 "
+"Pixel."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:67
+msgid "Der ausgewählte Bereich überschreitet die Bildgrenzen."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:71
+msgid "Ungültige JSON-Daten für den Zuschnitt."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:74
+msgid "Ungültige Zahlenformate in den Zuschnittdaten."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:77
+msgid "Fehler bei der Validierung der Zuschnittdaten: "
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:93
+msgid "Zuschneiden erfolgreich!"
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:95
+msgid ""
+"Ihr Bild wurde erfolgreich zugeschnitten. Klicken Sie auf den Button "
+"unten, um es herunterzuladen."
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:96
+msgid "Zugeschnittenes Bild herunterladen"
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:97
+msgid "Anderes Bild zuschneiden"
+msgstr ""
+
+#: tools/image_cropper/image_cropper_tool.py:120
+msgid "Fehler beim Zuschneiden: "
 msgstr ""
 
 #: tools/number_converter/number_converter_tool.py:5
@@ -687,5 +784,29 @@ msgid "Ein Fehler ist aufgetreten: "
 msgstr ""
 
 #~ msgid "Sonderzeichen einschließen (!@#$%^&*...)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\n"
+#~ "                <div class=\"alert alert-success\">\n"
+#~ "                    <h4 class=\"alert-"
+#~ "heading\">Zuschneiden erfolgreich!</h4>\n"
+#~ "                    <p>Ihr Bild wurde "
+#~ "erfolgreich zugeschnitten. Klicken Sie auf "
+#~ "den Button unten, um es "
+#~ "herunterzuladen.</p>\n"
+#~ "                    <hr>\n"
+#~ "                    <div class=\"d-flex justify-content-between\">\n"
+#~ "                        <a href=\"/download_crop/{token}\""
+#~ " class=\"btn btn-primary\" download>\n"
+#~ "                            Zugeschnittenes Bild herunterladen\n"
+#~ "                        </a>\n"
+#~ "                        <a href=\"/tool/ImageCropperTool\""
+#~ " class=\"btn btn-secondary\">\n"
+#~ "                            Anderes Bild zuschneiden\n"
+#~ "                        </a>\n"
+#~ "                    </div>\n"
+#~ "                </div>\n"
+#~ "                "
 #~ msgstr ""
 
