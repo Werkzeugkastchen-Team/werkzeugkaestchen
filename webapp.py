@@ -130,21 +130,20 @@ def tool_form(tool_name):
     if not tool:
         return "Tool not found", 404
 
-    # Spezielle Behandlung für den Farbkonverter - direkt die Seite anzeigen
-    elif tool_name == "ColorConverterTool":
+    # Spezielle Behandlung für bestimmte Tools
+    if tool_name == "ColorConverterTool":
         return render_template('color_converter.html')
-
     elif tool_name == "GifVideoConverterTool":
         return render_template('gif_video_converter.jinja')
+    elif tool_name == "ImageCropperTool":
+        return render_template('image_cropper.jinja')  # Spezielles Template für den Image Cropper
 
     # Regulärer Ablauf für andere Tools
     return render_template('variable_input_mask.jinja',
-                           tool=tool,
-                           toolName=tool.name,
-                           input_params=tool.input_params,
-                           identifier=tool.identifier)
-
-# Output
+                          tool=tool,
+                          toolName=tool.name,
+                          input_params=tool.input_params,
+                          identifier=tool.identifier)
 
 
 @app.route("/handle_tool", methods=["POST"])
@@ -377,7 +376,6 @@ def download_converted_media(token):
         converter_tool.cleanup_old_files()
 
     return response
-
 
 
 
