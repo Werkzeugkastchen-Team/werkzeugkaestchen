@@ -63,9 +63,17 @@ docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 docker exec -it ollama ollama run gemma3:1b
 ```
 
-Wenn das Model ändern will (etwa von gemma3:1b zu gemma3:4b), dann muss man das Tool und den ollama run Befehl anpassen.
+Und noch zusätzlich für gemma3:4b:
 
->Gemma 3 1B ist sehr leicht (~1GB), jedoch nicht so gut wie größere Modelle.
+```sh
+docker exec -it ollama ollama run gemma3:4b
+```
+
+Wenn man die Modelle ändern will, dann muss man das Tool und den ollama run Befehl anpassen.
+
+>Gemma 3 1B ist sehr leicht (~1GB), ist aber eher schlecht.
+
+>Gemma 3 4B ist etwas schwerer (~4GB), ist aber besser als 1B. Auf unseren halbwegs aktuellen Laptops sollten beide recht OK laufen.
 
 ## Development Environment
 

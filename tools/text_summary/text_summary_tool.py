@@ -15,7 +15,6 @@ class TextSummaryTool(MiniTool):
 
     def __init__(self):
         super().__init__("Text zusammenfassen Tool", "TextSummaryTool")
-        # TODO: parameter for model. Gemma3:1b and Gemma3:4b
         self.input_params = {
             "Text": "string",
             "Sprache": {
@@ -45,12 +44,11 @@ class TextSummaryTool(MiniTool):
             
 
             prompt = meta_prompt + " \n " + text_to_summarize
-
-            # TODO: Make model configurable via input_params
+            
             response = completion(
                 model=f"ollama/{model}", 
                 messages=[{ "content": prompt,"role": "user"}], 
-                api_base="http://localhost:11434" # Assuming Ollama runs locally
+                api_base="http://localhost:11434" # Check Docker container Port!
             )
             
             summary = response.choices[0].message.content
