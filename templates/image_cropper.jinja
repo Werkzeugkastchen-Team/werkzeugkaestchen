@@ -1,719 +1,114 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} {{ toolName }} {% endblock %}</h1>
+<h1>{% block title %}{{ _("Bilder zuschneiden") }}{% endblock %}</h1>
 
 <div class="alert alert-info">
-    <h4 class="alert-heading">Anleitung zum Zuschneiden:</h4>
-    <ol>
-        <li>Wählen Sie ein Bild aus</li>
-        <li>Ziehen Sie mit der Maus einen Rahmen um den gewünschten Bereich</li>
-        <li>Passen Sie die Größe und Position des Rahmens bei Bedarf an</li>
-        <li>Klicken Sie auf "Zuschneiden", wenn Sie fertig sind</li>
-    </ol>
-    <p class="mb-0"><strong>Tipp:</strong> Sie können die Werte auch direkt in den Eingabefeldern anpassen.</p>
+  <p>{{ _("Laden Sie ein Bild hoch und wählen Sie den Bereich aus, den Sie zuschneiden möchten.") }}</p>
 </div>
 
-<div class="editor__container">
-    <!-- Add error container at the top -->
-    <div id="errorContainer"></div>
-    <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="cropForm">
-        <input type="hidden" name="tool_name" value="{{ identifier }}">
-        <input type="hidden" name="crop_data" id="cropData">
-        
-        <div class="form-group">
-            <label for="image">Bild auswählen:</label>
-            <div class="custom-file">
-                <input type="file" name="image" id="image" class="custom-file-input" accept="image/*" onchange="handleImageSelect(this)">
-                <label class="custom-file-label" for="image">Datei auswählen...</label>
-            </div>
-            <small class="form-text text-muted">Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP</small>
-        </div>
+<div class="card mb-4">
+    <div class="card-body">
+        <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="cropperForm">
+            <input type="hidden" name="tool_name" value="ImageCropperTool">
+            <input type="hidden" name="crop_data" id="crop_data" value="">
 
-        <div id="cropperContainer" style="display: none;">
-            <div class="crop-controls mb-3">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="cropX">Position X (px)</label>
-                            <input type="number" 
-                                   class="form-control" 
-                                   id="cropX" 
-                                   min="0" 
-                                   step="1"
-                                   inputmode="numeric"
-                                   pattern="[0-9]*"
-                                   oninput="updateCropBoxLive()">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="cropY">Position Y (px)</label>
-                            <input type="number" 
-                                   class="form-control" 
-                                   id="cropY" 
-                                   min="0" 
-                                   step="1"
-                                   inputmode="numeric"
-                                   pattern="[0-9]*"
-                                   oninput="updateCropBoxLive()">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="cropWidth">Width (px)</label>
-                            <input type="number" 
-                                   class="form-control" 
-                                   id="cropWidth" 
-                                   min="1" 
-                                   step="1"
-                                   inputmode="numeric"
-                                   pattern="[0-9]*"
-                                   oninput="updateCropBoxLive()">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="cropHeight">Height (px)</label>
-                            <input type="number" 
-                                   class="form-control" 
-                                   id="cropHeight" 
-                                   min="1" 
-                                   step="1"
-                                   inputmode="numeric"
-                                   pattern="[0-9]*"
-                                   oninput="updateCropBoxLive()">
-                        </div>
-                    </div>
+            <div class="form-group mb-3">
+                <label for="image">{{ _("Bild auswählen:") }}</label>
+                <input type="file" class="form-control" name="image" id="image" accept="image/*" required onchange="handleImageSelect(this)">
+            </div>
+
+            <div id="image-cropper-container" style="display: none;" class="mb-3">
+                <div class="img-container">
+                    <img id="image-to-crop" src="" alt="{{ _('Hochgeladenes Bild') }}" style="max-width: 100%;">
                 </div>
             </div>
 
-            <div class="editor__content">
-                <div class="editor__image">
-                    <img id="cropImage" src="">
+            <div id="cropper-controls" style="display: none;" class="mb-3">
+                <button type="button" class="btn btn-primary" id="crop-btn">{{ _("Zuschneiden") }}</button>
+                <button type="button" class="btn btn-secondary" id="reset-btn">{{ _("Zurücksetzen") }}</button>
+            </div>
+
+            <div id="cropped-preview" style="display: none;" class="mb-3">
+                <h5>{{ _("Vorschau:") }}</h5>
+                <div style="max-width: 300px; overflow: hidden;">
+                    <img id="cropped-image" src="" alt="{{ _('Zugeschnittenes Bild') }}" style="max-width: 100%;">
                 </div>
             </div>
 
-            <div class="crop-info mb-3">
-                <div class="row">
-                    <div class="col-md-6 text-right">
-                        <div class="crop-actions">
-                            <button type="submit" class="fancy-button" id="submitButton" disabled>
-                                <i class="fas fa-crop"></i> Zuschneiden
-                            </button>
-                            <button type="button" class="btn btn-secondary ml-2" onclick="resetCropper()">
-                                <i class="fas fa-undo"></i> Zurücksetzen
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+            <button type="submit" class="fancy-button" id="submitButton" style="display: none;">{{ _("Auswahl übernehmen") }}</button>
+        </form>
+    </div>
 </div>
 
-<!-- Include Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<!-- Include Cropper.js CSS and JS -->
+<!-- Cropper.js CSS und JS einbinden -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
 
-<style>
-.editor__container, .editor__content {
-    max-width: 800px;
-    width: 100%;
-    margin: auto;
-}
-
-.editor__content {
-    position: relative;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
-    display: inline-block;
-}
-
-.editor__image {
-    width: 100%;
-    background-color: #2c3338;
-}
-
-.editor__image img {
-    max-width: 100%;
-    display: block;
-}
-
-/* Cropper.js custom styles */
-.cropper-container {
-    background-color: #2c3338 !important;
-}
-
-.cropper-modal {
-    opacity: 0.6;
-    background: #000;
-}
-
-.cropper-view-box {
-    outline: 1px solid #fff;
-    outline-color: rgba(255, 255, 255, 0.75);
-}
-
-.cropper-line {
-    background-color: #fff;
-    opacity: 0.1;
-}
-
-.cropper-point {
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-    background-color: #fff;
-    border: 2px solid #39f;
-    border-radius: 50%;
-}
-
-.cropper-point.point-se,
-.cropper-point.point-sw,
-.cropper-point.point-nw,
-.cropper-point.point-ne {
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-    background-color: #fff;
-    border: 2px solid #39f;
-    border-radius: 50%;
-}
-
-.cropper-face {
-    background-color: transparent;
-}
-
-.cropper-dashed {
-    border: 0;
-    display: block;
-    opacity: .5;
-    position: absolute;
-}
-
-.cropper-center {
-    opacity: .75;
-}
-
-.cropper-center:before,
-.cropper-center:after {
-    background-color: #fff;
-    content: ' ';
-    display: block;
-    position: absolute;
-}
-
-.crop-controls {
-    margin-bottom: 1rem;
-}
-
-.crop-info {
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 4px;
-}
-
-.custom-file-label {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-/* Loading indicator */
-.loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-.loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Active ratio button */
-.btn-group .btn.active {
-    background-color: #6c757d;
-    color: white;
-    border-color: #6c757d;
-}
-
-.crop-controls input {
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-size: 0.9rem;
-}
-
-.crop-controls label {
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.input-group-text {
-    font-size: 0.9rem;
-    background-color: #f8f9fa;
-    border-left: none;
-}
-
-/* Styles for number inputs */
-.crop-controls input[type=number] {
-    appearance: textfield;
-    -moz-appearance: textfield;
-    padding-right: 20px; /* Space for spinner */
-}
-
-/* Show and style the spinners */
-.crop-controls input[type=number]::-webkit-inner-spin-button,
-.crop-controls input[type=number]::-webkit-outer-spin-button {
-    opacity: 1;
-    -webkit-appearance: inner-spin-button;
-    appearance: inner-spin-button;
-    margin: 0;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-/* Style the form control container */
-.crop-controls .form-group {
-    position: relative;
-}
-
-.crop-controls .form-control {
-    width: 100%;
-}
-
-/* Remove any existing spinner hiding styles */
-.crop-controls input::-webkit-outer-spin-button,
-.crop-controls input::-webkit-inner-spin-button {
-    opacity: 1;
-    -webkit-appearance: inner-spin-button;
-}
-</style>
-
 <script>
-let cropper = null;
-let originalWidth = 0;
-let originalHeight = 0;
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+    let cropper;
 
-function showError(message, type = 'error') {
-    // Remove any existing error messages
-    const existingErrors = document.querySelectorAll('.alert');
-    existingErrors.forEach(error => error.remove());
+    function handleImageSelect(input) {
+        if (input.files && input.files[0]) {
+            const file = input.files[0];
+            const reader = new FileReader();
 
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type === 'error' ? 'danger' : 'warning'} alert-dismissible fade show`;
-    alertDiv.role = 'alert';
-    alertDiv.innerHTML = `
-        <strong>${type === 'error' ? 'Fehler' : 'Warnung'}:</strong> ${message}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    `;
-    document.getElementById('errorContainer').appendChild(alertDiv);
+            reader.onload = function(e) {
+                const imageElement = document.getElementById('image-to-crop');
+                imageElement.src = e.target.result;
 
-    // Auto-dismiss warnings after 5 seconds
-    if (type === 'warning') {
-        setTimeout(() => {
-            alertDiv.remove();
-        }, 5000);
-    }
+                document.getElementById('image-cropper-container').style.display = 'block';
+                document.getElementById('cropper-controls').style.display = 'block';
 
-    // Scroll to error message
-    alertDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+                if (cropper) {
+                    cropper.destroy();
+                }
 
-function clearPreview() {
-    // Hide the cropper container
-    document.getElementById('cropperContainer').style.display = 'none';
-    
-    // Clear the image source
-    const image = document.getElementById('cropImage');
-    image.src = '';
-    
-    // Destroy existing cropper instance
-    if (cropper) {
-        cropper.destroy();
-        cropper = null;
-    }
-    
-    // Reset the submit button
-    const submitButton = document.getElementById('submitButton');
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<i class="fas fa-crop"></i> Zuschneiden';
-    
-    // Reset input fields
-    document.getElementById('cropX').value = '';
-    document.getElementById('cropY').value = '';
-    document.getElementById('cropWidth').value = '';
-    document.getElementById('cropHeight').value = '';
-}
-
-function handleImageSelect(input) {
-    // Clear any existing preview first
-    clearPreview();
-    
-    // Clear previous errors
-    document.getElementById('errorContainer').innerHTML = '';
-    
-    if (input.files && input.files[0]) {
-        const file = input.files[0];
-        
-        // First check if it's an image file before doing anything else
-        const isImage = file.type.startsWith('image/');
-        if (!isImage) {
-            showError(`Die ausgewählte Datei "${file.name}" ist kein Bild. 
-                      <br>Bitte wählen Sie eine Bilddatei aus (PNG, JPEG, GIF, BMP, WEBP).`);
-            input.value = ''; // Clear the input
-            const fileLabel = input.nextElementSibling;
-            fileLabel.textContent = 'Datei auswählen...'; // Reset label
-            return;
-        }
-        
-        // Update the file input label with selected filename
-        const fileLabel = input.nextElementSibling;
-        fileLabel.textContent = file.name;
-        
-        // Validate file before proceeding
-        if (!validateFile(file)) {
-            input.value = ''; // Clear the input
-            fileLabel.textContent = 'Datei auswählen...'; // Reset label
-            return;
-        }
-        
-        const url = URL.createObjectURL(file);
-        const image = document.getElementById('cropImage');
-        
-        // Add error handling for image loading
-        image.onerror = function() {
-            showError('Die ausgewählte Datei konnte nicht als Bild geladen werden. Bitte stellen Sie sicher, dass es sich um eine gültige Bilddatei handelt.');
-            input.value = '';
-            fileLabel.textContent = 'Datei auswählen...'; // Reset label
-            URL.revokeObjectURL(url);
-            clearPreview();
-        };
-        
-        image.onload = function() {
-            // Validate image dimensions
-            if (this.naturalWidth < 20 || this.naturalHeight < 20) {
-                showError('Das ausgewählte Bild ist zu klein. Die minimale Bildgröße beträgt 20x20 Pixel.');
-                input.value = '';
-                fileLabel.textContent = 'Datei auswählen...'; // Reset label
-                URL.revokeObjectURL(url);
-                clearPreview();
-                return;
+                // Initialisiere Cropper.js
+                cropper = new Cropper(imageElement, {
+                    aspectRatio: NaN, // Freies Seitenverhältnis
+                    viewMode: 1,      // Bild wird innerhalb des Containers angezeigt
+                    guides: true,
+                    background: false
+                });
             }
-            
-            originalWidth = this.naturalWidth;
-            originalHeight = this.naturalHeight;
-            
-            // Show the cropper container
-            document.getElementById('cropperContainer').style.display = 'block';
-            
-            // Initialize cropper
-            initializeCropper(image);
-            
-            // Show success message with image details
-            showError(`Bild "${file.name}" (${this.naturalWidth}x${this.naturalHeight} Pixel) erfolgreich geladen. 
-                      <br>Sie können jetzt den Bereich auswählen.`, 'success');
-        };
-        
-        image.src = url;
-    } else {
-        clearPreview();
-        const fileLabel = input.nextElementSibling;
-        fileLabel.textContent = 'Datei auswählen...';
-    }
-}
 
-function validateFile(file) {
-    // Check if file exists
-    if (!file) {
-        showError('Bitte wählen Sie eine Datei aus.');
-        clearPreview();
-        return false;
-    }
-
-    // Get file extension and check if it's supported
-    const fileName = file.name.toLowerCase();
-    const fileExt = fileName.split('.').pop();
-    const supportedExts = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
-    
-    if (!supportedExts.includes(fileExt)) {
-        showError(`Die ausgewählte Datei "${file.name}" hat ein nicht unterstütztes Format. 
-                  <br>Bitte wählen Sie eine der folgenden Dateiformate: ${supportedExts.map(ext => '.' + ext.toUpperCase()).join(', ')}`);
-        clearPreview();
-        return false;
-    }
-
-    // Check file size
-    if (file.size > MAX_FILE_SIZE) {
-        const sizeMB = (file.size / 1024 / 1024).toFixed(2);
-        showError(`Die ausgewählte Datei "${file.name}" ist zu groß (${sizeMB} MB). 
-                  <br>Die maximale Dateigröße beträgt 10 MB.`);
-        clearPreview();
-        return false;
-    }
-
-    // Check file type MIME
-    const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'];
-    if (!validTypes.includes(file.type)) {
-        showError(`Die ausgewählte Datei "${file.name}" hat einen ungültigen Dateityp. 
-                  <br>Bitte wählen Sie ein Bild im Format: PNG, JPEG, GIF, BMP oder WEBP.`);
-        clearPreview();
-        return false;
-    }
-
-    return true;
-}
-
-function validateDimensions(width, height) {
-    if (width < 20 || height < 20) {
-        showError('Der ausgewählte Bereich ist zu klein. Minimale Größe ist 20x20 Pixel.');
-        return false;
-    }
-    return true;
-}
-
-function validateCropBox(cropBoxData, containerData) {
-    const errors = [];
-    
-    // Check if crop box exceeds image boundaries
-    if (cropBoxData.left < 0) errors.push('Position X kann nicht negativ sein');
-    if (cropBoxData.top < 0) errors.push('Position Y kann nicht negativ sein');
-    if (cropBoxData.left + cropBoxData.width > containerData.width) 
-        errors.push('Breite überschreitet Bildgrenzen');
-    if (cropBoxData.top + cropBoxData.height > containerData.height)
-        errors.push('Höhe überschreitet Bildgrenzen');
-    
-    // Check minimum dimensions
-    if (cropBoxData.width < 20) errors.push('Breite muss mindestens 20 Pixel betragen');
-    if (cropBoxData.height < 20) errors.push('Höhe muss mindestens 20 Pixel betragen');
-    
-    if (errors.length > 0) {
-        showError(errors.join('. '));
-        return false;
-    }
-    return true;
-}
-
-function initializeCropper(image) {
-    cropper = new Cropper(image, {
-        viewMode: 1,
-        dragMode: 'crop',
-        autoCrop: true,
-        autoCropArea: 0.8,
-        restore: true,
-        guides: true,
-        center: true,
-        highlight: false,
-        cropBoxMovable: true,
-        cropBoxResizable: true,
-        toggleDragModeOnDblclick: false,
-        minContainerWidth: 100,
-        minContainerHeight: 100,
-        background: true,
-        movable: false,
-        rotatable: false,
-        scalable: false,
-        zoomable: false,
-        zoomOnTouch: false,
-        zoomOnWheel: false,
-        minCropBoxWidth: 20,
-        minCropBoxHeight: 20,
-        responsive: true,
-        ready: function() {
-            document.getElementById('submitButton').disabled = false;
-            
-            const imageData = this.cropper.getImageData();
-            const containerData = this.cropper.getContainerData();
-            
-            // Set canvas to fill container
-            this.cropper.setCanvasData({
-                left: 0,
-                top: 0,
-                width: containerData.width,
-                height: containerData.height
-            });
-            
-            // Set initial crop box to 80% of the image size
-            const cropBoxWidth = containerData.width * 0.8;
-            const cropBoxHeight = containerData.height * 0.8;
-            this.cropper.setCropBoxData({
-                left: (containerData.width - cropBoxWidth) / 2,
-                top: (containerData.height - cropBoxHeight) / 2,
-                width: cropBoxWidth,
-                height: cropBoxHeight
-            });
-
-            // Update input fields with initial values
-            updateInputFields();
-        },
-        cropend: function(event) {
-            // Update input fields when crop box changes
-            updateInputFields();
-        },
-        cropmove: function(event) {
-            // Update input fields when crop box changes
-            updateInputFields();
+            reader.readAsDataURL(file);
         }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const cropBtn = document.getElementById('crop-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const submitButton = document.getElementById('submitButton');
+
+        cropBtn.addEventListener('click', function() {
+            if (!cropper) return;
+
+            const cropData = cropper.getData();
+            document.getElementById('crop_data').value = JSON.stringify({
+                x: Math.round(cropData.x),
+                y: Math.round(cropData.y),
+                width: Math.round(cropData.width),
+                height: Math.round(cropData.height)
+            });
+
+            // Zeige Vorschau des zugeschnittenen Bildes
+            const canvas = cropper.getCroppedCanvas();
+            if (canvas) {
+                document.getElementById('cropped-image').src = canvas.toDataURL();
+                document.getElementById('cropped-preview').style.display = 'block';
+                submitButton.style.display = 'block';
+            }
+        });
+
+        resetBtn.addEventListener('click', function() {
+            if (cropper) {
+                cropper.reset();
+            }
+            document.getElementById('cropped-preview').style.display = 'none';
+            submitButton.style.display = 'none';
+        });
     });
-}
-
-function updateInputFields() {
-    if (cropper) {
-        const data = cropper.getCropBoxData(); // Get crop box data instead of getData
-        document.getElementById('cropX').value = Math.round(data.left);
-        document.getElementById('cropY').value = Math.round(data.top);
-        document.getElementById('cropWidth').value = Math.round(data.width);
-        document.getElementById('cropHeight').value = Math.round(data.height);
-    }
-}
-
-function updateCropBoxLive() {
-    if (cropper) {
-        const x = parseInt(document.getElementById('cropX').value);
-        const y = parseInt(document.getElementById('cropY').value);
-        const width = parseInt(document.getElementById('cropWidth').value);
-        const height = parseInt(document.getElementById('cropHeight').value);
-        
-        // Validate input values
-        if (isNaN(x) || isNaN(y) || isNaN(width) || isNaN(height)) {
-            showError('Bitte geben Sie gültige Zahlen ein.');
-            return;
-        }
-        
-        // Get container data
-        const containerData = cropper.getContainerData();
-        
-        // Create crop box data for validation
-        const cropBoxData = {
-            left: x,
-            top: y,
-            width: width,
-            height: height
-        };
-        
-        // Validate crop box
-        if (!validateCropBox(cropBoxData, containerData)) {
-            return;
-        }
-        
-        // Apply the crop box data
-        cropper.setCropBoxData(cropBoxData);
-    }
-}
-
-function resetCropper() {
-    if (cropper) {
-        cropper.reset();
-        
-        const imageData = cropper.getImageData();
-        const containerData = cropper.getContainerData();
-        
-        const scale = Math.min(
-            containerData.width / imageData.naturalWidth,
-            containerData.height / imageData.naturalHeight
-        );
-        
-        const width = imageData.naturalWidth * scale;
-        const height = imageData.naturalHeight * scale;
-        
-        cropper.setCanvasData({
-            left: (containerData.width - width) / 2,
-            top: (containerData.height - height) / 2,
-            width: width,
-            height: height
-        });
-        
-        // Reset to 80% size
-        const cropBoxWidth = width * 0.8;
-        const cropBoxHeight = height * 0.8;
-        cropper.setCropBoxData({
-            left: (containerData.width - cropBoxWidth) / 2,
-            top: (containerData.height - cropBoxHeight) / 2,
-            width: cropBoxWidth,
-            height: cropBoxHeight
-        });
-        
-        // Update input fields
-        updateInputFields();
-    }
-}
-
-document.getElementById('cropForm').onsubmit = function(e) {
-    // Clear previous errors
-    document.getElementById('errorContainer').innerHTML = '';
-    
-    if (!cropper) {
-        e.preventDefault();
-        showError('Bitte wählen Sie zuerst ein Bild aus.');
-        return false;
-    }
-
-    const cropBoxData = cropper.getCropBoxData();
-    const containerData = cropper.getContainerData();
-    
-    // Validate crop box dimensions
-    if (!validateCropBox(cropBoxData, containerData)) {
-        e.preventDefault();
-        return false;
-    }
-
-    // Get the final crop data
-    const cropData = cropper.getCropBoxData();
-    const imageData = cropper.getImageData();
-    
-    try {
-        // Calculate the crop data relative to the actual image
-        const scaleX = imageData.naturalWidth / imageData.width;
-        const scaleY = imageData.naturalHeight / imageData.height;
-        
-        const cropDataRelative = {
-            x: Math.round(cropData.left * scaleX),
-            y: Math.round(cropData.top * scaleY),
-            width: Math.round(cropData.width * scaleX),
-            height: Math.round(cropData.height * scaleY)
-        };
-        
-        document.getElementById('cropData').value = JSON.stringify(cropDataRelative);
-    } catch (error) {
-        e.preventDefault();
-        showError('Fehler bei der Verarbeitung der Zuschnittdaten. Bitte versuchen Sie es erneut.');
-        return false;
-    }
-    
-    // Show loading state
-    document.getElementById('submitButton').disabled = true;
-    document.getElementById('submitButton').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verarbeite...';
-};
-
-// Add error handling for window resize
-window.addEventListener('resize', function() {
-    if (cropper) {
-        try {
-            cropper.resize();
-            updateInputFields();
-        } catch (error) {
-            showError('Fehler beim Anpassen der Größe. Bitte laden Sie die Seite neu.');
-        }
-    }
-});
 </script>
-{% endblock %} 
+{% endblock %}

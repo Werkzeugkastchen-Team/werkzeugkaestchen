@@ -26,8 +26,10 @@ from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
 from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
+from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
 from tools.text_summary.text_summary_tool import TextSummaryTool
+from tools.pdf_merge.pdf_merge_tool import PdfMergeTool
 
 
 # Erstellen einer Flask-Anwendung
@@ -67,7 +69,6 @@ tools = {
     "CalendarWeekTool": CalendarWeekTool(),
     "RandomNumberGeneratorTool": RandomNumberGeneratorTool(),
     "PasswordGeneratorTool": PasswordGeneratorTool(),
-    "CalendarWeekTool": CalendarWeekTool(),
     "ImageCropperTool": ImageCropperTool(),
     "AudioConverterTool": AudioConverterTool(),
     "TextToSpeechTool": TextToSpeechTool(),
@@ -79,12 +80,12 @@ tools = {
     "DateCalculatorTool": DateCalculatorTool(),
     "PlaceholderTextTool": PlaceholderTextTool(),
     "ColorConverterTool": ColorConverterTool(),
+    "WhisperSubtitleTool": WhisperSubtitleTool(),
     "PdfSplitTool": PdfSplitTool(),
     "GifVideoConverterTool": GifVideoConverterTool(),
-    "TextSummaryTool": TextSummaryTool()
+    "TextSummaryTool": TextSummaryTool(),
+    "PdfMergeTool": PdfMergeTool()
 }
-
-# Hauptseite
 
 
 @app.route('/')
@@ -133,21 +134,20 @@ def tool_form(tool_name):
     if not tool:
         return "Tool not found", 404
 
-    # Spezielle Behandlung für den Farbkonverter - direkt die Seite anzeigen
-    elif tool_name == "ColorConverterTool":
+    # Spezielle Behandlung für bestimmte Tools
+    if tool_name == "ColorConverterTool":
         return render_template('color_converter.html')
-
     elif tool_name == "GifVideoConverterTool":
         return render_template('gif_video_converter.jinja')
+    elif tool_name == "ImageCropperTool":
+        return render_template('image_cropper.jinja')  # Spezielles Template für den Image Cropper
 
     # Regulärer Ablauf für andere Tools
     return render_template('variable_input_mask.jinja',
-                           tool=tool,
-                           toolName=tool.name,
-                           input_params=tool.input_params,
-                           identifier=tool.identifier)
-
-# Output
+                          tool=tool,
+                          toolName=tool.name,
+                          input_params=tool.input_params,
+                          identifier=tool.identifier)
 
 
 @app.route("/handle_tool", methods=["POST"])
@@ -161,20 +161,36 @@ def handle_tool():
     input_params = {}
 
     # Handle file uploads
-    if request.files:
-        temp_dir = tempfile.gettempdir()  # Get system's temp directory
+    temp_dir = tempfile.gettempdir()
 
-        for key, file in request.files.items():
-            if file.filename != '':
-                # Save the file to the system's temp directory
+    if request.form.get("tool_name") == "PdfMergeTool":
+        uploaded_files = request.files.getlist("pdf_files")
+        files_info = []
+
+        for file in uploaded_files:
+            if file and file.filename.lower().endswith(".pdf"):
                 file_path = os.path.join(temp_dir, file.filename)
                 file.save(file_path)
-                # Store both the file object and path
+                files_info.append({
+                    "file_obj": file,
+                    "file_path": file_path,
+                    "filename": file.filename
+                })
+
+        input_params["pdf_files"] = files_info
+        input_params["pdf_order"] = request.form.get("pdf_order", "")
+
+    else:
+        for key, file in request.files.items():
+            if file and file.filename != '':
+                file_path = os.path.join(temp_dir, file.filename)
+                file.save(file_path)
                 input_params[key] = {
                     "file_obj": file,
                     "file_path": file_path,
                     "filename": file.filename
                 }
+
 
     # Handle form inputs
     for key, value in request.form.items():
@@ -346,7 +362,7 @@ def download_converted_audio(token):
         return "Fehler beim Senden der Datei", 500
 
 
-@app.route('/download_converted_media/<token>')
+@app.route('/download_converted_media/<token>', methods=['GET', 'POST'])
 def download_converted_media(token):
     converter_tool = tools.get("GifVideoConverterTool")
     if not converter_tool:

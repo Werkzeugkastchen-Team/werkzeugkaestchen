@@ -100,67 +100,70 @@ class AudioConverterTool(MiniTool):
         except Exception as e:
             self.error_message = f"Fehler bei der Konvertierung: {str(e)}"
             return False
-    
+
     def convert_and_save(self, token):
         """Convert the audio file and return the path to the temporary file."""
         if token not in self.pending_conversions:
             print(f"Error: Token {token} not found in pending conversions")
             return None
-            
+
         conversion = self.pending_conversions[token]
         if conversion["downloaded"]:
             print(f"Error: File for token {token} was already downloaded")
             return None
-            
+
         try:
             # Verify source file exists and has content
             if not os.path.exists(conversion["file_path"]):
                 print(f"Error: Source file not found: {conversion['file_path']}")
                 return None
-                
+
             if os.path.getsize(conversion["file_path"]) == 0:
                 print(f"Error: Source file is empty: {conversion['file_path']}")
                 return None
-            
+
             # Load and convert the audio file
             print(f"Loading audio file: {conversion['file_path']}")
             audio = AudioSegment.from_file(conversion["file_path"])
-            
+
+            # Entferne führenden Punkt (falls vorhanden)
+            target_format = conversion["target_format"].lstrip('.')
+
             # Create output filename in temp directory
             output_path = os.path.join(
                 self.temp_dir,
-                f"converted_{token}.{conversion['target_format']}"
+                f"converted_{token}.{target_format}"
             )
             print(f"Converting to: {output_path}")
 
             # Handle AAC conversion specially
-            if conversion["target_format"] == "aac":
+            if target_format == "aac":
                 # For AAC, we need to use ffmpeg's AAC encoder directly
                 audio.export(output_path, format="adts", parameters=["-c:a", "aac", "-b:a", "192k"])
-
             else:
                 # For other formats, use the standard export
-                audio.export(output_path, format=conversion["target_format"])
-            
+                audio.export(output_path, format=target_format)
+
             # Verify the file was created and has content
             if not os.path.exists(output_path):
                 print(f"Error: Converted file was not created: {output_path}")
                 return None
-                
+
             file_size = os.path.getsize(output_path)
             if file_size == 0:
                 print(f"Error: Converted file is empty: {output_path}")
                 return None
-                
+
             print(f"Success: Converted file created with size {file_size} bytes")
             return output_path
-                
+
         except Exception as e:
             print(f"Error converting audio: {str(e)}")
             import traceback
             print(f"Traceback: {traceback.format_exc()}")
             return None
-    
+
+
     def cleanup_old_files(self):
         """Remove old conversions and their files."""
         now = datetime.now()
