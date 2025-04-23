@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-23 13:04+0200\n"
+"POT-Creation-Date: 2025-04-23 18:48+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -130,9 +130,7 @@ msgstr "Enter text or a URL to generate a QR code."
 msgid ""
 "Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. "
 "Das Tool wird die Zahl automatisch in die anderen Formate konvertieren."
-msgstr ""
-"Enter a number and select the corresponding number type. The tool will "
-"automatically convert the number into other formats."
+msgstr "Enter a number and select the corresponding number type. The tool will "
 
 #: templates/variable_input_mask.jinja:27
 msgid ""
@@ -140,7 +138,7 @@ msgid ""
 "Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP."
 msgstr ""
 "Upload an image and select the desired target format. Supported formats "
-"are: PNG, JPEG, GIF, BMP and WEBP."
+"are: PNG, JPEG, GIF, BMP, and WEBP."
 
 #: templates/variable_input_mask.jinja:33
 msgid ""
@@ -157,15 +155,15 @@ msgid ""
 "Zeichen lang sein und verschiedene Zeichentypen enthalten."
 msgstr ""
 "Select the desired length and character types for your secure password. A"
-" strong password should be at least 12 characters long and contain "
-"various types of characters."
+" strong password should be at least 12 characters long and include "
+"various character types."
 
 #: templates/variable_input_mask.jinja:50
 msgid ""
 "Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der "
 "gewünschten Länge generieren."
 msgstr ""
-"With this tool you can generate Lorem Ipsum placeholder text in your "
+"With this tool, you can generate Lorem Ipsum placeholder text in the "
 "desired length."
 
 #: templates/variable_input_mask.jinja:52
@@ -174,7 +172,7 @@ msgstr "Features:"
 
 #: templates/variable_input_mask.jinja:54
 msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
-msgstr "Select your desired text length (1-1000 words)"
+msgstr "Choose the desired text length (1-1000 words)"
 
 #: templates/variable_input_mask.jinja:55
 msgid "Generieren Sie professionellen Lorem Ipsum Text"
@@ -182,19 +180,81 @@ msgstr "Generate professional Lorem Ipsum text"
 
 #: templates/variable_input_mask.jinja:56
 msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
-msgstr "Copy the text to clipboard with a single click"
+msgstr "Copy the text to the clipboard with one click"
 
 #: templates/variable_input_mask.jinja:57
 msgid "Ideal für Layout- und Designarbeiten"
-msgstr ""
+msgstr "Ideal for layout and design work"
 
 #: templates/variable_input_mask.jinja:70
 msgid "Anzahl der Wörter (1-1000)"
-msgstr ""
+msgstr "Number of words (1-1000)"
 
 #: templates/variable_input_mask.jinja:72
 msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+msgstr "Choose a length between 1 and 1000 words."
+
+#: templates/variable_input_mask.jinja:163
+msgid ""
+"Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und "
+"Zeitangaben umwandeln und umgekehrt."
 msgstr ""
+"With this tool, you can convert Unix timestamps to readable date and time"
+" formats and vice versa."
+
+#: templates/variable_input_mask.jinja:167
+msgid "Konvertierungsrichtung:"
+msgstr "Conversion direction:"
+
+#: templates/variable_input_mask.jinja:169
+msgid "Timestamp zu Datum"
+msgstr "Timestamp to Date"
+
+#: templates/variable_input_mask.jinja:170
+msgid "Datum zu Timestamp"
+msgstr "Date to Timestamp"
+
+#: templates/variable_input_mask.jinja:176
+msgid "Unix-Timestamp:"
+msgstr "Unix timestamp:"
+
+#: templates/variable_input_mask.jinja:177
+msgid "z.B. 1640995200"
+msgstr "e.g. 1640995200"
+
+#: templates/variable_input_mask.jinja:178
+msgid ""
+"Geben Sie einen Unix-Timestamp ein (Sekunden seit dem 01.01.1970 00:00:00"
+" UTC)."
+msgstr "Enter a Unix timestamp (seconds since 01.01.1970 00:00:00 UTC)."
+
+#: templates/variable_input_mask.jinja:184
+#: tools/unix_timestamp/unix_timestamp_tool.py:73
+#: tools/unix_timestamp/unix_timestamp_tool.py:131
+msgid "Datum:"
+msgstr "Date:"
+
+#: templates/variable_input_mask.jinja:185
+msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
+msgstr "DD.MM.YYYY (e.g. 01.01.2022)"
+
+#: templates/variable_input_mask.jinja:186
+msgid "Geben Sie ein Datum im Format TT.MM.JJJJ ein."
+msgstr "Enter a date in the format DD.MM.YYYY."
+
+#: templates/variable_input_mask.jinja:190
+msgid "Uhrzeit (optional):"
+msgstr "Time (optional):"
+
+#: templates/variable_input_mask.jinja:191
+msgid "HH:MM:SS (z.B. 12:30:00)"
+msgstr "HH:MM:SS (e.g. 12:30:00)"
+
+#: templates/variable_input_mask.jinja:192
+msgid ""
+"Geben Sie eine Uhrzeit im Format HH:MM:SS ein. Standard ist 00:00:00 wenn"
+" leer."
+msgstr "Enter a time in the format HH:MM:SS. Default is 00:00:00 if empty."
 
 #: templates/variable_input_mask.jinja:217
 msgid "Zahl:"
@@ -202,7 +262,7 @@ msgstr "Number:"
 
 #: templates/variable_input_mask.jinja:218
 msgid "Geben Sie eine Zahl ein"
-msgstr "Please enter a number"
+msgstr "Enter a number"
 
 #: templates/variable_input_mask.jinja:220
 msgid "Zahlentyp:"
@@ -210,7 +270,7 @@ msgstr "Number type:"
 
 #: templates/variable_input_mask.jinja:222
 msgid "Binär"
-msgstr "Binary"
+msgstr "Binary:"
 
 #: templates/variable_input_mask.jinja:223
 msgid "Dezimal"
@@ -226,7 +286,7 @@ msgstr "Target format:"
 
 #: templates/variable_input_mask.jinja:230
 msgid "Bitte wählen Sie ein Format"
-msgstr "Please select a format"
+msgstr "Please select a target format."
 
 #: templates/variable_input_mask.jinja:234
 msgid "Passwortlänge:"
@@ -238,11 +298,11 @@ msgstr "Enter a length between 4 and 128 characters (12+ recommended)"
 
 #: templates/variable_input_mask.jinja:238
 msgid "Text oder URL:"
-msgstr "Text or URL"
+msgstr "Text or URL:"
 
 #: templates/variable_input_mask.jinja:239
 msgid "Text oder URL eingeben"
-msgstr "Enter Text or URL"
+msgstr "Enter text or URL"
 
 #: templates/variable_input_mask.jinja:249
 msgid "Kleinbuchstaben einschließen (a-z)"
@@ -254,19 +314,19 @@ msgstr "Uppercase letters (A-Z)"
 
 #: templates/variable_input_mask.jinja:253
 msgid "Zahlen einschließen (0-9)"
-msgstr "Include numbers (0-9)"
+msgstr "Numbers (0-9)"
 
 #: templates/variable_input_mask.jinja:255
 msgid "Sonderzeichen einschließen (!, @, #, $, usw.)"
-msgstr "Include special characters (!, @, #, $, etc.)"
+msgstr "Special characters (!, @, #, $, etc.)"
 
 #: templates/variable_input_mask.jinja:265
 msgid "PDF-Dateien hochladen:"
-msgstr "PDF files upload:"
+msgstr "Please upload PDF files:"
 
 #: templates/variable_input_mask.jinja:273
 msgid "Sie können die Reihenfolge nach dem Hochladen anpassen."
-msgstr ""
+msgstr "You can adjust the order after uploading."
 
 #: templates/variable_input_mask.jinja:330
 msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
@@ -274,16 +334,14 @@ msgstr "Supported formats: PNG, JPEG, GIF, BMP, WEBP"
 
 #: templates/variable_input_mask.jinja:360
 msgid "Hinweis:"
-msgstr "Attantion:"
+msgstr "Hint:"
 
 #: templates/variable_input_mask.jinja:360
 msgid ""
 "Passwörter werden lokal generiert und nicht an den Server übertragen. "
 "Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
 "gespeichert."
-msgstr ""
-"Passwords are generated locally and not transmitted to the server. Copy "
-"your password immediately after creation, it is not stored."
+msgstr "Passwords are generated locally and not sent to the server. Copy your "
 
 #: templates/variable_input_mask.jinja:362
 msgid "Passwort generieren"
@@ -291,7 +349,7 @@ msgstr "Generate Password"
 
 #: templates/variable_input_mask.jinja:364
 msgid "QR-Code erstellen"
-msgstr "Create QR Code"
+msgstr "Generate QR Code"
 
 #: templates/variable_input_mask.jinja:366
 msgid "Konvertieren"
@@ -497,75 +555,75 @@ msgstr "CW"
 msgid "im Jahr"
 msgstr "in the year"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:8
+#: tools/file_size_calculator/file_size_calculator_tool.py:9
 msgid "Dateigrößenberechner"
 msgstr "File Size Calculator"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:9
+#: tools/file_size_calculator/file_size_calculator_tool.py:11
 msgid "Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)"
 msgstr "Calculates the file size in different units (MB, MiB, etc.)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:20
+#: tools/file_size_calculator/file_size_calculator_tool.py:22
 msgid "Keine Datei hochgeladen"
 msgstr "No file uploaded"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:36
+#: tools/file_size_calculator/file_size_calculator_tool.py:38
 msgid "Datei"
 msgstr "File"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:37
+#: tools/file_size_calculator/file_size_calculator_tool.py:39
 msgid "Gesamtgröße"
 msgstr "Total size"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:38
+#: tools/file_size_calculator/file_size_calculator_tool.py:40
 msgid "Bytes"
 msgstr "Bytes"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:39
+#: tools/file_size_calculator/file_size_calculator_tool.py:41
 msgid "Dezimale Einheiten (SI)"
 msgstr "Decimal units (SI)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:40
+#: tools/file_size_calculator/file_size_calculator_tool.py:42
 msgid "Binäre Einheiten (IEC)"
 msgstr "Binary units (IEC)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:41
+#: tools/file_size_calculator/file_size_calculator_tool.py:43
 msgid "Einheit"
 msgstr "Unit"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:42
+#: tools/file_size_calculator/file_size_calculator_tool.py:44
 msgid "Wert"
 msgstr "Value"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:43
+#: tools/file_size_calculator/file_size_calculator_tool.py:45
 msgid "Beschreibung"
 msgstr "Description"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:44
+#: tools/file_size_calculator/file_size_calculator_tool.py:46
 msgid "Kilobyte (1000 Bytes)"
 msgstr "Kilobyte (1000 Bytes)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:45
+#: tools/file_size_calculator/file_size_calculator_tool.py:47
 msgid "Megabyte (1000 KB)"
 msgstr "Megabyte (1000 KB)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:46
+#: tools/file_size_calculator/file_size_calculator_tool.py:48
 msgid "Gigabyte (1000 MB)"
 msgstr "Gigabyte (1000 MB)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:47
+#: tools/file_size_calculator/file_size_calculator_tool.py:49
 msgid "Kibibyte (1024 Bytes)"
 msgstr "Kibibyte (1024 Bytes)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:48
+#: tools/file_size_calculator/file_size_calculator_tool.py:50
 msgid "Mebibyte (1024 KiB)"
 msgstr "Mebibyte (1024 KiB)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:49
+#: tools/file_size_calculator/file_size_calculator_tool.py:51
 msgid "Gibibyte (1024 MiB)"
 msgstr "Gibibyte (1024 MiB)"
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:147
+#: tools/file_size_calculator/file_size_calculator_tool.py:161
 msgid "Fehler bei der Berechnung der Dateigröße:"
 msgstr "Error calculating file size:"
 
@@ -938,6 +996,86 @@ msgstr "Text:"
 msgid "Sprache:"
 msgstr "Language:"
 
+#: tools/unix_timestamp/unix_timestamp_tool.py:7
+msgid "Unix\\-Timestamp Konverter"
+msgstr "Unix Timestamp Converter"
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:8
+msgid ""
+"Konvertiert Unix\\-Timestamps in lesbare Datums\\- und Zeitformate und "
+"umgekehrt\\. Mit Unterstützung für verschiedene Zeitzonen\\."
+msgstr ""
+"Converts Unix timestamps to readable date and time formats and vice "
+"versa. Supports various time zones."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:38
+#, python-format
+msgid "Unbekannte Zeitzone: %(zone)s"
+msgstr "Unknown timezone: %(zone)s"
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:46
+#, python-format
+msgid "Ein Fehler ist aufgetreten: %(error)s"
+msgstr "An error occurred: %(error)s"
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:52
+msgid "Bitte geben Sie einen Unix\\-Timestamp ein\\."
+msgstr "Please enter a Unix timestamp."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:58
+msgid ""
+"Der eingegebene Wert ist kein gültiger Unix\\-Timestamp\\. Bitte geben "
+"Sie eine ganze Zahl ein\\."
+msgstr "The entered value is not a valid Unix timestamp. Please enter an integer."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:62
+msgid "Negative Timestamps werden nicht unterstützt\\."
+msgstr "Negative timestamps are not supported."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:65
+msgid ""
+"Der Timestamp ist zu groß\\. Bitte geben Sie einen gültigen Timestamp "
+"ein\\."
+msgstr "The timestamp is too large. Please enter a valid timestamp."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:71
+#: tools/unix_timestamp/unix_timestamp_tool.py:130
+msgid "Konvertierungsergebnis:"
+msgstr "Conversion result:"
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:72
+#: tools/unix_timestamp/unix_timestamp_tool.py:134
+msgid "Unix\\-Timestamp:"
+msgstr "Unix timestamp:"
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:74
+#: tools/unix_timestamp/unix_timestamp_tool.py:132
+msgid "Uhrzeit:"
+msgstr "Time:"
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:75
+#: tools/unix_timestamp/unix_timestamp_tool.py:133
+msgid "Zeitzone:"
+msgstr "Timezone:"
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:101
+msgid "Bitte geben Sie ein Datum ein\\."
+msgstr "Please enter a date."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:115
+msgid "Ungültiges Zeitformat\\. Bitte verwenden Sie HH:MM oder HH:MM:SS"
+msgstr ""
+"Invalid time format. Please use HH:MM or HH:MM:SS (e.g. 14:30 or "
+"14:30:00)."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:119
+msgid "Ungültige Uhrzeit\\."
+msgstr "Invalid time."
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:124
+msgid "Ungültiges Datumsformat\\. Bitte verwenden Sie das Format TT\\.MM\\.JJJJ"
+msgstr "Invalid date format. Please use the format DD.MM.YYYY (e.g. 01.12.2025)."
+
 #: tools/word_counter/word_counter_tool.py:6
 msgid "Wortzähler"
 msgstr "Word Counter"
@@ -966,60 +1104,182 @@ msgstr "Number of words:"
 msgid "Ein Fehler ist aufgetreten: "
 msgstr "An error occurred: "
 
-#~ msgid ""
-#~ "Das Format {} wird nicht unterstützt."
-#~ " Bitte wählen Sie eine MP3, WAV, "
-#~ "AAC oder FLAC Datei."
-#~ msgstr ""
+#~ msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
+#~ msgstr "Enter text or a URL to generate a QR code."
 
 #~ msgid ""
-#~ "Ihre Audiodatei wurde erfolgreich konvertiert."
-#~ " Klicken Sie auf den Button unten,"
-#~ " um sie herunterzuladen."
+#~ "Geben Sie eine Zahl ein und wählen"
+#~ " Sie den entsprechenden Zahlentyp aus. "
+#~ "Das Tool wird die Zahl automatisch "
+#~ "in die anderen Formate konvertieren."
 #~ msgstr ""
-#~ "Your image has been successfully "
-#~ "converted. Click the button below to "
-#~ "download it."
+#~ "Enter a number and select the "
+#~ "corresponding number type. The tool will"
+#~ " automatically convert the number into "
+#~ "other formats."
 
-#~ msgid "Konvertierte Audiodatei herunterladen"
-#~ msgstr "Download converted image"
+#~ msgid ""
+#~ "Laden Sie ein Bild hoch und wählen"
+#~ " Sie das gewünschte Zielformat aus. "
+#~ "Unterstützte Formate sind: PNG, JPEG, "
+#~ "GIF, BMP und WEBP."
+#~ msgstr ""
+#~ "Upload an image and select the "
+#~ "desired target format. Supported formats "
+#~ "are: PNG, JPEG, GIF, BMP and WEBP."
 
-#~ msgid "Andere Audiodatei konvertieren"
-#~ msgstr "Convert another image"
+#~ msgid ""
+#~ "Geben Sie ein Datum im Format "
+#~ "<strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025),"
+#~ " um die entsprechende Kalenderwoche zu "
+#~ "berechnen."
+#~ msgstr ""
+#~ "Enter a date in the format "
+#~ "<strong>DD.MM.YYYY</strong> (e.g. 15.03.2025) to "
+#~ "calculate the corresponding calendar week."
 
-#~ msgid "Error: Token {} not found in pending conversions"
+#~ msgid ""
+#~ "Wählen Sie die gewünschte Länge und "
+#~ "die zu verwendenden Zeichentypen für Ihr"
+#~ " sicheres Passwort aus. Ein starkes "
+#~ "Passwort sollte mindestens 12 Zeichen "
+#~ "lang sein und verschiedene Zeichentypen "
+#~ "enthalten."
+#~ msgstr ""
+#~ "Select the desired length and character"
+#~ " types for your secure password. A"
+#~ " strong password should be at least"
+#~ " 12 characters long and contain "
+#~ "various types of characters."
+
+#~ msgid ""
+#~ "Mit diesem Tool können Sie Lorem "
+#~ "Ipsum Platzhalter-Text in der "
+#~ "gewünschten Länge generieren."
+#~ msgstr ""
+#~ "With this tool you can generate "
+#~ "Lorem Ipsum placeholder text in your "
+#~ "desired length."
+
+#~ msgid "Funktionen:"
+#~ msgstr "Features:"
+
+#~ msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
+#~ msgstr "Select your desired text length (1-1000 words)"
+
+#~ msgid "Generieren Sie professionellen Lorem Ipsum Text"
+#~ msgstr "Generate professional Lorem Ipsum text"
+
+#~ msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
+#~ msgstr "Copy the text to clipboard with a single click"
+
+#~ msgid "Ideal für Layout- und Designarbeiten"
 #~ msgstr ""
 
-#~ msgid "Error: File for token {} was already downloaded"
+#~ msgid "Anzahl der Wörter (1-1000)"
 #~ msgstr ""
 
-#~ msgid "Error: Source file not found: {}"
+#~ msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
 #~ msgstr ""
 
-#~ msgid "Error: Source file is empty: {}"
+#~ msgid "Zahl:"
+#~ msgstr "Number:"
+
+#~ msgid "Geben Sie eine Zahl ein"
+#~ msgstr "Please enter a number"
+
+#~ msgid "Zahlentyp:"
+#~ msgstr "Number type:"
+
+#~ msgid "Binär"
+#~ msgstr "Binary"
+
+#~ msgid "Dezimal"
+#~ msgstr "Decimal"
+
+#~ msgid "Hexadezimal"
+#~ msgstr "Hexadecimal"
+
+#~ msgid "Zielformat:"
+#~ msgstr "Target format:"
+
+#~ msgid "Bitte wählen Sie ein Format"
+#~ msgstr "Please select a format"
+
+#~ msgid "Passwortlänge:"
+#~ msgstr "Password length:"
+
+#~ msgid "Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)"
+#~ msgstr "Enter a length between 4 and 128 characters (12+ recommended)"
+
+#~ msgid "Text oder URL:"
+#~ msgstr "Text or URL"
+
+#~ msgid "Text oder URL eingeben"
+#~ msgstr "Enter Text or URL"
+
+#~ msgid "Kleinbuchstaben einschließen (a-z)"
+#~ msgstr "Lowercase letters (a-z)"
+
+#~ msgid "Großbuchstaben einschließen (A-Z)"
+#~ msgstr "Uppercase letters (A-Z)"
+
+#~ msgid "Zahlen einschließen (0-9)"
+#~ msgstr "Include numbers (0-9)"
+
+#~ msgid "Sonderzeichen einschließen (!, @, #, $, usw.)"
+#~ msgstr "Include special characters (!, @, #, $, etc.)"
+
+#~ msgid "PDF-Dateien hochladen:"
+#~ msgstr "PDF files upload:"
+
+#~ msgid "Sie können die Reihenfolge nach dem Hochladen anpassen."
 #~ msgstr ""
 
-#~ msgid "Loading audio file: {}"
+#~ msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
+#~ msgstr "Supported formats: PNG, JPEG, GIF, BMP, WEBP"
+
+#~ msgid "Hinweis:"
+#~ msgstr "Attantion:"
+
+#~ msgid ""
+#~ "Passwörter werden lokal generiert und "
+#~ "nicht an den Server übertragen. Kopieren"
+#~ " Sie Ihr Passwort sofort nach der "
+#~ "Erstellung, es wird nicht gespeichert."
+#~ msgstr ""
+#~ "Passwords are generated locally and not"
+#~ " transmitted to the server. Copy your"
+#~ " password immediately after creation, it"
+#~ " is not stored."
+
+#~ msgid "Passwort generieren"
+#~ msgstr "Generate Password"
+
+#~ msgid "QR-Code erstellen"
+#~ msgstr "Create QR Code"
+
+#~ msgid "Konvertieren"
+#~ msgstr "Convert"
+
+#~ msgid "Ausführen"
+#~ msgstr "Run"
+
+#~ msgid ""
+#~ "Geben Sie einen Unix-Timestamp ein "
+#~ "(Sekunden seit dem 01.01.1970 00:00:00 "
+#~ "UTC)."
 #~ msgstr ""
 
-#~ msgid "Converting to: {}"
+#~ msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
 #~ msgstr ""
 
-#~ msgid "Error: Converted file was not created: {}"
+#~ msgid "HH:MM:SS (z.B. 12:30:00)"
 #~ msgstr ""
 
-#~ msgid "Error: Converted file is empty: {}"
-#~ msgstr ""
-
-#~ msgid "Success: Converted file created with size {} bytes"
-#~ msgstr ""
-
-#~ msgid "Error converting audio: {}"
-#~ msgstr ""
-
-#~ msgid "Traceback: {}"
-#~ msgstr ""
-
-#~ msgid "Error cleaning up files: {}"
+#~ msgid ""
+#~ "Geben Sie eine Uhrzeit im Format "
+#~ "HH:MM:SS ein. Standard ist 00:00:00, "
+#~ "wenn leer."
 #~ msgstr ""
 

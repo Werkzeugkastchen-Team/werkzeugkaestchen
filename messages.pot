@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-23 13:04+0200\n"
+"POT-Creation-Date: 2025-04-23 18:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,6 +182,66 @@ msgstr ""
 
 #: templates/variable_input_mask.jinja:72
 msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:163
+msgid ""
+"Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und "
+"Zeitangaben umwandeln und umgekehrt."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:167
+msgid "Konvertierungsrichtung:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:169
+msgid "Timestamp zu Datum"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:170
+msgid "Datum zu Timestamp"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:176
+msgid "Unix-Timestamp:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:177
+msgid "z.B. 1640995200"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:178
+msgid ""
+"Geben Sie einen Unix-Timestamp ein (Sekunden seit dem 01.01.1970 00:00:00"
+" UTC)."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:184
+#: tools/unix_timestamp/unix_timestamp_tool.py:73
+#: tools/unix_timestamp/unix_timestamp_tool.py:131
+msgid "Datum:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:185
+msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:186
+msgid "Geben Sie ein Datum im Format TT.MM.JJJJ ein."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:190
+msgid "Uhrzeit (optional):"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:191
+msgid "HH:MM:SS (z.B. 12:30:00)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:192
+msgid ""
+"Geben Sie eine Uhrzeit im Format HH:MM:SS ein. Standard ist 00:00:00 wenn"
+" leer."
 msgstr ""
 
 #: templates/variable_input_mask.jinja:217
@@ -479,75 +539,75 @@ msgstr ""
 msgid "im Jahr"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:8
+#: tools/file_size_calculator/file_size_calculator_tool.py:9
 msgid "Dateigrößenberechner"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:9
+#: tools/file_size_calculator/file_size_calculator_tool.py:11
 msgid "Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:20
+#: tools/file_size_calculator/file_size_calculator_tool.py:22
 msgid "Keine Datei hochgeladen"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:36
+#: tools/file_size_calculator/file_size_calculator_tool.py:38
 msgid "Datei"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:37
+#: tools/file_size_calculator/file_size_calculator_tool.py:39
 msgid "Gesamtgröße"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:38
+#: tools/file_size_calculator/file_size_calculator_tool.py:40
 msgid "Bytes"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:39
+#: tools/file_size_calculator/file_size_calculator_tool.py:41
 msgid "Dezimale Einheiten (SI)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:40
+#: tools/file_size_calculator/file_size_calculator_tool.py:42
 msgid "Binäre Einheiten (IEC)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:41
+#: tools/file_size_calculator/file_size_calculator_tool.py:43
 msgid "Einheit"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:42
+#: tools/file_size_calculator/file_size_calculator_tool.py:44
 msgid "Wert"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:43
+#: tools/file_size_calculator/file_size_calculator_tool.py:45
 msgid "Beschreibung"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:44
+#: tools/file_size_calculator/file_size_calculator_tool.py:46
 msgid "Kilobyte (1000 Bytes)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:45
+#: tools/file_size_calculator/file_size_calculator_tool.py:47
 msgid "Megabyte (1000 KB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:46
+#: tools/file_size_calculator/file_size_calculator_tool.py:48
 msgid "Gigabyte (1000 MB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:47
+#: tools/file_size_calculator/file_size_calculator_tool.py:49
 msgid "Kibibyte (1024 Bytes)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:48
+#: tools/file_size_calculator/file_size_calculator_tool.py:50
 msgid "Mebibyte (1024 KiB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:49
+#: tools/file_size_calculator/file_size_calculator_tool.py:51
 msgid "Gibibyte (1024 MiB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:147
+#: tools/file_size_calculator/file_size_calculator_tool.py:161
 msgid "Fehler bei der Berechnung der Dateigröße:"
 msgstr ""
 
@@ -912,6 +972,82 @@ msgstr ""
 
 #: tools/text_to_speech/text_to_speech_tool.py:64
 msgid "Sprache:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:7
+msgid "Unix\\-Timestamp Konverter"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:8
+msgid ""
+"Konvertiert Unix\\-Timestamps in lesbare Datums\\- und Zeitformate und "
+"umgekehrt\\. Mit Unterstützung für verschiedene Zeitzonen\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:38
+#, python-format
+msgid "Unbekannte Zeitzone: %(zone)s"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:46
+#, python-format
+msgid "Ein Fehler ist aufgetreten: %(error)s"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:52
+msgid "Bitte geben Sie einen Unix\\-Timestamp ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:58
+msgid ""
+"Der eingegebene Wert ist kein gültiger Unix\\-Timestamp\\. Bitte geben "
+"Sie eine ganze Zahl ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:62
+msgid "Negative Timestamps werden nicht unterstützt\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:65
+msgid ""
+"Der Timestamp ist zu groß\\. Bitte geben Sie einen gültigen Timestamp "
+"ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:71
+#: tools/unix_timestamp/unix_timestamp_tool.py:130
+msgid "Konvertierungsergebnis:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:72
+#: tools/unix_timestamp/unix_timestamp_tool.py:134
+msgid "Unix\\-Timestamp:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:74
+#: tools/unix_timestamp/unix_timestamp_tool.py:132
+msgid "Uhrzeit:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:75
+#: tools/unix_timestamp/unix_timestamp_tool.py:133
+msgid "Zeitzone:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:101
+msgid "Bitte geben Sie ein Datum ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:115
+msgid "Ungültiges Zeitformat\\. Bitte verwenden Sie HH:MM oder HH:MM:SS"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:119
+msgid "Ungültige Uhrzeit\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:124
+msgid "Ungültiges Datumsformat\\. Bitte verwenden Sie das Format TT\\.MM\\.JJJJ"
 msgstr ""
 
 #: tools/word_counter/word_counter_tool.py:6
