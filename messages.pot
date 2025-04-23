@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-23 12:46+0200\n"
+"POT-Creation-Date: 2025-04-23 13:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -842,6 +842,8 @@ msgid "Amount of Rolls"
 msgstr ""
 
 #: tools/random_number_generator/random_number_generator_tool.py:32
+#: tools/text_to_speech/text_to_speech_tool.py:28
+#: tools/text_to_speech/text_to_speech_tool.py:44
 msgid "Alle Eingabefelder müssen ausgefüllt sein."
 msgstr ""
 
@@ -859,6 +861,57 @@ msgstr ""
 
 #: tools/random_number_generator/random_number_generator_tool.py:56
 msgid "Anzahl Würfe zu hoch."
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:10
+msgid "Text zu Sprache"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:11
+msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:31
+msgid "Text"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:32
+msgid "Sprache"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:35
+#, python-brace-format
+msgid ""
+"Eingabetext darf wegen technischen Limitationen nicht länger als {0} "
+"Zeichen sein."
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:59
+msgid "Sprachausgabe"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:60
+msgid "Your browser does not support the audio element."
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:61
+msgid "Audio herunterladen"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:62
+msgid "Details"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:63
+msgid "Text:"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:64
+msgid "Sprache:"
 msgstr ""
 
 #: tools/word_counter/word_counter_tool.py:6

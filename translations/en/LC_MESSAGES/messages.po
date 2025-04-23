@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-23 12:46+0200\n"
+"POT-Creation-Date: 2025-04-23 13:04+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -866,6 +866,8 @@ msgid "Amount of Rolls"
 msgstr "Amount of Rolls"
 
 #: tools/random_number_generator/random_number_generator_tool.py:32
+#: tools/text_to_speech/text_to_speech_tool.py:28
+#: tools/text_to_speech/text_to_speech_tool.py:44
 msgid "Alle Eingabefelder müssen ausgefüllt sein."
 msgstr "All input fields must be filled."
 
@@ -884,6 +886,57 @@ msgstr "Number too high."
 #: tools/random_number_generator/random_number_generator_tool.py:56
 msgid "Anzahl Würfe zu hoch."
 msgstr "Amount of rolls too high."
+
+#: tools/text_to_speech/text_to_speech_tool.py:10
+msgid "Text zu Sprache"
+msgstr "Text to Speech"
+
+#: tools/text_to_speech/text_to_speech_tool.py:11
+msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
+msgstr "Converts text to spoken language (TTS Text To Speech)"
+
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:31
+msgid "Text"
+msgstr "Text"
+
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:32
+msgid "Sprache"
+msgstr "Language"
+
+#: tools/text_to_speech/text_to_speech_tool.py:35
+#, python-brace-format
+msgid ""
+"Eingabetext darf wegen technischen Limitationen nicht länger als {0} "
+"Zeichen sein."
+msgstr "Entry text must not exceed {0} characters due to technical limitations."
+
+#: tools/text_to_speech/text_to_speech_tool.py:59
+msgid "Sprachausgabe"
+msgstr "Language output"
+
+#: tools/text_to_speech/text_to_speech_tool.py:60
+msgid "Your browser does not support the audio element."
+msgstr "Your browser does not support the audio element."
+
+#: tools/text_to_speech/text_to_speech_tool.py:61
+msgid "Audio herunterladen"
+msgstr "Audio download"
+
+#: tools/text_to_speech/text_to_speech_tool.py:62
+msgid "Details"
+msgstr "Details"
+
+#: tools/text_to_speech/text_to_speech_tool.py:63
+msgid "Text:"
+msgstr "Text:"
+
+#: tools/text_to_speech/text_to_speech_tool.py:64
+msgid "Sprache:"
+msgstr "Language:"
 
 #: tools/word_counter/word_counter_tool.py:6
 msgid "Wortzähler"
