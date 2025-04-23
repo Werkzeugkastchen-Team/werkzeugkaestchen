@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-22 14:08+0200\n"
+"POT-Creation-Date: 2025-04-23 12:46+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -70,7 +70,7 @@ msgid ""
 "zuschneiden möchten."
 msgstr "Upload an image and select the area you want to crop."
 
-#: templates/image_cropper.jinja:17 templates/variable_input_mask.jinja:266
+#: templates/image_cropper.jinja:17 templates/variable_input_mask.jinja:328
 msgid "Bild auswählen:"
 msgstr "Select image:"
 
@@ -260,15 +260,23 @@ msgstr "Include numbers (0-9)"
 msgid "Sonderzeichen einschließen (!, @, #, $, usw.)"
 msgstr "Include special characters (!, @, #, $, etc.)"
 
-#: templates/variable_input_mask.jinja:268
+#: templates/variable_input_mask.jinja:265
+msgid "PDF-Dateien hochladen:"
+msgstr "PDF files upload:"
+
+#: templates/variable_input_mask.jinja:273
+msgid "Sie können die Reihenfolge nach dem Hochladen anpassen."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:330
 msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
 msgstr "Supported formats: PNG, JPEG, GIF, BMP, WEBP"
 
-#: templates/variable_input_mask.jinja:298
+#: templates/variable_input_mask.jinja:360
 msgid "Hinweis:"
 msgstr "Attantion:"
 
-#: templates/variable_input_mask.jinja:298
+#: templates/variable_input_mask.jinja:360
 msgid ""
 "Passwörter werden lokal generiert und nicht an den Server übertragen. "
 "Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
@@ -277,36 +285,33 @@ msgstr ""
 "Passwords are generated locally and not transmitted to the server. Copy "
 "your password immediately after creation, it is not stored."
 
-#: templates/variable_input_mask.jinja:300
+#: templates/variable_input_mask.jinja:362
 msgid "Passwort generieren"
 msgstr "Generate Password"
 
-#: templates/variable_input_mask.jinja:302
+#: templates/variable_input_mask.jinja:364
 msgid "QR-Code erstellen"
 msgstr "Create QR Code"
 
-#: templates/variable_input_mask.jinja:304
+#: templates/variable_input_mask.jinja:366
 msgid "Konvertieren"
 msgstr "Convert"
 
-#: templates/variable_input_mask.jinja:306
+#: templates/variable_input_mask.jinja:368
 msgid "Ausführen"
 msgstr "Run"
 
-#: tools/audio_converter/audio_converter_tool.py:10
-#, fuzzy
+#: tools/audio_converter/audio_converter_tool.py:12
 msgid "Audio Konverter"
-msgstr "Image Converter"
+msgstr "Audio Converter"
 
-#: tools/audio_converter/audio_converter_tool.py:11
-#, fuzzy
+#: tools/audio_converter/audio_converter_tool.py:13
 msgid "Konvertiert Audiodateien in verschiedene Formate (MP3, WAV, AAC, FLAC)."
-msgstr "Converts images to various formats (PNG, JPG, GIF, BMP, WEBP)."
+msgstr "Converts audio files to various formats (MP3, WAV, AAC, FLAC)."
 
-#: tools/audio_converter/audio_converter_tool.py:51
-#, fuzzy
+#: tools/audio_converter/audio_converter_tool.py:50
 msgid "Bitte wählen Sie eine Audiodatei aus."
-msgstr "Please select an image."
+msgstr "Please select an audio file."
 
 #: tools/audio_converter/audio_converter_tool.py:57
 #: tools/image_converter/image_converter_tool.py:66
@@ -316,97 +321,93 @@ msgstr "Please select a target format."
 #: tools/audio_converter/audio_converter_tool.py:62
 #, python-brace-format
 msgid ""
-"Das Format {} wird nicht unterstützt. Bitte wählen Sie eine MP3, WAV, AAC"
-" oder FLAC Datei."
+"Das Format {0} wird nicht unterstützt. Bitte wählen Sie eine MP3, WAV, "
+"AAC oder FLAC Datei."
 msgstr ""
+"The format {0} is not supported. Please select an MP3, WAV, AAC or FLAC "
+"file."
 
-#: tools/audio_converter/audio_converter_tool.py:74
+#: tools/audio_converter/audio_converter_tool.py:75
 #: tools/image_converter/image_converter_tool.py:82
 msgid "Konvertierung erfolgreich!"
 msgstr "Conversion successful!"
 
-#: tools/audio_converter/audio_converter_tool.py:75
-#, fuzzy
+#: tools/audio_converter/audio_converter_tool.py:76
 msgid ""
 "Ihre Audiodatei wurde erfolgreich konvertiert. Klicken Sie auf den Button"
 " unten, um sie herunterzuladen."
-msgstr ""
-"Your image has been successfully converted. Click the button below to "
-"download it."
-
-#: tools/audio_converter/audio_converter_tool.py:76
-#, fuzzy
-msgid "Konvertierte Audiodatei herunterladen"
-msgstr "Download converted image"
+msgstr "Your audio file has been successfully converted. Click the button below "
 
 #: tools/audio_converter/audio_converter_tool.py:77
-#, fuzzy
+msgid "Konvertierte Audiodatei herunterladen"
+msgstr "Download converted audio file"
+
+#: tools/audio_converter/audio_converter_tool.py:78
 msgid "Andere Audiodatei konvertieren"
-msgstr "Convert another image"
+msgstr "Convert another audio file"
 
-#: tools/audio_converter/audio_converter_tool.py:98
-#, fuzzy, python-format
+#: tools/audio_converter/audio_converter_tool.py:94
 msgid "Fehler bei der Konvertierung: "
-msgstr "Error during conversion: %(error)s"
+msgstr "Error during conversion: "
 
-#: tools/audio_converter/audio_converter_tool.py:103
+#: tools/audio_converter/audio_converter_tool.py:100
 #, python-brace-format
-msgid "Error: Token {} not found in pending conversions"
+msgid "Error: Token {0} not found in pending conversions"
+msgstr "Error: Token {0} not found in pending conversions"
+
+#: tools/audio_converter/audio_converter_tool.py:105
+#, python-brace-format
+msgid "Error: File for token {0} was already downloaded"
 msgstr ""
 
-#: tools/audio_converter/audio_converter_tool.py:108
+#: tools/audio_converter/audio_converter_tool.py:110
 #, python-brace-format
-msgid "Error: File for token {} was already downloaded"
+msgid "Error: Source file not found: {0}"
 msgstr ""
 
-#: tools/audio_converter/audio_converter_tool.py:113
+#: tools/audio_converter/audio_converter_tool.py:114
 #, python-brace-format
-msgid "Error: Source file not found: {}"
+msgid "Error: Source file is empty: {0}"
 msgstr ""
 
 #: tools/audio_converter/audio_converter_tool.py:117
 #, python-brace-format
-msgid "Error: Source file is empty: {}"
+msgid "Loading audio file: {0}"
 msgstr ""
 
-#: tools/audio_converter/audio_converter_tool.py:120
+#: tools/audio_converter/audio_converter_tool.py:121
 #, python-brace-format
-msgid "Loading audio file: {}"
+msgid "Converting to: {0}"
 msgstr ""
 
-#: tools/audio_converter/audio_converter_tool.py:127
+#: tools/audio_converter/audio_converter_tool.py:129
 #, python-brace-format
-msgid "Converting to: {}"
+msgid "Error: Converted file was not created: {0}"
 msgstr ""
 
-#: tools/audio_converter/audio_converter_tool.py:135
+#: tools/audio_converter/audio_converter_tool.py:134
 #, python-brace-format
-msgid "Error: Converted file was not created: {}"
+msgid "Error: Converted file is empty: {0}"
 msgstr ""
 
-#: tools/audio_converter/audio_converter_tool.py:140
+#: tools/audio_converter/audio_converter_tool.py:137
 #, python-brace-format
-msgid "Error: Converted file is empty: {}"
+msgid "Success: Converted file created with size {0} bytes"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:141
+#, python-brace-format
+msgid "Error converting audio: {0}"
 msgstr ""
 
 #: tools/audio_converter/audio_converter_tool.py:143
 #, python-brace-format
-msgid "Success: Converted file created with size {} bytes"
+msgid "Traceback: {0}"
 msgstr ""
 
-#: tools/audio_converter/audio_converter_tool.py:147
+#: tools/audio_converter/audio_converter_tool.py:161
 #, python-brace-format
-msgid "Error converting audio: {}"
-msgstr ""
-
-#: tools/audio_converter/audio_converter_tool.py:149
-#, python-brace-format
-msgid "Traceback: {}"
-msgstr ""
-
-#: tools/audio_converter/audio_converter_tool.py:168
-#, python-brace-format
-msgid "Error cleaning up files: {}"
+msgid "Error cleaning up files: {0}"
 msgstr ""
 
 #: tools/base64_decode/base64_decode_tool.py:7
@@ -911,4 +912,61 @@ msgstr "Number of words:"
 #: tools/word_counter/word_counter_tool.py:52
 msgid "Ein Fehler ist aufgetreten: "
 msgstr "An error occurred: "
+
+#~ msgid ""
+#~ "Das Format {} wird nicht unterstützt."
+#~ " Bitte wählen Sie eine MP3, WAV, "
+#~ "AAC oder FLAC Datei."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Ihre Audiodatei wurde erfolgreich konvertiert."
+#~ " Klicken Sie auf den Button unten,"
+#~ " um sie herunterzuladen."
+#~ msgstr ""
+#~ "Your image has been successfully "
+#~ "converted. Click the button below to "
+#~ "download it."
+
+#~ msgid "Konvertierte Audiodatei herunterladen"
+#~ msgstr "Download converted image"
+
+#~ msgid "Andere Audiodatei konvertieren"
+#~ msgstr "Convert another image"
+
+#~ msgid "Error: Token {} not found in pending conversions"
+#~ msgstr ""
+
+#~ msgid "Error: File for token {} was already downloaded"
+#~ msgstr ""
+
+#~ msgid "Error: Source file not found: {}"
+#~ msgstr ""
+
+#~ msgid "Error: Source file is empty: {}"
+#~ msgstr ""
+
+#~ msgid "Loading audio file: {}"
+#~ msgstr ""
+
+#~ msgid "Converting to: {}"
+#~ msgstr ""
+
+#~ msgid "Error: Converted file was not created: {}"
+#~ msgstr ""
+
+#~ msgid "Error: Converted file is empty: {}"
+#~ msgstr ""
+
+#~ msgid "Success: Converted file created with size {} bytes"
+#~ msgstr ""
+
+#~ msgid "Error converting audio: {}"
+#~ msgstr ""
+
+#~ msgid "Traceback: {}"
+#~ msgstr ""
+
+#~ msgid "Error cleaning up files: {}"
+#~ msgstr ""
 
