@@ -12,6 +12,7 @@ class CalendarWeekTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "CalendarWeekTool")
+        self.info = _(r"Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen.")
         self.input_params = {
             _("Datum"): "string"
         }

@@ -7,6 +7,7 @@ class NumberConverterTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "NumberConverterTool")
+        self.info = _(r"Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.")
         self.input_params = {
             "number": "string",
             "input_type": "string"

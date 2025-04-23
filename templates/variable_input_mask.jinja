@@ -10,33 +10,9 @@
 
     <h1>{% block title %} {{ toolName }} {% endblock %}</h1>
     
-    {% if identifier == "QrCodeGeneratorTool" %}
+    {% if tool.info %}
     <div class="alert alert-info">
-        {{ _('Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren.') }}
-    </div>
-    {% endif %}
-
-    {% if identifier == "NumberConverterTool" %}
-    <div class="alert alert-info">
-        {{ _('Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.') }}
-    </div>
-    {% endif %}
-
-    {% if identifier == "ImageConverterTool" %}
-    <div class="alert alert-info">
-        {{ _('Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.') }}
-    </div>
-    {% endif %}
-
-    {% if identifier == "CalendarWeekTool" %}
-    <div class="alert alert-info">
-        {{ _('Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen.') }}
-    </div>
-    {% endif %}
-
-    {% if identifier == "PasswordGeneratorTool" %}
-    <div class="alert alert-info">
-        {{ _('Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.') }}
+        {{ tool.info | safe }}
     </div>
     {% endif %}
 

@@ -10,6 +10,7 @@ class PasswordGeneratorTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "PasswordGeneratorTool")
+        self.info = _(r"Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.")
         self.input_params = {
             "length": "string",
             "include_lowercase": "boolean",

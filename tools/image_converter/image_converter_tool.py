@@ -36,6 +36,7 @@ class ImageConverterTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "ImageConverterTool", OutputType.TEXT)
+        self.info = _(r"Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.")
         self.input_params = {
             "image": "file",
             "target_format": "string"

@@ -14,6 +14,8 @@ class MiniTool(ABC):
     output = ""
     error_message = ""
     description = ""
+    # Info that is shown on the tool's input page to further explain what it does.
+    info = ""
     
     def __init__(self, name, identifier, output_type=OutputType.TEXT):
         self.name = name
