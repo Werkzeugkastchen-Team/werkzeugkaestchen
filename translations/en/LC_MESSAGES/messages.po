@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-23 18:48+0200\n"
+"POT-Creation-Date: 2025-04-24 10:13+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -640,14 +640,6 @@ msgstr "Converts images to various formats (PNG, JPG, GIF, BMP, WEBP)."
 msgid "Bitte wählen Sie ein Bild aus."
 msgstr "Please select an image."
 
-#: tools/image_converter/image_converter_tool.py:66
-msgid "Bitte wählen Sie ein Zielformat aus."
-msgstr "Please select a target format."
-
-#: tools/image_converter/image_converter_tool.py:82
-msgid "Konvertierung erfolgreich!"
-msgstr "Conversion successful!"
-
 #: tools/image_converter/image_converter_tool.py:84
 msgid ""
 "Ihr Bild wurde erfolgreich konvertiert. Klicken Sie auf den Button unten,"
@@ -953,32 +945,43 @@ msgstr "Number too high."
 msgid "Anzahl Würfe zu hoch."
 msgstr "Amount of rolls too high."
 
-#: tools/text_summary/text_summary_tool.py:18
+#: tools/text_summary/text_summary_tool.py:20
 msgid "Text zusammenfassen Tool"
 msgstr "Text summarization Tool"
 
-#: tools/text_summary/text_summary_tool.py:20
-#: tools/text_summary/text_summary_tool.py:36
+#: tools/text_summary/text_summary_tool.py:22
+#: tools/text_summary/text_summary_tool.py:40
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:31
 msgid "Text"
 msgstr "Text"
 
-#: tools/text_summary/text_summary_tool.py:21
-#: tools/text_summary/text_summary_tool.py:41
+#: tools/text_summary/text_summary_tool.py:23
+#: tools/text_summary/text_summary_tool.py:49
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:32
 msgid "Sprache"
 msgstr "Language"
 
-#: tools/text_summary/text_summary_tool.py:25
-#: tools/text_summary/text_summary_tool.py:42
+#: tools/text_summary/text_summary_tool.py:27
+#: tools/text_summary/text_summary_tool.py:50
 msgid "Model"
 msgstr "Model"
 
-#: tools/text_summary/text_summary_tool.py:30
+#: tools/text_summary/text_summary_tool.py:32
 msgid "Fasst Texte mithilfe von Sprachmodellen (LLMs) zusammen."
 msgstr "Summarizes text by utilizing Large Language Models (LLMs)."
 
-#: tools/text_summary/text_summary_tool.py:38
+#: tools/text_summary/text_summary_tool.py:42
 msgid "Der Eingabetext ist leer oder ungültig."
 msgstr "Input text is empty or invalid\""
+
+#: tools/text_summary/text_summary_tool.py:46
+msgid "Der Eingabetext is zu lang."
+msgstr "Input text is too long."
+
 #: tools/text_to_speech/text_to_speech_tool.py:10
 msgid "Text zu Sprache"
 msgstr "Text to Speech"
@@ -986,18 +989,6 @@ msgstr "Text to Speech"
 #: tools/text_to_speech/text_to_speech_tool.py:11
 msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
 msgstr "Converts text to spoken language (TTS Text To Speech)"
-
-#: tools/text_to_speech/text_to_speech_tool.py:21
-#: tools/text_to_speech/text_to_speech_tool.py:27
-#: tools/text_to_speech/text_to_speech_tool.py:31
-msgid "Text"
-msgstr "Text"
-
-#: tools/text_to_speech/text_to_speech_tool.py:21
-#: tools/text_to_speech/text_to_speech_tool.py:27
-#: tools/text_to_speech/text_to_speech_tool.py:32
-msgid "Sprache"
-msgstr "Language"
 
 #: tools/text_to_speech/text_to_speech_tool.py:35
 #, python-brace-format
@@ -1208,6 +1199,8 @@ msgstr "An error occurred: "
 #~ msgstr ""
 
 #~ msgid "Input text is empty or invalid"
+#~ msgstr ""
+
 #~ msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
 #~ msgstr "Enter text or a URL to generate a QR code."
 

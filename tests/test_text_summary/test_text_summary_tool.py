@@ -1,4 +1,6 @@
 import pytest
+import random
+import string
 from unittest.mock import patch, MagicMock
 from tools.text_summary.text_summary_tool import TextSummaryTool
 from pydantic import ConfigDict
@@ -63,6 +65,19 @@ class TestTextSummaryTool:
         assert tool.error_message == "Der Eingabetext ist leer oder ungültig."
         assert tool.output == ""
 
+    def text_too_long_input(self):
+        """Test the case where the tool should throw an error, when the text is too long."""
+        tool = TextSummaryTool()
+        allowed_chars = string.ascii_letters + string.digits
+        long_text = ''.join(random.choices(allowed_chars, k=10000))
+        input_params = {"Text": long_text}
+        
+        result = tool.execute_tool(input_params)
+        
+        assert result is False
+        assert tool.error_message == "Der Eingabetext is zu lang."
+        assert tool.output == ""
+        
     # Patch 'completion' in the 'litellm' module where it's actually imported from
     @patch('litellm.completion')
     def test_llm_error(self, mock_completion_func):

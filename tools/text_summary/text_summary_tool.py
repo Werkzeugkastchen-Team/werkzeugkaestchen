@@ -10,6 +10,8 @@ METAPROMPT_DE = """
 Fasse den folgenden Text zusammen. Die Zusammenfassung muss auf Deutsch sein. Halte dich kurz und wahrheitsgetrau. Antworte sofort mit dem Inhalt der Zusammenfassung:
 """
 
+MAX_CHARS = 8_000
+
 
 class TextSummaryTool(MiniTool):
     model_config = ConfigDict(arbitrary_types_allowed=True)
@@ -33,9 +35,15 @@ class TextSummaryTool(MiniTool):
         try:
             from litellm import completion
             
+            self.error_message = ""
+            
             text_to_summarize = input_params.get(_("Text"), "")
             if not text_to_summarize:
                 self.error_message = _("Der Eingabetext ist leer oder ungültig.")
+                return False
+            
+            if len(text_to_summarize) > MAX_CHARS:
+                self.error_message = _("Der Eingabetext is zu lang.")
                 return False
             
             language = input_params.get(_("Sprache"), "de")

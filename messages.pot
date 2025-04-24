@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-23 18:48+0200\n"
+"POT-Creation-Date: 2025-04-24 10:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -624,14 +624,6 @@ msgstr ""
 msgid "Bitte wählen Sie ein Bild aus."
 msgstr ""
 
-#: tools/image_converter/image_converter_tool.py:66
-msgid "Bitte wählen Sie ein Zielformat aus."
-msgstr ""
-
-#: tools/image_converter/image_converter_tool.py:82
-msgid "Konvertierung erfolgreich!"
-msgstr ""
-
 #: tools/image_converter/image_converter_tool.py:84
 msgid ""
 "Ihr Bild wurde erfolgreich konvertiert. Klicken Sie auf den Button unten,"
@@ -931,24 +923,49 @@ msgstr ""
 msgid "Anzahl Würfe zu hoch."
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:10
-msgid "Text zu Sprache"
+#: tools/text_summary/text_summary_tool.py:20
+msgid "Text zusammenfassen Tool"
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:11
-msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
-msgstr ""
-
+#: tools/text_summary/text_summary_tool.py:22
+#: tools/text_summary/text_summary_tool.py:40
 #: tools/text_to_speech/text_to_speech_tool.py:21
 #: tools/text_to_speech/text_to_speech_tool.py:27
 #: tools/text_to_speech/text_to_speech_tool.py:31
 msgid "Text"
 msgstr ""
 
+#: tools/text_summary/text_summary_tool.py:23
+#: tools/text_summary/text_summary_tool.py:49
 #: tools/text_to_speech/text_to_speech_tool.py:21
 #: tools/text_to_speech/text_to_speech_tool.py:27
 #: tools/text_to_speech/text_to_speech_tool.py:32
 msgid "Sprache"
+msgstr ""
+
+#: tools/text_summary/text_summary_tool.py:27
+#: tools/text_summary/text_summary_tool.py:50
+msgid "Model"
+msgstr ""
+
+#: tools/text_summary/text_summary_tool.py:32
+msgid "Fasst Texte mithilfe von Sprachmodellen (LLMs) zusammen."
+msgstr ""
+
+#: tools/text_summary/text_summary_tool.py:42
+msgid "Der Eingabetext ist leer oder ungültig."
+msgstr ""
+
+#: tools/text_summary/text_summary_tool.py:46
+msgid "Der Eingabetext is zu lang."
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:10
+msgid "Text zu Sprache"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:11
+msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
 msgstr ""
 
 #: tools/text_to_speech/text_to_speech_tool.py:35
