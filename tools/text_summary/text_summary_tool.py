@@ -1,6 +1,6 @@
 from tool_interface import MiniTool
 from pydantic import ConfigDict
-
+from flask_babel import lazy_gettext as _
 
 METAPROMPT_EN = """
 Summarize the following text. The Summary must be in English. Be short, concise and truthful. Immediately respond with the contents of your summary:
@@ -10,38 +10,38 @@ METAPROMPT_DE = """
 Fasse den folgenden Text zusammen. Die Zusammenfassung muss auf Deutsch sein. Halte dich kurz und wahrheitsgetrau. Antworte sofort mit dem Inhalt der Zusammenfassung:
 """
 
+
 class TextSummaryTool(MiniTool):
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
     def __init__(self):
-        super().__init__("Text zusammenfassen Tool", "TextSummaryTool")
+        super().__init__(_("Text zusammenfassen Tool"), "TextSummaryTool")
         self.input_params = {
-            "Text": "string",
-            "Sprache": {
+            _("Text"): "string",
+            _("Sprache"): {
                 "type": "enum",
                 "options": ["de", "en"]
             },
-            "Model": {
+            _("Model"): {
                 "type": "enum",
-                "options": ["gemma3:4b", "gemma3:1b"]
+                "options": ["gemma3:4b-it-qat", "gemma3:1b"]
             }
         }
-        self.description = "Fasst Texte mithilfe von Sprachmodellen (LLMs) zusammen."
+        self.description = _("Fasst Texte mithilfe von Sprachmodellen (LLMs) zusammen.")
         
     def execute_tool(self, input_params: dict) -> bool:
         try:
             from litellm import completion
             
-            text_to_summarize = input_params.get("Text", "")
+            text_to_summarize = input_params.get(_("Text"), "")
             if not text_to_summarize:
-                self.error_message = "Input text is empty or invalid"
+                self.error_message = _("Der Eingabetext ist leer oder ungültig.")
                 return False
             
-            language = input_params.get("Sprache", "de")
-            model = input_params.get("Model", "gemma3:4b")
+            language = input_params.get(_("Sprache"), "de")
+            model = input_params.get(_("Model"), "gemma3:4b-it-qat")
             
             meta_prompt = METAPROMPT_DE if language == "de" else METAPROMPT_EN
-            
 
             prompt = meta_prompt + " \n " + text_to_summarize
             

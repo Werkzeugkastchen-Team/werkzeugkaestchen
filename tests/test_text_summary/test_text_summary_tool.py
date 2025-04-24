@@ -35,7 +35,7 @@ class TestTextSummaryTool:
         # Check if the mock was called correctly
         mock_completion_func.assert_called_once()
         call_args, call_kwargs = mock_completion_func.call_args
-        assert call_kwargs.get("model") == "ollama/gemma3:1b"
+        assert call_kwargs.get("model") == "ollama/gemma3:4b-it-qat"
         assert "messages" in call_kwargs
         assert len(call_kwargs["messages"]) == 1
         assert input_text in call_kwargs["messages"][0]["content"]
@@ -49,7 +49,7 @@ class TestTextSummaryTool:
         result = tool.execute_tool(input_params)
 
         assert result is False
-        assert tool.error_message == "Input text is empty or invalid"
+        assert tool.error_message == "Der Eingabetext ist leer oder ungültig."
         assert tool.output == ""
 
     def test_missing_input(self):
@@ -60,7 +60,7 @@ class TestTextSummaryTool:
         result = tool.execute_tool(input_params)
 
         assert result is False
-        assert tool.error_message == "Input text is empty or invalid"
+        assert tool.error_message == "Der Eingabetext ist leer oder ungültig."
         assert tool.output == ""
 
     # Patch 'completion' in the 'litellm' module where it's actually imported from
