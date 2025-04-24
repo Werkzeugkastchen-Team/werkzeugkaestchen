@@ -2,11 +2,13 @@ from tool_interface import MiniTool, OutputType
 import os
 from flask_babel import lazy_gettext as _
 
+
 class FileSizeCalculatorTool(MiniTool):
     def __init__(self):
         # Übersetzungsvariablen
         tool_title = _("Dateigrößenberechner")
-        tool_desc = _("Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)")
+        tool_desc = _(
+            "Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)")
         super().__init__(tool_title, "FileSizeCalculatorTool")
         self.description = tool_desc
         self.input_params = {
@@ -24,7 +26,7 @@ class FileSizeCalculatorTool(MiniTool):
             file_name = file_data["filename"]
             file_size_bytes = os.path.getsize(file_path)
 
-            # Berechnungen
+            # Berechnungen mit höherer Präzision
             kb = file_size_bytes / 1000
             mb = kb / 1000
             gb = mb / 1000
@@ -48,95 +50,106 @@ class FileSizeCalculatorTool(MiniTool):
             msg_mebibyte = _("Mebibyte (1024 KiB)")
             msg_gibibyte = _("Gibibyte (1024 MiB)")
 
+            # Formatierungsfunktion für die Werte
+            def format_size(size):
+                if size >= 0.01:
+                    return f"{size:.2f}"
+                elif size >= 0.00001:
+                    # Für sehr kleine Werte mehr Dezimalstellen anzeigen
+                    return f"{size:.6f}"
+                else:
+                    # Für extrem kleine Werte normale Dezimalzahlen verwenden
+                    return f"{size:.9f}"
+
             # Zusammenbau des HTML-Strings mit den Variablen
             result = (
                 "<div class=\"file-size-results\">"
-                    "<h4>" + msg_date + ": <span class=\"text-primary\">" + file_name + "</span></h4>"
-                    "<p>" + msg_file_size + ": <strong>" + f"{file_size_bytes:,}" + "</strong> " + msg_bytes + "</p>"
+                f"<h4>{msg_date}: <span class=\"text-primary\">{file_name}</span></h4>"
+                f"<p>{msg_file_size}: <strong>{file_size_bytes:,}</strong> {msg_bytes}</p>"
 
-                    "<div class=\"row mt-4\">"
-                        "<div class=\"col-md-6\">"
-                            "<div class=\"card mb-4\">"
-                                "<div class=\"card-header bg-primary text-white\">"
-                                    "<h5 class=\"mb-0\">" + msg_decimal + "</h5>"
-                                "</div>"
-                                "<div class=\"card-body\">"
-                                    "<table class=\"table table-striped\">"
-                                        "<thead>"
-                                            "<tr>"
-                                                "<th>" + msg_unit + "</th>"
-                                                "<th>" + msg_value + "</th>"
-                                                "<th>" + msg_description + "</th>"
-                                            "</tr>"
-                                        "</thead>"
-                                        "<tbody>"
-                                            "<tr>"
-                                                "<td>" + msg_bytes + "</td>"
-                                                "<td>" + f"{file_size_bytes:,}" + "</td>"
-                                                "<td>" + msg_bytes + "</td>"
-                                            "</tr>"
-                                            "<tr>"
-                                                "<td>KB</td>"
-                                                "<td>" + f"{kb:.2f}" + "</td>"
-                                                "<td>" + msg_kilobyte + "</td>"
-                                            "</tr>"
-                                            "<tr>"
-                                                "<td>MB</td>"
-                                                "<td>" + f"{mb:.2f}" + "</td>"
-                                                "<td>" + msg_megabyte + "</td>"
-                                            "</tr>"
-                                            "<tr>"
-                                                "<td>GB</td>"
-                                                "<td>" + f"{gb:.2f}" + "</td>"
-                                                "<td>" + msg_gigabyte + "</td>"
-                                            "</tr>"
-                                        "</tbody>"
-                                    "</table>"
-                                "</div>"
-                            "</div>"
-                        "</div>"
+                "<div class=\"row mt-4\">"
+                "<div class=\"col-md-6\">"
+                "<div class=\"card mb-4\">"
+                f"<div class=\"card-header bg-primary text-white\">"
+                f"<h5 class=\"mb-0\">{msg_decimal}</h5>"
+                "</div>"
+                "<div class=\"card-body\">"
+                "<table class=\"table table-striped\">"
+                "<thead>"
+                "<tr>"
+                f"<th>{msg_unit}</th>"
+                f"<th>{msg_value}</th>"
+                f"<th>{msg_description}</th>"
+                "</tr>"
+                "</thead>"
+                "<tbody>"
+                "<tr>"
+                f"<td>{msg_bytes}</td>"
+                f"<td>{file_size_bytes:,}</td>"
+                f"<td>{msg_bytes}</td>"
+                "</tr>"
+                "<tr>"
+                "<td>KB</td>"
+                f"<td>{format_size(kb)}</td>"
+                f"<td>{msg_kilobyte}</td>"
+                "</tr>"
+                "<tr>"
+                "<td>MB</td>"
+                f"<td>{format_size(mb)}</td>"
+                f"<td>{msg_megabyte}</td>"
+                "</tr>"
+                "<tr>"
+                "<td>GB</td>"
+                f"<td>{format_size(gb)}</td>"
+                f"<td>{msg_gigabyte}</td>"
+                "</tr>"
+                "</tbody>"
+                "</table>"
+                "</div>"
+                "</div>"
+                "</div>"
 
-                        "<div class=\"col-md-6\">"
-                            "<div class=\"card\">"
-                                "<div class=\"card-header bg-info text-white\">"
-                                    "<h5 class=\"mb-0\">" + msg_binary + "</h5>"
-                                "</div>"
-                                "<div class=\"card-body\">"
-                                    "<table class=\"table table-striped\">"
-                                        "<thead>"
-                                            "<tr>"
-                                                "<th>" + msg_unit + "</th>"
-                                                "<th>" + msg_value + "</th>"
-                                                "<th>" + msg_description + "</th>"
-                                            "</tr>"
-                                        "</thead>"
-                                        "<tbody>"
-                                            "<tr>"
-                                                "<td>" + msg_bytes + "</td>"
-                                                "<td>" + f"{file_size_bytes:,}" + "</td>"
-                                                "<td>" + msg_bytes + "</td>"
-                                            "</tr>"
-                                            "<tr>"
-                                                "<td>KiB</td>"
-                                                "<td>" + f"{kib:.2f}" + "</td>"
-                                                "<td>" + msg_kibibyte + "</td>"
-                                            "</tr>"
-                                            "<tr>"
-                                                "<td>MiB</td>"
-                                                "<td>" + f"{mib:.2f}" + "</td>"
-                                                "<td>" + msg_mebibyte + "</td>"
-                                            "</tr>"
-                                            "<tr>"
-                                                "<td>GiB</td>"
-                                                "<td>" + f"{gib:.2f}" + "</td>"
-                                                "<td>" + msg_gibibyte + "</td>"
-                                            "</tr>"
-                                        "</tbody>"
-                                    "</table>"
-                                "</div>"
-                            "</div>"
-                        "</div>"
-                    "</div>"
+                "<div class=\"col-md-6\">"
+                "<div class=\"card\">"
+                f"<div class=\"card-header bg-info text-white\">"
+                f"<h5 class=\"mb-0\">{msg_binary}</h5>"
+                "</div>"
+                "<div class=\"card-body\">"
+                "<table class=\"table table-striped\">"
+                "<thead>"
+                "<tr>"
+                f"<th>{msg_unit}</th>"
+                f"<th>{msg_value}</th>"
+                f"<th>{msg_description}</th>"
+                "</tr>"
+                "</thead>"
+                "<tbody>"
+                "<tr>"
+                f"<td>{msg_bytes}</td>"
+                f"<td>{file_size_bytes:,}</td>"
+                f"<td>{msg_bytes}</td>"
+                "</tr>"
+                "<tr>"
+                "<td>KiB</td>"
+                f"<td>{format_size(kib)}</td>"
+                f"<td>{msg_kibibyte}</td>"
+                "</tr>"
+                "<tr>"
+                "<td>MiB</td>"
+                f"<td>{format_size(mib)}</td>"
+                f"<td>{msg_mebibyte}</td>"
+                "</tr>"
+                "<tr>"
+                "<td>GiB</td>"
+                f"<td>{format_size(gib)}</td>"
+                f"<td>{msg_gibibyte}</td>"
+                "</tr>"
+                "</tbody>"
+                "</table>"
+                "</div>"
+                "</div>"
+                "</div>"
+                "</div>"
                 "</div>"
             )
 
@@ -144,5 +157,6 @@ class FileSizeCalculatorTool(MiniTool):
             return True
 
         except Exception as e:
-            self.error_message = _("Fehler bei der Berechnung der Dateigröße:") + " " + str(e)
+            self.error_message = _(
+                "Fehler bei der Berechnung der Dateigröße:") + " " + str(e)
             return False

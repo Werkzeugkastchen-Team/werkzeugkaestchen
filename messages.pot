@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-23 13:19+0200\n"
+"POT-Creation-Date: 2025-04-23 18:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,6 +184,66 @@ msgstr ""
 msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
 msgstr ""
 
+#: templates/variable_input_mask.jinja:163
+msgid ""
+"Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und "
+"Zeitangaben umwandeln und umgekehrt."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:167
+msgid "Konvertierungsrichtung:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:169
+msgid "Timestamp zu Datum"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:170
+msgid "Datum zu Timestamp"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:176
+msgid "Unix-Timestamp:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:177
+msgid "z.B. 1640995200"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:178
+msgid ""
+"Geben Sie einen Unix-Timestamp ein (Sekunden seit dem 01.01.1970 00:00:00"
+" UTC)."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:184
+#: tools/unix_timestamp/unix_timestamp_tool.py:73
+#: tools/unix_timestamp/unix_timestamp_tool.py:131
+msgid "Datum:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:185
+msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:186
+msgid "Geben Sie ein Datum im Format TT.MM.JJJJ ein."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:190
+msgid "Uhrzeit (optional):"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:191
+msgid "HH:MM:SS (z.B. 12:30:00)"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:192
+msgid ""
+"Geben Sie eine Uhrzeit im Format HH:MM:SS ein. Standard ist 00:00:00 wenn"
+" leer."
+msgstr ""
+
 #: templates/variable_input_mask.jinja:217
 msgid "Zahl:"
 msgstr ""
@@ -287,6 +347,113 @@ msgstr ""
 msgid "Ausführen"
 msgstr ""
 
+#: tools/audio_converter/audio_converter_tool.py:12
+msgid "Audio Konverter"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:13
+msgid "Konvertiert Audiodateien in verschiedene Formate (MP3, WAV, AAC, FLAC)."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:50
+msgid "Bitte wählen Sie eine Audiodatei aus."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:57
+#: tools/image_converter/image_converter_tool.py:66
+msgid "Bitte wählen Sie ein Zielformat aus."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:62
+#, python-brace-format
+msgid ""
+"Das Format {0} wird nicht unterstützt. Bitte wählen Sie eine MP3, WAV, "
+"AAC oder FLAC Datei."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:75
+#: tools/image_converter/image_converter_tool.py:82
+msgid "Konvertierung erfolgreich!"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:76
+msgid ""
+"Ihre Audiodatei wurde erfolgreich konvertiert. Klicken Sie auf den Button"
+" unten, um sie herunterzuladen."
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:77
+msgid "Konvertierte Audiodatei herunterladen"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:78
+msgid "Andere Audiodatei konvertieren"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:94
+msgid "Fehler bei der Konvertierung: "
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:100
+#, python-brace-format
+msgid "Error: Token {0} not found in pending conversions"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:105
+#, python-brace-format
+msgid "Error: File for token {0} was already downloaded"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:110
+#, python-brace-format
+msgid "Error: Source file not found: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:114
+#, python-brace-format
+msgid "Error: Source file is empty: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:117
+#, python-brace-format
+msgid "Loading audio file: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:121
+#, python-brace-format
+msgid "Converting to: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:129
+#, python-brace-format
+msgid "Error: Converted file was not created: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:134
+#, python-brace-format
+msgid "Error: Converted file is empty: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:137
+#, python-brace-format
+msgid "Success: Converted file created with size {0} bytes"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:141
+#, python-brace-format
+msgid "Error converting audio: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:143
+#, python-brace-format
+msgid "Traceback: {0}"
+msgstr ""
+
+#: tools/audio_converter/audio_converter_tool.py:161
+#, python-brace-format
+msgid "Error cleaning up files: {0}"
+msgstr ""
+
 #: tools/base64_decode/base64_decode_tool.py:7
 msgid "Base64 Dekodierungstool"
 msgstr ""
@@ -372,75 +539,75 @@ msgstr ""
 msgid "im Jahr"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:8
+#: tools/file_size_calculator/file_size_calculator_tool.py:9
 msgid "Dateigrößenberechner"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:9
+#: tools/file_size_calculator/file_size_calculator_tool.py:11
 msgid "Berechnet die Dateigröße in verschiedenen Einheiten (MB, MiB, usw.)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:20
+#: tools/file_size_calculator/file_size_calculator_tool.py:22
 msgid "Keine Datei hochgeladen"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:36
+#: tools/file_size_calculator/file_size_calculator_tool.py:38
 msgid "Datei"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:37
+#: tools/file_size_calculator/file_size_calculator_tool.py:39
 msgid "Gesamtgröße"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:38
+#: tools/file_size_calculator/file_size_calculator_tool.py:40
 msgid "Bytes"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:39
+#: tools/file_size_calculator/file_size_calculator_tool.py:41
 msgid "Dezimale Einheiten (SI)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:40
+#: tools/file_size_calculator/file_size_calculator_tool.py:42
 msgid "Binäre Einheiten (IEC)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:41
+#: tools/file_size_calculator/file_size_calculator_tool.py:43
 msgid "Einheit"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:42
+#: tools/file_size_calculator/file_size_calculator_tool.py:44
 msgid "Wert"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:43
+#: tools/file_size_calculator/file_size_calculator_tool.py:45
 msgid "Beschreibung"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:44
+#: tools/file_size_calculator/file_size_calculator_tool.py:46
 msgid "Kilobyte (1000 Bytes)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:45
+#: tools/file_size_calculator/file_size_calculator_tool.py:47
 msgid "Megabyte (1000 KB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:46
+#: tools/file_size_calculator/file_size_calculator_tool.py:48
 msgid "Gigabyte (1000 MB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:47
+#: tools/file_size_calculator/file_size_calculator_tool.py:49
 msgid "Kibibyte (1024 Bytes)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:48
+#: tools/file_size_calculator/file_size_calculator_tool.py:50
 msgid "Mebibyte (1024 KiB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:49
+#: tools/file_size_calculator/file_size_calculator_tool.py:51
 msgid "Gibibyte (1024 MiB)"
 msgstr ""
 
-#: tools/file_size_calculator/file_size_calculator_tool.py:147
+#: tools/file_size_calculator/file_size_calculator_tool.py:161
 msgid "Fehler bei der Berechnung der Dateigröße:"
 msgstr ""
 
@@ -743,6 +910,8 @@ msgid "Amount of Rolls"
 msgstr ""
 
 #: tools/random_number_generator/random_number_generator_tool.py:32
+#: tools/text_to_speech/text_to_speech_tool.py:28
+#: tools/text_to_speech/text_to_speech_tool.py:44
 msgid "Alle Eingabefelder müssen ausgefüllt sein."
 msgstr ""
 
@@ -762,31 +931,131 @@ msgstr ""
 msgid "Anzahl Würfe zu hoch."
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:18
-msgid "Text zusammenfassen Tool"
+#: tools/text_to_speech/text_to_speech_tool.py:10
+msgid "Text zu Sprache"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:20
-#: tools/text_summary/text_summary_tool.py:36
+#: tools/text_to_speech/text_to_speech_tool.py:11
+msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:31
 msgid "Text"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:21
-#: tools/text_summary/text_summary_tool.py:41
+#: tools/text_to_speech/text_to_speech_tool.py:21
+#: tools/text_to_speech/text_to_speech_tool.py:27
+#: tools/text_to_speech/text_to_speech_tool.py:32
 msgid "Sprache"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:25
-#: tools/text_summary/text_summary_tool.py:42
-msgid "Model"
+#: tools/text_to_speech/text_to_speech_tool.py:35
+#, python-brace-format
+msgid ""
+"Eingabetext darf wegen technischen Limitationen nicht länger als {0} "
+"Zeichen sein."
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:30
-msgid "Fasst Texte mithilfe von Sprachmodellen (LLMs) zusammen."
+#: tools/text_to_speech/text_to_speech_tool.py:59
+msgid "Sprachausgabe"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:38
-msgid "Der Eingabetext ist leer oder ungültig."
+#: tools/text_to_speech/text_to_speech_tool.py:60
+msgid "Your browser does not support the audio element."
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:61
+msgid "Audio herunterladen"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:62
+msgid "Details"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:63
+msgid "Text:"
+msgstr ""
+
+#: tools/text_to_speech/text_to_speech_tool.py:64
+msgid "Sprache:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:7
+msgid "Unix\\-Timestamp Konverter"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:8
+msgid ""
+"Konvertiert Unix\\-Timestamps in lesbare Datums\\- und Zeitformate und "
+"umgekehrt\\. Mit Unterstützung für verschiedene Zeitzonen\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:38
+#, python-format
+msgid "Unbekannte Zeitzone: %(zone)s"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:46
+#, python-format
+msgid "Ein Fehler ist aufgetreten: %(error)s"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:52
+msgid "Bitte geben Sie einen Unix\\-Timestamp ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:58
+msgid ""
+"Der eingegebene Wert ist kein gültiger Unix\\-Timestamp\\. Bitte geben "
+"Sie eine ganze Zahl ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:62
+msgid "Negative Timestamps werden nicht unterstützt\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:65
+msgid ""
+"Der Timestamp ist zu groß\\. Bitte geben Sie einen gültigen Timestamp "
+"ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:71
+#: tools/unix_timestamp/unix_timestamp_tool.py:130
+msgid "Konvertierungsergebnis:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:72
+#: tools/unix_timestamp/unix_timestamp_tool.py:134
+msgid "Unix\\-Timestamp:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:74
+#: tools/unix_timestamp/unix_timestamp_tool.py:132
+msgid "Uhrzeit:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:75
+#: tools/unix_timestamp/unix_timestamp_tool.py:133
+msgid "Zeitzone:"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:101
+msgid "Bitte geben Sie ein Datum ein\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:115
+msgid "Ungültiges Zeitformat\\. Bitte verwenden Sie HH:MM oder HH:MM:SS"
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:119
+msgid "Ungültige Uhrzeit\\."
+msgstr ""
+
+#: tools/unix_timestamp/unix_timestamp_tool.py:124
+msgid "Ungültiges Datumsformat\\. Bitte verwenden Sie das Format TT\\.MM\\.JJJJ"
 msgstr ""
 
 #: tools/word_counter/word_counter_tool.py:6
