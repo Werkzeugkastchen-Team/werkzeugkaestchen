@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-24 10:13+0200\n"
+"POT-Creation-Date: 2025-04-24 18:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -997,6 +997,94 @@ msgstr ""
 
 #: tools/text_to_speech/text_to_speech_tool.py:64
 msgid "Sprache:"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:10
+msgid "Textvergleich"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:13
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:26
+msgid "Text 1"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:16
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:27
+msgid "Text 2"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:21
+msgid ""
+"Vergleicht zwei Texte und zeigt Unterschiede und Ähnlichkeiten zwischen "
+"ihnen (Diff)."
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:31
+msgid "Bitte geben Sie beide Texte zum Vergleich ein."
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:52
+#, python-format
+msgid "Fehler beim Textvergleich: %(error)s"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:63
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:117
+msgid "gelöscht"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:64
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:118
+msgid "hinzugefügt"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:65
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:119
+msgid "ersetzt"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:162
+msgid "Ergebnisse des Textvergleichs"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:163
+msgid "Vergleichsdetails:"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:164
+msgid "Ähnlichkeit:"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:165
+msgid "Alles anzeigen"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:166
+msgid "Unterschiede anzeigen"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:167
+msgid "Ähnlichkeiten anzeigen"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:168
+msgid "Unterschiede und Ähnlichkeiten"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:169
+msgid "Originaltext 1"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:170
+msgid "Originaltext 2"
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:171
+msgid "Keine Unterschiede gefunden."
+msgstr ""
+
+#: tools/texte_vergleichen/texte_vergleichen_tool.py:172
+msgid "Keine Ähnlichkeiten gefunden."
 msgstr ""
 
 #: tools/unix_timestamp/unix_timestamp_tool.py:7
