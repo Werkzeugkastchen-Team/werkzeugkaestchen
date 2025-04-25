@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-24 18:45+0200\n"
+"POT-Creation-Date: 2025-04-25 14:06+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -722,6 +722,55 @@ msgstr "Crop another image"
 #: tools/image_cropper/image_cropper_tool.py:120
 msgid "Fehler beim Zuschneiden: "
 msgstr "Error cropping: "
+
+#: tools/json_validieren/json_validieren_tool.py:9
+msgid "JSON-Validierung"
+msgstr "JSON Validation"
+
+#: tools/json_validieren/json_validieren_tool.py:11
+#: tools/json_validieren/json_validieren_tool.py:21
+msgid "JSON Text"
+msgstr "JSON Text"
+
+#: tools/json_validieren/json_validieren_tool.py:17
+msgid "Validiert JSON und schaut, ob der Text syntaktisch korrektes JSON ist."
+msgstr "Validates JSON and checks if the text is syntactically correct JSON."
+
+#: tools/json_validieren/json_validieren_tool.py:24
+msgid "Bitte geben Sie JSON-Text ein."
+msgstr "Please enter JSON text."
+
+#: tools/json_validieren/json_validieren_tool.py:34
+msgid "Ungültiges JSON:"
+msgstr "Invalid JSON:"
+
+#: tools/json_validieren/json_validieren_tool.py:44
+msgid "Unerwarteter Fehler:"
+msgstr "Unexpected error:"
+
+#: tools/json_validieren/json_validieren_tool.py:50
+msgid "Gültiges JSON!"
+msgstr "Valid JSON!"
+
+#: tools/json_validieren/json_validieren_tool.py:51
+msgid "Die Syntax ist korrekt."
+msgstr "The syntax is correct."
+
+#: tools/json_validieren/json_validieren_tool.py:61
+msgid "Fehler:"
+msgstr "Error:"
+
+#: tools/json_validieren/json_validieren_tool.py:62
+msgid "Position:"
+msgstr "Position:"
+
+#: tools/json_validieren/json_validieren_tool.py:63
+msgid "Zeile"
+msgstr "Line"
+
+#: tools/json_validieren/json_validieren_tool.py:64
+msgid "Spalte"
+msgstr "Column"
 
 #: tools/number_converter/number_converter_tool.py:5
 msgid "Zahlenkonverter"
