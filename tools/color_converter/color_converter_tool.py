@@ -3,9 +3,9 @@ from tool_interface import MiniTool
 
 
 class ColorConverterTool(MiniTool):
+    name = "Farbkonvertierer"
     def __init__(self):
-        super().__init__("Farbkonvertierer", "ColorConverterTool")
-        self.description = """Konvertiert Farben zwischen verschiedenen Formaten (HEX, RGB, HSL) und zeigt ein Farbrad zur Visualisierung."""
+        super().__init__(self.name, "ColorConverterTool")
         self.input_params = {}
 
     def execute_tool(self, input_params: dict) -> bool:

@@ -3,7 +3,7 @@ import tempfile
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file, session
 from flask_babel import Babel, gettext as _
 from markupsafe import Markup
-
+from tool_descriptions import get_description, get_use_cases
 from tools.base64_encode.base64_encode_tool import Base64EncodeTool
 from tools.base64_decode.base64_decode_tool import Base64DecodeTool
 from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalculatorTool
@@ -90,6 +90,8 @@ tools = {
 def index():
     tools_classes = []
     for name, tool in tools.items():
+        tool.description = get_description(name)
+        tool.use_cases = get_use_cases(name)
         tools_classes.append(tool)
     return render_template('index.jinja', toolsToRender=tools_classes)
 
@@ -131,21 +133,36 @@ def tool_form(tool_name):
     tool = tools.get(tool_name)
     if not tool:
         return "Tool not found", 404
+    
+    # Add description and use cases
+    tool.description = get_description(tool_name)
+    tool.use_cases = get_use_cases(tool_name)
 
     # Spezielle Behandlung für bestimmte Tools
     if tool_name == "ColorConverterTool":
-        return render_template('color_converter.html')
+        return render_template('color_converter.jinja', 
+                            tool=tool,
+                            description=tool.description,
+                            use_cases=tool.use_cases)
     elif tool_name == "GifVideoConverterTool":
-        return render_template('gif_video_converter.jinja')
+        return render_template('gif_video_converter.jinja',
+                              tool=tool,
+                              description=tool.description,
+                              use_cases=tool.use_cases)
     elif tool_name == "ImageCropperTool":
-        return render_template('image_cropper.jinja')  # Spezielles Template für den Image Cropper
+        return render_template('image_cropper.jinja',
+                              tool=tool,
+                              description=tool.description,
+                              use_cases=tool.use_cases)
 
     # Regulärer Ablauf für andere Tools
     return render_template('variable_input_mask.jinja',
                           tool=tool,
                           toolName=tool.name,
                           input_params=tool.input_params,
-                          identifier=tool.identifier)
+                          identifier=tool.identifier,
+                          description=tool.description,
+                          use_cases=tool.use_cases)
 
 
 @app.route("/handle_tool", methods=["POST"])
