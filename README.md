@@ -75,6 +75,15 @@ Wenn man die Modelle ändern will, dann muss man das Tool und den ollama run Bef
 
 >Gemma 3 4B (it-qat) ist etwas schwerer (~4GB), ist aber besser als 1B. Auf unseren halbwegs aktuellen Laptops sollten beide recht OK laufen.
 
+
+### Docker Desktop Einstellungen
+
+Unter Windows muss man dann noch in der **Docker Desktop App** in den **General** Einstellungen bei der folgenden Option ein Häkchen setzen und dann Docker neu starten:
+
+- **Add the *.docker.internal names to the host's /etc/hosts file (Requires password)**
+
+Danach müsste man mit laufendem ollama Container im Browser *http://host.docker.internal:11434/* aufrufen können.
+
 ## Development Environment
 
 Am Besten funktioniert VSCode mit den Python Extensions

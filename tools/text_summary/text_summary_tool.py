@@ -2,6 +2,16 @@ from tool_interface import MiniTool
 from pydantic import ConfigDict
 from flask_babel import lazy_gettext as _
 
+import platform
+
+def get_api_base_url():
+    """Get API base URL based on platform. Some combinations require different base URLs."""
+    host = "127.0.0.1"
+    sys = platform.system().lower()
+    if sys.startswith("win"):
+        host = "host.docker.internal"
+    return f"http://{host}:11434"
+
 METAPROMPT_EN = """
 Summarize the following text. The Summary must be in English. Be short, concise and truthful. Immediately respond with the contents of your summary:
 """
@@ -53,12 +63,14 @@ class TextSummaryTool(MiniTool):
 
             prompt = meta_prompt + " \n " + text_to_summarize
             
-            response = completion(
-                model=f"ollama/{model}", 
-                messages=[{ "content": prompt,"role": "user"}], 
-                api_base="http://localhost:11434" # Check Docker container Port!
-            )
+            print("trying to connect to ollama backend with url " + get_api_base_url())
             
+            response = completion(
+                model=f"ollama/{model}",
+                messages=[{ "content": prompt,"role": "user"}],
+                api_base=get_api_base_url()
+            )
+
             summary = response.choices[0].message.content
             self.output = summary
             return True
