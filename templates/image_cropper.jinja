@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
-
+<h1>{% block page_title %}{{ _("Bilder zuschneiden") }}{% endblock %}</h1>
 {% block content %}
-<h1>{% block title %}{{ _("Bilder zuschneiden") }}{% endblock %}</h1>
+<div class="mb-4">
+    <p class="lead text-secondary">{{ description }}</p>
 
+    {% if use_cases %}
+    <div class="mt-4">
+        <p class="mb-2 fw-semibold">{{ _('Anwendungsfälle:') }}</p>
+        <ul class="ps-4 text-dark-emphasis">
+            {% for use_case in use_cases %}
+            <li class="mb-1">{{ use_case }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
 <div class="alert alert-info">
   <p>{{ _("Laden Sie ein Bild hoch und wählen Sie den Bereich aus, den Sie zuschneiden möchten.") }}</p>
 </div>
