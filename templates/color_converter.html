@@ -1,7 +1,30 @@
+<!-- Die Datei wird aber immer noch von Flask im templates-Ordner gesucht -->
+<!-- Also müssen wir sie im templates-Ordner lassen und den Code der webapp.py anpassen -->
+
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Farbkonvertierer {% endblock %}</h1>
+<style>
+  /* Remove base h1 accent stripe on this page */
+  h1.no-stripe::before {
+    content: none !important;
+    border: none !important;
+  }
+</style>
+<h1 class="no-stripe">Farbkonvertierer</h1>
+<div class="mb-4">
+    <p class="lead text-secondary">{{ description }}</p>
+    {% if use_cases %}
+    <div class="mt-4">
+        <p class="mb-2 fw-semibold">{{ _('Anwendungsfälle:') }}</p>
+        <ul class="ps-4 text-dark-emphasis">
+            {% for use_case in use_cases %}
+            <li class="mb-1">{{ use_case }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
 
 <div class="color-converter-container">
     <div class="live-color-preview">
@@ -9,7 +32,6 @@
     </div>
 
     <div class="color-inputs">
-        <div id="validationMessage" class="validation-message" style="display: none;"></div>
         <div class="input-group mb-3">
             <span class="input-group-text">HEX:</span>
             <input type="text" id="hexInput" class="form-control" placeholder="#FF0000" value="#FF0000">
@@ -94,40 +116,75 @@
         <h5>Was bedeuten diese Farbformate?</h5>
         <div class="row">
             <div class="col-md-6">
-                <h6>HEX-Format (Hexadezimalwert)</h6>
+                <h6>HEX-Format</h6>
                 <p>Eine Farbnotation mit 6 Hexadezimalziffern. Beginnt mit #, gefolgt von den Werten für Rot, Grün und Blau.</p>
                 <p><strong>Beispiel:</strong> #FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)</p>
-                <br><br>
-                <h6>HSL (Hue, Saturation, Lightness)</h6>
-                <p><strong>Hue (Farbton)</strong>: Ein Wert von 0–360° für die Farbe selbst. 0° ist Rot, 120° Grün, 240° Blau usw. Stellt quasi dar, welche Farbe. </p>
-                <p><strong>Saturation (Sättigung)</strong>: Wie kräftig oder ausgewaschen die Farbe ist. 0 % = grau, 100 % = volle Farbe.</p>
-                <p><strong>Lightness (Helligkeit)</strong>: Wie hell oder dunkel die Farbe ist. 0 % = schwarz, 50 % = normale Farbe, 100 % = weiß.</p>
-                <p><strong>Beispiel:</strong> HSL(0, 100%, 50%) = reines Rot. HSL(0, 100%, 25%) = dunkles Rot. HSL(0, 0%, 50%) = grauer Farbton (kein Rot mehr da, weil 0% Sättigung).</p>
-
             </div>
             <div class="col-md-6">
-                <h6>RGB-Format (Rot, Grün, Blau)</h6>
+                <h6>RGB-Format</h6>
                 <p>Eine Farbnotation mit drei Werten (0-255) für Rot, Grün und Blau.</p>
                 <p><strong>Beispiel:</strong> rgb(255, 0, 0) ist Rot</p>
-                <br><br>
-                <h6>HSV (Hue, Saturation, Value)</h6>
-                <p><strong>Hue (Farbton)</strong>: Ein Wert von 0–360° für die Farbe selbst. 0° ist Rot, 120° Grün, 240° Blau usw. Stellt quasi dar, welche Farbe.</p>
-                <p><strong>Saturation (Sättigung)</strong>: Wie kräftig oder ausgewaschen die Farbe ist. 0 % = grau, 100 % = volle Farbe.</p>
-                <p><strong>Value: 0 %</strong> = schwarz, 100 % = hellste Version der Farbe (aber kein Weiß dazugemischt wie bei HSL)</p>
-                <p><strong>Beispiel:</strong> HSV(0, 100%, 100%) = leuchtendes Rot HSV(0, 100%, 50%) = dunkelrot, aber kräftig (0, 0%, 50%) = grauton (weil Sättigung null)</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <h6>HSL-Format</h6>
+                <p>Steht für Farbton (Hue), Sättigung (Saturation) und Helligkeit (Lightness).</p>
+                <p><strong>Beispiel:</strong> hsl(0, 100%, 50%) ist Rot</p>
+            </div>
+            <div class="col-md-6">
+                <h6>HSV-Format</h6>
+                <p>Steht für Farbton (Hue), Sättigung (Saturation) und Wert/Hellwert (Value).</p>
+                <p><strong>Beispiel:</strong> hsv(0, 100%, 100%) ist Rot</p>
             </div>
         </div>
     </div>
 </div>
 
 <style>
+    .tool-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .tool-header {
+        margin-bottom: 20px;
+    }
+
+    .tool-description {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    .use-cases-container {
+        margin-bottom: 30px;
+    }
+
+    .use-cases-container h5 {
+        margin-bottom: 10px;
+    }
+
+    .use-cases-container ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .use-cases-container li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
+
     .color-converter-container {
         max-width: 800px;
         margin: 0 auto;
     }
 
     .live-color-preview {
+        position: relative;
         width: 250px;
+        height: 80px;
         margin: 0 auto 30px auto;
     }
 
@@ -152,15 +209,6 @@
     .color-swatch:hover {
         transform: scale(1.1);
     }
-
-    .validation-message {
-        background-color: #fff3cd;
-        color: #856404;
-        padding: 10px;
-        border-radius: 4px;
-        margin-bottom: 15px;
-        border: 1px solid #ffeeba;
-    }
 </style>
 
 <script>
@@ -169,7 +217,7 @@
         initColorConverter();
 
         function initColorConverter() {
-            // Erst prüfen, ob die DOM-Elemente vorhanden sind
+            // Frühe Prüfung, ob die DOM-Elemente vorhanden sind
             if (!document.getElementById('colorPreview')) {
                 // Falls nötig, auf DOMContentLoaded warten
                 if (document.readyState === 'loading') {
@@ -198,6 +246,14 @@
 
             // Farbbeispiele
             const colorSwatches = document.querySelectorAll('.color-swatch');
+            colorSwatches.forEach(swatch => {
+                swatch.addEventListener('click', function() {
+                    const color = this.getAttribute('data-color');
+                    hexInput.value = color;
+                    const rgb = hexToRgb(color);
+                    updateUi(rgb.r, rgb.g, rgb.b);
+                });
+            });
 
             // Konvertierungsfunktionen
             function hexToRgb(hex) {
@@ -419,7 +475,7 @@
             function updateUi(r, g, b) {
                 // Aktualisiere Farbvorschau
                 colorPreview.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-
+                
                 // Aktualisiere RGB-Schieberegler
                 redSlider.value = r;
                 greenSlider.value = g;
@@ -448,14 +504,9 @@
                 }
             }
 
-           // Zu den Event-Handler-Funktionen hinzufügen:
-
             // Event-Handler für Hex-Eingabe
             hexInput.addEventListener('input', function() {
                 let hex = this.value;
-
-                // Validationsmeldung zurücksetzen
-                hideValidationMessage();
 
                 // Füge # hinzu, wenn es fehlt
                 if (hex && !hex.startsWith('#')) {
@@ -464,11 +515,6 @@
 
                 // Validiere Hex-Format
                 const hexRegex = /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/;
-                if (hex && !hexRegex.test(hex)) {
-                    showValidationMessage("Ungültiges HEX-Format. Gültige Formate: #ABC oder #AABBCC");
-                    return;
-                }
-
                 if (hexRegex.test(hex)) {
                     const rgb = hexToRgb(hex);
                     updateUi(rgb.r, rgb.g, rgb.b);
@@ -477,12 +523,7 @@
 
             // Event-Handler für RGB-Eingabe
             rgbInput.addEventListener('input', function() {
-                hideValidationMessage();
                 const rgb = parseRgbInput(this.value);
-                if (this.value && !rgb) {
-                    showValidationMessage("Ungültiges RGB-Format. Gültige Formate: 255, 0, 0");
-                    return;
-                }
                 if (rgb) {
                     updateUi(rgb.r, rgb.g, rgb.b);
                 }
@@ -490,12 +531,7 @@
 
             // Event-Handler für HSL-Eingabe
             hslInput.addEventListener('input', function() {
-                hideValidationMessage();
                 const hsl = parseHslInput(this.value);
-                if (this.value && !hsl) {
-                    showValidationMessage("Ungültiges HSL-Format. Gültige Formate: 0, 100%, 50%");
-                    return;
-                }
                 if (hsl) {
                     const rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
                     updateUi(rgb.r, rgb.g, rgb.b);
@@ -504,29 +540,12 @@
 
             // Event-Handler für HSV-Eingabe
             hsvInput.addEventListener('input', function() {
-                hideValidationMessage();
                 const hsv = parseHsvInput(this.value);
-                if (this.value && !hsv) {
-                    showValidationMessage("Ungültiges HSV-Format. Gültige Formate: 0, 100%, 100%");
-                    return;
-                }
                 if (hsv) {
                     const rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
                     updateUi(rgb.r, rgb.g, rgb.b);
                 }
             });
-
-            // Funktionen für Validierungsmeldungen
-            function showValidationMessage(message) {
-                const validationMessage = document.getElementById('validationMessage');
-                validationMessage.textContent = message;
-                validationMessage.style.display = 'block';
-            }
-
-            function hideValidationMessage() {
-                const validationMessage = document.getElementById('validationMessage');
-                validationMessage.style.display = 'none';
-            }
 
             // Event-Handler für RGB-Schieberegler
             redSlider.addEventListener('input', function() {
@@ -542,17 +561,6 @@
             blueSlider.addEventListener('input', function() {
                 blueValue.textContent = this.value;
                 updateUi(parseInt(redSlider.value), parseInt(greenSlider.value), parseInt(blueSlider.value));
-            });
-
-            // Event-Handler für Farbbeispiele
-            colorSwatches.forEach(swatch => {
-                swatch.addEventListener('click', function() {
-                    const hex = this.getAttribute('data-color');
-                    hexInput.value = hex;
-
-                    const rgb = hexToRgb(hex);
-                    updateUi(rgb.r, rgb.g, rgb.b);
-                });
             });
 
             // Initialisiere mit einer Standardfarbe

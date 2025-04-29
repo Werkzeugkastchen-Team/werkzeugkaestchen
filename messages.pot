@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-29 14:01+0200\n"
+"POT-Creation-Date: 2025-04-29 15:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,468 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
+
+#: tool_descriptions.py:7
+msgid ""
+"Konvertiert Text oder Dateien in das Base64-Format. Ideal für die sichere"
+" Übertragung von Binärdaten in textbasierten Systemen wie E-Mail oder "
+"HTTP."
+msgstr ""
+
+#: tool_descriptions.py:8
+msgid "Einbettung von Bildern in HTML/CSS"
+msgstr ""
+
+#: tool_descriptions.py:8
+msgid "Codierung binärer Daten für API-Übertragungen"
+msgstr ""
+
+#: tool_descriptions.py:8
+msgid "Sichere Übermittlung von Zeichen, die in URLs problematisch sein können"
+msgstr ""
+
+#: tool_descriptions.py:11
+msgid ""
+"Decodiert Base64-kodierte Daten zurück in ihre ursprüngliche Form (Text "
+"oder Binärdaten). Nützlich zum Entschlüsseln von Base64-Inhalten."
+msgstr ""
+
+#: tool_descriptions.py:12
+msgid "Extraktion von Daten aus API-Antworten"
+msgstr ""
+
+#: tool_descriptions.py:12
+msgid "Wiederherstellen von Binärdateien aus Base64-Text"
+msgstr ""
+
+#: tool_descriptions.py:12
+msgid "Analyse kodierter Inhalte"
+msgstr ""
+
+#: tool_descriptions.py:15
+msgid ""
+"Berechnet die Größe von Dateien in verschiedenen Einheiten (Bytes, KB, "
+"MB, GB). Hilft bei der Einschätzung von Speicheranforderungen."
+msgstr ""
+
+#: tool_descriptions.py:16
+msgid "Überprüfung von Upload-Größen"
+msgstr ""
+
+#: tool_descriptions.py:16
+msgid "Planung von Speicherkapazitäten"
+msgstr ""
+
+#: tool_descriptions.py:16
+msgid "Optimierung von Dateien für Web-Anwendungen"
+msgstr ""
+
+#: tool_descriptions.py:19
+msgid ""
+"Erstellt QR-Codes aus Text, URLs oder anderen Daten. Ideal für "
+"kontaktlose Informationsübermittlung und schnellen Datenzugriff über "
+"mobile Geräte."
+msgstr ""
+
+#: tool_descriptions.py:20
+msgid "Erstellung von Kontaktinformationen zum Scannen"
+msgstr ""
+
+#: tool_descriptions.py:20
+msgid "Generierung von Website-Links für Print-Materialien"
+msgstr ""
+
+#: tool_descriptions.py:20
+msgid "Entwicklung von kontaktlosen Zahlungslösungen"
+msgstr ""
+
+#: tool_descriptions.py:23
+msgid ""
+"Konvertiert Zahlen zwischen verschiedenen Zahlensystemen (Dezimal, Binär,"
+" Hexadezimal, Oktal). Unverzichtbar für Programmierer und IT-"
+"Spezialisten."
+msgstr ""
+
+#: tool_descriptions.py:24
+msgid "Umrechnung für Programmieraufgaben"
+msgstr ""
+
+#: tool_descriptions.py:24
+msgid "Analyse von Speicheradressen"
+msgstr ""
+
+#: tool_descriptions.py:24
+msgid "Arbeit mit Farbcodes und anderen hexadezimalen Werten"
+msgstr ""
+
+#: tool_descriptions.py:27
+msgid ""
+"Wandelt Bilder zwischen verschiedenen Formaten um (JPG, PNG, WebP, etc.) "
+"und ermöglicht die Anpassung von Qualität und Größe."
+msgstr ""
+
+#: tool_descriptions.py:28
+msgid "Optimierung von Bildern für Websites"
+msgstr ""
+
+#: tool_descriptions.py:28
+msgid "Anpassung an spezifische Formatanforderungen"
+msgstr ""
+
+#: tool_descriptions.py:28
+msgid "Konvertierung für bessere Kompatibilität"
+msgstr ""
+
+#: tool_descriptions.py:31
+msgid ""
+"Zählt Wörter, Zeichen und Absätze in einem Text. Perfekt für Autoren, "
+"SEO-Experten und Content-Ersteller zur Analyse von Textinhalten."
+msgstr ""
+
+#: tool_descriptions.py:32
+msgid "Überprüfung von Texten auf Längenanforderungen"
+msgstr ""
+
+#: tool_descriptions.py:32
+msgid "Analyse von Dokumenten"
+msgstr ""
+
+#: tool_descriptions.py:32
+msgid "Optimierung von SEO-Content"
+msgstr ""
+
+#: tool_descriptions.py:35
+msgid ""
+"Erstellt sichere, zufällige Passwörter mit anpassbarer Länge und "
+"Zeichensatz-Optionen. Erhöht die Sicherheit Ihrer Online-Konten."
+msgstr ""
+
+#: tool_descriptions.py:36
+msgid "Generierung sicherer Zugangsdaten"
+msgstr ""
+
+#: tool_descriptions.py:36
+msgid "Erstellung von API-Schlüsseln"
+msgstr ""
+
+#: tool_descriptions.py:36
+msgid "Verbesserung der Kontosicherheit"
+msgstr ""
+
+#: tool_descriptions.py:39
+msgid ""
+"Berechnet Kalenderwochen für beliebige Daten nach ISO-8601 Standard. "
+"Hilfreich für Projektplanung und Terminkoordination."
+msgstr ""
+
+#: tool_descriptions.py:40
+msgid "Planung nach Kalenderwochen"
+msgstr ""
+
+#: tool_descriptions.py:40
+msgid "Berechnung von Projektzeitleisten"
+msgstr ""
+
+#: tool_descriptions.py:40
+msgid "Analyse von saisonalen Trends"
+msgstr ""
+
+#: tool_descriptions.py:43
+msgid ""
+"Ermöglicht präzises Zuschneiden von Bildern durch Auswahl des gewünschten"
+" Bereichs. Ideal für Profilbilder oder fokussierte Bildausschnitte."
+msgstr ""
+
+#: tool_descriptions.py:44
+msgid "Anpassung von Bildern für soziale Medien"
+msgstr ""
+
+#: tool_descriptions.py:44
+msgid "Erstellung einheitlicher Produktbilder"
+msgstr ""
+
+#: tool_descriptions.py:44
+msgid "Fokussierung auf relevante Bildbereiche"
+msgstr ""
+
+#: tool_descriptions.py:47
+msgid ""
+"Erzeugt Zufallszahlen in einem definierbaren Bereich mit Optionen für "
+"Duplikate und Sortierung. Perfekt für Auslosungen und statistische "
+"Zwecke."
+msgstr ""
+
+#: tool_descriptions.py:48
+msgid "Durchführung von Verlosungen"
+msgstr ""
+
+#: tool_descriptions.py:48
+msgid "Erstellung von Test-Datensätzen"
+msgstr ""
+
+#: tool_descriptions.py:48
+msgid "Simulation von Zufallsprozessen"
+msgstr ""
+
+#: tool_descriptions.py:51
+msgid ""
+"Konvertiert Audiodateien zwischen verschiedenen Formaten (MP3, WAV, AAC, "
+"FLAC) unter Beibehaltung der Audioqualität."
+msgstr ""
+
+#: tool_descriptions.py:52
+msgid "Anpassung an Gerätekompatibilität"
+msgstr ""
+
+#: tool_descriptions.py:52
+msgid "Optimierung der Dateigröße"
+msgstr ""
+
+#: tool_descriptions.py:52
+msgid "Vorbereitung von Audio für verschiedene Plattformen"
+msgstr ""
+
+#: tool_descriptions.py:55
+msgid ""
+"Wandelt geschriebenen Text in natürlich klingende Sprache um. Unterstützt"
+" verschiedene Sprachen und Stimmoptionen."
+msgstr ""
+
+#: tool_descriptions.py:56
+msgid "Erstellung von Audio-Content"
+msgstr ""
+
+#: tool_descriptions.py:56
+msgid "Barrierefreiheit für sehbehinderte Nutzer"
+msgstr ""
+
+#: tool_descriptions.py:56
+msgid "Entwicklung von Sprachassistenten"
+msgstr ""
+
+#: tool_descriptions.py:59
+msgid ""
+"Konvertiert zwischen menschenlesbaren Datumsformaten und Unix-"
+"Zeitstempeln. Essentiell für Entwickler und Systemadministratoren."
+msgstr ""
+
+#: tool_descriptions.py:60
+msgid "Fehlersuche in Logs"
+msgstr ""
+
+#: tool_descriptions.py:60
+msgid "Zeitberechnung in Anwendungen"
+msgstr ""
+
+#: tool_descriptions.py:60
+msgid "Planung von zeitgesteuerten Aufgaben"
+msgstr ""
+
+#: tool_descriptions.py:63
+msgid ""
+"Vergleicht zwei Texte und hebt Unterschiede hervor. Ideal für die "
+"Überprüfung von Änderungen in Dokumenten oder Code."
+msgstr ""
+
+#: tool_descriptions.py:64
+msgid "Vergleich von Vertragsentwürfen"
+msgstr ""
+
+#: tool_descriptions.py:64
+msgid "Identifikation von Änderungen in Texten"
+msgstr ""
+
+#: tool_descriptions.py:64
+msgid "Code-Review und Dokumentenprüfung"
+msgstr ""
+
+#: tool_descriptions.py:67
+msgid ""
+"Überprüft JSON-Daten auf syntaktische Korrektheit und Validität. "
+"Hilfreich für Entwickler bei der Arbeit mit APIs und Datenaustausch."
+msgstr ""
+
+#: tool_descriptions.py:68
+msgid "Validierung von API-Antworten"
+msgstr ""
+
+#: tool_descriptions.py:68
+msgid "Fehlersuche in JSON-Daten"
+msgstr ""
+
+#: tool_descriptions.py:68
+msgid "Test von Datenstrukturen"
+msgstr ""
+
+#: tool_descriptions.py:71
+msgid ""
+"Formatiert JSON-Daten für bessere Lesbarkeit mit Einrückungen und "
+"strukturierter Darstellung. Erleichtert die Analyse komplexer "
+"Datenstrukturen."
+msgstr ""
+
+#: tool_descriptions.py:72
+msgid "Übersichtliche Darstellung von API-Antworten"
+msgstr ""
+
+#: tool_descriptions.py:72
+msgid "Vorbereitung von JSON für Dokumentation"
+msgstr ""
+
+#: tool_descriptions.py:72
+msgid "Verbesserung der Lesbarkeit von Konfigurationsdateien"
+msgstr ""
+
+#: tool_descriptions.py:75
+msgid ""
+"Wandelt Werte zwischen verschiedenen Maßeinheiten um (Länge, Gewicht, "
+"Temperatur, etc.). Präzise und zuverlässige Konvertierungen für "
+"alltägliche und technische Anwendungen."
+msgstr ""
+
+#: tool_descriptions.py:76
+msgid "Umrechnung für internationale Projekte"
+msgstr ""
+
+#: tool_descriptions.py:76
+msgid "Wissenschaftliche Berechnungen"
+msgstr ""
+
+#: tool_descriptions.py:76
+msgid "Anpassung von Rezepten und Anleitungen"
+msgstr ""
+
+#: tool_descriptions.py:79
+msgid ""
+"Berechnet Zeiträume zwischen Daten oder addiert/subtrahiert Tage zu einem"
+" Datum. Perfekt für Projekt- und Eventplanung."
+msgstr ""
+
+#: tool_descriptions.py:80
+msgid "Berechnung von Projektlaufzeiten"
+msgstr ""
+
+#: tool_descriptions.py:80
+msgid "Planung von Terminen und Fristen"
+msgstr ""
+
+#: tool_descriptions.py:80
+msgid "Analyse von Zeiträumen"
+msgstr ""
+
+#: tool_descriptions.py:83
+msgid ""
+"Generiert Platzhaltertext (Lorem Ipsum) für Design- und Layoutzwecke. "
+"Ideal für die Gestaltung von Webseiten, Dokumenten und Präsentationen."
+msgstr ""
+
+#: tool_descriptions.py:84
+msgid "Vorschau von Webseitenlayouts"
+msgstr ""
+
+#: tool_descriptions.py:84
+msgid "Gestaltung von Druckmaterialien"
+msgstr ""
+
+#: tool_descriptions.py:84
+msgid "Erstellung von Design-Mockups"
+msgstr ""
+
+#: tool_descriptions.py:87
+msgid ""
+"Konvertiert Farben zwischen verschiedenen Formaten (HEX, RGB, HSL) und "
+"bietet eine visuelle Vorschau. Unverzichtbar für Designer und Entwickler."
+msgstr ""
+
+#: tool_descriptions.py:88
+msgid "Anpassung von Farbwerten für CSS"
+msgstr ""
+
+#: tool_descriptions.py:88
+msgid "Erstellung konsistenter Farbpaletten"
+msgstr ""
+
+#: tool_descriptions.py:88
+msgid "Konvertierung zwischen Designtools"
+msgstr ""
+
+#: tool_descriptions.py:91
+msgid ""
+"Konvertiert zwischen GIF-Animationen und Videoformaten. Ermöglicht die "
+"Optimierung von animierten Inhalten für verschiedene Plattformen."
+msgstr ""
+
+#: tool_descriptions.py:92
+msgid "Erstellung von GIFs aus Videos für soziale Medien"
+msgstr ""
+
+#: tool_descriptions.py:92
+msgid "Umwandlung von GIFs in Videos für bessere Qualität"
+msgstr ""
+
+#: tool_descriptions.py:92
+msgid "Optimierung von Animationen für Web"
+msgstr ""
+
+#: tool_descriptions.py:95
+msgid ""
+"Generiert automatisch Untertitel für Videos mithilfe von KI-basierter "
+"Spracherkennung. Verbessert die Zugänglichkeit und Nutzererfahrung von "
+"Videocontent."
+msgstr ""
+
+#: tool_descriptions.py:96
+msgid "Erstellung barrierefreier Videos"
+msgstr ""
+
+#: tool_descriptions.py:96
+msgid "Übersetzung von Videoinhalten"
+msgstr ""
+
+#: tool_descriptions.py:96
+msgid "Verbesserung der SEO für Videokanäle"
+msgstr ""
+
+#: tool_descriptions.py:99
+msgid ""
+"Teilt PDF-Dokumente in einzelne Seiten oder Abschnitte. Ideal für die "
+"Extraktion spezifischer Informationen aus umfangreichen Dokumenten."
+msgstr ""
+
+#: tool_descriptions.py:100
+msgid "Aufteilung von großen Berichten"
+msgstr ""
+
+#: tool_descriptions.py:100
+msgid "Extraktion relevanter Seiten"
+msgstr ""
+
+#: tool_descriptions.py:100
+msgid "Organisation von Dokumenten nach Themen"
+msgstr ""
+
+#: tool_descriptions.py:103
+msgid ""
+"Kombiniert mehrere PDF-Dateien zu einem einzigen Dokument. Perfekt für "
+"die Erstellung umfassender Berichte oder die Zusammenführung verwandter "
+"Dokumente."
+msgstr ""
+
+#: tool_descriptions.py:104
+msgid "Zusammenstellung von Unterlagen"
+msgstr ""
+
+#: tool_descriptions.py:104
+msgid "Erstellung von Handbüchern aus Einzeldokumenten"
+msgstr ""
+
+#: tool_descriptions.py:104
+msgid "Organisation von digitalem Papierkram"
+msgstr ""
+
+#: tool_descriptions.py:111
+msgid "Keine Beschreibung verfügbar."
+msgstr ""
 
 #: templates/about.jinja:3 templates/base.html:29 templates/base.html:60
 #: templates/base.html:68
@@ -127,9 +589,8 @@ msgstr ""
 msgid "Was würden die Pinguine tun?"
 msgstr ""
 
-#: templates/audio_converter.jinja:9 templates/color_converter.jinja:9
-#: templates/gif_video_converter.jinja:9 templates/image_cropper.jinja:9
-#: templates/variable_input_mask.jinja:16
+#: templates/audio_converter.jinja:9 templates/gif_video_converter.jinja:9
+#: templates/image_cropper.jinja:9 templates/variable_input_mask.jinja:16
 msgid "Anwendungsfälle:"
 msgstr ""
 
@@ -169,6 +630,200 @@ msgstr ""
 
 #: templates/base.html:84
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
+msgstr ""
+
+#: templates/color_converter.html:4
+#: tools/color_converter/color_converter_tool.py:7
+msgid "Farbkonvertierer"
+msgstr ""
+
+#: templates/color_converter.html:14
+msgid "HEX:"
+msgstr ""
+
+#: templates/color_converter.html:19
+msgid "RGB:"
+msgstr ""
+
+#: templates/color_converter.html:24
+msgid "HSL:"
+msgstr ""
+
+#: templates/color_converter.html:29
+msgid "HSV:"
+msgstr ""
+
+#: templates/color_converter.html:37
+msgid "R:"
+msgstr ""
+
+#: templates/color_converter.html:49
+msgid "G:"
+msgstr ""
+
+#: templates/color_converter.html:61
+msgid "B:"
+msgstr ""
+
+#: templates/color_converter.html:73
+msgid "Standardfarben"
+msgstr ""
+
+#: templates/color_converter.html:75
+msgid "Rot"
+msgstr ""
+
+#: templates/color_converter.html:76
+msgid "Grün"
+msgstr ""
+
+#: templates/color_converter.html:77
+msgid "Blau"
+msgstr ""
+
+#: templates/color_converter.html:78
+msgid "Gelb"
+msgstr ""
+
+#: templates/color_converter.html:79
+msgid "Magenta"
+msgstr ""
+
+#: templates/color_converter.html:80
+msgid "Cyan"
+msgstr ""
+
+#: templates/color_converter.html:81
+msgid "Weiß"
+msgstr ""
+
+#: templates/color_converter.html:82
+msgid "Schwarz"
+msgstr ""
+
+#: templates/color_converter.html:83
+msgid "Grau"
+msgstr ""
+
+#: templates/color_converter.html:84
+msgid "Dunkelrot"
+msgstr ""
+
+#: templates/color_converter.html:85
+msgid "Olive"
+msgstr ""
+
+#: templates/color_converter.html:86
+msgid "Dunkelgrün"
+msgstr ""
+
+#: templates/color_converter.html:87
+msgid "Lila"
+msgstr ""
+
+#: templates/color_converter.html:88
+msgid "Petrol"
+msgstr ""
+
+#: templates/color_converter.html:89
+msgid "Dunkelblau"
+msgstr ""
+
+#: templates/color_converter.html:94
+msgid "Was bedeuten diese Farbformate?"
+msgstr ""
+
+#: templates/color_converter.html:97
+msgid "HEX-Format (Hexadezimalwert)"
+msgstr ""
+
+#: templates/color_converter.html:98
+msgid ""
+"Eine Farbnotation mit 6 Hexadezimalziffern. Beginnt mit #, gefolgt von "
+"den Werten für Rot, Grün und Blau."
+msgstr ""
+
+#: templates/color_converter.html:99
+msgid "<strong>Beispiel:</strong> #FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)"
+msgstr ""
+
+#: templates/color_converter.html:101
+msgid "HSL (Hue, Saturation, Lightness)"
+msgstr ""
+
+#: templates/color_converter.html:102 templates/color_converter.html:113
+msgid ""
+"<strong>Hue (Farbton)</strong>: Ein Wert von 0–360° für die Farbe selbst."
+" 0° ist Rot, 120° Grün, 240° Blau usw. Stellt quasi dar, welche Farbe."
+msgstr ""
+
+#: templates/color_converter.html:103 templates/color_converter.html:114
+msgid ""
+"<strong>Saturation (Sättigung)</strong>: Wie kräftig oder ausgewaschen "
+"die Farbe ist. 0 % = grau, 100 % = volle Farbe."
+msgstr ""
+
+#: templates/color_converter.html:104
+msgid ""
+"<strong>Lightness (Helligkeit)</strong>: Wie hell oder dunkel die Farbe "
+"ist. 0 % = schwarz, 50 % = normale Farbe, 100 % = weiß."
+msgstr ""
+
+#: templates/color_converter.html:105
+msgid ""
+"<strong>Beispiel:</strong> HSL(0, 100%, 50%) = reines Rot. HSL(0, 100%, "
+"25%) = dunkles Rot. HSL(0, 0%, 50%) = grauer Farbton (kein Rot mehr da, "
+"weil 0% Sättigung)."
+msgstr ""
+
+#: templates/color_converter.html:108
+msgid "RGB-Format (Rot, Grün, Blau)"
+msgstr ""
+
+#: templates/color_converter.html:109
+msgid "Eine Farbnotation mit drei Werten (0-255) für Rot, Grün und Blau."
+msgstr ""
+
+#: templates/color_converter.html:110
+msgid "<strong>Beispiel:</strong> rgb(255, 0, 0) ist Rot"
+msgstr ""
+
+#: templates/color_converter.html:112
+msgid "HSV (Hue, Saturation, Value)"
+msgstr ""
+
+#: templates/color_converter.html:115
+msgid ""
+"<strong>Value: 0 %</strong> = schwarz, 100 % = hellste Version der Farbe "
+"(aber kein Weiß dazugemischt wie bei HSL)"
+msgstr ""
+
+#: templates/color_converter.html:116
+msgid ""
+"<strong>Beispiel:</strong> HSV(0, 100%, 100%) = leuchtendes Rot HSV(0, "
+"100%, 50%) = dunkelrot, aber kräftig (0, 0%, 50%) = grauton (weil "
+"Sättigung null)"
+msgstr ""
+
+#: templates/color_converter.html:184
+msgid "Ungültiges HEX-Format. Gültige Formate: #ABC oder #AABBCC"
+msgstr ""
+
+#: templates/color_converter.html:185
+msgid "Ungültiges RGB-Format. Gültige Formate: 255, 0, 0"
+msgstr ""
+
+#: templates/color_converter.html:186
+msgid "Ungültiges HSL-Format. Gültige Formate: 0, 100%, 50%"
+msgstr ""
+
+#: templates/color_converter.html:187
+msgid "Ungültiges HSV-Format. Gültige Formate: 0, 100%, 100%"
+msgstr ""
+
+#: templates/color_converter.html:188 templates/gif_video_converter.jinja:195
+#: tools/gif_video_converter/gif_video_converter_tool.py:42
+msgid "Die Datei ist zu groß. Maximale Größe ist 1GB."
 msgstr ""
 
 #: templates/contact.jinja:4
@@ -263,6 +918,242 @@ msgstr ""
 
 #: templates/contact_success.jinja:6
 msgid "Zurück zum Startseite"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:2
+#: tools/gif_video_converter/gif_video_converter_tool.py:12
+msgid "GIF/Video Konverter"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:19
+msgid ""
+"Laden Sie ein Video oder ein GIF hoch, um es in das jeweils andere Format"
+" zu konvertieren."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:20
+msgid "Maximale Dateigröße: 1GB"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:25
+msgid "Video- oder GIF-Datei konvertieren"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:26
+msgid ""
+"Laden Sie eine Videodatei oder GIF-Datei hoch. Das Format wird "
+"automatisch erkannt."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:32
+msgid "Datei auswählen (max. 1GB):"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:38
+msgid "Video zu GIF Optionen:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:40
+msgid "Bildrate (FPS):"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:42
+msgid "5 FPS (langsamer, kleinere Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:43
+msgid "10 FPS (Standard)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:44
+msgid "15 FPS (flüssiger, größere Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:45
+msgid "24 FPS (sehr flüssig, große Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:49
+#: templates/gif_video_converter.jinja:78
+msgid "Qualität:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:51
+#: templates/gif_video_converter.jinja:80
+msgid "Niedrig (kleine Dateigröße)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:52
+#: templates/gif_video_converter.jinja:81
+msgid "Mittel (ausgewogenes Verhältnis)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:53
+#: templates/gif_video_converter.jinja:82
+msgid "Hoch (beste Qualität, große Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:57
+msgid "Größe anpassen:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:59
+msgid "Original (keine Änderung)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:60
+msgid "Klein (320px Breite)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:61
+msgid "Mittel (480px Breite)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:62
+msgid "Groß (640px Breite)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:68
+msgid "GIF zu Video Optionen:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:70
+msgid "Videoformat:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:72
+msgid "MP4 (am besten unterstützt)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:73
+msgid "AVI (gute Qualität)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:74
+msgid "WebM (kleine Dateigröße)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:96
+#: templates/variable_input_mask.jinja:380
+msgid "Konvertieren"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:105
+msgid "Erklärungen"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:108
+msgid "GIF und Video"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:109
+msgid ""
+"<strong>GIF (Graphics Interchange Format)</strong> ist ein Bildformat, "
+"das Animationen unterstützt. GIFs sind beliebt für kurze Loops und können"
+" ohne Player in Browsern und Nachrichten-Apps angezeigt werden. Sie haben"
+" jedoch eine begrenzte Farbpalette (maximal 256 Farben) und oft größere "
+"Dateien als Videos."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:110
+msgid ""
+"<strong>Videoformate</strong> (MP4, AVI, WebM) bieten bessere "
+"Kompression, höhere Qualität und Funktionen wie Ton. Sie benötigen jedoch"
+" in der Regel einen Video-Player zur Wiedergabe."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:112
+msgid "Bildrate (FPS)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:113
+msgid ""
+"<strong>FPS (Frames per Second)</strong> bestimmt, wie viele Einzelbilder"
+" pro Sekunde angezeigt werden:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:115
+msgid "<strong>5 FPS:</strong> Minimale Flüssigkeit, kleinste Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:116
+msgid "<strong>10 FPS:</strong> Guter Kompromiss für die meisten GIFs"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:117
+msgid "<strong>15 FPS:</strong> Flüssigere Bewegung, größere Datei"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:118
+msgid "<strong>24 FPS:</strong> Sehr flüssig (Kinostandard), größte Dateien"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:122
+msgid "Qualitätseinstellungen"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:123
+msgid "Die Qualität beeinflusst das Aussehen und die Dateigröße:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:125
+msgid ""
+"<strong>Niedrig:</strong> Stärkere Kompression, sichtbarer "
+"Qualitätsverlust, kleinste Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:126
+msgid ""
+"<strong>Mittel:</strong> Ausgewogenes Verhältnis zwischen Qualität und "
+"Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:127
+msgid "<strong>Hoch:</strong> Beste visuelle Qualität, größte Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:130
+msgid "Größenanpassung"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:131
+msgid "<strong>Original:</strong> Behält die ursprüngliche Auflösung bei"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:132
+msgid ""
+"<strong>Klein (320px):</strong> Gut für Messaging-Apps und kleine "
+"Einbettungen"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:133
+msgid "<strong>Mittel (480px):</strong> Standard für die meisten Web-Inhalte"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:134
+msgid "<strong>Groß (640px):</strong> Mehr Details, gut für größere Inhalte"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:136
+msgid "Videoformate"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:137
+msgid ""
+"<strong>MP4:</strong> Universell unterstützt, gute Qualität bei kompakter"
+" Größe"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:138
+msgid ""
+"<strong>AVI:</strong> Weniger Kompression, höhere Qualität, größere "
+"Dateien"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:139
+msgid ""
+"<strong>WebM:</strong> Modernes, offenes Format, sehr effiziente "
+"Kompression"
 msgstr ""
 
 #: templates/image_cropper.jinja:2 tools/image_cropper/image_cropper_tool.py:11
@@ -546,10 +1437,6 @@ msgstr ""
 msgid "QR-Code erstellen"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:380
-msgid "Konvertieren"
-msgstr ""
-
 #: templates/variable_input_mask.jinja:382
 msgid "Ausführen"
 msgstr ""
@@ -746,6 +1633,18 @@ msgstr ""
 msgid "im Jahr"
 msgstr ""
 
+#: tools/color_converter/color_converter_tool.py:13
+msgid "Sie werden zum Farbkonverter weitergeleitet..."
+msgstr ""
+
+#: tools/color_converter/color_converter_tool.py:14
+msgid "Wenn die Weiterleitung nicht funktioniert,"
+msgstr ""
+
+#: tools/color_converter/color_converter_tool.py:15
+msgid "klicken Sie hier"
+msgstr ""
+
 #: tools/date_calculator/date_calculator_tool.py:7
 msgid "Datumsrechner"
 msgstr ""
@@ -861,10 +1760,6 @@ msgstr ""
 msgid "Fehler bei der Berechnung der Dateigröße:"
 msgstr ""
 
-#: tools/gif_video_converter/gif_video_converter_tool.py:12
-msgid "GIF/Video Konverter"
-msgstr ""
-
 #: tools/gif_video_converter/gif_video_converter_tool.py:13
 msgid "Konvertiert Videos in GIFs und umgekehrt"
 msgstr ""
@@ -904,10 +1799,6 @@ msgstr ""
 
 #: tools/gif_video_converter/gif_video_converter_tool.py:33
 msgid "Bitte wählen Sie eine Datei aus."
-msgstr ""
-
-#: tools/gif_video_converter/gif_video_converter_tool.py:42
-msgid "Die Datei ist zu groß. Maximale Größe ist 1GB."
 msgstr ""
 
 #: tools/gif_video_converter/gif_video_converter_tool.py:79

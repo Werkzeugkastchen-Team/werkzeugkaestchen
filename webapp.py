@@ -140,7 +140,7 @@ def tool_form(tool_name):
 
     # Spezielle Behandlung für bestimmte Tools
     if tool_name == "ColorConverterTool":
-        return render_template('color_converter.jinja', 
+        return render_template('color_converter.html',
                             tool=tool,
                             description=tool.description,
                             use_cases=tool.use_cases)
