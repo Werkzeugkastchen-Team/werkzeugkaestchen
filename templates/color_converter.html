@@ -3,15 +3,14 @@
 
 {% extends 'base.html' %}
 
+{% block page_title %}{{ _('Farbkonvertierer') }}{% endblock %}
+
 {% block content %}
 <style>
-  /* Remove base h1 accent stripe on this page */
-  h1.no-stripe::before {
-    content: none !important;
-    border: none !important;
-  }
+  /* Die base.html zeigt standardmäßig eine rote Linie links und oben vom h1 an (siehe style.css) */
+  /* Wir müssen hier nichts überschreiben, da diese Darstellung bereits vom global style kommt */
 </style>
-<h1 class="no-stripe">Farbkonvertierer</h1>
+
 <div class="mb-4">
     <p class="lead text-secondary">{{ description }}</p>
     {% if use_cases %}
