@@ -1,44 +1,41 @@
+from flask_babel import lazy_gettext as _
 from tool_interface import MiniTool
 
 class UnitConverterTool(MiniTool):
     def __init__(self):
-        super().__init__("Einheitenrechner", "UnitConverterTool")
-        self.description = "Rechnet Einheiten wie Längen oder Gewichte um. Die Eingabemaske passt sich der Kategorie an."
+        super().__init__(_("Einheitenrechner"), "UnitConverterTool")
+        self.description = _("Rechnet Einheiten wie Längen oder Gewichte um. Die Eingabemaske passt sich der Kategorie an.")
         self.input_params = {
-            "category": {
-                "name": "Kategorie",
+            _("Kategorie"): {
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. länge oder gewicht"
+                "placeholder": _("z.B. länge oder gewicht")
             },
-            "value": {
-                "name": "Wert",
+            _("Wert"): {
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. 10"
+                "placeholder": _("z.B. 10")
             },
-            "from_unit": {
-                "name": "Von Einheit",
+            _("Von Einheit"): {
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. m oder kg"
+                "placeholder": _("z.B. m oder kg")
             },
-            "to_unit": {
-                "name": "Zu Einheit",
+            _("Zu Einheit"): {
                 "type": "text",
                 "required": True,
-                "placeholder": "z.B. km oder g"
+                "placeholder": _("z.B. km oder g")
             }
         }
 
     def execute_tool(self, input_params):
         try:
-            raw_category = input_params.get("category", "").lower().strip()
-            raw_value = input_params.get("value", "0").strip()
-            raw_from = input_params.get("from_unit", "").lower().strip()
-            raw_to = input_params.get("to_unit", "").lower().strip()
+            raw_category = input_params.get(_("Kategorie"), "").lower().strip()
+            raw_value = input_params.get(_("Wert"), "0").strip()
+            raw_from = input_params.get(_("Von Einheit"), "").lower().strip()
+            raw_to = input_params.get(_("Zu Einheit"), "").lower().strip()
 
-            # Mapare sinonime germană → engleză
+            # Map German/English synonyms
             category_map = {
                 "länge": "length",
                 "length": "length",
@@ -62,7 +59,7 @@ class UnitConverterTool(MiniTool):
             to_unit = unit_map.get(raw_to)
 
             if category is None:
-                self.error_message = f"Kategorie '{raw_category}' wird nicht unterstützt"
+                self.error_message = _("Kategorie '{0}' wird nicht unterstützt").format(raw_category)
                 return False
 
             conversions = {
@@ -81,13 +78,13 @@ class UnitConverterTool(MiniTool):
             }
 
             if from_unit not in conversions[category] or to_unit not in conversions[category]:
-                self.error_message = "Unbekannte Einheit"
+                self.error_message = _("Unbekannte Einheit")
                 return False
 
             try:
                 value = float(raw_value)
             except ValueError:
-                self.error_message = "Ungültiger Zahlenwert"
+                self.error_message = _("Ungültiger Zahlenwert")
                 return False
 
             base_value = value / conversions[category][from_unit]
@@ -96,5 +93,5 @@ class UnitConverterTool(MiniTool):
             return True
 
         except Exception as e:
-            self.error_message = f"Ein Fehler ist aufgetreten: {str(e)}"
+            self.error_message = _("Ein Fehler ist aufgetreten:") + f" {str(e)}"
             return False

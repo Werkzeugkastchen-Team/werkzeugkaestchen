@@ -1,41 +1,59 @@
 import os
 import tempfile
 import base64
+from flask_babel import lazy_gettext as _
 from tool_interface import MiniTool
 from PyPDF2 import PdfReader, PdfWriter
 
 
 class PdfSplitTool(MiniTool):
     def __init__(self):
-        super().__init__("PDF Split Tool", "PdfSplitTool")
-        self.description = "Teilt PDF-Dateien an einer gewählten Seitenzahl"
+        super().__init__(_("PDF Split Tool"), "PdfSplitTool")
+        self.description = _("Teilt PDF-Dateien an einer gewählten Seitenzahl")
         self.input_params = {
-            "pdf_file": "file",
-            "split_page": "string"  # Page number to split at (first page of second part)
+            _("pdf_file"): "file",
+            _("split_page"): "string"  # Page number to split at (first page of second part)
         }
+        
+        # Extract translatable strings for HTML
+        self.success_header = _("PDF erfolgreich geteilt")
+        self.success_message_part1 = _("Die PDF-Datei")
+        self.success_message_part2 = _("wurde erfolgreich bei Seite")
+        self.success_message_part3 = _("geteilt.")
+        self.total_pages_text = _("Gesamtseitenzahl:")
+        self.part1_pages_text = _("Teil 1: Seiten 1 bis")
+        self.part2_pages_text = _("Teil 2: Seiten")
+        self.part2_pages_text_end = _("bis")
+        self.part1_header = _("Teil 1")
+        self.part1_contains = _("Enthält Seiten 1 bis")
+        self.part1_download = _("Teil 1 herunterladen")
+        self.part2_header = _("Teil 2")
+        self.part2_contains = _("Enthält Seiten")
+        self.part2_download = _("Teil 2 herunterladen")
+        self.pages_text = _("Seiten")
 
     def execute_tool(self, input_params: dict) -> bool:
         try:
             # Get parameters
-            pdf_file_info = input_params.get("pdf_file", None)
-            split_page_str = input_params.get("split_page", "")
+            pdf_file_info = input_params.get(_("pdf_file"), None)
+            split_page_str = input_params.get(_("split_page"), "")
 
             # Validate inputs
             if not pdf_file_info:
-                self.error_message = "Bitte wählen Sie eine PDF-Datei aus"
+                self.error_message = _("Bitte wählen Sie eine PDF-Datei aus")
                 return False
 
             if not split_page_str:
-                self.error_message = "Bitte geben Sie eine Seitenzahl an"
+                self.error_message = _("Bitte geben Sie eine Seitenzahl an")
                 return False
 
             try:
                 split_page = int(split_page_str)
                 if split_page < 2:
-                    self.error_message = "Die Seitenzahl muss mindestens 2 sein"
+                    self.error_message = _("Die Seitenzahl muss mindestens 2 sein")
                     return False
             except ValueError:
-                self.error_message = "Bitte geben Sie eine gültige Seitenzahl ein"
+                self.error_message = _("Bitte geben Sie eine gültige Seitenzahl ein")
                 return False
 
             # Get file path
@@ -49,7 +67,7 @@ class PdfSplitTool(MiniTool):
                 total_pages = len(pdf.pages)
 
                 if split_page > total_pages:
-                    self.error_message = f"Die Seitenzahl muss kleiner sein als die Gesamtseitenzahl ({total_pages})"
+                    self.error_message = _("Die Seitenzahl muss kleiner sein als die Gesamtseitenzahl ({0})").format(total_pages)
                     return False
 
                 # Create writers for the two parts
@@ -66,8 +84,8 @@ class PdfSplitTool(MiniTool):
 
                 # Save the split PDFs to temporary files
                 temp_dir = tempfile.gettempdir()
-                part1_filename = f"{filename_base}_teil1.pdf"
-                part2_filename = f"{filename_base}_teil2.pdf"
+                part1_filename = f"{filename_base}_part1.pdf"
+                part2_filename = f"{filename_base}_part2.pdf"
                 part1_path = os.path.join(temp_dir, part1_filename)
                 part2_path = os.path.join(temp_dir, part2_filename)
 
@@ -88,15 +106,15 @@ class PdfSplitTool(MiniTool):
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-success text-white">
-                                <h5 class="mb-0">PDF erfolgreich geteilt</h5>
+                                <h5 class="mb-0">{self.success_header}</h5>
                             </div>
                             <div class="card-body">
                                 <div class="alert alert-info">
-                                    <p>Die PDF-Datei <strong>{filename}</strong> wurde erfolgreich bei Seite {split_page} geteilt.</p>
-                                    <p>Gesamtseitenzahl: {total_pages}</p>
+                                    <p>{self.success_message_part1} <strong>{filename}</strong> {self.success_message_part2} {split_page} {self.success_message_part3}</p>
+                                    <p>{self.total_pages_text} {total_pages}</p>
                                     <ul>
-                                        <li>Teil 1: Seiten 1 bis {split_page - 1}</li>
-                                        <li>Teil 2: Seiten {split_page} bis {total_pages}</li>
+                                        <li>{self.part1_pages_text} {split_page - 1}</li>
+                                        <li>{self.part2_pages_text} {split_page} {self.part2_pages_text_end} {total_pages}</li>
                                     </ul>
                                 </div>
                                 
@@ -104,14 +122,14 @@ class PdfSplitTool(MiniTool):
                                     <div class="col-md-6 text-center">
                                         <div class="card">
                                             <div class="card-header bg-primary text-white">
-                                                Teil 1 ({split_page - 1} Seiten)
+                                                {self.part1_header} ({split_page - 1} {self.pages_text})
                                             </div>
                                             <div class="card-body">
-                                                <p class="mb-2">Enthält Seiten 1 bis {split_page - 1}</p>
+                                                <p class="mb-2">{self.part1_contains} {split_page - 1}</p>
                                                 <a href="data:application/pdf;base64,{part1_base64}" 
                                                    download="{part1_filename}" 
                                                    class="btn btn-primary">
-                                                   <i class="fas fa-download"></i> Teil 1 herunterladen
+                                                   <i class="fas fa-download"></i> {self.part1_download}
                                                 </a>
                                             </div>
                                         </div>
@@ -119,14 +137,14 @@ class PdfSplitTool(MiniTool):
                                     <div class="col-md-6 text-center">
                                         <div class="card">
                                             <div class="card-header bg-primary text-white">
-                                                Teil 2 ({total_pages - split_page + 1} Seiten)
+                                                {self.part2_header} ({total_pages - split_page + 1} {self.pages_text})
                                             </div>
                                             <div class="card-body">
-                                                <p class="mb-2">Enthält Seiten {split_page} bis {total_pages}</p>
+                                                <p class="mb-2">{self.part2_contains} {split_page} {self.part2_pages_text_end} {total_pages}</p>
                                                 <a href="data:application/pdf;base64,{part2_base64}" 
                                                    download="{part2_filename}" 
                                                    class="btn btn-primary">
-                                                   <i class="fas fa-download"></i> Teil 2 herunterladen
+                                                   <i class="fas fa-download"></i> {self.part2_download}
                                                 </a>
                                             </div>
                                         </div>
@@ -143,7 +161,7 @@ class PdfSplitTool(MiniTool):
             return True
 
         except Exception as e:
-            self.error_message = f"Fehler beim Teilen der PDF-Datei: {str(e)}"
+            self.error_message = _("Fehler beim Teilen der PDF-Datei:") + f" {str(e)}"
             return False
 
     def _get_file_base64(self, file_path):
