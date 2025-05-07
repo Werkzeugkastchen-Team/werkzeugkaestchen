@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-29 15:46+0200\n"
+"POT-Creation-Date: 2025-05-07 21:10+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -419,11 +419,11 @@ msgstr "Creation of design mockups"
 
 #: tool_descriptions.py:87
 msgid ""
-"Konvertiert Farben zwischen verschiedenen Formaten (HEX, RGB, HSL) und "
-"bietet eine visuelle Vorschau. Unverzichtbar für Designer und Entwickler."
+"Konvertiert Farben zwischen verschiedenen Formaten wie HEX, RGB, HSL und "
+"HSV mit interaktiver Vorschau. Ideal für Web-Entwicklung und Design."
 msgstr ""
-"Converts colors between different formats (HEX, RGB, HSL) and provides a "
-"visual preview. Essential for designers and developers."
+"Converts colors between different formats such as HEX, RGB, HSL, and HSV "
+"with interactive preview. Ideal for web development and design."
 
 #: tool_descriptions.py:88
 msgid "Anpassung von Farbwerten für CSS"
@@ -434,8 +434,8 @@ msgid "Erstellung konsistenter Farbpaletten"
 msgstr "Creation of consistent color palettes"
 
 #: tool_descriptions.py:88
-msgid "Konvertierung zwischen Designtools"
-msgstr "Conversion between design tools"
+msgid "Umwandlung zwischen verschiedenen Farbnotationen"
+msgstr "Conversion between different color notations"
 
 #: tool_descriptions.py:91
 msgid ""
@@ -644,8 +644,9 @@ msgstr "So, if you're ever stuck... just ask yourself:"
 msgid "Was würden die Pinguine tun?"
 msgstr "What would the penguins do?"
 
-#: templates/audio_converter.jinja:9 templates/gif_video_converter.jinja:9
-#: templates/image_cropper.jinja:9 templates/variable_input_mask.jinja:16
+#: templates/audio_converter.jinja:9 templates/color_converter.html:18
+#: templates/gif_video_converter.jinja:9 templates/image_cropper.jinja:9
+#: templates/variable_input_mask.jinja:16
 msgid "Anwendungsfälle:"
 msgstr "Use Cases:"
 
@@ -687,199 +688,167 @@ msgstr "Terms and Conditions"
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
 
-#: templates/color_converter.html:4
-#: tools/color_converter/color_converter_tool.py:7
+#: templates/color_converter.html:6
+#: tools/color_converter/color_converter_tool.py:8
 msgid "Farbkonvertierer"
 msgstr "Color Converter"
 
-#: templates/color_converter.html:14
+#: templates/color_converter.html:35
 msgid "HEX:"
 msgstr "HEX:"
 
-#: templates/color_converter.html:19
+#: templates/color_converter.html:40
 msgid "RGB:"
 msgstr "RGB:"
 
-#: templates/color_converter.html:24
+#: templates/color_converter.html:45
 msgid "HSL:"
 msgstr "HSL:"
 
-#: templates/color_converter.html:29
+#: templates/color_converter.html:50
 msgid "HSV:"
 msgstr "HSV:"
 
-#: templates/color_converter.html:37
+#: templates/color_converter.html:58
 msgid "R:"
 msgstr "R:"
 
-#: templates/color_converter.html:49
+#: templates/color_converter.html:70
 msgid "G:"
 msgstr "G:"
 
-#: templates/color_converter.html:61
+#: templates/color_converter.html:82
 msgid "B:"
 msgstr "B:"
 
-#: templates/color_converter.html:73
+#: templates/color_converter.html:94
 msgid "Standardfarben"
 msgstr "Standard Colors"
 
-#: templates/color_converter.html:75
+#: templates/color_converter.html:96
 msgid "Rot"
 msgstr "Red"
 
-#: templates/color_converter.html:76
+#: templates/color_converter.html:97
 msgid "Grün"
 msgstr "Green"
 
-#: templates/color_converter.html:77
+#: templates/color_converter.html:98
 msgid "Blau"
 msgstr "Blue"
 
-#: templates/color_converter.html:78
+#: templates/color_converter.html:99
 msgid "Gelb"
 msgstr "Yellow"
 
-#: templates/color_converter.html:79
+#: templates/color_converter.html:100
 msgid "Magenta"
 msgstr "Magenta"
 
-#: templates/color_converter.html:80
+#: templates/color_converter.html:101
 msgid "Cyan"
 msgstr "Cyan"
 
-#: templates/color_converter.html:81
+#: templates/color_converter.html:102
 msgid "Weiß"
 msgstr "White"
 
-#: templates/color_converter.html:82
+#: templates/color_converter.html:103
 msgid "Schwarz"
 msgstr "Black"
 
-#: templates/color_converter.html:83
+#: templates/color_converter.html:104
 msgid "Grau"
 msgstr "Gray"
 
-#: templates/color_converter.html:84
+#: templates/color_converter.html:105
 msgid "Dunkelrot"
 msgstr "Dark Red"
 
-#: templates/color_converter.html:85
+#: templates/color_converter.html:106
 msgid "Olive"
 msgstr "Olive"
 
-#: templates/color_converter.html:86
+#: templates/color_converter.html:107
 msgid "Dunkelgrün"
 msgstr "Dark Green"
 
-#: templates/color_converter.html:87
+#: templates/color_converter.html:108
 msgid "Lila"
 msgstr "Purple"
 
-#: templates/color_converter.html:88
+#: templates/color_converter.html:109
 msgid "Petrol"
 msgstr "Teal"
 
-#: templates/color_converter.html:89
+#: templates/color_converter.html:110
 msgid "Dunkelblau"
 msgstr "Dark Blue"
 
-#: templates/color_converter.html:94
+#: templates/color_converter.html:115
 msgid "Was bedeuten diese Farbformate?"
 msgstr "What do these color formats mean?"
 
-#: templates/color_converter.html:97
-msgid "HEX-Format (Hexadezimalwert)"
-msgstr ""
+#: templates/color_converter.html:118
+msgid "HEX-Format"
+msgstr "HEX Format"
 
-#: templates/color_converter.html:98
+#: templates/color_converter.html:119
 msgid ""
 "Eine Farbnotation mit 6 Hexadezimalziffern. Beginnt mit #, gefolgt von "
 "den Werten für Rot, Grün und Blau."
 msgstr ""
+"A color notation with 6 hexadecimal digits. Starts with #, followed by "
+"the values for red, green, and blue."
 
-#: templates/color_converter.html:99
-msgid "<strong>Beispiel:</strong> #FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)"
-msgstr ""
+#: templates/color_converter.html:120 templates/color_converter.html:125
+#: templates/color_converter.html:132 templates/color_converter.html:137
+msgid "Beispiel:"
+msgstr "Example:"
 
-#: templates/color_converter.html:101
-msgid "HSL (Hue, Saturation, Lightness)"
-msgstr ""
+#: templates/color_converter.html:120
+msgid "#FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)"
+msgstr "#FF0000 is red (FF=red, 00=green, 00=blue)"
 
-#: templates/color_converter.html:102 templates/color_converter.html:113
-msgid ""
-"<strong>Hue (Farbton)</strong>: Ein Wert von 0–360° für die Farbe selbst."
-" 0° ist Rot, 120° Grün, 240° Blau usw. Stellt quasi dar, welche Farbe."
-msgstr ""
+#: templates/color_converter.html:123
+msgid "RGB-Format"
+msgstr "RGB Format"
 
-#: templates/color_converter.html:103 templates/color_converter.html:114
-msgid ""
-"<strong>Saturation (Sättigung)</strong>: Wie kräftig oder ausgewaschen "
-"die Farbe ist. 0 % = grau, 100 % = volle Farbe."
-msgstr ""
-
-#: templates/color_converter.html:104
-msgid ""
-"<strong>Lightness (Helligkeit)</strong>: Wie hell oder dunkel die Farbe "
-"ist. 0 % = schwarz, 50 % = normale Farbe, 100 % = weiß."
-msgstr ""
-
-#: templates/color_converter.html:105
-msgid ""
-"<strong>Beispiel:</strong> HSL(0, 100%, 50%) = reines Rot. HSL(0, 100%, "
-"25%) = dunkles Rot. HSL(0, 0%, 50%) = grauer Farbton (kein Rot mehr da, "
-"weil 0% Sättigung)."
-msgstr ""
-
-#: templates/color_converter.html:108
-msgid "RGB-Format (Rot, Grün, Blau)"
-msgstr ""
-
-#: templates/color_converter.html:109
+#: templates/color_converter.html:124
 msgid "Eine Farbnotation mit drei Werten (0-255) für Rot, Grün und Blau."
-msgstr ""
+msgstr "A color notation with three values (0-255) for red, green, and blue."
 
-#: templates/color_converter.html:110
-msgid "<strong>Beispiel:</strong> rgb(255, 0, 0) ist Rot"
-msgstr ""
+#: templates/color_converter.html:125
+msgid "rgb(255, 0, 0) ist Rot"
+msgstr "rgb(255, 0, 0) is red"
 
-#: templates/color_converter.html:112
-msgid "HSV (Hue, Saturation, Value)"
-msgstr ""
+#: templates/color_converter.html:130
+msgid "HSL-Format"
+msgstr "HSL Format"
 
-#: templates/color_converter.html:115
+#: templates/color_converter.html:131
 msgid ""
-"<strong>Value: 0 %</strong> = schwarz, 100 % = hellste Version der Farbe "
-"(aber kein Weiß dazugemischt wie bei HSL)"
-msgstr ""
+"Steht für Farbton (Hue), Sättigung (Saturation) und Helligkeit "
+"(Lightness)."
+msgstr "Stands for Hue, Saturation, and Lightness."
 
-#: templates/color_converter.html:116
-msgid ""
-"<strong>Beispiel:</strong> HSV(0, 100%, 100%) = leuchtendes Rot HSV(0, "
-"100%, 50%) = dunkelrot, aber kräftig (0, 0%, 50%) = grauton (weil "
-"Sättigung null)"
-msgstr ""
+#: templates/color_converter.html:132
+#, python-format
+msgid "hsl(0, 100%%, 50%%) ist Rot"
+msgstr "hsl(0, 100%%, 50%%) is red"
 
-#: templates/color_converter.html:184
-msgid "Ungültiges HEX-Format. Gültige Formate: #ABC oder #AABBCC"
-msgstr "Invalid HEX format. Valid formats: #ABC or #AABBCC"
+#: templates/color_converter.html:135
+msgid "HSV-Format"
+msgstr "HSV Format"
 
-#: templates/color_converter.html:185
-msgid "Ungültiges RGB-Format. Gültige Formate: 255, 0, 0"
-msgstr "Invalid RGB format. Valid formats: 255, 0, 0"
+#: templates/color_converter.html:136
+msgid "Steht für Farbton (Hue), Sättigung (Saturation) und Wert/Hellwert (Value)."
+msgstr "Stands for Hue, Saturation, and Value."
 
-#: templates/color_converter.html:186
-msgid "Ungültiges HSL-Format. Gültige Formate: 0, 100%, 50%"
-msgstr "Invalid HSL format. Valid formats: 0, 100%, 50%"
-
-#: templates/color_converter.html:187
-msgid "Ungültiges HSV-Format. Gültige Formate: 0, 100%, 100%"
-msgstr "Invalid HSV format. Valid formats: 0, 100%, 100%"
-
-#: templates/color_converter.html:188 templates/gif_video_converter.jinja:195
-#: tools/gif_video_converter/gif_video_converter_tool.py:42
-msgid "Die Datei ist zu groß. Maximale Größe ist 1GB."
-msgstr ""
+#: templates/color_converter.html:137
+#, python-format
+msgid "hsv(0, 100%%, 100%%) ist Rot"
+msgstr "hsv(0, 100%%, 100%%) is red"
 
 #: templates/contact.jinja:4
 msgid "Kontaktieren Sie uns"
@@ -1226,6 +1195,11 @@ msgid ""
 "<strong>WebM:</strong> Modernes, offenes Format, sehr effiziente "
 "Kompression"
 msgstr "<strong>WebM:</strong> Modern, open format, very efficient compression"
+
+#: templates/gif_video_converter.jinja:195
+#: tools/gif_video_converter/gif_video_converter_tool.py:42
+msgid "Die Datei ist zu groß. Maximale Größe ist 1GB."
+msgstr ""
 
 #: templates/image_cropper.jinja:2 tools/image_cropper/image_cropper_tool.py:11
 msgid "Bilder zuschneiden"
@@ -1723,15 +1697,23 @@ msgstr "CW"
 msgid "im Jahr"
 msgstr "in the year"
 
-#: tools/color_converter/color_converter_tool.py:13
+#: tools/color_converter/color_converter_tool.py:9
+msgid ""
+"Konvertiert Farben zwischen verschiedenen Formaten (HEX, RGB, HSL) und "
+"zeigt eine Vorschau zur Visualisierung."
+msgstr ""
+"Converts colors between different formats (HEX, RGB, HSL) and shows a "
+"preview for visualization."
+
+#: tools/color_converter/color_converter_tool.py:14
 msgid "Sie werden zum Farbkonverter weitergeleitet..."
 msgstr "You are being redirected to the Color Converter..."
 
-#: tools/color_converter/color_converter_tool.py:14
+#: tools/color_converter/color_converter_tool.py:15
 msgid "Wenn die Weiterleitung nicht funktioniert,"
 msgstr "If the redirection does not work,"
 
-#: tools/color_converter/color_converter_tool.py:15
+#: tools/color_converter/color_converter_tool.py:16
 msgid "klicken Sie hier"
 msgstr "click here"
 

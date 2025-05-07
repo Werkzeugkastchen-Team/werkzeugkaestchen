@@ -32,22 +32,22 @@
 
     <div class="color-inputs">
         <div class="input-group mb-3">
-            <span class="input-group-text">HEX:</span>
+            <span class="input-group-text">{{ _('HEX:') }}</span>
             <input type="text" id="hexInput" class="form-control" placeholder="#FF0000" value="#FF0000">
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text">RGB:</span>
+            <span class="input-group-text">{{ _('RGB:') }}</span>
             <input type="text" id="rgbInput" class="form-control" placeholder="255, 0, 0" value="255, 0, 0">
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text">HSL:</span>
+            <span class="input-group-text">{{ _('HSL:') }}</span>
             <input type="text" id="hslInput" class="form-control" placeholder="0, 100%, 50%" value="0, 100%, 50%">
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text">HSV:</span>
+            <span class="input-group-text">{{ _('HSV:') }}</span>
             <input type="text" id="hsvInput" class="form-control" placeholder="0, 100%, 100%" value="0, 100%, 100%">
         </div>
     </div>
@@ -55,7 +55,7 @@
     <div class="color-sliders mt-4">
         <div class="row mb-2">
             <div class="col-1 text-right pr-0">
-                <label for="redSlider">R:</label>
+                <label for="redSlider">{{ _('R:') }}</label>
             </div>
             <div class="col-10">
                 <input type="range" id="redSlider" class="form-range" min="0" max="255" value="255">
@@ -67,7 +67,7 @@
 
         <div class="row mb-2">
             <div class="col-1 text-right pr-0">
-                <label for="greenSlider">G:</label>
+                <label for="greenSlider">{{ _('G:') }}</label>
             </div>
             <div class="col-10">
                 <input type="range" id="greenSlider" class="form-range" min="0" max="255" value="0">
@@ -79,7 +79,7 @@
 
         <div class="row mb-4">
             <div class="col-1 text-right pr-0">
-                <label for="blueSlider">B:</label>
+                <label for="blueSlider">{{ _('B:') }}</label>
             </div>
             <div class="col-10">
                 <input type="range" id="blueSlider" class="form-range" min="0" max="255" value="0">
@@ -91,50 +91,50 @@
     </div>
 
     <div class="color-examples mt-4">
-        <h5>Standardfarben</h5>
+        <h5>{{ _('Standardfarben') }}</h5>
         <div class="d-flex flex-wrap">
-            <div class="color-swatch" style="background-color: #FF0000;" data-color="#FF0000" title="Rot"></div>
-            <div class="color-swatch" style="background-color: #00FF00;" data-color="#00FF00" title="Grün"></div>
-            <div class="color-swatch" style="background-color: #0000FF;" data-color="#0000FF" title="Blau"></div>
-            <div class="color-swatch" style="background-color: #FFFF00;" data-color="#FFFF00" title="Gelb"></div>
-            <div class="color-swatch" style="background-color: #FF00FF;" data-color="#FF00FF" title="Magenta"></div>
-            <div class="color-swatch" style="background-color: #00FFFF;" data-color="#00FFFF" title="Cyan"></div>
-            <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" data-color="#FFFFFF" title="Weiß"></div>
-            <div class="color-swatch" style="background-color: #000000;" data-color="#000000" title="Schwarz"></div>
-            <div class="color-swatch" style="background-color: #808080;" data-color="#808080" title="Grau"></div>
-            <div class="color-swatch" style="background-color: #800000;" data-color="#800000" title="Dunkelrot"></div>
-            <div class="color-swatch" style="background-color: #808000;" data-color="#808000" title="Olive"></div>
-            <div class="color-swatch" style="background-color: #008000;" data-color="#008000" title="Dunkelgrün"></div>
-            <div class="color-swatch" style="background-color: #800080;" data-color="#800080" title="Lila"></div>
-            <div class="color-swatch" style="background-color: #008080;" data-color="#008080" title="Petrol"></div>
-            <div class="color-swatch" style="background-color: #000080;" data-color="#000080" title="Dunkelblau"></div>
+            <div class="color-swatch" style="background-color: #FF0000;" data-color="#FF0000" title="{{ _('Rot') }}"></div>
+            <div class="color-swatch" style="background-color: #00FF00;" data-color="#00FF00" title="{{ _('Grün') }}"></div>
+            <div class="color-swatch" style="background-color: #0000FF;" data-color="#0000FF" title="{{ _('Blau') }}"></div>
+            <div class="color-swatch" style="background-color: #FFFF00;" data-color="#FFFF00" title="{{ _('Gelb') }}"></div>
+            <div class="color-swatch" style="background-color: #FF00FF;" data-color="#FF00FF" title="{{ _('Magenta') }}"></div>
+            <div class="color-swatch" style="background-color: #00FFFF;" data-color="#00FFFF" title="{{ _('Cyan') }}"></div>
+            <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;" data-color="#FFFFFF" title="{{ _('Weiß') }}"></div>
+            <div class="color-swatch" style="background-color: #000000;" data-color="#000000" title="{{ _('Schwarz') }}"></div>
+            <div class="color-swatch" style="background-color: #808080;" data-color="#808080" title="{{ _('Grau') }}"></div>
+            <div class="color-swatch" style="background-color: #800000;" data-color="#800000" title="{{ _('Dunkelrot') }}"></div>
+            <div class="color-swatch" style="background-color: #808000;" data-color="#808000" title="{{ _('Olive') }}"></div>
+            <div class="color-swatch" style="background-color: #008000;" data-color="#008000" title="{{ _('Dunkelgrün') }}"></div>
+            <div class="color-swatch" style="background-color: #800080;" data-color="#800080" title="{{ _('Lila') }}"></div>
+            <div class="color-swatch" style="background-color: #008080;" data-color="#008080" title="{{ _('Petrol') }}"></div>
+            <div class="color-swatch" style="background-color: #000080;" data-color="#000080" title="{{ _('Dunkelblau') }}"></div>
         </div>
     </div>
 
     <div class="mt-4">
-        <h5>Was bedeuten diese Farbformate?</h5>
+        <h5>{{ _('Was bedeuten diese Farbformate?') }}</h5>
         <div class="row">
             <div class="col-md-6">
-                <h6>HEX-Format</h6>
-                <p>Eine Farbnotation mit 6 Hexadezimalziffern. Beginnt mit #, gefolgt von den Werten für Rot, Grün und Blau.</p>
-                <p><strong>Beispiel:</strong> #FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)</p>
+                <h6>{{ _('HEX-Format') }}</h6>
+                <p>{{ _('Eine Farbnotation mit 6 Hexadezimalziffern. Beginnt mit #, gefolgt von den Werten für Rot, Grün und Blau.') }}</p>
+                <p><strong>{{ _('Beispiel:') }}</strong> {{ _('#FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)') | safe }}</p>
             </div>
             <div class="col-md-6">
-                <h6>RGB-Format</h6>
-                <p>Eine Farbnotation mit drei Werten (0-255) für Rot, Grün und Blau.</p>
-                <p><strong>Beispiel:</strong> rgb(255, 0, 0) ist Rot</p>
+                <h6>{{ _('RGB-Format') }}</h6>
+                <p>{{ _('Eine Farbnotation mit drei Werten (0-255) für Rot, Grün und Blau.') }}</p>
+                <p><strong>{{ _('Beispiel:') }}</strong> {{ _('rgb(255, 0, 0) ist Rot') | safe }}</p>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-6">
-                <h6>HSL-Format</h6>
-                <p>Steht für Farbton (Hue), Sättigung (Saturation) und Helligkeit (Lightness).</p>
-                <p><strong>Beispiel:</strong> hsl(0, 100%, 50%) ist Rot</p>
+                <h6>{{ _('HSL-Format') }}</h6>
+                <p>{{ _('Steht für Farbton (Hue), Sättigung (Saturation) und Helligkeit (Lightness).') }}</p>
+                <p><strong>{{ _('Beispiel:') }}</strong> {{ _('hsl(0, 100%%, 50%%) ist Rot') | safe }}</p>
             </div>
             <div class="col-md-6">
-                <h6>HSV-Format</h6>
-                <p>Steht für Farbton (Hue), Sättigung (Saturation) und Wert/Hellwert (Value).</p>
-                <p><strong>Beispiel:</strong> hsv(0, 100%, 100%) ist Rot</p>
+                <h6>{{ _('HSV-Format') }}</h6>
+                <p>{{ _('Steht für Farbton (Hue), Sättigung (Saturation) und Wert/Hellwert (Value).') }}</p>
+                <p><strong>{{ _('Beispiel:') }}</strong> {{ _('hsv(0, 100%%, 100%%) ist Rot') | safe }}</p>
             </div>
         </div>
     </div>
