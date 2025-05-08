@@ -28,6 +28,7 @@ from tools.color_converter.color_converter_tool import ColorConverterTool
 from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
 from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
+from tools.text_summary.text_summary_tool import TextSummaryTool
 from tools.pdf_merge.pdf_merge_tool import PdfMergeTool
 
 
@@ -82,7 +83,8 @@ tools = {
     "WhisperSubtitleTool": WhisperSubtitleTool(),
     "PdfSplitTool": PdfSplitTool(),
     "GifVideoConverterTool": GifVideoConverterTool(),
-    "PdfMergeTool": PdfMergeTool(),
+    "TextSummaryTool": TextSummaryTool(),
+    "PdfMergeTool": PdfMergeTool()
 }
 
 
