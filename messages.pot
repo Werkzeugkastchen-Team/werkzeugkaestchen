@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-07 21:10+0200\n"
+"POT-Creation-Date: 2025-05-08 09:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -634,7 +634,7 @@ msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr ""
 
 #: templates/color_converter.html:6
-#: tools/color_converter/color_converter_tool.py:8
+#: tools/color_converter/color_converter_tool.py:7
 msgid "Farbkonvertierer"
 msgstr ""
 
@@ -1605,21 +1605,21 @@ msgstr ""
 msgid "im Jahr"
 msgstr ""
 
-#: tools/color_converter/color_converter_tool.py:9
+#: tools/color_converter/color_converter_tool.py:8
 msgid ""
 "Konvertiert Farben zwischen verschiedenen Formaten (HEX, RGB, HSL) und "
 "zeigt eine Vorschau zur Visualisierung."
 msgstr ""
 
-#: tools/color_converter/color_converter_tool.py:14
+#: tools/color_converter/color_converter_tool.py:13
 msgid "Sie werden zum Farbkonverter weitergeleitet..."
 msgstr ""
 
-#: tools/color_converter/color_converter_tool.py:15
+#: tools/color_converter/color_converter_tool.py:14
 msgid "Wenn die Weiterleitung nicht funktioniert,"
 msgstr ""
 
-#: tools/color_converter/color_converter_tool.py:16
+#: tools/color_converter/color_converter_tool.py:15
 msgid "klicken Sie hier"
 msgstr ""
 
@@ -2346,20 +2346,20 @@ msgstr ""
 msgid "Anzahl Würfe zu hoch."
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:20
+#: tools/text_summary/text_summary_tool.py:30
 msgid "Text zusammenfassen Tool"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:22
-#: tools/text_summary/text_summary_tool.py:40
+#: tools/text_summary/text_summary_tool.py:32
+#: tools/text_summary/text_summary_tool.py:50
 #: tools/text_to_speech/text_to_speech_tool.py:21
 #: tools/text_to_speech/text_to_speech_tool.py:27
 #: tools/text_to_speech/text_to_speech_tool.py:31
 msgid "Text"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:23
-#: tools/text_summary/text_summary_tool.py:49
+#: tools/text_summary/text_summary_tool.py:33
+#: tools/text_summary/text_summary_tool.py:59
 #: tools/text_to_speech/text_to_speech_tool.py:21
 #: tools/text_to_speech/text_to_speech_tool.py:27
 #: tools/text_to_speech/text_to_speech_tool.py:32
@@ -2369,20 +2369,20 @@ msgstr ""
 msgid "Sprache"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:27
-#: tools/text_summary/text_summary_tool.py:50
+#: tools/text_summary/text_summary_tool.py:37
+#: tools/text_summary/text_summary_tool.py:60
 msgid "Model"
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:32
+#: tools/text_summary/text_summary_tool.py:42
 msgid "Fasst Texte mithilfe von Sprachmodellen (LLMs) zusammen."
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:42
+#: tools/text_summary/text_summary_tool.py:52
 msgid "Der Eingabetext ist leer oder ungültig."
 msgstr ""
 
-#: tools/text_summary/text_summary_tool.py:46
+#: tools/text_summary/text_summary_tool.py:56
 msgid "Der Eingabetext is zu lang."
 msgstr ""
 
