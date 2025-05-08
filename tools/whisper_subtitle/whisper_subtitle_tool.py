@@ -2,6 +2,7 @@ import os
 import subprocess
 import tempfile
 from enum import Enum
+from flask_babel import lazy_gettext as _
 
 import torch
 import base64 # Added import
@@ -34,36 +35,45 @@ class ModelSize(Enum):
 class WhisperSubtitleTool(MiniTool):
     def __init__(self):
         super().__init__(
-            name="Whisper Subtitle",
+            name=_("Whisper Subtitle"),
             identifier="WhisperSubtitleTool"
         )
-        self.description = "Generates subtitles (SRT) for an audio/video file using Whisper." # Updated description
+        self.description = _("Generiert Untertitel (SRT) für eine Audio-/Videodatei mit Whisper.")
         self.input_params = {
-            "input_file": "file",
-            "language": {
+            _("Eingabedatei"): "file",
+            _("Sprache"): {
                 "type": "enum",
                 "options": list(LANGUAGES.values()) # Use full language names from the imported dict
             },
-            "model_size": {
+            _("Modellgröße"): {
                 "type": "enum",
                 "options": [e.value for e in ModelSize] # Get values from ModelSize enum
             },
-            "task": {
+            _("Aufgabe"): {
                 "type": "enum",
                 "options": [e.value for e in Task] # Get values from Task enum
             }
         }
+        
+        # Extract translatable strings for HTML
+        self.subtitle_file_header = _("Untertiteldatei")
+        self.subtitle_success = _("Untertitel erfolgreich generiert.")
+        self.download_button = _("SRT-Datei herunterladen")
+        self.details_header = _("Details")
+        self.input_file_label = _("Eingabedatei:")
+        self.language_label = _("Sprache:")
+        self.model_size_label = _("Modellgröße:")
+        self.task_label = _("Aufgabe:")
 
     def execute_tool(self, input_params: dict) -> bool:
         try:
-            input_file = input_params.get("input_file")
-            language = input_params.get("language")
-            model_size = input_params.get("model_size")
-            task = input_params.get("task")
-            # Removed embed_subtitles
+            input_file = input_params.get(_("Eingabedatei"))
+            language = input_params.get(_("Sprache"))
+            model_size = input_params.get(_("Modellgröße"))
+            task = input_params.get(_("Aufgabe"))
 
             if not input_file:
-                self.error_message = "No input file provided."
+                self.error_message = _("Keine Eingabedatei angegeben.")
                 return False
 
             # Handle different input types: string path, dictionary (from Flask), or object with 'name'
@@ -79,12 +89,12 @@ class WhisperSubtitleTool(MiniTool):
 
             # Validate that we obtained a valid path string
             if not input_file_cleared or not isinstance(input_file_cleared, str):
-                self.error_message = "Could not determine input file path from provided input."
+                self.error_message = _("Eingabedateipfad konnte nicht ermittelt werden.")
                 return False
 
             # Validate input file existence
             if not os.path.exists(input_file_cleared):
-                self.error_message = f"Input file '{input_file_cleared}' does not exist."
+                self.error_message = _("Eingabedatei '{0}' existiert nicht.").format(input_file_cleared)
                 return False
 
             print("gpu available: " + str(torch.cuda.is_available()))
@@ -102,7 +112,7 @@ class WhisperSubtitleTool(MiniTool):
             temp_dir = str(tempfile.gettempdir())
             audio = whisper.load_audio(input_file_cleared)
             if audio is None or len(audio) == 0:
-                self.error_message = f"Failed to load audio data from '{input_file_cleared}'"
+                self.error_message = _("Audio-Daten konnten nicht aus '{0}' geladen werden").format(input_file_cleared)
                 return False
 
             writer = get_writer("srt", temp_dir)
@@ -121,7 +131,7 @@ class WhisperSubtitleTool(MiniTool):
                 # Clean up temporary SRT file after reading
                 os.remove(srt_file)
             except Exception as e:
-                self.error_message = f"Failed to read or encode SRT file: {e}"
+                self.error_message = _("SRT-Datei konnte nicht gelesen oder kodiert werden:") + f" {e}"
                 return False
 
             # Construct HTML output
@@ -132,14 +142,14 @@ class WhisperSubtitleTool(MiniTool):
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header bg-primary text-white">
-                                <h5 class="mb-0">Subtitle File</h5>
+                                <h5 class="mb-0">{self.subtitle_file_header}</h5>
                             </div>
                             <div class="card-body text-center">
-                                <p>Subtitles generated successfully.</p>
+                                <p>{self.subtitle_success}</p>
                                 <div class="mt-3">
                                     <a href="data:text/plain;charset=utf-8;base64,{srt_base64}"
                                        download="{download_filename}" class="fancy-button">
-                                       Download SRT File
+                                       {self.download_button}
                                     </a>
                                 </div>
                             </div>
@@ -148,25 +158,25 @@ class WhisperSubtitleTool(MiniTool):
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header bg-info text-white">
-                                <h5 class="mb-0">Details</h5>
+                                <h5 class="mb-0">{self.details_header}</h5>
                             </div>
                             <div class="card-body">
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <th>Input File:</th>
+                                            <th>{self.input_file_label}</th>
                                             <td>{input_filename}</td>
                                         </tr>
                                         <tr>
-                                            <th>Language:</th>
+                                            <th>{self.language_label}</th>
                                             <td>{language}</td>
                                         </tr>
                                         <tr>
-                                            <th>Model Size:</th>
+                                            <th>{self.model_size_label}</th>
                                             <td>{model_size}</td>
                                         </tr>
                                         <tr>
-                                            <th>Task:</th>
+                                            <th>{self.task_label}</th>
                                             <td>{task}</td>
                                         </tr>
                                     </tbody>
@@ -197,18 +207,17 @@ if __name__ == "__main__":
              f.write("dummy content") # Whisper might fail, but tests path handling
 
     input_params = {
-        "input_file": dummy_file_path, # Use dummy file or replace with a real one
-        "language": "english",
-        "model_size": "tiny",
-        "task": "transcribe",
-        # embed_subtitles removed
+        _("Eingabedatei"): dummy_file_path, # Use dummy file or replace with a real one
+        _("Sprache"): "english",
+        _("Modellgröße"): "tiny",
+        _("Aufgabe"): "transcribe",
     }
     # Example with dictionary input
     # input_params = {
-    #     "input_file": {'file_path': dummy_file_path, 'filename': 'dummy_audio.mp3'},
-    #     "language": "english",
-    #     "model_size": "tiny",
-    #     "task": "transcribe",
+    #     _("Eingabedatei"): {'file_path': dummy_file_path, 'filename': 'dummy_audio.mp3'},
+    #     _("Sprache"): "english",
+    #     _("Modellgröße"): "tiny",
+    #     _("Aufgabe"): "transcribe",
     # }
 
     success = tool.execute_tool(input_params)

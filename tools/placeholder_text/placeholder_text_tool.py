@@ -1,21 +1,19 @@
+from flask_babel import lazy_gettext as _
 from tool_interface import MiniTool
 
 class PlaceholderTextTool(MiniTool):
-    name = "Platzhalter-Text Generator"
-    description = "Platzhalter-Text Generator"
-
     def __init__(self):
-        super().__init__("Platzhalter-Text Generator", "PlaceholderTextTool")
+        super().__init__(_("Platzhalter-Text Generator"), "PlaceholderTextTool")
         self.input_params = {
-            "length": {
-                "name": "Textlänge",
+            _("Textlänge"): {
                 "type": "number",
                 "required": True,
                 "min": 1,
                 "max": 1000,
-                "placeholder": "Anzahl der Wörter (1-1000)"
+                "placeholder": _("Anzahl der Wörter (1-1000)")
             }
         }
+        self.description = _("Generiert Lorem Ipsum Platzhaltertext in der gewünschten Länge")
 
         self.lorem_words = [
             "Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", 
@@ -27,16 +25,21 @@ class PlaceholderTextTool(MiniTool):
             "cillum", "dolore", "eu", "fugiat", "nulla", "pariatur"
         ]
 
+        # Extract translatable strings for HTML
+        self.copy_text = _("Kopieren")
+        self.copied_text = _("Kopiert!")
+        self.copy_error_text = _("Fehler beim Kopieren:")
+
     def execute_tool(self, input_params):
         try:
-            if "length" not in input_params:
-                self.error_message = "Bitte geben Sie eine gültige Zahl ein."
+            if _("Textlänge") not in input_params:
+                self.error_message = _("Bitte geben Sie eine gültige Zahl ein.")
                 return False
 
-            length = int(input_params.get("length"))
+            length = int(input_params.get(_("Textlänge")))
 
             if length <= 0 or length > 1000:
-                self.error_message = "Bitte geben Sie eine Zahl zwischen 1 und 1000 ein."
+                self.error_message = _("Bitte geben Sie eine Zahl zwischen 1 und 1000 ein.")
                 return False
 
             words = []
@@ -50,7 +53,7 @@ class PlaceholderTextTool(MiniTool):
             <div class="generated-text-container">
                 <p id="generatedText">{text}</p>
                 <button onclick="copyText()" class="btn btn-secondary copy-btn">
-                    <i class="fas fa-copy"></i> Kopieren
+                    <i class="fas fa-copy"></i> {self.copy_text}
                 </button>
             </div>
 
@@ -60,17 +63,17 @@ class PlaceholderTextTool(MiniTool):
                 const copyBtn = document.querySelector('.copy-btn');
                 
                 navigator.clipboard.writeText(text).then(() => {{
-                    copyBtn.innerHTML = '<i class="fas fa-check"></i> Kopiert!';
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> {self.copied_text}';
                     copyBtn.classList.add('btn-success');
                     copyBtn.classList.remove('btn-secondary');
                     
                     setTimeout(() => {{
-                        copyBtn.innerHTML = '<i class="fas fa-copy"></i> Kopieren';
+                        copyBtn.innerHTML = '<i class="fas fa-copy"></i> {self.copy_text}';
                         copyBtn.classList.remove('btn-success');
                         copyBtn.classList.add('btn-secondary');
                     }}, 2000);
                 }}).catch(err => {{
-                    alert('Fehler beim Kopieren: ' + err);
+                    alert('{self.copy_error_text} ' + err);
                 }});
             }}
             </script>
@@ -102,8 +105,8 @@ class PlaceholderTextTool(MiniTool):
             return True
 
         except ValueError:
-            self.error_message = "Bitte geben Sie eine gültige Zahl ein."
+            self.error_message = _("Bitte geben Sie eine gültige Zahl ein.")
             return False
         except Exception as e:
-            self.error_message = f"Ein Fehler ist aufgetreten: {str(e)}"
+            self.error_message = _("Ein Fehler ist aufgetreten:") + f" {str(e)}"
             return False

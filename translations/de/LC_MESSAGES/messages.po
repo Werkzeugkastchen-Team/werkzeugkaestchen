@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-24 18:45+0200\n"
+"POT-Creation-Date: 2025-05-07 21:10+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -18,95 +18,1164 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: templates/base.html:29 templates/base.html:57 templates/base.html:65
+#: tool_descriptions.py:7
+msgid ""
+"Konvertiert Text oder Dateien in das Base64-Format. Ideal für die sichere"
+" Übertragung von Binärdaten in textbasierten Systemen wie E-Mail oder "
+"HTTP."
+msgstr ""
+
+#: tool_descriptions.py:8
+msgid "Einbettung von Bildern in HTML/CSS"
+msgstr ""
+
+#: tool_descriptions.py:8
+msgid "Codierung binärer Daten für API-Übertragungen"
+msgstr ""
+
+#: tool_descriptions.py:8
+msgid "Sichere Übermittlung von Zeichen, die in URLs problematisch sein können"
+msgstr ""
+
+#: tool_descriptions.py:11
+msgid ""
+"Decodiert Base64-kodierte Daten zurück in ihre ursprüngliche Form (Text "
+"oder Binärdaten). Nützlich zum Entschlüsseln von Base64-Inhalten."
+msgstr ""
+
+#: tool_descriptions.py:12
+msgid "Extraktion von Daten aus API-Antworten"
+msgstr ""
+
+#: tool_descriptions.py:12
+msgid "Wiederherstellen von Binärdateien aus Base64-Text"
+msgstr ""
+
+#: tool_descriptions.py:12
+msgid "Analyse kodierter Inhalte"
+msgstr ""
+
+#: tool_descriptions.py:15
+msgid ""
+"Berechnet die Größe von Dateien in verschiedenen Einheiten (Bytes, KB, "
+"MB, GB). Hilft bei der Einschätzung von Speicheranforderungen."
+msgstr ""
+
+#: tool_descriptions.py:16
+msgid "Überprüfung von Upload-Größen"
+msgstr ""
+
+#: tool_descriptions.py:16
+msgid "Planung von Speicherkapazitäten"
+msgstr ""
+
+#: tool_descriptions.py:16
+msgid "Optimierung von Dateien für Web-Anwendungen"
+msgstr ""
+
+#: tool_descriptions.py:19
+msgid ""
+"Erstellt QR-Codes aus Text, URLs oder anderen Daten. Ideal für "
+"kontaktlose Informationsübermittlung und schnellen Datenzugriff über "
+"mobile Geräte."
+msgstr ""
+
+#: tool_descriptions.py:20
+msgid "Erstellung von Kontaktinformationen zum Scannen"
+msgstr ""
+
+#: tool_descriptions.py:20
+msgid "Generierung von Website-Links für Print-Materialien"
+msgstr ""
+
+#: tool_descriptions.py:20
+msgid "Entwicklung von kontaktlosen Zahlungslösungen"
+msgstr ""
+
+#: tool_descriptions.py:23
+msgid ""
+"Konvertiert Zahlen zwischen verschiedenen Zahlensystemen (Dezimal, Binär,"
+" Hexadezimal, Oktal). Unverzichtbar für Programmierer und IT-"
+"Spezialisten."
+msgstr ""
+
+#: tool_descriptions.py:24
+msgid "Umrechnung für Programmieraufgaben"
+msgstr ""
+
+#: tool_descriptions.py:24
+msgid "Analyse von Speicheradressen"
+msgstr ""
+
+#: tool_descriptions.py:24
+msgid "Arbeit mit Farbcodes und anderen hexadezimalen Werten"
+msgstr ""
+
+#: tool_descriptions.py:27
+msgid ""
+"Wandelt Bilder zwischen verschiedenen Formaten um (JPG, PNG, WebP, etc.) "
+"und ermöglicht die Anpassung von Qualität und Größe."
+msgstr ""
+
+#: tool_descriptions.py:28
+msgid "Optimierung von Bildern für Websites"
+msgstr ""
+
+#: tool_descriptions.py:28
+msgid "Anpassung an spezifische Formatanforderungen"
+msgstr ""
+
+#: tool_descriptions.py:28
+msgid "Konvertierung für bessere Kompatibilität"
+msgstr ""
+
+#: tool_descriptions.py:31
+msgid ""
+"Zählt Wörter, Zeichen und Absätze in einem Text. Perfekt für Autoren, "
+"SEO-Experten und Content-Ersteller zur Analyse von Textinhalten."
+msgstr ""
+
+#: tool_descriptions.py:32
+msgid "Überprüfung von Texten auf Längenanforderungen"
+msgstr ""
+
+#: tool_descriptions.py:32
+msgid "Analyse von Dokumenten"
+msgstr ""
+
+#: tool_descriptions.py:32
+msgid "Optimierung von SEO-Content"
+msgstr ""
+
+#: tool_descriptions.py:35
+msgid ""
+"Erstellt sichere, zufällige Passwörter mit anpassbarer Länge und "
+"Zeichensatz-Optionen. Erhöht die Sicherheit Ihrer Online-Konten."
+msgstr ""
+
+#: tool_descriptions.py:36
+msgid "Generierung sicherer Zugangsdaten"
+msgstr ""
+
+#: tool_descriptions.py:36
+msgid "Erstellung von API-Schlüsseln"
+msgstr ""
+
+#: tool_descriptions.py:36
+msgid "Verbesserung der Kontosicherheit"
+msgstr ""
+
+#: tool_descriptions.py:39
+msgid ""
+"Berechnet Kalenderwochen für beliebige Daten nach ISO-8601 Standard. "
+"Hilfreich für Projektplanung und Terminkoordination."
+msgstr ""
+
+#: tool_descriptions.py:40
+msgid "Planung nach Kalenderwochen"
+msgstr ""
+
+#: tool_descriptions.py:40
+msgid "Berechnung von Projektzeitleisten"
+msgstr ""
+
+#: tool_descriptions.py:40
+msgid "Analyse von saisonalen Trends"
+msgstr ""
+
+#: tool_descriptions.py:43
+msgid ""
+"Ermöglicht präzises Zuschneiden von Bildern durch Auswahl des gewünschten"
+" Bereichs. Ideal für Profilbilder oder fokussierte Bildausschnitte."
+msgstr ""
+
+#: tool_descriptions.py:44
+msgid "Anpassung von Bildern für soziale Medien"
+msgstr ""
+
+#: tool_descriptions.py:44
+msgid "Erstellung einheitlicher Produktbilder"
+msgstr ""
+
+#: tool_descriptions.py:44
+msgid "Fokussierung auf relevante Bildbereiche"
+msgstr ""
+
+#: tool_descriptions.py:47
+msgid ""
+"Erzeugt Zufallszahlen in einem definierbaren Bereich mit Optionen für "
+"Duplikate und Sortierung. Perfekt für Auslosungen und statistische "
+"Zwecke."
+msgstr ""
+
+#: tool_descriptions.py:48
+msgid "Durchführung von Verlosungen"
+msgstr ""
+
+#: tool_descriptions.py:48
+msgid "Erstellung von Test-Datensätzen"
+msgstr ""
+
+#: tool_descriptions.py:48
+msgid "Simulation von Zufallsprozessen"
+msgstr ""
+
+#: tool_descriptions.py:51
+msgid ""
+"Konvertiert Audiodateien zwischen verschiedenen Formaten (MP3, WAV, AAC, "
+"FLAC) unter Beibehaltung der Audioqualität."
+msgstr ""
+
+#: tool_descriptions.py:52
+msgid "Anpassung an Gerätekompatibilität"
+msgstr ""
+
+#: tool_descriptions.py:52
+msgid "Optimierung der Dateigröße"
+msgstr ""
+
+#: tool_descriptions.py:52
+msgid "Vorbereitung von Audio für verschiedene Plattformen"
+msgstr ""
+
+#: tool_descriptions.py:55
+msgid ""
+"Wandelt geschriebenen Text in natürlich klingende Sprache um. Unterstützt"
+" verschiedene Sprachen und Stimmoptionen."
+msgstr ""
+
+#: tool_descriptions.py:56
+msgid "Erstellung von Audio-Content"
+msgstr ""
+
+#: tool_descriptions.py:56
+msgid "Barrierefreiheit für sehbehinderte Nutzer"
+msgstr ""
+
+#: tool_descriptions.py:56
+msgid "Entwicklung von Sprachassistenten"
+msgstr ""
+
+#: tool_descriptions.py:59
+msgid ""
+"Konvertiert zwischen menschenlesbaren Datumsformaten und Unix-"
+"Zeitstempeln. Essentiell für Entwickler und Systemadministratoren."
+msgstr ""
+
+#: tool_descriptions.py:60
+msgid "Fehlersuche in Logs"
+msgstr ""
+
+#: tool_descriptions.py:60
+msgid "Zeitberechnung in Anwendungen"
+msgstr ""
+
+#: tool_descriptions.py:60
+msgid "Planung von zeitgesteuerten Aufgaben"
+msgstr ""
+
+#: tool_descriptions.py:63
+msgid ""
+"Vergleicht zwei Texte und hebt Unterschiede hervor. Ideal für die "
+"Überprüfung von Änderungen in Dokumenten oder Code."
+msgstr ""
+
+#: tool_descriptions.py:64
+msgid "Vergleich von Vertragsentwürfen"
+msgstr ""
+
+#: tool_descriptions.py:64
+msgid "Identifikation von Änderungen in Texten"
+msgstr ""
+
+#: tool_descriptions.py:64
+msgid "Code-Review und Dokumentenprüfung"
+msgstr ""
+
+#: tool_descriptions.py:67
+msgid ""
+"Überprüft JSON-Daten auf syntaktische Korrektheit und Validität. "
+"Hilfreich für Entwickler bei der Arbeit mit APIs und Datenaustausch."
+msgstr ""
+
+#: tool_descriptions.py:68
+msgid "Validierung von API-Antworten"
+msgstr ""
+
+#: tool_descriptions.py:68
+msgid "Fehlersuche in JSON-Daten"
+msgstr ""
+
+#: tool_descriptions.py:68
+msgid "Test von Datenstrukturen"
+msgstr ""
+
+#: tool_descriptions.py:71
+msgid ""
+"Formatiert JSON-Daten für bessere Lesbarkeit mit Einrückungen und "
+"strukturierter Darstellung. Erleichtert die Analyse komplexer "
+"Datenstrukturen."
+msgstr ""
+
+#: tool_descriptions.py:72
+msgid "Übersichtliche Darstellung von API-Antworten"
+msgstr ""
+
+#: tool_descriptions.py:72
+msgid "Vorbereitung von JSON für Dokumentation"
+msgstr ""
+
+#: tool_descriptions.py:72
+msgid "Verbesserung der Lesbarkeit von Konfigurationsdateien"
+msgstr ""
+
+#: tool_descriptions.py:75
+msgid ""
+"Wandelt Werte zwischen verschiedenen Maßeinheiten um (Länge, Gewicht, "
+"Temperatur, etc.). Präzise und zuverlässige Konvertierungen für "
+"alltägliche und technische Anwendungen."
+msgstr ""
+
+#: tool_descriptions.py:76
+msgid "Umrechnung für internationale Projekte"
+msgstr ""
+
+#: tool_descriptions.py:76
+msgid "Wissenschaftliche Berechnungen"
+msgstr ""
+
+#: tool_descriptions.py:76
+msgid "Anpassung von Rezepten und Anleitungen"
+msgstr ""
+
+#: tool_descriptions.py:79
+msgid ""
+"Berechnet Zeiträume zwischen Daten oder addiert/subtrahiert Tage zu einem"
+" Datum. Perfekt für Projekt- und Eventplanung."
+msgstr ""
+
+#: tool_descriptions.py:80
+msgid "Berechnung von Projektlaufzeiten"
+msgstr ""
+
+#: tool_descriptions.py:80
+msgid "Planung von Terminen und Fristen"
+msgstr ""
+
+#: tool_descriptions.py:80
+msgid "Analyse von Zeiträumen"
+msgstr ""
+
+#: tool_descriptions.py:83
+msgid ""
+"Generiert Platzhaltertext (Lorem Ipsum) für Design- und Layoutzwecke. "
+"Ideal für die Gestaltung von Webseiten, Dokumenten und Präsentationen."
+msgstr ""
+
+#: tool_descriptions.py:84
+msgid "Vorschau von Webseitenlayouts"
+msgstr ""
+
+#: tool_descriptions.py:84
+msgid "Gestaltung von Druckmaterialien"
+msgstr ""
+
+#: tool_descriptions.py:84
+msgid "Erstellung von Design-Mockups"
+msgstr ""
+
+#: tool_descriptions.py:87
+msgid ""
+"Konvertiert Farben zwischen verschiedenen Formaten wie HEX, RGB, HSL und "
+"HSV mit interaktiver Vorschau. Ideal für Web-Entwicklung und Design."
+msgstr ""
+
+#: tool_descriptions.py:88
+msgid "Anpassung von Farbwerten für CSS"
+msgstr ""
+
+#: tool_descriptions.py:88
+msgid "Erstellung konsistenter Farbpaletten"
+msgstr ""
+
+#: tool_descriptions.py:88
+msgid "Umwandlung zwischen verschiedenen Farbnotationen"
+msgstr ""
+
+#: tool_descriptions.py:91
+msgid ""
+"Konvertiert zwischen GIF-Animationen und Videoformaten. Ermöglicht die "
+"Optimierung von animierten Inhalten für verschiedene Plattformen."
+msgstr ""
+
+#: tool_descriptions.py:92
+msgid "Erstellung von GIFs aus Videos für soziale Medien"
+msgstr ""
+
+#: tool_descriptions.py:92
+msgid "Umwandlung von GIFs in Videos für bessere Qualität"
+msgstr ""
+
+#: tool_descriptions.py:92
+msgid "Optimierung von Animationen für Web"
+msgstr ""
+
+#: tool_descriptions.py:95
+msgid ""
+"Generiert automatisch Untertitel für Videos mithilfe von KI-basierter "
+"Spracherkennung. Verbessert die Zugänglichkeit und Nutzererfahrung von "
+"Videocontent."
+msgstr ""
+
+#: tool_descriptions.py:96
+msgid "Erstellung barrierefreier Videos"
+msgstr ""
+
+#: tool_descriptions.py:96
+msgid "Übersetzung von Videoinhalten"
+msgstr ""
+
+#: tool_descriptions.py:96
+msgid "Verbesserung der SEO für Videokanäle"
+msgstr ""
+
+#: tool_descriptions.py:99
+msgid ""
+"Teilt PDF-Dokumente in einzelne Seiten oder Abschnitte. Ideal für die "
+"Extraktion spezifischer Informationen aus umfangreichen Dokumenten."
+msgstr ""
+
+#: tool_descriptions.py:100
+msgid "Aufteilung von großen Berichten"
+msgstr ""
+
+#: tool_descriptions.py:100
+msgid "Extraktion relevanter Seiten"
+msgstr ""
+
+#: tool_descriptions.py:100
+msgid "Organisation von Dokumenten nach Themen"
+msgstr ""
+
+#: tool_descriptions.py:103
+msgid ""
+"Kombiniert mehrere PDF-Dateien zu einem einzigen Dokument. Perfekt für "
+"die Erstellung umfassender Berichte oder die Zusammenführung verwandter "
+"Dokumente."
+msgstr ""
+
+#: tool_descriptions.py:104
+msgid "Zusammenstellung von Unterlagen"
+msgstr ""
+
+#: tool_descriptions.py:104
+msgid "Erstellung von Handbüchern aus Einzeldokumenten"
+msgstr ""
+
+#: tool_descriptions.py:104
+msgid "Organisation von digitalem Papierkram"
+msgstr ""
+
+#: tool_descriptions.py:111
+msgid "Keine Beschreibung verfügbar."
+msgstr ""
+
+#: templates/about.jinja:3 templates/base.html:29 templates/base.html:60
+#: templates/base.html:68
 msgid "Über uns"
 msgstr ""
 
-#: templates/base.html:32 templates/base.html:66
+#: templates/about.jinja:6 templates/about.jinja:22
+msgid "Unser Team"
+msgstr ""
+
+#: templates/about.jinja:10
+msgid ""
+"Wusstet ihr, dass unser Team ein bisschen wie die Pinguine aus Madagascar"
+" ist? 🐧🐧🐧🐧🐧🐧 Wir sehen vielleicht aus wie ein normales Entwicklerteam, "
+"aber hinter den Kulissen laufen unsere Tools wie eine geheime Operation "
+"ab!"
+msgstr ""
+
+#: templates/about.jinja:13
+msgid "Skipper 🦾"
+msgstr ""
+
+#: templates/about.jinja:13
+msgid ""
+"unser Chefentwickler, der immer einen Plan hat („Lächeln und winken, "
+"Jungs!\")."
+msgstr ""
+
+#: templates/about.jinja:14
+msgid "Kowalski 🧠"
+msgstr ""
+
+#: templates/about.jinja:14
+msgid ""
+"der Analytiker, der Bugs schneller löst als du „JSON-Fehler\" sagen "
+"kannst."
+msgstr ""
+
+#: templates/about.jinja:15
+msgid "Rico 💥"
+msgstr ""
+
+#: templates/about.jinja:15
+msgid ""
+"unser Code-Zerstörer (…und Fixer), der neue Features im Sekundentakt "
+"raushaut."
+msgstr ""
+
+#: templates/about.jinja:16
+msgid "Private 😊"
+msgstr ""
+
+#: templates/about.jinja:16
+msgid ""
+"unser Support, immer freundlich, aber unterschätze ihn nicht – er kann "
+"dein Problem lösen, bevor du es selbst verstehst!"
+msgstr ""
+
+#: templates/about.jinja:17
+msgid "Pinguin 1 1️⃣"
+msgstr ""
+
+#: templates/about.jinja:17
+msgid ""
+"Einer der vergessenden Pinguine, er war immer da auch wenn man es nicht "
+"wahrhaben will."
+msgstr ""
+
+#: templates/about.jinja:18
+msgid "Pinguin 2 2️⃣"
+msgstr ""
+
+#: templates/about.jinja:18
+msgid "Keine ahnung wer das ist."
+msgstr ""
+
+#: templates/about.jinja:27
+msgid "Unsere Mission"
+msgstr ""
+
+#: templates/about.jinja:29
+msgid ""
+"Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihnen den "
+"Arbeitsalltag zu erleichtern. Ob JSON-Validierung, Wortzählung oder "
+"Umwandlungen – unsere Tools sind effizient und benutzerfreundlich."
+msgstr ""
+
+#: templates/about.jinja:33
+msgid "Warum wir?"
+msgstr ""
+
+#: templates/about.jinja:35
+msgid "Präzise und zuverlässige Softwarelösungen"
+msgstr ""
+
+#: templates/about.jinja:36
+msgid "Benutzerfreundliche Oberfläche"
+msgstr ""
+
+#: templates/about.jinja:37
+msgid "Engagiertes und erfahrenes Team"
+msgstr ""
+
+#: templates/about.jinja:41
+msgid "Also, wenn du mal wieder feststeckst… frag dich einfach:"
+msgstr ""
+
+#: templates/about.jinja:42
+msgid "Was würden die Pinguine tun?"
+msgstr ""
+
+#: templates/audio_converter.jinja:9 templates/color_converter.html:18
+#: templates/gif_video_converter.jinja:9 templates/image_cropper.jinja:9
+#: templates/variable_input_mask.jinja:16
+msgid "Anwendungsfälle:"
+msgstr ""
+
+#: templates/base.html:32 templates/base.html:69
 msgid "Kontakt"
 msgstr ""
 
-#: templates/base.html:58
+#: templates/base.html:61
 msgid ""
 "Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
 " zu erleichtern."
 msgstr ""
 
-#: templates/base.html:62
+#: templates/base.html:65
 msgid "Schnelllinks"
 msgstr ""
 
-#: templates/base.html:64
+#: templates/base.html:67
 msgid "Startseite"
 msgstr ""
 
-#: templates/base.html:71
+#: templates/base.html:74
 msgid "Rechtliches"
 msgstr ""
 
-#: templates/base.html:73
+#: templates/base.html:76
 msgid "Impressum"
 msgstr ""
 
-#: templates/base.html:74
+#: templates/base.html:77
 msgid "Datenschutz"
 msgstr ""
 
-#: templates/base.html:75
+#: templates/base.html:78
 msgid "AGB"
 msgstr ""
 
-#: templates/base.html:81
+#: templates/base.html:84
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr ""
 
-#: templates/image_cropper.jinja:4 tools/image_cropper/image_cropper_tool.py:11
+#: templates/color_converter.html:6
+#: tools/color_converter/color_converter_tool.py:8
+msgid "Farbkonvertierer"
+msgstr ""
+
+#: templates/color_converter.html:35
+msgid "HEX:"
+msgstr ""
+
+#: templates/color_converter.html:40
+msgid "RGB:"
+msgstr ""
+
+#: templates/color_converter.html:45
+msgid "HSL:"
+msgstr ""
+
+#: templates/color_converter.html:50
+msgid "HSV:"
+msgstr ""
+
+#: templates/color_converter.html:58
+msgid "R:"
+msgstr ""
+
+#: templates/color_converter.html:70
+msgid "G:"
+msgstr ""
+
+#: templates/color_converter.html:82
+msgid "B:"
+msgstr ""
+
+#: templates/color_converter.html:94
+msgid "Standardfarben"
+msgstr ""
+
+#: templates/color_converter.html:96
+msgid "Rot"
+msgstr ""
+
+#: templates/color_converter.html:97
+msgid "Grün"
+msgstr ""
+
+#: templates/color_converter.html:98
+msgid "Blau"
+msgstr ""
+
+#: templates/color_converter.html:99
+msgid "Gelb"
+msgstr ""
+
+#: templates/color_converter.html:100
+msgid "Magenta"
+msgstr ""
+
+#: templates/color_converter.html:101
+msgid "Cyan"
+msgstr ""
+
+#: templates/color_converter.html:102
+msgid "Weiß"
+msgstr ""
+
+#: templates/color_converter.html:103
+msgid "Schwarz"
+msgstr ""
+
+#: templates/color_converter.html:104
+msgid "Grau"
+msgstr ""
+
+#: templates/color_converter.html:105
+msgid "Dunkelrot"
+msgstr ""
+
+#: templates/color_converter.html:106
+msgid "Olive"
+msgstr ""
+
+#: templates/color_converter.html:107
+msgid "Dunkelgrün"
+msgstr ""
+
+#: templates/color_converter.html:108
+msgid "Lila"
+msgstr ""
+
+#: templates/color_converter.html:109
+msgid "Petrol"
+msgstr ""
+
+#: templates/color_converter.html:110
+msgid "Dunkelblau"
+msgstr ""
+
+#: templates/color_converter.html:115
+msgid "Was bedeuten diese Farbformate?"
+msgstr ""
+
+#: templates/color_converter.html:118
+msgid "HEX-Format"
+msgstr ""
+
+#: templates/color_converter.html:119
+msgid ""
+"Eine Farbnotation mit 6 Hexadezimalziffern. Beginnt mit #, gefolgt von "
+"den Werten für Rot, Grün und Blau."
+msgstr ""
+
+#: templates/color_converter.html:120 templates/color_converter.html:125
+#: templates/color_converter.html:132 templates/color_converter.html:137
+msgid "Beispiel:"
+msgstr ""
+
+#: templates/color_converter.html:120
+msgid "#FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)"
+msgstr ""
+
+#: templates/color_converter.html:123
+msgid "RGB-Format"
+msgstr ""
+
+#: templates/color_converter.html:124
+msgid "Eine Farbnotation mit drei Werten (0-255) für Rot, Grün und Blau."
+msgstr ""
+
+#: templates/color_converter.html:125
+msgid "rgb(255, 0, 0) ist Rot"
+msgstr ""
+
+#: templates/color_converter.html:130
+msgid "HSL-Format"
+msgstr ""
+
+#: templates/color_converter.html:131
+msgid ""
+"Steht für Farbton (Hue), Sättigung (Saturation) und Helligkeit "
+"(Lightness)."
+msgstr ""
+
+#: templates/color_converter.html:132
+#, python-format
+msgid "hsl(0, 100%%, 50%%) ist Rot"
+msgstr ""
+
+#: templates/color_converter.html:135
+msgid "HSV-Format"
+msgstr ""
+
+#: templates/color_converter.html:136
+msgid "Steht für Farbton (Hue), Sättigung (Saturation) und Wert/Hellwert (Value)."
+msgstr ""
+
+#: templates/color_converter.html:137
+#, python-format
+msgid "hsv(0, 100%%, 100%%) ist Rot"
+msgstr ""
+
+#: templates/contact.jinja:4
+msgid "Kontaktieren Sie uns"
+msgstr ""
+
+#: templates/contact.jinja:14
+msgid "Werkzeugkästchen GmbH"
+msgstr ""
+
+#: templates/contact.jinja:16
+msgid "T:"
+msgstr ""
+
+#: templates/contact.jinja:16
+msgid "0400-456 06-0"
+msgstr ""
+
+#: templates/contact.jinja:17
+msgid "M:"
+msgstr ""
+
+#: templates/contact.jinja:17
+msgid "mail@xx-werkzeugkästchen.de"
+msgstr ""
+
+#: templates/contact.jinja:19
+msgid "Öffnungszeiten"
+msgstr ""
+
+#: templates/contact.jinja:21
+msgid "Montag – Donnerstag:"
+msgstr ""
+
+#: templates/contact.jinja:22
+msgid "8:00 – 17:00 Uhr"
+msgstr ""
+
+#: templates/contact.jinja:24
+msgid "Freitag:"
+msgstr ""
+
+#: templates/contact.jinja:25
+msgid "8:00 – 15:00 Uhr"
+msgstr ""
+
+#: templates/contact.jinja:27
+msgid "Xxxstraße 6 28844 Bremen"
+msgstr ""
+
+#: templates/contact.jinja:34
+msgid "Ihr Name *"
+msgstr ""
+
+#: templates/contact.jinja:38
+msgid "Ihre E-Mail-Adresse *"
+msgstr ""
+
+#: templates/contact.jinja:42
+msgid "Ihre Telefonnummer"
+msgstr ""
+
+#: templates/contact.jinja:46
+msgid "Ihre Anfrage *"
+msgstr ""
+
+#: templates/contact.jinja:51
+msgid "Ich stimme der"
+msgstr ""
+
+#: templates/contact.jinja:51
+msgid "Datenschutzerklärung"
+msgstr ""
+
+#: templates/contact.jinja:51
+msgid "zu."
+msgstr ""
+
+#: templates/contact.jinja:53
+msgid "Absenden"
+msgstr ""
+
+#: templates/contact_success.jinja:4
+msgid "Vielen Dank!"
+msgstr ""
+
+#: templates/contact_success.jinja:5
+msgid ""
+"Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns so schnell wie "
+"möglich bei Ihnen melden."
+msgstr ""
+
+#: templates/contact_success.jinja:6
+msgid "Zurück zum Startseite"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:2
+#: tools/gif_video_converter/gif_video_converter_tool.py:12
+msgid "GIF/Video Konverter"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:19
+msgid ""
+"Laden Sie ein Video oder ein GIF hoch, um es in das jeweils andere Format"
+" zu konvertieren."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:20
+msgid "Maximale Dateigröße: 1GB"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:25
+msgid "Video- oder GIF-Datei konvertieren"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:26
+msgid ""
+"Laden Sie eine Videodatei oder GIF-Datei hoch. Das Format wird "
+"automatisch erkannt."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:32
+msgid "Datei auswählen (max. 1GB):"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:38
+msgid "Video zu GIF Optionen:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:40
+msgid "Bildrate (FPS):"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:42
+msgid "5 FPS (langsamer, kleinere Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:43
+msgid "10 FPS (Standard)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:44
+msgid "15 FPS (flüssiger, größere Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:45
+msgid "24 FPS (sehr flüssig, große Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:49
+#: templates/gif_video_converter.jinja:78
+msgid "Qualität:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:51
+#: templates/gif_video_converter.jinja:80
+msgid "Niedrig (kleine Dateigröße)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:52
+#: templates/gif_video_converter.jinja:81
+msgid "Mittel (ausgewogenes Verhältnis)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:53
+#: templates/gif_video_converter.jinja:82
+msgid "Hoch (beste Qualität, große Datei)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:57
+msgid "Größe anpassen:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:59
+msgid "Original (keine Änderung)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:60
+msgid "Klein (320px Breite)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:61
+msgid "Mittel (480px Breite)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:62
+msgid "Groß (640px Breite)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:68
+msgid "GIF zu Video Optionen:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:70
+msgid "Videoformat:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:72
+msgid "MP4 (am besten unterstützt)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:73
+msgid "AVI (gute Qualität)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:74
+msgid "WebM (kleine Dateigröße)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:96
+#: templates/variable_input_mask.jinja:380
+msgid "Konvertieren"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:105
+msgid "Erklärungen"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:108
+msgid "GIF und Video"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:109
+msgid ""
+"<strong>GIF (Graphics Interchange Format)</strong> ist ein Bildformat, "
+"das Animationen unterstützt. GIFs sind beliebt für kurze Loops und können"
+" ohne Player in Browsern und Nachrichten-Apps angezeigt werden. Sie haben"
+" jedoch eine begrenzte Farbpalette (maximal 256 Farben) und oft größere "
+"Dateien als Videos."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:110
+msgid ""
+"<strong>Videoformate</strong> (MP4, AVI, WebM) bieten bessere "
+"Kompression, höhere Qualität und Funktionen wie Ton. Sie benötigen jedoch"
+" in der Regel einen Video-Player zur Wiedergabe."
+msgstr ""
+
+#: templates/gif_video_converter.jinja:112
+msgid "Bildrate (FPS)"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:113
+msgid ""
+"<strong>FPS (Frames per Second)</strong> bestimmt, wie viele Einzelbilder"
+" pro Sekunde angezeigt werden:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:115
+msgid "<strong>5 FPS:</strong> Minimale Flüssigkeit, kleinste Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:116
+msgid "<strong>10 FPS:</strong> Guter Kompromiss für die meisten GIFs"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:117
+msgid "<strong>15 FPS:</strong> Flüssigere Bewegung, größere Datei"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:118
+msgid "<strong>24 FPS:</strong> Sehr flüssig (Kinostandard), größte Dateien"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:122
+msgid "Qualitätseinstellungen"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:123
+msgid "Die Qualität beeinflusst das Aussehen und die Dateigröße:"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:125
+msgid ""
+"<strong>Niedrig:</strong> Stärkere Kompression, sichtbarer "
+"Qualitätsverlust, kleinste Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:126
+msgid ""
+"<strong>Mittel:</strong> Ausgewogenes Verhältnis zwischen Qualität und "
+"Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:127
+msgid "<strong>Hoch:</strong> Beste visuelle Qualität, größte Dateigröße"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:130
+msgid "Größenanpassung"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:131
+msgid "<strong>Original:</strong> Behält die ursprüngliche Auflösung bei"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:132
+msgid ""
+"<strong>Klein (320px):</strong> Gut für Messaging-Apps und kleine "
+"Einbettungen"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:133
+msgid "<strong>Mittel (480px):</strong> Standard für die meisten Web-Inhalte"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:134
+msgid "<strong>Groß (640px):</strong> Mehr Details, gut für größere Inhalte"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:136
+msgid "Videoformate"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:137
+msgid ""
+"<strong>MP4:</strong> Universell unterstützt, gute Qualität bei kompakter"
+" Größe"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:138
+msgid ""
+"<strong>AVI:</strong> Weniger Kompression, höhere Qualität, größere "
+"Dateien"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:139
+msgid ""
+"<strong>WebM:</strong> Modernes, offenes Format, sehr effiziente "
+"Kompression"
+msgstr ""
+
+#: templates/gif_video_converter.jinja:195
+#: tools/gif_video_converter/gif_video_converter_tool.py:42
+msgid "Die Datei ist zu groß. Maximale Größe ist 1GB."
+msgstr ""
+
+#: templates/image_cropper.jinja:2 tools/image_cropper/image_cropper_tool.py:11
 msgid "Bilder zuschneiden"
 msgstr ""
 
-#: templates/image_cropper.jinja:7
+#: templates/image_cropper.jinja:19
 msgid ""
 "Laden Sie ein Bild hoch und wählen Sie den Bereich aus, den Sie "
 "zuschneiden möchten."
 msgstr ""
 
-#: templates/image_cropper.jinja:17 templates/variable_input_mask.jinja:328
+#: templates/image_cropper.jinja:29 templates/variable_input_mask.jinja:342
 msgid "Bild auswählen:"
 msgstr ""
 
-#: templates/image_cropper.jinja:23
+#: templates/image_cropper.jinja:35
 msgid "Hochgeladenes Bild"
 msgstr ""
 
-#: templates/image_cropper.jinja:28
+#: templates/image_cropper.jinja:40
 msgid "Zuschneiden"
 msgstr ""
 
-#: templates/image_cropper.jinja:29
+#: templates/image_cropper.jinja:41
 msgid "Zurücksetzen"
 msgstr ""
 
-#: templates/image_cropper.jinja:33
+#: templates/image_cropper.jinja:45
 msgid "Vorschau:"
 msgstr ""
 
-#: templates/image_cropper.jinja:35
+#: templates/image_cropper.jinja:47
 msgid "Zugeschnittenes Bild"
 msgstr ""
 
-#: templates/image_cropper.jinja:39
+#: templates/image_cropper.jinja:51
 msgid "Auswahl übernehmen"
 msgstr ""
 
-#: templates/index.jinja:4
+#: templates/index.jinja:2
 msgid "Werkzeugkästchen"
 msgstr ""
 
-#: templates/index.jinja:6
+#: templates/index.jinja:5
 msgid "🔍 Suche nach einem Tool..."
 msgstr ""
 
-#: templates/index.jinja:14
+#: templates/index.jinja:13
 msgid "Öffnen"
 msgstr ""
 
@@ -122,229 +1191,226 @@ msgstr ""
 msgid "Zurück zu den Tools"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:15
+#: templates/variable_input_mask.jinja:29
 msgid "Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:21
+#: templates/variable_input_mask.jinja:35
 msgid ""
 "Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. "
 "Das Tool wird die Zahl automatisch in die anderen Formate konvertieren."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:27
+#: templates/variable_input_mask.jinja:41
 msgid ""
 "Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. "
 "Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:33
+#: templates/variable_input_mask.jinja:47
 msgid ""
 "Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. "
 "15.03.2025), um die entsprechende Kalenderwoche zu berechnen."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:39
+#: templates/variable_input_mask.jinja:53
 msgid ""
 "Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für "
 "Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 "
 "Zeichen lang sein und verschiedene Zeichentypen enthalten."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:50
+#: templates/variable_input_mask.jinja:64
 msgid ""
 "Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der "
 "gewünschten Länge generieren."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:52
+#: templates/variable_input_mask.jinja:66
 msgid "Funktionen:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:54
+#: templates/variable_input_mask.jinja:68
 msgid "Wählen Sie die gewünschte Textlänge (1-1000 Wörter)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:55
+#: templates/variable_input_mask.jinja:69
 msgid "Generieren Sie professionellen Lorem Ipsum Text"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:56
+#: templates/variable_input_mask.jinja:70
 msgid "Kopieren Sie den Text mit einem Klick in die Zwischenablage"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:57
+#: templates/variable_input_mask.jinja:71
 msgid "Ideal für Layout- und Designarbeiten"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:70
+#: templates/variable_input_mask.jinja:84
+#: tools/placeholder_text/placeholder_text_tool.py:13
 msgid "Anzahl der Wörter (1-1000)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:72
+#: templates/variable_input_mask.jinja:86
 msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:163
+#: templates/variable_input_mask.jinja:177
 msgid ""
 "Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und "
 "Zeitangaben umwandeln und umgekehrt."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:167
+#: templates/variable_input_mask.jinja:181
 msgid "Konvertierungsrichtung:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:169
+#: templates/variable_input_mask.jinja:183
 msgid "Timestamp zu Datum"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:170
+#: templates/variable_input_mask.jinja:184
 msgid "Datum zu Timestamp"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:176
+#: templates/variable_input_mask.jinja:190
 msgid "Unix-Timestamp:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:177
+#: templates/variable_input_mask.jinja:191
 msgid "z.B. 1640995200"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:178
+#: templates/variable_input_mask.jinja:192
 msgid ""
 "Geben Sie einen Unix-Timestamp ein (Sekunden seit dem 01.01.1970 00:00:00"
 " UTC)."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:184
+#: templates/variable_input_mask.jinja:198
 #: tools/unix_timestamp/unix_timestamp_tool.py:73
 #: tools/unix_timestamp/unix_timestamp_tool.py:131
 msgid "Datum:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:185
+#: templates/variable_input_mask.jinja:199
 msgid "TT.MM.JJJJ (z.B. 01.01.2022)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:186
+#: templates/variable_input_mask.jinja:200
 msgid "Geben Sie ein Datum im Format TT.MM.JJJJ ein."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:190
+#: templates/variable_input_mask.jinja:204
 msgid "Uhrzeit (optional):"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:191
+#: templates/variable_input_mask.jinja:205
 msgid "HH:MM:SS (z.B. 12:30:00)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:192
+#: templates/variable_input_mask.jinja:206
 msgid ""
 "Geben Sie eine Uhrzeit im Format HH:MM:SS ein. Standard ist 00:00:00 wenn"
 " leer."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:217
+#: templates/variable_input_mask.jinja:231
 msgid "Zahl:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:218
+#: templates/variable_input_mask.jinja:232
 msgid "Geben Sie eine Zahl ein"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:220
+#: templates/variable_input_mask.jinja:234
 msgid "Zahlentyp:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:222
+#: templates/variable_input_mask.jinja:236
 msgid "Binär"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:223
+#: templates/variable_input_mask.jinja:237
 msgid "Dezimal"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:224
+#: templates/variable_input_mask.jinja:238
 msgid "Hexadezimal"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:228
+#: templates/variable_input_mask.jinja:242
 msgid "Zielformat:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:230
+#: templates/variable_input_mask.jinja:244
 msgid "Bitte wählen Sie ein Format"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:234
+#: templates/variable_input_mask.jinja:248
 msgid "Passwortlänge:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:236
+#: templates/variable_input_mask.jinja:250
 msgid "Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:238
+#: templates/variable_input_mask.jinja:252
 msgid "Text oder URL:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:239
+#: templates/variable_input_mask.jinja:253
 msgid "Text oder URL eingeben"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:249
+#: templates/variable_input_mask.jinja:263
 msgid "Kleinbuchstaben einschließen (a-z)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:251
+#: templates/variable_input_mask.jinja:265
 msgid "Großbuchstaben einschließen (A-Z)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:253
+#: templates/variable_input_mask.jinja:267
 msgid "Zahlen einschließen (0-9)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:255
+#: templates/variable_input_mask.jinja:269
 msgid "Sonderzeichen einschließen (!, @, #, $, usw.)"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:265
+#: templates/variable_input_mask.jinja:279
 msgid "PDF-Dateien hochladen:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:273
+#: templates/variable_input_mask.jinja:287
 msgid "Sie können die Reihenfolge nach dem Hochladen anpassen."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:330
+#: templates/variable_input_mask.jinja:344
 msgid "Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:360
+#: templates/variable_input_mask.jinja:374
 msgid "Hinweis:"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:360
+#: templates/variable_input_mask.jinja:374
 msgid ""
 "Passwörter werden lokal generiert und nicht an den Server übertragen. "
 "Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht "
 "gespeichert."
 msgstr ""
 
-#: templates/variable_input_mask.jinja:362
+#: templates/variable_input_mask.jinja:376
 msgid "Passwort generieren"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:364
+#: templates/variable_input_mask.jinja:378
 msgid "QR-Code erstellen"
 msgstr ""
 
-#: templates/variable_input_mask.jinja:366
-msgid "Konvertieren"
-msgstr ""
-
-#: templates/variable_input_mask.jinja:368
+#: templates/variable_input_mask.jinja:382
 msgid "Ausführen"
 msgstr ""
 
@@ -542,6 +1608,65 @@ msgstr ""
 msgid "im Jahr"
 msgstr ""
 
+#: tools/color_converter/color_converter_tool.py:9
+msgid ""
+"Konvertiert Farben zwischen verschiedenen Formaten (HEX, RGB, HSL) und "
+"zeigt eine Vorschau zur Visualisierung."
+msgstr ""
+
+#: tools/color_converter/color_converter_tool.py:14
+msgid "Sie werden zum Farbkonverter weitergeleitet..."
+msgstr ""
+
+#: tools/color_converter/color_converter_tool.py:15
+msgid "Wenn die Weiterleitung nicht funktioniert,"
+msgstr ""
+
+#: tools/color_converter/color_converter_tool.py:16
+msgid "klicken Sie hier"
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:7
+msgid "Datumsrechner"
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:8
+msgid "Berechnet den Unterschied zwischen zwei Daten in Tagen."
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:10
+#: tools/date_calculator/date_calculator_tool.py:24
+msgid "Startdatum"
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:15
+#: tools/date_calculator/date_calculator_tool.py:25
+msgid "Enddatum"
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:39
+#, python-brace-format
+msgid "Die Differenz beträgt <strong>{0}</strong> Tage."
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:43
+#: tools/placeholder_text/placeholder_text_tool.py:111
+#: tools/unit_converter/unit_converter_tool.py:96
+msgid "Ein Fehler ist aufgetreten:"
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:48
+msgid "Bitte geben Sie ein gültiges Datum ein."
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:52
+msgid "Jahresangaben müssen ab 1900 sein."
+msgstr ""
+
+#: tools/date_calculator/date_calculator_tool.py:55
+msgid "Bitte geben Sie ein gültiges Datum im Format DD.MM.YYYY ein."
+msgstr ""
+
 #: tools/file_size_calculator/file_size_calculator_tool.py:9
 msgid "Dateigrößenberechner"
 msgstr ""
@@ -579,6 +1704,8 @@ msgid "Einheit"
 msgstr ""
 
 #: tools/file_size_calculator/file_size_calculator_tool.py:44
+#: tools/unit_converter/unit_converter_tool.py:14
+#: tools/unit_converter/unit_converter_tool.py:34
 msgid "Wert"
 msgstr ""
 
@@ -612,6 +1739,51 @@ msgstr ""
 
 #: tools/file_size_calculator/file_size_calculator_tool.py:161
 msgid "Fehler bei der Berechnung der Dateigröße:"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:13
+msgid "Konvertiert Videos in GIFs und umgekehrt"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:15
+#: tools/gif_video_converter/gif_video_converter_tool.py:32
+#: tools/gif_video_converter/gif_video_converter_tool.py:36
+msgid "file"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:19
+msgid "Konvertierung gestartet!"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:20
+msgid "GIF zu Video"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:21
+msgid "Video zu GIF"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:22
+#, python-brace-format
+msgid ""
+"Ihre {0} Konvertierung wurde erfolgreich gestartet. Bitte klicken Sie auf"
+" den Button unten, um die Datei herunterzuladen."
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:23
+msgid "Konvertierte Datei herunterladen"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:24
+msgid "Neue Konvertierung starten"
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:33
+msgid "Bitte wählen Sie eine Datei aus."
+msgstr ""
+
+#: tools/gif_video_converter/gif_video_converter_tool.py:79
+msgid "Fehler bei der Verarbeitung:"
 msgstr ""
 
 #: tools/image_converter/image_converter_tool.py:11
@@ -706,6 +1878,82 @@ msgstr ""
 
 #: tools/image_cropper/image_cropper_tool.py:120
 msgid "Fehler beim Zuschneiden: "
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:10
+msgid "JSON-Formatierung"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:12
+#: tools/json_formatieren/json_formatieren_tool.py:21
+#: tools/json_validieren/json_validieren_tool.py:11
+#: tools/json_validieren/json_validieren_tool.py:21
+msgid "JSON Text"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:17
+msgid "Formatiert JSON in ein lesbares Format (Pretty Print)"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:24
+msgid "Bitte geben Sie JSON ein."
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:36
+#: tools/json_validieren/json_validieren_tool.py:61
+msgid "Fehler:"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:42
+msgid "In Zwischenablage kopieren"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:43
+msgid "Erfolgreich kopiert!"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:65
+#: tools/json_validieren/json_validieren_tool.py:34
+msgid "Ungültiges JSON:"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:66
+#: tools/json_validieren/json_validieren_tool.py:62
+msgid "Position:"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:67
+#: tools/json_validieren/json_validieren_tool.py:63
+msgid "Zeile"
+msgstr ""
+
+#: tools/json_formatieren/json_formatieren_tool.py:68
+#: tools/json_validieren/json_validieren_tool.py:64
+msgid "Spalte"
+msgstr ""
+
+#: tools/json_validieren/json_validieren_tool.py:9
+msgid "JSON-Validierung"
+msgstr ""
+
+#: tools/json_validieren/json_validieren_tool.py:17
+msgid "Validiert JSON und schaut, ob der Text syntaktisch korrektes JSON ist."
+msgstr ""
+
+#: tools/json_validieren/json_validieren_tool.py:24
+msgid "Bitte geben Sie JSON-Text ein."
+msgstr ""
+
+#: tools/json_validieren/json_validieren_tool.py:44
+msgid "Unerwarteter Fehler:"
+msgstr ""
+
+#: tools/json_validieren/json_validieren_tool.py:50
+msgid "Gültiges JSON!"
+msgstr ""
+
+#: tools/json_validieren/json_validieren_tool.py:51
+msgid "Die Syntax ist korrekt."
 msgstr ""
 
 #: tools/number_converter/number_converter_tool.py:5
@@ -804,6 +2052,7 @@ msgid "Passwort:"
 msgstr ""
 
 #: tools/password_generator/password_generator_tool.py:117
+#: tools/placeholder_text/placeholder_text_tool.py:29
 msgid "Kopieren"
 msgstr ""
 
@@ -835,6 +2084,7 @@ msgid ""
 msgstr ""
 
 #: tools/password_generator/password_generator_tool.py:124
+#: tools/placeholder_text/placeholder_text_tool.py:30
 msgid "Kopiert!"
 msgstr ""
 
@@ -844,6 +2094,179 @@ msgstr ""
 
 #: tools/password_generator/password_generator_tool.py:126
 msgid "Kopieren fehlgeschlagen. Bitte manuell kopieren."
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:11
+msgid "PDF Merge Tool"
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:12
+msgid "Fügt mehrere PDF-Dateien zu einer einzigen Datei zusammen"
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:14 tools/pdf_merge/pdf_merge_tool.py:24
+msgid "pdf_files"
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:18
+msgid "PDF-Dateien erfolgreich zusammengeführt"
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:19
+msgid "Zusammengeführt in dieser Reihenfolge:"
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:20
+msgid "Zusammengeführte PDF herunterladen"
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:34
+msgid "Bitte laden Sie mindestens zwei gültige PDF-Dateien hoch."
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:40
+msgid "Keine Reihenfolge der PDFs angegeben."
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:53
+#, python-brace-format
+msgid "Datei '{}' nicht gefunden oder nicht hochgeladen."
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:66
+msgid "Eine oder mehrere Dateien sind ungültig oder nicht im PDF-Format."
+msgstr ""
+
+#: tools/pdf_merge/pdf_merge_tool.py:98
+msgid "Fehler beim Zusammenführen:"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:11
+msgid "PDF Split Tool"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:12
+msgid "Teilt PDF-Dateien an einer gewählten Seitenzahl"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:14 tools/pdf_split/pdf_split_tool.py:38
+msgid "pdf_file"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:15 tools/pdf_split/pdf_split_tool.py:39
+msgid "split_page"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:19
+msgid "PDF erfolgreich geteilt"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:20
+msgid "Die PDF-Datei"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:21
+msgid "wurde erfolgreich bei Seite"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:22
+msgid "geteilt."
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:23
+msgid "Gesamtseitenzahl:"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:24
+msgid "Teil 1: Seiten 1 bis"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:25
+msgid "Teil 2: Seiten"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:26
+msgid "bis"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:27
+msgid "Teil 1"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:28
+msgid "Enthält Seiten 1 bis"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:29
+msgid "Teil 1 herunterladen"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:30
+msgid "Teil 2"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:31
+msgid "Enthält Seiten"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:32
+msgid "Teil 2 herunterladen"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:33
+msgid "Seiten"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:43
+msgid "Bitte wählen Sie eine PDF-Datei aus"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:47
+msgid "Bitte geben Sie eine Seitenzahl an"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:53
+msgid "Die Seitenzahl muss mindestens 2 sein"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:56
+msgid "Bitte geben Sie eine gültige Seitenzahl ein"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:70
+#, python-brace-format
+msgid "Die Seitenzahl muss kleiner sein als die Gesamtseitenzahl ({0})"
+msgstr ""
+
+#: tools/pdf_split/pdf_split_tool.py:164
+msgid "Fehler beim Teilen der PDF-Datei:"
+msgstr ""
+
+#: tools/placeholder_text/placeholder_text_tool.py:6
+msgid "Platzhalter-Text Generator"
+msgstr ""
+
+#: tools/placeholder_text/placeholder_text_tool.py:8
+#: tools/placeholder_text/placeholder_text_tool.py:35
+#: tools/placeholder_text/placeholder_text_tool.py:39
+msgid "Textlänge"
+msgstr ""
+
+#: tools/placeholder_text/placeholder_text_tool.py:16
+msgid "Generiert Lorem Ipsum Platzhaltertext in der gewünschten Länge"
+msgstr ""
+
+#: tools/placeholder_text/placeholder_text_tool.py:31
+msgid "Fehler beim Kopieren:"
+msgstr ""
+
+#: tools/placeholder_text/placeholder_text_tool.py:36
+#: tools/placeholder_text/placeholder_text_tool.py:108
+msgid "Bitte geben Sie eine gültige Zahl ein."
+msgstr ""
+
+#: tools/placeholder_text/placeholder_text_tool.py:42
+msgid "Bitte geben Sie eine Zahl zwischen 1 und 1000 ein."
 msgstr ""
 
 #: tools/qr_code_generator/qr_code_generator_tool.py:10
@@ -943,6 +2366,9 @@ msgstr ""
 #: tools/text_to_speech/text_to_speech_tool.py:21
 #: tools/text_to_speech/text_to_speech_tool.py:27
 #: tools/text_to_speech/text_to_speech_tool.py:32
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:44
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:71
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:211
 msgid "Sprache"
 msgstr ""
 
@@ -991,6 +2417,7 @@ msgid "Audio herunterladen"
 msgstr ""
 
 #: tools/text_to_speech/text_to_speech_tool.py:62
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:62
 msgid "Details"
 msgstr ""
 
@@ -999,6 +2426,7 @@ msgid "Text:"
 msgstr ""
 
 #: tools/text_to_speech/text_to_speech_tool.py:64
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:64
 msgid "Sprache:"
 msgstr ""
 
@@ -1090,6 +2518,60 @@ msgstr ""
 msgid "Keine Ähnlichkeiten gefunden."
 msgstr ""
 
+#: tools/unit_converter/unit_converter_tool.py:6
+msgid "Einheitenrechner"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:7
+msgid ""
+"Rechnet Einheiten wie Längen oder Gewichte um. Die Eingabemaske passt "
+"sich der Kategorie an."
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:9
+#: tools/unit_converter/unit_converter_tool.py:33
+msgid "Kategorie"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:12
+msgid "z.B. länge oder gewicht"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:17
+msgid "z.B. 10"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:19
+#: tools/unit_converter/unit_converter_tool.py:35
+msgid "Von Einheit"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:22
+msgid "z.B. m oder kg"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:24
+#: tools/unit_converter/unit_converter_tool.py:36
+msgid "Zu Einheit"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:27
+msgid "z.B. km oder g"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:62
+#, python-brace-format
+msgid "Kategorie '{0}' wird nicht unterstützt"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:81
+msgid "Unbekannte Einheit"
+msgstr ""
+
+#: tools/unit_converter/unit_converter_tool.py:87
+msgid "Ungültiger Zahlenwert"
+msgstr ""
+
 #: tools/unix_timestamp/unix_timestamp_tool.py:7
 msgid "Unix\\-Timestamp Konverter"
 msgstr ""
@@ -1164,6 +2646,78 @@ msgstr ""
 
 #: tools/unix_timestamp/unix_timestamp_tool.py:124
 msgid "Ungültiges Datumsformat\\. Bitte verwenden Sie das Format TT\\.MM\\.JJJJ"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:38
+msgid "Whisper Subtitle"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:41
+msgid "Generiert Untertitel (SRT) für eine Audio-/Videodatei mit Whisper."
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:43
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:70
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:210
+msgid "Eingabedatei"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:48
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:72
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:212
+msgid "Modellgröße"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:52
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:73
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:213
+msgid "Aufgabe"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:59
+msgid "Untertiteldatei"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:60
+msgid "Untertitel erfolgreich generiert."
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:61
+msgid "SRT-Datei herunterladen"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:63
+msgid "Eingabedatei:"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:65
+msgid "Modellgröße:"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:66
+msgid "Aufgabe:"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:76
+msgid "Keine Eingabedatei angegeben."
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:92
+msgid "Eingabedateipfad konnte nicht ermittelt werden."
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:97
+#, python-brace-format
+msgid "Eingabedatei '{0}' existiert nicht."
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:115
+#, python-brace-format
+msgid "Audio-Daten konnten nicht aus '{0}' geladen werden"
+msgstr ""
+
+#: tools/whisper_subtitle/whisper_subtitle_tool.py:134
+msgid "SRT-Datei konnte nicht gelesen oder kodiert werden:"
 msgstr ""
 
 #: tools/word_counter/word_counter_tool.py:6
@@ -1440,5 +2994,109 @@ msgstr ""
 #~ "Geben Sie eine Uhrzeit im Format "
 #~ "HH:MM:SS ein. Standard ist 00:00:00, "
 #~ "wenn leer."
+#~ msgstr ""
+
+#~ msgid "Farbkonvertierer"
+#~ msgstr ""
+
+#~ msgid "HEX:"
+#~ msgstr ""
+
+#~ msgid "RGB:"
+#~ msgstr ""
+
+#~ msgid "HSL:"
+#~ msgstr ""
+
+#~ msgid "HSV:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Konvertiert Farben zwischen verschiedenen "
+#~ "Formaten (HEX, RGB, HSL) und bietet "
+#~ "eine visuelle Vorschau. Unverzichtbar für "
+#~ "Designer und Entwickler."
+#~ msgstr ""
+
+#~ msgid "Konvertierung zwischen Designtools"
+#~ msgstr ""
+
+#~ msgid "HEX-Format (Hexadezimalwert)"
+#~ msgstr ""
+
+#~ msgid "<strong>Beispiel:</strong> #FF0000 ist Rot (FF=Rot, 00=Grün, 00=Blau)"
+#~ msgstr ""
+
+#~ msgid "HSL (Hue, Saturation, Lightness)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<strong>Hue (Farbton)</strong>: Ein Wert von"
+#~ " 0–360° für die Farbe selbst. 0° "
+#~ "ist Rot, 120° Grün, 240° Blau usw."
+#~ " Stellt quasi dar, welche Farbe."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<strong>Saturation (Sättigung)</strong>: Wie kräftig"
+#~ " oder ausgewaschen die Farbe ist. 0"
+#~ " % = grau, 100 % = volle "
+#~ "Farbe."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<strong>Lightness (Helligkeit)</strong>: Wie hell"
+#~ " oder dunkel die Farbe ist. 0 %"
+#~ " = schwarz, 50 % = normale "
+#~ "Farbe, 100 % = weiß."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<strong>Beispiel:</strong> HSL(0, 100%, 50%) ="
+#~ " reines Rot. HSL(0, 100%, 25%) = "
+#~ "dunkles Rot. HSL(0, 0%, 50%) = "
+#~ "grauer Farbton (kein Rot mehr da, "
+#~ "weil 0% Sättigung)."
+#~ msgstr ""
+
+#~ msgid "RGB-Format (Rot, Grün, Blau)"
+#~ msgstr ""
+
+#~ msgid "<strong>Beispiel:</strong> rgb(255, 0, 0) ist Rot"
+#~ msgstr ""
+
+#~ msgid "HSV (Hue, Saturation, Value)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<strong>Value: 0 %</strong> = schwarz, "
+#~ "100 % = hellste Version der Farbe"
+#~ " (aber kein Weiß dazugemischt wie bei"
+#~ " HSL)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<strong>Beispiel:</strong> HSV(0, 100%, 100%) "
+#~ "= leuchtendes Rot HSV(0, 100%, 50%) "
+#~ "= dunkelrot, aber kräftig (0, 0%, "
+#~ "50%) = grauton (weil Sättigung null)"
+#~ msgstr ""
+
+#~ msgid "Ungültiges HEX-Format. Gültige Formate: #ABC oder #AABBCC"
+#~ msgstr ""
+
+#~ msgid "Ungültiges RGB-Format. Gültige Formate: 255, 0, 0"
+#~ msgstr ""
+
+#~ msgid "Ungültiges HSL-Format. Gültige Formate: 0, 100%, 50%"
+#~ msgstr ""
+
+#~ msgid "Ungültiges HSV-Format. Gültige Formate: 0, 100%, 100%"
+#~ msgstr ""
+
+#~ msgid "hsl(0, 100%, 50%) ist Rot"
+#~ msgstr ""
+
+#~ msgid "hsv(0, 100%, 100%) ist Rot"
 #~ msgstr ""
 

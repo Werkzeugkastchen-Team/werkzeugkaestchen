@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
-
+<h1>{% block page_title %} {{ toolName }} {% endblock %}</h1>
 {% block content %}
-<h1>{% block title %} {{ toolName }} {% endblock %}</h1>
+<div class="mb-4">
+    <p class="lead text-secondary">{{ description }}</p>
 
+    {% if use_cases %}
+    <div class="mt-4">
+        <p class="mb-2 fw-semibold">{{ _('Anwendungsfälle:') }}</p>
+        <ul class="ps-4 text-dark-emphasis">
+            {% for use_case in use_cases %}
+            <li class="mb-1">{{ use_case }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
 <div class="alert alert-info">
     <h4 class="alert-heading">Anleitung zur Audio-Konvertierung:</h4>
     <ol>
