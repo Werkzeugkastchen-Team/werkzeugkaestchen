@@ -167,7 +167,7 @@ msgstr "Creates secure, random passwords with customizable length and character 
 
 #: tool_descriptions.py:36
 msgid "Generierung sicherer Zugangsdaten"
-msgstr ""
+msgstr "Generation of secure credentials"
 
 #: tool_descriptions.py:36
 msgid "Erstellung von API-Schlüsseln"
@@ -181,11 +181,12 @@ msgstr "Improvement of SEO for video channels"
 msgid ""
 "Berechnet Kalenderwochen für beliebige Daten nach ISO-8601 Standard. "
 "Hilfreich für Projektplanung und Terminkoordination."
-msgstr ""
+msgstr "Calculates calendar weeks for any date according to ISO-8601 standard. "
+"Helpful for project planning and appointment coordination."
 
 #: tool_descriptions.py:40
 msgid "Planung nach Kalenderwochen"
-msgstr ""
+msgstr "Planning by calendar weeks"
 
 #: tool_descriptions.py:40
 msgid "Berechnung von Projektzeitleisten"

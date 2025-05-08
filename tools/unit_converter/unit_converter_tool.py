@@ -30,10 +30,11 @@ class UnitConverterTool(MiniTool):
 
     def execute_tool(self, input_params):
         try:
-            raw_category = input_params.get(_("Kategorie"), "").lower().strip()
-            raw_value = input_params.get(_("Wert"), "0").strip()
-            raw_from = input_params.get(_("Von Einheit"), "").lower().strip()
-            raw_to = input_params.get(_("Zu Einheit"), "").lower().strip()
+            # Check for both translated keys and untranslated keys
+            raw_category = input_params.get(_("Kategorie"), input_params.get("category", "")).lower().strip()
+            raw_value = input_params.get(_("Wert"), input_params.get("value", "0")).strip()
+            raw_from = input_params.get(_("Von Einheit"), input_params.get("from_unit", "")).lower().strip()
+            raw_to = input_params.get(_("Zu Einheit"), input_params.get("to_unit", "")).lower().strip()
 
             # Map German/English synonyms
             category_map = {
