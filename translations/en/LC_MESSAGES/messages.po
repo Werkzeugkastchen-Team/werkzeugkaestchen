@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-08 10:09+0200\n"
+"POT-Creation-Date: 2025-05-08 09:06+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -2449,20 +2449,20 @@ msgstr "Number too high."
 msgid "Anzahl Würfe zu hoch."
 msgstr "Amount of rolls too high."
 
-#: tools/text_to_speech/text_to_speech_tool.py:10
-msgid "Text zu Sprache"
-msgstr "Text to Speech"
+#: tools/text_summary/text_summary_tool.py:30
+msgid "Text zusammenfassen Tool"
+msgstr "Text summarization Tool"
 
-#: tools/text_to_speech/text_to_speech_tool.py:11
-msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
-msgstr "Converts text to spoken language (TTS Text To Speech)"
-
+#: tools/text_summary/text_summary_tool.py:32
+#: tools/text_summary/text_summary_tool.py:50
 #: tools/text_to_speech/text_to_speech_tool.py:21
 #: tools/text_to_speech/text_to_speech_tool.py:27
 #: tools/text_to_speech/text_to_speech_tool.py:31
 msgid "Text"
 msgstr "Text"
 
+#: tools/text_summary/text_summary_tool.py:33
+#: tools/text_summary/text_summary_tool.py:59
 #: tools/text_to_speech/text_to_speech_tool.py:21
 #: tools/text_to_speech/text_to_speech_tool.py:27
 #: tools/text_to_speech/text_to_speech_tool.py:32
@@ -2471,6 +2471,31 @@ msgstr "Text"
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:211
 msgid "Sprache"
 msgstr "Language"
+
+#: tools/text_summary/text_summary_tool.py:37
+#: tools/text_summary/text_summary_tool.py:60
+msgid "Model"
+msgstr "Model"
+
+#: tools/text_summary/text_summary_tool.py:42
+msgid "Fasst Texte mithilfe von Sprachmodellen (LLMs) zusammen."
+msgstr "Summarizes text by utilizing Large Language Models (LLMs)."
+
+#: tools/text_summary/text_summary_tool.py:52
+msgid "Der Eingabetext ist leer oder ungültig."
+msgstr "Input text is empty or invalid\""
+
+#: tools/text_summary/text_summary_tool.py:56
+msgid "Der Eingabetext is zu lang."
+msgstr "Input text is too long."
+
+#: tools/text_to_speech/text_to_speech_tool.py:10
+msgid "Text zu Sprache"
+msgstr "Text to Speech"
+
+#: tools/text_to_speech/text_to_speech_tool.py:11
+msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
+msgstr "Converts text to spoken language (TTS Text To Speech)"
 
 #: tools/text_to_speech/text_to_speech_tool.py:35
 #, python-brace-format
