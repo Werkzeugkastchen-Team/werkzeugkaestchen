@@ -4,13 +4,16 @@ from tool_interface import MiniTool
 class PlaceholderTextTool(MiniTool):
     def __init__(self):
         super().__init__(_("Platzhalter-Text Generator"), "PlaceholderTextTool")
+        # Use a language-independent key for the input parameter
+        self.input_param_key = "text_length"
         self.input_params = {
-            _("Textlänge"): {
+            self.input_param_key: {
                 "type": "number",
                 "required": True,
                 "min": 1,
                 "max": 1000,
-                "placeholder": _("Anzahl der Wörter (1-1000)")
+                "placeholder": _("Anzahl der Wörter (1-1000)"),
+                "label": _("Textlänge")  # Add a label for display
             }
         }
         self.description = _("Generiert Lorem Ipsum Platzhaltertext in der gewünschten Länge")
@@ -32,11 +35,11 @@ class PlaceholderTextTool(MiniTool):
 
     def execute_tool(self, input_params):
         try:
-            if _("Textlänge") not in input_params:
+            if self.input_param_key not in input_params:
                 self.error_message = _("Bitte geben Sie eine gültige Zahl ein.")
                 return False
 
-            length = int(input_params.get(_("Textlänge")))
+            length = int(input_params.get(self.input_param_key))
 
             if length <= 0 or length > 1000:
                 self.error_message = _("Bitte geben Sie eine Zahl zwischen 1 und 1000 ein.")

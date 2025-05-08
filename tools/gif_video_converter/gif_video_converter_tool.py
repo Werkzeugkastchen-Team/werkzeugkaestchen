@@ -12,7 +12,7 @@ class GifVideoConverterTool(MiniTool):
         super().__init__(_("GIF/Video Konverter"), "GifVideoConverterTool", OutputType.TEXT)
         self.description = _("Konvertiert Videos in GIFs und umgekehrt")
         self.input_params = {
-            _("file"): "file"
+            "file": "file"  # Hier wurde der Parameter von _("file") zu "file" geändert
         }
         
         # Extract translatable strings for HTML
@@ -29,11 +29,11 @@ class GifVideoConverterTool(MiniTool):
 
     def execute_tool(self, input_params: dict) -> bool:
         try:
-            if _("file") not in input_params:
+            if "file" not in input_params:  # Hier wurde der Parameter von _("file") zu "file" geändert
                 self.error_message = _("Bitte wählen Sie eine Datei aus.")
                 return False
 
-            file_info = input_params[_("file")]
+            file_info = input_params["file"]  # Hier wurde der Parameter von _("file") zu "file" geändert
             file_path = file_info["file_path"]
             filename = file_info["filename"]
 

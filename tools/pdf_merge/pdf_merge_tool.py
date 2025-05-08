@@ -1,6 +1,7 @@
 import os
 import tempfile
 import base64
+import json
 from flask_babel import lazy_gettext as _
 from tool_interface import MiniTool
 from PyPDF2 import PdfMerger
@@ -39,8 +40,16 @@ class PdfMergeTool(MiniTool):
             if not pdf_order_str:
                 self.error_message = _("Keine Reihenfolge der PDFs angegeben.")
                 return False
-
-            ordered_filenames = [name.strip() for name in pdf_order_str.split(",")]
+            
+            # Verbesserte Verarbeitung der Dateinamen - verwende JSON-sichere Dateinamen zur Vermeidung von Problemen mit Sonderzeichen
+            try:
+                # Versuche zuerst, die Reihenfolge als JSON-Array zu interpretieren
+                ordered_filenames = json.loads(pdf_order_str)
+                if not isinstance(ordered_filenames, list):
+                    ordered_filenames = [name.strip() for name in pdf_order_str.split(",")]
+            except json.JSONDecodeError:
+                # Fallback zur alten Methode, falls kein JSON vorliegt
+                ordered_filenames = [name.strip() for name in pdf_order_str.split(",")]
 
             # Create a lookup dict for the uploaded files
             file_dict = {f['filename']: f for f in pdf_files_info}

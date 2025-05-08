@@ -74,19 +74,21 @@
         <div class="card mb-4">
         <div class="card-body">
             <div class="form-group">
-                <label for="length"><strong>Textlänge:</strong></label>
-                <input type="number"
-                       class="form-control"
-                       id="length"
-                       name="length"
-                       min="1"
-                       max="1000"
-                       placeholder="{{ _('Anzahl der Wörter (1-1000)') }}"
-                       required>
-            <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.') }}</small>
+                {% for param_key, param_info in input_params.items() %}
+                    <label for="{{ param_key }}"><strong>{{ param_info.label }}:</strong></label>
+                    <input type="{{ param_info.type }}"
+                           class="form-control"
+                           id="{{ param_key }}"
+                           name="{{ param_key }}"
+                           min="{{ param_info.min }}"
+                           max="{{ param_info.max }}"
+                           placeholder="{{ param_info.placeholder }}"
+                           required>
+                    <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.') }}</small>
+                {% endfor %}
             </div>
 
-            <input class="btn btn-primary mt-3" type="submit" value="Text generieren" id="submitButton">
+            <input class="btn btn-primary mt-3" type="submit" value="{{ _('Text generieren') }}" id="submitButton">
         </div>
     </div>
 
@@ -100,29 +102,29 @@
 
 {% if identifier == "UnitConverterTool" %}
 <div class="alert alert-info">
-    Wählen Sie eine Kategorie und geben Sie den Wert sowie die Quell- und Zieleinheit an, um eine Umrechnung durchzuführen.
+    {{ _('Wählen Sie eine Kategorie und geben Sie den Wert sowie die Quell- und Zieleinheit an, um eine Umrechnung durchzuführen.') }}
 </div>
 
 <div class="form-group">
-    <label for="category">Kategorie:</label>
+    <label for="category">{{ _('Kategorie:') }}</label>
     <select name="category" id="category" class="form-control" onchange="updateUnitOptions()">
-        <option value="length">Length</option>
-        <option value="weight">Weight</option>
+        <option value="length">{{ _('Länge') }}</option>
+        <option value="weight">{{ _('Gewicht') }}</option>
     </select>
 </div>
 
 <div class="form-group">
-    <label for="value">Wert:</label>
-    <input type="text" name="value" id="value" class="form-control" placeholder="z.B. 100">
+    <label for="value">{{ _('Wert:') }}</label>
+    <input type="text" name="value" id="value" class="form-control" placeholder="{{ _('z.B. 100') }}">
 </div>
 
 <div class="form-group">
-    <label for="from_unit">Von Einheit:</label>
+    <label for="from_unit">{{ _('Von Einheit:') }}</label>
     <select name="from_unit" id="from_unit" class="form-control"></select>
 </div>
 
 <div class="form-group">
-    <label for="to_unit">Nach Einheit:</label>
+    <label for="to_unit">{{ _('Nach Einheit:') }}</label>
     <select name="to_unit" id="to_unit" class="form-control"></select>
 </div>
 
@@ -312,7 +314,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
                 function updateOrderInput() {
                     const items = document.querySelectorAll("#pdfList li");
                     const filenames = Array.from(items).map(li => li.textContent);
-                    document.getElementById("pdf_order").value = filenames.join(",");
+                    document.getElementById("pdf_order").value = JSON.stringify(filenames);
                 }
 
                 function enableReordering() {

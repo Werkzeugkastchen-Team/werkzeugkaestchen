@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-08 09:06+0200\n"
+"POT-Creation-Date: 2025-05-08 10:53+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -1246,6 +1246,10 @@ msgstr ""
 msgid "Ideal für Layout- und Designarbeiten"
 msgstr ""
 
+#: templates/variable_input_mask.jinja:77
+msgid "Textlänge:"
+msgstr ""
+
 #: templates/variable_input_mask.jinja:84
 #: tools/placeholder_text/placeholder_text_tool.py:13
 msgid "Anzahl der Wörter (1-1000)"
@@ -1253,6 +1257,44 @@ msgstr ""
 
 #: templates/variable_input_mask.jinja:86
 msgid "Wählen Sie eine Länge zwischen 1 und 1000 Wörtern."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:89
+msgid "Text generieren"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:103
+msgid ""
+"Wählen Sie eine Kategorie und geben Sie den Wert sowie die Quell- und "
+"Zieleinheit an, um eine Umrechnung durchzuführen."
+msgstr ""
+
+#: templates/variable_input_mask.jinja:107
+msgid "Kategorie:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:109
+msgid "Länge"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:110
+msgid "Gewicht"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:115
+msgid "Wert:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:116
+msgid "z.B. 100"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:120
+msgid "Von Einheit:"
+msgstr ""
+
+#: templates/variable_input_mask.jinja:125
+msgid "Nach Einheit:"
 msgstr ""
 
 #: templates/variable_input_mask.jinja:177
@@ -1651,7 +1693,7 @@ msgstr ""
 
 #: tools/date_calculator/date_calculator_tool.py:43
 #: tools/placeholder_text/placeholder_text_tool.py:111
-#: tools/unit_converter/unit_converter_tool.py:96
+#: tools/unit_converter/unit_converter_tool.py:97
 msgid "Ein Fehler ist aufgetreten:"
 msgstr ""
 
@@ -1705,7 +1747,7 @@ msgstr ""
 
 #: tools/file_size_calculator/file_size_calculator_tool.py:44
 #: tools/unit_converter/unit_converter_tool.py:14
-#: tools/unit_converter/unit_converter_tool.py:34
+#: tools/unit_converter/unit_converter_tool.py:35
 msgid "Wert"
 msgstr ""
 
@@ -2529,7 +2571,7 @@ msgid ""
 msgstr ""
 
 #: tools/unit_converter/unit_converter_tool.py:9
-#: tools/unit_converter/unit_converter_tool.py:33
+#: tools/unit_converter/unit_converter_tool.py:34
 msgid "Kategorie"
 msgstr ""
 
@@ -2542,7 +2584,7 @@ msgid "z.B. 10"
 msgstr ""
 
 #: tools/unit_converter/unit_converter_tool.py:19
-#: tools/unit_converter/unit_converter_tool.py:35
+#: tools/unit_converter/unit_converter_tool.py:36
 msgid "Von Einheit"
 msgstr ""
 
@@ -2551,7 +2593,7 @@ msgid "z.B. m oder kg"
 msgstr ""
 
 #: tools/unit_converter/unit_converter_tool.py:24
-#: tools/unit_converter/unit_converter_tool.py:36
+#: tools/unit_converter/unit_converter_tool.py:37
 msgid "Zu Einheit"
 msgstr ""
 
@@ -2559,16 +2601,16 @@ msgstr ""
 msgid "z.B. km oder g"
 msgstr ""
 
-#: tools/unit_converter/unit_converter_tool.py:62
+#: tools/unit_converter/unit_converter_tool.py:63
 #, python-brace-format
 msgid "Kategorie '{0}' wird nicht unterstützt"
 msgstr ""
 
-#: tools/unit_converter/unit_converter_tool.py:81
+#: tools/unit_converter/unit_converter_tool.py:82
 msgid "Unbekannte Einheit"
 msgstr ""
 
-#: tools/unit_converter/unit_converter_tool.py:87
+#: tools/unit_converter/unit_converter_tool.py:88
 msgid "Ungültiger Zahlenwert"
 msgstr ""
 
