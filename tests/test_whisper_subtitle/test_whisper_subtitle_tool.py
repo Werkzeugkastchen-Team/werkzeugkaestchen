@@ -4,7 +4,7 @@ import unittest
 # Removed tempfile import as it's not directly used in the test logic anymore
 
 from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
-
+from flask_babel import lazy_gettext as _
 
 class TestWhisperSubtitleTool(unittest.TestCase):
     def setUp(self):
@@ -23,10 +23,10 @@ class TestWhisperSubtitleTool(unittest.TestCase):
 
     def test_execute_tool_success(self):
         input_params = {
-            "input_file": self.test_audio_path, # Use the correct path
-            "language": "english",
-            "model_size": "tiny", # Use a small model for faster testing
-            "task": "transcribe",
+            _("Eingabedatei"): self.test_audio_path, # Use the correct path
+            _("Sprache"): "english",
+            _("Modellgröße"): "tiny", # Use a small model for faster testing
+            _("Aufgabe"): "transcribe",
             # "embed_subtitles": False, # Removed parameter
         }
         success = self.tool.execute_tool(input_params)
@@ -36,22 +36,22 @@ class TestWhisperSubtitleTool(unittest.TestCase):
 
     def test_execute_tool_no_input_file(self):
         input_params = {
-            "input_file": None,
-            "language": "english",
-            "model_size": "tiny",
-            "task": "transcribe",
+            _("Eingabedatei"): None,
+            _("Sprache"): "english",
+            _("Modellgröße"): "tiny",
+            _("Aufgabe"): "transcribe",
             # "embed_subtitles": False, # Removed parameter
         }
         success = self.tool.execute_tool(input_params)
         self.assertFalse(success)
-        self.assertEqual(self.tool.error_message, "No input file provided.")
+        self.assertEqual(self.tool.error_message, "Keine Eingabedatei angegeben.")
 
     def test_execute_tool_invalid_language(self):
         input_params = {
-            "input_file": self.test_audio_path, # Use the correct path
-            "language": "invalid_language", # Whisper should handle this internally
-            "model_size": "tiny",
-            "task": "transcribe",
+            _("Eingabedatei"): self.test_audio_path, # Use the correct path
+            _("Sprache"): "invalid_language", # Whisper should handle this internally
+            _("Modellgröße"): "tiny",
+            _("Aufgabe"): "transcribe",
             # "embed_subtitles": False, # Removed parameter
         }
         success = self.tool.execute_tool(input_params)
