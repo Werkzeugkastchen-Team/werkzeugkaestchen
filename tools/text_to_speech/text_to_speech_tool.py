@@ -1,14 +1,15 @@
+# Python
 import uuid
 import tempfile
 import os
-from tool_interface import MiniTool, OutputType
 import base64
+from tool_interface import MiniTool, OutputType
+from flask_babel import lazy_gettext as _
 
 class TextToSpeechTool(MiniTool):
-    name = "Text zu Sprache"
-    description = "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
-    
-    TTS_TOOL_CHARACTER_LIMIT = 600
+    name = _("Text zu Sprache")
+    description = _("Konvertiert Text in gesprochene Sprache (TTS Text To Speech)")
+    TTS_TOOL_CHARACTER_LIMIT = 6000
 
     def _get_audio_base64(self, audio_path):
         """Convert audio to base64 string for embedding in HTML"""
@@ -17,33 +18,33 @@ class TextToSpeechTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "TextToSpeechTool")
-        self.input_params = {"Text": "string", "Sprache": "string"}
+        self.input_params = {_("Text"): "string", _("Sprache"): "string"}
 
-    def execute_tool(self, input_params:dict) -> bool:
+    def execute_tool(self, input_params: dict) -> bool:
         try:
             self.error_message = None
             from TTS.api import TTS
-            if not input_params.get("Text") or not input_params.get("Sprache"):
-                self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
+            if not input_params.get(_("Text")) or not input_params.get(_("Sprache")):
+                self.error_message = _("Alle Eingabefelder müssen ausgefüllt sein.")
                 return False
 
-            text = input_params.get("Text", "")
-            language = input_params.get("Sprache", "de")
-            
+            text = input_params.get(_("Text"), "")
+            language = input_params.get(_("Sprache"), "de")
+
             if len(text) > self.TTS_TOOL_CHARACTER_LIMIT:
-                self.error_message = f"Eingabetext darf wegen technischen Limitationen nicht länger als {self.TTS_TOOL_CHARACTER_LIMIT} Zeichen sein."
+                self.error_message = _("Eingabetext darf wegen technischen Limitationen nicht länger als {0} Zeichen sein.").format(self.TTS_TOOL_CHARACTER_LIMIT)
                 return False
-            
+
             temp_dir = tempfile.gettempdir()
-            id = str(uuid.uuid4())
-            filename = str("output_" + id + ".wav")
-            filepath = os.path.join(temp_dir,filename)
+            uid = str(uuid.uuid4())
+            filename = "output_" + uid + ".wav"
+            filepath = os.path.join(temp_dir, filename)
+
             if text == "":
-                self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
+                self.error_message = _("Alle Eingabefelder müssen ausgefüllt sein.")
                 return False
 
             tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
-
             tts.tts_to_file(
                 text=text,
                 file_path=filepath,
@@ -54,52 +55,51 @@ class TextToSpeechTool(MiniTool):
 
             audio_base64 = self._get_audio_base64(filepath)
 
-            result = f"""
-            <div class="text-to-speech-result">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">
-                                <h5 class="mb-0">Sprachausgabe</h5>
-                            </div>
-                            <div class="card-body text-center">
-                                <audio controls>
-                                    <source src="data:audio/wav;base64,{audio_base64}" type="audio/wav">
-                                    Your browser does not support the audio element.
-                                </audio>
-                                <div class="mt-3">
-                                    <a href="data:audio/wav;base64,{audio_base64}" 
-                                       download="speech.wav" class="fancy-button">
-                                       Audio herunterladen
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header bg-info text-white">
-                                <h5 class="mb-0">Details</h5>
-                            </div>
-                            <div class="card-body">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <th>Text:</th>
-                                            <td>{text}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Sprache:</th>
-                                            <td>{language}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            """
+            # Textvariablen zur Übersetzung extern definieren
+            header_audio = _("Sprachausgabe")
+            unsupported = _("Your browser does not support the audio element.")
+            download_audio = _("Audio herunterladen")
+            header_details = _("Details")
+            label_text = _("Text:")
+            label_language = _("Sprache:")
+
+            result = (
+                f"<div class=\"text-to-speech-result\">"
+                f"<div class=\"row\">"
+                f"<div class=\"col-md-6\">"
+                f"<div class=\"card\">"
+                f"<div class=\"card-header bg-primary text-white\">"
+                f"<h5 class=\"mb-0\">{header_audio}</h5>"
+                f"</div>"
+                f"<div class=\"card-body text-center\">"
+                f"<audio controls>"
+                f"<source src=\"data:audio/wav;base64,{audio_base64}\" type=\"audio/wav\">"
+                f"{unsupported}"
+                f"</audio>"
+                f"<div class=\"mt-3\">"
+                f"<a href=\"data:audio/wav;base64,{audio_base64}\" download=\"speech.wav\" class=\"fancy-button\">{download_audio}</a>"
+                f"</div>"
+                f"</div>"
+                f"</div>"
+                f"</div>"
+                f"<div class=\"col-md-6\">"
+                f"<div class=\"card\">"
+                f"<div class=\"card-header bg-info text-white\">"
+                f"<h5 class=\"mb-0\">{header_details}</h5>"
+                f"</div>"
+                f"<div class=\"card-body\">"
+                f"<table class=\"table\">"
+                f"<tbody>"
+                f"<tr><th>{label_text}</th><td>{text}</td></tr>"
+                f"<tr><th>{label_language}</th><td>{language}</td></tr>"
+                f"</tbody>"
+                f"</table>"
+                f"</div>"
+                f"</div>"
+                f"</div>"
+                f"</div>"
+                f"</div>"
+            )
 
             self.output = result
             self.error_message = None

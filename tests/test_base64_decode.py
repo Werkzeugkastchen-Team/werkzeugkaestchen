@@ -6,7 +6,7 @@ class TestBase64DecodeTool:
     def test_basic_decoding(self):
         """Test basic base64 decoding"""
         tool = Base64DecodeTool()
-        input_params = {"Base64 String to decode": "SGVsbG8gV29ybGQ="}
+        input_params = {"Zu dekodierender Base64-String": "SGVsbG8gV29ybGQ="}
 
         result = tool.execute_tool(input_params)
 
@@ -18,8 +18,8 @@ class TestBase64DecodeTool:
         """Test ascii base64 decoding"""
         tool = Base64DecodeTool()
         input_params = {
-            "Base64 String to decode": "SGVsbG8gV29ybGQ=",
-            "Encoding": "ascii",
+            "Zu dekodierender Base64-String": "SGVsbG8gV29ybGQ=",
+            "Kodierung": "ascii",
         }
 
         result = tool.execute_tool(input_params)
@@ -32,8 +32,8 @@ class TestBase64DecodeTool:
         """Test utf-8 base64 decoding"""
         tool = Base64DecodeTool()
         input_params = {
-            "Base64 String to decode": "U8O8cGVy8J+ltA==",
-            "Encoding": "utf-8",
+            "Zu dekodierender Base64-String": "U8O8cGVy8J+ltA==",
+            "Kodierung": "utf-8",
         }
 
         result = tool.execute_tool(input_params)
@@ -46,8 +46,8 @@ class TestBase64DecodeTool:
         """Test decoding mismatch"""
         tool = Base64DecodeTool()
         input_params = {
-            "Base64 String to decode": "U8O8cGVy8J+ltA==",
-            "Encoding": "ascii",
+            "Zu dekodierender Base64-String": "U8O8cGVy8J+ltA==",
+            "Kodierung": "ascii",
         }
 
         result = tool.execute_tool(input_params)
@@ -58,12 +58,12 @@ class TestBase64DecodeTool:
     def test_empty_input(self):
         """Test handling of empty input"""
         tool = Base64DecodeTool()
-        input_params = {"Base64 String to decode": ""}
+        input_params = {"Zu dekodierender Base64-String": ""}
 
         result = tool.execute_tool(input_params)
 
         assert result is False
-        assert tool.error_message == "Base64 Input String is empty or invalid"
+        assert tool.error_message == "Base64-Eingabestring ist leer oder ungültig"
 
     def test_missing_input_params(self):
         """Test handling when required input is missing"""
@@ -73,4 +73,4 @@ class TestBase64DecodeTool:
         result = tool.execute_tool(input_params)
 
         assert result is False
-        assert tool.error_message == "Base64 Input String is empty or invalid"
+        assert tool.error_message == "Base64-Eingabestring ist leer oder ungültig"

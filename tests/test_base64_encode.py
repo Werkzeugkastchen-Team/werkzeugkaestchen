@@ -5,7 +5,7 @@ class TestBase64EncodeTool:
     def test_basic_encoding(self):
         """Test basic text encoding with default utf-8 encoding"""
         tool = Base64EncodeTool()
-        input_params = {"Text to encode": "Hello World"}
+        input_params = {"Zu kodierender Text": "Hello World"}
         
         result = tool.execute_tool(input_params)
         
@@ -16,17 +16,17 @@ class TestBase64EncodeTool:
     def test_empty_input(self):
         """Test handling of empty input"""
         tool = Base64EncodeTool()
-        input_params = {"Text to encode": ""}
+        input_params = {"Zu kodierender Text": ""}
         
         result = tool.execute_tool(input_params)
         
         assert result is False
-        assert tool.error_message == "Input text is empty or invalid"
+        assert tool.error_message == "Eingabetext ist leer oder ungültig"
     
     def test_ascii_encoding(self):
         """Test encoding with ASCII encoding option"""
         tool = Base64EncodeTool()
-        input_params = {"Text to encode": "Hello World", "Encoding": "ascii"}
+        input_params = {"Zu kodierender Text": "Hello World", "Kodierung": "ascii"}
         
         result = tool.execute_tool(input_params)
         
@@ -37,7 +37,7 @@ class TestBase64EncodeTool:
     def test_special_characters(self):
         """Test encoding of text with special characters"""
         tool = Base64EncodeTool()
-        input_params = {"Text to encode": "Héllö Wörld!"}
+        input_params = {"Zu kodierender Text": "Héllö Wörld!"}
         
         result = tool.execute_tool(input_params)
         
@@ -53,4 +53,4 @@ class TestBase64EncodeTool:
         result = tool.execute_tool(input_params)
 
         assert result is False
-        assert tool.error_message == "Input text is empty or invalid"
+        assert tool.error_message == "Eingabetext ist leer oder ungültig"

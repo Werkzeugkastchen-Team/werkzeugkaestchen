@@ -1,10 +1,11 @@
 import pytest
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
+from flask_babel import lazy_gettext as _
 
 class TestPlaceholderTextTool:
     def test_valid_length(self):
         tool = PlaceholderTextTool()
-        input_params = {"length": "50"}
+        input_params = {_("Textlänge"): "50"}
         
         result = tool.execute_tool(input_params)
         
@@ -14,7 +15,7 @@ class TestPlaceholderTextTool:
 
     def test_too_large_length(self):
         tool = PlaceholderTextTool()
-        input_params = {"length": "1001"}
+        input_params = {_("Textlänge"): "1001"}
         
         result = tool.execute_tool(input_params)
         
@@ -23,7 +24,7 @@ class TestPlaceholderTextTool:
 
     def test_invalid_length(self):
         tool = PlaceholderTextTool()
-        input_params = {"length": "abc"}
+        input_params = {_("Textlänge"): "abc"}
         
         result = tool.execute_tool(input_params)
         
@@ -32,7 +33,7 @@ class TestPlaceholderTextTool:
 
     def test_negative_length(self):
         tool = PlaceholderTextTool()
-        input_params = {"length": "-10"}
+        input_params = {_("Textlänge"): "-10"}
         
         result = tool.execute_tool(input_params)
         
@@ -41,7 +42,7 @@ class TestPlaceholderTextTool:
 
     def test_zero_length(self):
         tool = PlaceholderTextTool()
-        input_params = {"length": "0"}
+        input_params = {_("Textlänge"): "0"}
         
         result = tool.execute_tool(input_params)
         
@@ -68,7 +69,7 @@ class TestPlaceholderTextTool:
 
     def test_first_word_capitalized(self):
         tool = PlaceholderTextTool()
-        input_params = {"length": "1"}
+        input_params = {_("Textlänge"): "1"}
         
         result = tool.execute_tool(input_params)
         
@@ -78,7 +79,7 @@ class TestPlaceholderTextTool:
 
     def test_html_structure(self):
         tool = PlaceholderTextTool()
-        input_params = {"length": "10"}
+        input_params = {_("Textlänge"): "10"}
         
         result = tool.execute_tool(input_params)
         

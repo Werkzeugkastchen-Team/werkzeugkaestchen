@@ -26,14 +26,27 @@
     <div>
       <ul class="nav-list">
         <li class="nav-list-item">
-          <a href="about">Über uns</a>
+          <a href="about">{{ _('Über uns') }}</a>
         </li>
         <li class="nav-list-item">
-          <a href="contact">Kontakt</a>
+          <a href="contact">{{ _('Kontakt') }}</a>
         </li>
+            <div class="language-switcher">   <!-- Wenn man die Sprache ändert bei Seiten wo ergebnisse entstehen dann kommt ne fehler Seite
+            mir Gefählt das nicht aber es umgeht das-->
+                {% if not request.path.startswith('/download_') and not request.path.startswith('/handle_tool') %}
+                    <a href="?language=de" {% if session.get('language') == 'de' %}class="active"{% endif %}>DE</a> |
+                    <a href="?language=en" {% if session.get('language') == 'en' %}class="active"{% endif %}>EN</a>
+                {% else %}
+                    <span class="disabled-link">DE</span> |
+                    <span class="disabled-link">EN</span>
+                {% endif %}
+            </div>
       </ul>
     </div>
   </nav>
+  <div class="container mt-4">
+    <h1>{% block page_title %}{% endblock %}</h1>
+  </div>
   <div class="container">
     {% block content %} {% endblock %}
   </div>
@@ -44,31 +57,31 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>Über uns</h3>
-        <p>Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag zu erleichtern.</p>
+        <h3>{{ _('Über uns') }}</h3>
+        <p>{{ _('Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag zu erleichtern.') }}</p>
       </div>
 
       <div class="footer-section">
-        <h3>Schnelllinks</h3>
+        <h3>{{ _('Schnelllinks') }}</h3>
         <ul class="footer-links">
-          <li><a href="{{ url_for('index') }}">Startseite</a></li>
-          <li><a href="{{ url_for('about') }}">Über uns</a></li>
-          <li><a href="{{ url_for('contact') }}">Kontakt</a></li>
+          <li><a href="{{ url_for('index') }}">{{ _('Startseite') }}</a></li>
+          <li><a href="{{ url_for('about') }}">{{ _('Über uns') }}</a></li>
+          <li><a href="{{ url_for('contact') }}">{{ _('Kontakt') }}</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h3>Rechtliches</h3>
+        <h3>{{ _('Rechtliches') }}</h3>
         <ul class="footer-links">
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
-          <li><a href="#">AGB</a></li>
+          <li><a href="#">{{ _('Impressum') }}</a></li>
+          <li><a href="#">{{ _('Datenschutz') }}</a></li>
+          <li><a href="#">{{ _('AGB') }}</a></li>
         </ul>
       </div>
     </div>
 
     <div class="copyright">
-      <p>&copy; 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten.</p>
+      <p>{{ _('© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten.') }}</p>
     </div>
   </footer>
 

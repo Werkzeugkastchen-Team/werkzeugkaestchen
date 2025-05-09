@@ -5,22 +5,22 @@
 
 {% if has_error %}
 <div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">Fehler beim Verarbeiten:</h4>
+    <h4 class="alert-heading">{{ _('Fehler beim Verarbeiten:') }}</h4>
     <p>{{ output_text }}</p>
     <hr>
     <p class="mb-0">
         <a href="javascript:history.back()" class="btn btn-outline-danger">
-            <i class="fas fa-arrow-left"></i> Zurück und erneut versuchen
+            <i class="fas fa-arrow-left"></i> {{ _('Zurück und erneut versuchen') }}
         </a>
     </p>
 </div>
 {% else %}
-    {{ output_text|safe }}
 {% endif %}
+    {{ output_text|safe }}
 
 <div class="mt-4 text-center">
     <a href="{{ url_for('index') }}" class="fancy-button">
-        <i class="fas fa-tools"></i> Zurück zu den Tools
+        <i class="fas fa-tools"></i> {{ _('Zurück zu den Tools') }}
     </a>
 </div>
 

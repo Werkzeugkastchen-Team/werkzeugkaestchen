@@ -168,7 +168,7 @@ def tool_form(tool_name):
                           identifier=tool.identifier,
                           description=tool.description,
                           use_cases=tool.use_cases, 
-                           pytz_zones=all_timezones)
+                          pytz_zones=all_timezones)
 
 
 @app.route("/handle_tool", methods=["POST"])

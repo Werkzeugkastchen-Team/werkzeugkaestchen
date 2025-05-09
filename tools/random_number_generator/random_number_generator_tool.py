@@ -1,50 +1,66 @@
 from tool_interface import MiniTool
 import random
 import sys
-import string
+from flask_babel import lazy_gettext as _
+
 
 class RandomNumberGeneratorTool(MiniTool):
-    name = "Zufallszahlengenerator"
-    description = "Generiere eine Zufallszahl. Beispiel: Nenne mit eine Zahl zwischen 1 und 10"
-    
+    name = _("Zufallszahlengenerator")
+    description = _("Generiere eine Zufallszahl. Beispiel: Nenne mit eine Zahl zwischen 1 und 10")
+
     def __init__(self):
         super().__init__(self.name, "RandomNumberGeneratorTool")
+        min_number = _("Minimum Number")
+        max_number = _("Maximum Number")
+        amount_rolls = _("Amount of Rolls")
+
         self.input_params = {
-            "Minimum Number": "string",
-            "Maximum Number": "string",
-            "Amount of Rolls": "string"
+            min_number: "string",
+            max_number: "string",
+            amount_rolls: "string"
         }
-        
+
     def execute_tool(self, input_params: dict) -> bool:
         try:
-            if not input_params.get("Minimum Number") or not input_params.get("Maximum Number") or not input_params.get("Amount of Rolls"):
-                self.error_message = "Alle Eingabefelder müssen ausgefüllt sein."
+            # Übersetzungsstrings für Eingabeparameter
+            min_number = _("Minimum Number")
+            max_number = _("Maximum Number")
+            amount_rolls = _("Amount of Rolls")
+
+            if not input_params.get(min_number) or not input_params.get(max_number) or not input_params.get(
+                    amount_rolls):
+                error_msg = _("Alle Eingabefelder müssen ausgefüllt sein.")
+                self.error_message = error_msg
                 return False
-            
-            min = int(input_params.get("Minimum Number", ""))
-            max = int(input_params.get("Maximum Number", ""))
-            amount_of_rolls = int(input_params.get("Amount of Rolls", ""))
-            
+
+            min = int(input_params.get(min_number, ""))
+            max = int(input_params.get(max_number, ""))
+            amount_of_rolls = int(input_params.get(amount_rolls, ""))
+
             if not min or not max or not amount_of_rolls:
-                self.error_message = "Bitte geben Sie ganze Zahlen in alle Eingabefelder ein."
+                error_msg = _("Bitte geben Sie ganze Zahlen in alle Eingabefelder ein.")
+                self.error_message = error_msg
                 return False
-                        
+
             if min > max:
-                self.error_message = "Das Minimum darf nicht größer als das Maximum sein."
+                error_msg = _("Das Minimum darf nicht größer als das Maximum sein.")
+                self.error_message = error_msg
                 return False
-            
+
             if min > sys.maxsize or max > sys.maxsize or min < -sys.maxsize:
-                self.error_message = "Zahl zu hoch."
+                error_msg = _("Zahl zu hoch.")
+                self.error_message = error_msg
                 return False
-            
+
             if amount_of_rolls > 1000:
-                self.error_message = "Anzahl Würfe zu hoch."
+                error_msg = _("Anzahl Würfe zu hoch.")
+                self.error_message = error_msg
                 return False
 
             random_numbers = [str(random.randint(min, max)) for _ in range(amount_of_rolls)]
             self.output = ", ".join(random_numbers)
-            
+
             return True
         except Exception as e:
             self.error_message = str(e)
-            return False 
+            return False

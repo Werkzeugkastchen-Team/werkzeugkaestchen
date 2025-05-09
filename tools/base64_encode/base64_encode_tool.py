@@ -1,37 +1,43 @@
 import base64
+from flask_babel import lazy_gettext as _
 from tool_interface import MiniTool
 
 class Base64EncodeTool(MiniTool):
     def __init__(self):
-        super().__init__("Base64 Encode Tool", "Base64EncodeTool")
+        # Der übergebene Name wird im Interface angezeigt und ist somit übersetzbar.
+        super().__init__(_("Base64 Kodierungstool"), "Base64EncodeTool")
+        # Beachte: Die Keys in input_params werden hier für die UI genutzt.
+        # Wenn du diese Keys übersetzen möchtest, werden auch die entsprechenden Eingabewerte
+        # unter den übersetzten Keys erwartet.
         self.input_params = {
-            "Text to encode": "string",
-            "Encoding": {
+            _("Zu kodierender Text"): "string",
+            _("Kodierung"): {
                 "type": "enum",
                 "options": ["utf-8", "ascii"]
             }
         }
-        self.description = "Encodes any input text to a Base64 String. Supports ascii and utf-8 encoding"
-        
+        self.description = _("base64_encode_tool_description")
+
     def execute_tool(self, input_params: dict) -> bool:
         try:
-            message = input_params.get("Text to encode", "")
-            encoding = input_params.get("Encoding", "utf-8")
-            
+            # Definiere die Schlüssel, wie sie auch in input_params verwendet wurden
+            text_key = _("Zu kodierender Text")
+            encoding_key = _("Kodierung")
+            message = input_params.get(text_key, "")
+            encoding = input_params.get(encoding_key, "utf-8")
+
             if message == "":
-                self.error_message = "Input text is empty or invalid"
+                self.error_message = _("Eingabetext ist leer oder ungültig")
                 return False
-                
+
             message_bytes = message.encode(encoding)
             base64_bytes = base64.b64encode(message_bytes)
-            # utf-8 is needed for web-compatible display,
-            # and it's backwards compatible with
-            # ascii anyway
+            # UTF-8-Encoding sorgt für eine webkompatible Darstellung
             base64_message = base64_bytes.decode('utf-8')
-            
+
             self.output = base64_message
             return True
-            
+
         except Exception as e:
             print(str(e))
             self.error_message = str(e)

@@ -47,3 +47,21 @@
     background-color: var(--accent-light-color);
     color: var(--primary-color);
 }
+
+.language-switcher {
+    margin-left: 20px;
+}
+.language-switcher a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 5px;
+}
+.language-switcher a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.disabled-link {
+    color: #999;  /* Grau */
+    cursor: not-allowed;
+    opacity: 0.6;
+}

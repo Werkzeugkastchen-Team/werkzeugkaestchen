@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
-
+<h1>{% block page_title %} {{ _('Werkzeugkästchen') }} {% endblock %}</h1>
 {% block content %}
-    <h1>{% block title %} Werkzeugkästchen {% endblock %}</h1>
 
-    <input class="search" type="text" id="searchInput" placeholder="🔍 Suche nach einem Tool..." onkeyup="filterTools()">
-    
+    <input class="search" type="text" id="searchInput" placeholder="{{ _('🔍 Suche nach einem Tool...') }}" onkeyup="filterTools()">
+
     <div class="row" id="toolsContainer">
         {% for tool in toolsToRender %}
             <div class="col-md-4 mb-4 tool-card" data-title="{{ tool.name }}" data-description="{{ tool.description }}">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ tool.name }}</h5>
-                        <a href="{{ url_for('tool_form', tool_name=tool.__class__.__name__) }}" class="fancy-button">Öffnen</a>
+                        <a href="{{ url_for('tool_form', tool_name=tool.__class__.__name__) }}" class="fancy-button">{{ _('Öffnen') }}</a>
                     </div>
                 </div>
             </div>
