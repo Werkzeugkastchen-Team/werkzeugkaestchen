@@ -91,7 +91,10 @@ def index():
     tools_classes = []
     for name, tool in tools.items():
         tools_classes.append(tool)
-    return render_template('index.jinja', toolsToRender=tools_classes)
+
+        cookie_consent = request.cookies.get('cookie_consent')
+        show_ads = cookie_consent == 'accepted'
+    return render_template('index.jinja', toolsToRender=tools_classes, show_ads=show_ads)
 
 
 @app.route("/search_tools", methods=["GET"])

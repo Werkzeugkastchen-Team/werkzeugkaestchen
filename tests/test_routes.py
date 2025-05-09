@@ -32,3 +32,24 @@ def test_search_tools(client):
     response = client.get("/search_tools?q=xyz")
     data = response.get_json()
     assert len(data) == 0
+
+# Tests zur Überprüfung der Werbeeinbindung auf der Startseite.
+def test_ads_shown_with_cookie_accepted(client):
+    """Werbung wird angezeigt, wenn Cookies akzeptiert wurden."""
+    response = client.get('/', headers={'Cookie': 'cookie_consent=accepted'})
+    assert response.status_code == 200
+    assert b'<img src="/static/img/Beige.png"' in response.data
+
+
+def test_ads_not_shown_with_cookie_rejected(client):
+    """Werbung wird nicht angezeigt, wenn Cookies abgelehnt wurden."""
+    response = client.get('/', headers={'Cookie': 'cookie_consent=rejected'})
+    assert response.status_code == 200
+    assert b'<img src="/static/img/Beige.png"' not in response.data
+
+
+def test_ads_hidden_by_default(client):
+    """Standardmäßig wird keine Werbung angezeigt (kein Cookie gesetzt)."""
+    response = client.get('/')
+    assert response.status_code == 200
+    assert b'<img src="/static/img/Beige.png"' not in response.data
