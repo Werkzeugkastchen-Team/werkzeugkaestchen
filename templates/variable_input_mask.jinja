@@ -371,6 +371,40 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
         {% endif %}
     {% endfor %}
 
+      {% if identifier == "TimezoneConverterTool" %}
+        <div class="alert alert-info">
+            {{ _('Geben Sie ein Datum, eine Uhrzeit, eine Quell- und Zielzeitzone ein, um die Zeit umzuwandeln.') }}
+        </div>
+
+        <div class="form-group">
+            <label for="date">{{ _('Datum (TT.MM.JJJJ)') }}</label>
+            <input type="text" name="date" id="date" class="form-control" placeholder="z.B. 09.05.2025" required>
+        </div>
+
+        <div class="form-group">
+            <label for="time">{{ _('Uhrzeit (HH:MM:SS)') }}</label>
+            <input type="text" name="time" id="time" class="form-control" placeholder="z.B. 13:45:00">
+        </div>
+
+        <div class="form-group">
+            <label for="from_timezone">{{ _('Von Zeitzone') }}</label>
+            <select name="from_timezone" id="from_timezone" class="form-control" required>
+                {% for tz in pytz_zones %}
+                <option value="{{ tz }}">{{ tz }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="to_timezone">{{ _('Nach Zeitzone') }}</label>
+            <select name="to_timezone" id="to_timezone" class="form-control" required>
+                {% for tz in pytz_zones %}
+                <option value="{{ tz }}">{{ tz }}</option>
+                {% endfor %}
+            </select>
+        </div>
+     {% endif %}
+
     {% if identifier == "PasswordGeneratorTool" %}
     <div class="alert alert-warning mt-3">
         <strong>{{ _('Hinweis:') }}</strong> {{ _('Passwörter werden lokal generiert und nicht an den Server übertragen. Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht gespeichert.') }}

@@ -3,6 +3,7 @@ import tempfile
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file, session
 from flask_babel import Babel, gettext as _
 from markupsafe import Markup
+from pytz import all_timezones
 from tool_descriptions import get_description, get_use_cases
 from tools.base64_encode.base64_encode_tool import Base64EncodeTool
 from tools.base64_decode.base64_decode_tool import Base64DecodeTool
@@ -25,6 +26,7 @@ from tools.unit_converter.unit_converter_tool import UnitConverterTool
 from tools.date_calculator.date_calculator_tool import DateCalculatorTool
 from tools.placeholder_text.placeholder_text_tool import PlaceholderTextTool
 from tools.color_converter.color_converter_tool import ColorConverterTool
+from tools.timezone_converter.timezone_converter_tool import TimezoneConverterTool
 from tools.gif_video_converter.gif_video_converter_tool import GifVideoConverterTool
 from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
@@ -84,7 +86,8 @@ tools = {
     "PdfSplitTool": PdfSplitTool(),
     "GifVideoConverterTool": GifVideoConverterTool(),
     "TextSummaryTool": TextSummaryTool(),
-    "PdfMergeTool": PdfMergeTool()
+    "PdfMergeTool": PdfMergeTool(),
+    "TimezoneConverterTool": TimezoneConverterTool(),
 }
 
 
@@ -164,7 +167,8 @@ def tool_form(tool_name):
                           input_params=tool.input_params,
                           identifier=tool.identifier,
                           description=tool.description,
-                          use_cases=tool.use_cases)
+                          use_cases=tool.use_cases, 
+                          pytz_zones=all_timezones)
 
 
 @app.route("/handle_tool", methods=["POST"])
