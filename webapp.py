@@ -117,22 +117,31 @@ def search_tools():
     return jsonify(filtered_tools)
 
 # /contact
-
-
 @app.route('/contact')
 def contact():
-    return render_template('contact.jinja')
+    return render_template('/pages/contact.jinja')
 
 # /about
-
-
 @app.route('/about')
 def about():
-    return render_template('about.jinja')
+    return render_template('/pages/about.jinja')
+
+# /impressum
+@app.route('/impressum')
+def impressum():
+    return render_template('/pages/impressum.jinja')
+
+# /datenschutz
+@app.route('/datenschutz')
+def datenschutz():
+    return render_template('/pages/privacy.jinja')
+
+# /agb
+@app.route('/agb')
+def agb():
+    return render_template('/pages/agb.jinja')
 
 # Input
-
-
 @app.route("/tool/<tool_name>")
 def tool_form(tool_name):
     tool = tools.get(tool_name)
