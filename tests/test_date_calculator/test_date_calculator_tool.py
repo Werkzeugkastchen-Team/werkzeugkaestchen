@@ -1,12 +1,13 @@
 import pytest
 from tools.date_calculator.date_calculator_tool import DateCalculatorTool
+from flask_babel import lazy_gettext as _
 
 def test_valid_dates():
     """Test mit gültigen Daten"""
     tool = DateCalculatorTool()
     input_params = {
-        'start_date': '01.01.2024',
-        'end_date': '02.01.2024'
+        _('Startdatum'): '01.01.2024',
+        _('Enddatum'): '02.01.2024'
     }
     success = tool.execute_tool(input_params)
     assert success is True
@@ -17,8 +18,8 @@ def test_over_one_year():
     """Test mit gültigen Daten über ein Jahr"""
     tool = DateCalculatorTool()
     input_params = {
-        'start_date': '01.01.2024',
-        'end_date': '02.01.2025'
+        _('Startdatum'): '01.01.2024',
+        _('Enddatum'): '02.01.2025'
     }
     success = tool.execute_tool(input_params)
     assert success is True
@@ -29,8 +30,8 @@ def test_invalid_format():
     """Test mit falschem Format"""
     tool = DateCalculatorTool()
     input_params = {
-        'start_date': '2024-01-01',
-        'end_date': '2024-01-02'
+        _('Startdatum'): '2024-01-01',
+        _('Enddatum'): '2024-01-02'
     }
     success = tool.execute_tool(input_params)
     assert success is False
@@ -41,8 +42,8 @@ def test_invalid_year():
     """Test mit ungültigem Jahr"""
     tool = DateCalculatorTool()
     input_params = {
-        'start_date': '01.01.1899',
-        'end_date': '01.01.1900'
+        _('Startdatum'): '01.01.1899',
+        _('Enddatum'): '01.01.1900'
     }
     success = tool.execute_tool(input_params)
     assert success is False

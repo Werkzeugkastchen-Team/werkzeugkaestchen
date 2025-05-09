@@ -17,9 +17,9 @@ def test_random_number_generator_ui_form(client):
 
     assert "Zufallszahlengenerator" in soup.title.string
     
-    min_input = soup.find('input', {'name': 'Minimum Number'})
-    max_input = soup.find('input', {'name': 'Maximum Number'})
-    rolls_input = soup.find('input', {'name': 'Amount of Rolls'})
+    min_input = soup.find('input', {'name': 'Kleinste Zahl'})
+    max_input = soup.find('input', {'name': 'Größte Zahl'})
+    rolls_input = soup.find('input', {'name': 'Anzahl der Würfe'})
     
     assert min_input is not None
     assert max_input is not None

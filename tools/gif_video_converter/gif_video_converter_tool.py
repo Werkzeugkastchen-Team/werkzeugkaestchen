@@ -2,37 +2,44 @@ import os
 import uuid
 import tempfile
 from datetime import datetime, timedelta
+from flask_babel import lazy_gettext as _
 import ffmpeg
 from tool_interface import MiniTool, OutputType
 
 
 class GifVideoConverterTool(MiniTool):
-    name = "GIF/Video Konverter"
-    description = "Konvertiert Videos in GIFs und umgekehrt"
-
-    # Dictionary für die Verwaltung der Konvertierungen
-    pending_conversions = {}
-    temp_dir = tempfile.gettempdir()
-
     def __init__(self):
-        super().__init__(self.name, "GifVideoConverterTool", OutputType.TEXT)
+        super().__init__(_("GIF/Video Konverter"), "GifVideoConverterTool", OutputType.TEXT)
+        self.description = _("Konvertiert Videos in GIFs und umgekehrt")
         self.input_params = {
-            "file": "file"
+            "file": "file"  # Hier wurde der Parameter von _("file") zu "file" geändert
         }
+        
+        # Extract translatable strings for HTML
+        self.started_header = _("Konvertierung gestartet!")
+        self.gif_to_video = _("GIF zu Video")
+        self.video_to_gif = _("Video zu GIF")
+        self.conversion_started_text = _("Ihre {0} Konvertierung wurde erfolgreich gestartet. Bitte klicken Sie auf den Button unten, um die Datei herunterzuladen.")
+        self.download_button = _("Konvertierte Datei herunterladen")
+        self.new_conversion_button = _("Neue Konvertierung starten")
+        
+        # Dictionary für die Verwaltung der Konvertierungen
+        self.pending_conversions = {}
+        self.temp_dir = tempfile.gettempdir()
 
     def execute_tool(self, input_params: dict) -> bool:
         try:
-            if "file" not in input_params:
-                self.error_message = "Bitte wählen Sie eine Datei aus."
+            if "file" not in input_params:  # Hier wurde der Parameter von _("file") zu "file" geändert
+                self.error_message = _("Bitte wählen Sie eine Datei aus.")
                 return False
 
-            file_info = input_params["file"]
+            file_info = input_params["file"]  # Hier wurde der Parameter von _("file") zu "file" geändert
             file_path = file_info["file_path"]
             filename = file_info["filename"]
 
             # Prüfe Dateigröße (max 1GB)
             if os.path.getsize(file_path) > 1024 * 1024 * 1024:  # 1GB in Bytes
-                self.error_message = "Die Datei ist zu groß. Maximale Größe ist 1GB."
+                self.error_message = _("Die Datei ist zu groß. Maximale Größe ist 1GB.")
                 return False
 
             # Bestimme Dateityp (GIF oder Video)
@@ -69,24 +76,23 @@ class GifVideoConverterTool(MiniTool):
             return True
 
         except Exception as e:
-            self.error_message = f"Fehler bei der Verarbeitung: {str(e)}"
+            self.error_message = _("Fehler bei der Verarbeitung:") + f" {str(e)}"
             return False
 
     def _create_output_html(self, token, is_gif):
         """Erstellt das HTML für die Erfolgsanzeige"""
-        conversion_type = "GIF zu Video" if is_gif else "Video zu GIF"
+        conversion_type = self.gif_to_video if is_gif else self.video_to_gif
         return f"""
         <div class="alert alert-success">
-            <h4 class="alert-heading">Konvertierung gestartet!</h4>
-            <p>Ihre {conversion_type} Konvertierung wurde erfolgreich gestartet. 
-               Bitte klicken Sie auf den Button unten, um die Datei herunterzuladen.</p>
+            <h4 class="alert-heading">{self.started_header}</h4>
+            <p>{self.conversion_started_text.format(conversion_type)}</p>
             <hr>
             <div class="d-flex justify-content-between">
                 <a href="/download_converted_media/{token}" class="btn btn-primary" download>
-                    <i class="fas fa-download"></i> Konvertierte Datei herunterladen
+                    <i class="fas fa-download"></i> {self.download_button}
                 </a>
                 <a href="/tool/GifVideoConverterTool" class="btn btn-secondary">
-                    <i class="fas fa-redo"></i> Neue Konvertierung starten
+                    <i class="fas fa-redo"></i> {self.new_conversion_button}
                 </a>
             </div>
         </div>
