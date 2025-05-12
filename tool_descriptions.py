@@ -10,14 +10,9 @@ TOOL_DESCRIPTIONS = {
     "Base64EncodeTool": {
         "description": _("Konvertiert Text oder Dateien in das Base64-Format. Ideal für die sichere Übertragung von Binärdaten in textbasierten Systemen wie E-Mail oder HTTP."),
         "use_cases": [_("Einbettung von Bildern in HTML/CSS"), _("Codierung binärer Daten für API-Übertragungen"), _("Sichere Übermittlung von Zeichen, die in URLs problematisch sein können")]
-    },
-    "Base64DecodeTool": {
+    },    "Base64DecodeTool": {
         "description": _("Decodiert Base64-kodierte Daten zurück in ihre ursprüngliche Form (Text oder Binärdaten). Nützlich zum Entschlüsseln von Base64-Inhalten."),
         "use_cases": [_("Extraktion von Daten aus API-Antworten"), _("Wiederherstellen von Binärdateien aus Base64-Text"), _("Analyse kodierter Inhalte")]
-    },
-    "FileSizeCalculatorTool": {
-        "description": _("Berechnet die Größe von Dateien in verschiedenen Einheiten (Bytes, KB, MB, GB). Hilft bei der Einschätzung von Speicheranforderungen."),
-        "use_cases": [_("Überprüfung von Upload-Größen"), _("Planung von Speicherkapazitäten"), _("Optimierung von Dateien für Web-Anwendungen")]
     },
     "QrCodeGeneratorTool": {
         "description": _("Erstellt QR-Codes aus Text, URLs oder anderen Daten. Ideal für kontaktlose Informationsübermittlung und schnellen Datenzugriff über mobile Geräte."),

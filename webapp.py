@@ -7,7 +7,6 @@ from pytz import all_timezones
 from tool_descriptions import get_description, get_use_cases
 from tools.base64_encode.base64_encode_tool import Base64EncodeTool
 from tools.base64_decode.base64_decode_tool import Base64DecodeTool
-from tools.file_size_calculator.file_size_calculator_tool import FileSizeCalculatorTool
 from tools.qr_code_generator.qr_code_generator_tool import QrCodeGeneratorTool
 from tools.number_converter.number_converter_tool import NumberConverterTool
 from tools.image_converter.image_converter_tool import ImageConverterTool
@@ -64,7 +63,6 @@ babel.init_app(app, locale_selector=get_locale)
 tools = {
     "Base64EncodeTool": Base64EncodeTool(),
     "Base64DecodeTool": Base64DecodeTool(),
-    "FileSizeCalculatorTool": FileSizeCalculatorTool(),
     "FileSizeConverterTool": FileSizeConverterTool(),
     "QrCodeGeneratorTool": QrCodeGeneratorTool(),
     "NumberConverterTool": NumberConverterTool(),
