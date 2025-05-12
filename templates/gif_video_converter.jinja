@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-<h1>{% block page_title %} {{ _('GIF/Video Konverter') }} {% endblock %}</h1>
+{% block title %}{{ _('GIF/Video Konverter') }}{% endblock %}
+{% block page_title %}{{ _('GIF/Video Konverter') }}{% endblock %}
 {% block content %}
 <div class="mb-4">
     <p class="lead text-secondary">{{ description }}</p>

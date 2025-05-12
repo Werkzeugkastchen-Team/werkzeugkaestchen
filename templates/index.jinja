@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-<h1>{% block page_title %} {{ _('Werkzeugkästchen') }} {% endblock %}</h1>
+{% block title %}{{ _('Werkzeugkästchen') }}{% endblock %}
+{% block page_title %}{{ _('Werkzeugkästchen') }}{% endblock %}
 {% block content %}
 
     <input class="search" type="text" id="searchInput" placeholder="{{ _('🔍 Suche nach einem Tool...') }}" onkeyup="filterTools()">

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-<h1>{% block page_title %} {{ toolName }} {% endblock %}</h1>
+{% block title %}{{ toolName }}{% endblock %}
+{% block page_title %}{{ toolName }}{% endblock %}
 {% block content %}
 <div class="mb-4">
     <p class="lead text-secondary">{{ description }}</p>

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}{{ _('Vielen Dank!') }}{% endblock %}
+{% block page_title %}{{ _('Vielen Dank!') }}{% endblock %}
 
 {% block content %}
-    <h1>{{ _('Vielen Dank!') }}</h1>
     <p>{{ _('Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns so schnell wie möglich bei Ihnen melden.') }}</p>
     <a href="{{ url_for('contact') }}">{{ _('Zurück zum Startseite') }}</a>
 {% endblock %}
