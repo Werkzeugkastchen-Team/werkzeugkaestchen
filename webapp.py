@@ -32,6 +32,7 @@ from tools.whisper_subtitle.whisper_subtitle_tool import WhisperSubtitleTool
 from tools.pdf_split.pdf_split_tool import PdfSplitTool
 from tools.text_summary.text_summary_tool import TextSummaryTool
 from tools.pdf_merge.pdf_merge_tool import PdfMergeTool
+from tools.file_size_converter.file_size_converter_tool import FileSizeConverterTool
 
 
 # Erstellen einer Flask-Anwendung
@@ -64,6 +65,7 @@ tools = {
     "Base64EncodeTool": Base64EncodeTool(),
     "Base64DecodeTool": Base64DecodeTool(),
     "FileSizeCalculatorTool": FileSizeCalculatorTool(),
+    "FileSizeConverterTool": FileSizeConverterTool(),
     "QrCodeGeneratorTool": QrCodeGeneratorTool(),
     "NumberConverterTool": NumberConverterTool(),
     "ImageConverterTool": ImageConverterTool(),
@@ -141,9 +143,7 @@ def tool_form(tool_name):
     
     # Add description and use cases
     tool.description = get_description(tool_name)
-    tool.use_cases = get_use_cases(tool_name)
-
-    # Spezielle Behandlung für bestimmte Tools
+    tool.use_cases = get_use_cases(tool_name)    # Spezielle Behandlung für bestimmte Tools
     if tool_name == "ColorConverterTool":
         return render_template('color_converter.html',
                             tool=tool,
@@ -156,6 +156,11 @@ def tool_form(tool_name):
                               use_cases=tool.use_cases)
     elif tool_name == "ImageCropperTool":
         return render_template('image_cropper.jinja',
+                              tool=tool,
+                              description=tool.description,
+                              use_cases=tool.use_cases)
+    elif tool_name == "FileSizeConverterTool":
+        return render_template('file_size_converter.jinja',
                               tool=tool,
                               description=tool.description,
                               use_cases=tool.use_cases)

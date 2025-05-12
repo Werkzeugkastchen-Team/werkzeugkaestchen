@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ tool.name }}</h1>
+            <p class="lead">{{ description }}</p>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    {{ _('Beschreibung') }}
+                </div>
+                <div class="card-body">
+                    <p>{{ description }}</p>
+                    <h5>{{ _('Anwendungsfälle') }}</h5>
+                    <ul>
+                        {% for use_case in use_cases %}
+                        <li>{{ use_case }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    {{ _('Dateigrößen-Konverter') }}
+                </div>
+                <div class="card-body">
+                    <form id="sizeConverterForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="size" class="form-label">{{ _('Größe') }}</label>
+                                <input type="number" class="form-control" id="size" name="size" step="any" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="unit" class="form-label">{{ _('Einheit') }}</label>
+                                <select class="form-select" id="unit" name="unit" required>
+                                    <option value="bytes">{{ _('Bytes') }}</option>
+                                    <option value="kb">{{ _('Kilobyte (KB)') }}</option>
+                                    <option value="mb">{{ _('Megabyte (MB)') }}</option>
+                                    <option value="gb">{{ _('Gigabyte (GB)') }}</option>
+                                    <option value="tb">{{ _('Terabyte (TB)') }}</option>
+                                    <option value="kib">{{ _('Kibibyte (KiB)') }}</option>
+                                    <option value="mib">{{ _('Mebibyte (MiB)') }}</option>
+                                    <option value="gib">{{ _('Gibibyte (GiB)') }}</option>
+                                    <option value="tib">{{ _('Tebibyte (TiB)') }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <div id="conversionResults">
+                        <div class="mt-4">
+                            <h3>{{ _('Ergebnisse') }}</h3>
+                            
+                            <h4 class="mt-4">{{ _('Dezimale Einheiten (SI)') }}</h4>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>{{ _('Einheit') }}</th>
+                                        <th>{{ _('Wert') }}</th>
+                                        <th>{{ _('Beschreibung') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Bytes</td>
+                                        <td id="bytes-value">0</td>
+                                        <td>{{ _('Bytes') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>KB</td>
+                                        <td id="kb-value">0</td>
+                                        <td>{{ _('Kilobyte (1000 Bytes)') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MB</td>
+                                        <td id="mb-value">0</td>
+                                        <td>{{ _('Megabyte (1000 KB)') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GB</td>
+                                        <td id="gb-value">0</td>
+                                        <td>{{ _('Gigabyte (1000 MB)') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TB</td>
+                                        <td id="tb-value">0</td>
+                                        <td>{{ _('Terabyte (1000 GB)') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <h4 class="mt-4">{{ _('Binäre Einheiten (IEC)') }}</h4>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>{{ _('Einheit') }}</th>
+                                        <th>{{ _('Wert') }}</th>
+                                        <th>{{ _('Beschreibung') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>KiB</td>
+                                        <td id="kib-value">0</td>
+                                        <td>{{ _('Kibibyte (1024 Bytes)') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MiB</td>
+                                        <td id="mib-value">0</td>
+                                        <td>{{ _('Mebibyte (1024 KiB)') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GiB</td>
+                                        <td id="gib-value">0</td>
+                                        <td>{{ _('Gibibyte (1024 MiB)') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TiB</td>
+                                        <td id="tib-value">0</td>
+                                        <td>{{ _('Tebibyte (1024 GiB)') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sizeInput = document.getElementById('size');
+    const unitSelect = document.getElementById('unit');
+    
+    // Format a number with thousands separators and 3 decimal places
+    function formatNumber(num) {
+        return new Intl.NumberFormat(document.documentElement.lang || 'de-DE', {
+            maximumFractionDigits: 3
+        }).format(num);
+    }
+    
+    // Format bytes as integers
+    function formatBytes(num) {
+        return new Intl.NumberFormat(document.documentElement.lang || 'de-DE', {
+            maximumFractionDigits: 0
+        }).format(num);
+    }
+    
+    function convertSize() {
+        const size = parseFloat(sizeInput.value) || 0;
+        const unit = unitSelect.value;
+        
+        // Convert to bytes first
+        let bytesValue = 0;
+        
+        switch(unit) {
+            case 'bytes':
+                bytesValue = size;
+                break;
+            case 'kb':
+                bytesValue = size * 1000;
+                break;
+            case 'mb':
+                bytesValue = size * 1000 * 1000;
+                break;
+            case 'gb':
+                bytesValue = size * 1000 * 1000 * 1000;
+                break;
+            case 'tb':
+                bytesValue = size * 1000 * 1000 * 1000 * 1000;
+                break;
+            case 'kib':
+                bytesValue = size * 1024;
+                break;
+            case 'mib':
+                bytesValue = size * 1024 * 1024;
+                break;
+            case 'gib':
+                bytesValue = size * 1024 * 1024 * 1024;
+                break;
+            case 'tib':
+                bytesValue = size * 1024 * 1024 * 1024 * 1024;
+                break;
+        }
+        
+        // Convert from bytes to other units
+        const kb = bytesValue / 1000;
+        const mb = kb / 1000;
+        const gb = mb / 1000;
+        const tb = gb / 1000;
+        
+        const kib = bytesValue / 1024;
+        const mib = kib / 1024;
+        const gib = mib / 1024;
+        const tib = gib / 1024;
+        
+        // Update the values in the table
+        document.getElementById('bytes-value').textContent = formatBytes(bytesValue);
+        document.getElementById('kb-value').textContent = formatNumber(kb);
+        document.getElementById('mb-value').textContent = formatNumber(mb);
+        document.getElementById('gb-value').textContent = formatNumber(gb);
+        document.getElementById('tb-value').textContent = formatNumber(tb);
+        
+        document.getElementById('kib-value').textContent = formatNumber(kib);
+        document.getElementById('mib-value').textContent = formatNumber(mib);
+        document.getElementById('gib-value').textContent = formatNumber(gib);
+        document.getElementById('tib-value').textContent = formatNumber(tib);
+    }
+    
+    // Set up event listeners
+    sizeInput.addEventListener('input', convertSize);
+    unitSelect.addEventListener('change', convertSize);
+    
+    // Initial calculation
+    convertSize();
+});
+</script>
+{% endblock %}

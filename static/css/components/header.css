@@ -29,12 +29,11 @@
 .nav-list-item a:hover {
     color: var(--accent-color);
     text-decoration: underline var(--accent-color);
-    transform: translateY(-3px);
     text-shadow: 0 3px 5px rgba(202, 6, 18, 0.2);
 }
 
 .nav-list-item a:active {
-    transform: translateY(-1px);
+    /* Bewegungseffekt entfernt */
 }
 
 .btn {

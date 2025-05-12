@@ -3,6 +3,10 @@
 from flask_babel import lazy_gettext as _
 
 TOOL_DESCRIPTIONS = {
+    "FileSizeConverterTool": {
+        "description": _("Konvertiert Dateigrößen zwischen verschiedenen Einheiten wie Bytes, KB, MB, GB und TB. Unterstützt sowohl dezimale (SI) als auch binäre (IEC) Einheiten."),
+        "use_cases": [_("Umrechnung von Speicherkapazitäten"), _("Vergleich von Dateigrößen in verschiedenen Formaten"), _("Berechnung von Speicheranforderungen")]
+    },
     "Base64EncodeTool": {
         "description": _("Konvertiert Text oder Dateien in das Base64-Format. Ideal für die sichere Übertragung von Binärdaten in textbasierten Systemen wie E-Mail oder HTTP."),
         "use_cases": [_("Einbettung von Bildern in HTML/CSS"), _("Codierung binärer Daten für API-Übertragungen"), _("Sichere Übermittlung von Zeichen, die in URLs problematisch sein können")]
