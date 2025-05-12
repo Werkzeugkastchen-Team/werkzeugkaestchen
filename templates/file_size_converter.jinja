@@ -26,34 +26,75 @@
             <div class="card">
                 <div class="card-header">
                     {{ _('Dateigrößen-Konverter') }}
-                </div>
-                <div class="card-body">
-                    <form id="sizeConverterForm">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="size" class="form-label">{{ _('Größe') }}</label>
-                                <input type="number" class="form-control" id="size" name="size" step="any" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="unit" class="form-label">{{ _('Einheit') }}</label>
-                                <select class="form-select" id="unit" name="unit" required>
-                                    <option value="bytes">{{ _('Bytes') }}</option>
-                                    <option value="kb">{{ _('Kilobyte (KB)') }}</option>
-                                    <option value="mb">{{ _('Megabyte (MB)') }}</option>
-                                    <option value="gb">{{ _('Gigabyte (GB)') }}</option>
-                                    <option value="tb">{{ _('Terabyte (TB)') }}</option>
-                                    <option value="kib">{{ _('Kibibyte (KiB)') }}</option>
-                                    <option value="mib">{{ _('Mebibyte (MiB)') }}</option>
-                                    <option value="gib">{{ _('Gibibyte (GiB)') }}</option>
-                                    <option value="tib">{{ _('Tebibyte (TiB)') }}</option>
-                                </select>
+                </div>                <div class="card-body">
+                    <form id="sizeConverterForm" action="/handle_tool" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="tool_name" value="{{ tool.identifier }}">
+
+                        <div class="mb-3">
+                            <label for="input_type" class="form-label">{{ _('Eingabetyp') }}</label>
+                            <select class="form-select" id="input_type" name="input_type" required>
+                                <option value="manual">{{ _('Manuelle Eingabe') }}</option>
+                                <option value="file">{{ _('Datei hochladen') }}</option>
+                            </select>
+                        </div>
+
+                        <div id="manual-input">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="size" class="form-label">{{ _('Größe') }}</label>
+                                    <input type="number" class="form-control" id="size" name="size" step="any">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="unit" class="form-label">{{ _('Einheit') }}</label>
+                                    <select class="form-select" id="unit" name="unit">
+                                        <option value="bytes">{{ _('Bytes') }}</option>
+                                        <option value="kb">{{ _('Kilobyte (KB)') }}</option>
+                                        <option value="mb" selected>{{ _('Megabyte (MB)') }}</option>
+                                        <option value="gb">{{ _('Gigabyte (GB)') }}</option>
+                                        <option value="tb">{{ _('Terabyte (TB)') }}</option>
+                                        <option value="kib">{{ _('Kibibyte (KiB)') }}</option>
+                                        <option value="mib">{{ _('Mebibyte (MiB)') }}</option>
+                                        <option value="gib">{{ _('Gibibyte (GiB)') }}</option>
+                                        <option value="tib">{{ _('Tebibyte (TiB)') }}</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
+
+                        <div id="file-input" style="display: none;">
+                            <div class="mb-3">
+                                <label for="file" class="form-label">{{ _('Datei hochladen') }}</label>
+                                <input type="file" class="form-control" id="file" name="file">
+                                <div class="form-text">{{ _('Laden Sie eine Datei hoch, um deren Größe automatisch zu ermitteln') }}</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="show_calculations" name="show_calculations">
+                            <label class="form-check-label" for="show_calculations">{{ _('Rechenweg anzeigen') }}</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mb-3">{{ _('Berechnen') }}</button>
                     </form>
-                    
-                    <div id="conversionResults">
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="live-calculation" checked>
+                        <label class="form-check-label" for="live-calculation">{{ _('Live-Umrechnung') }}</label>
+                    </div>
+                      <div id="conversionResults">
                         <div class="mt-4">
                             <h3>{{ _('Ergebnisse') }}</h3>
+
+                            <div id="calculation-section" class="mb-4">
+                                <h4 class="mt-3">{{ _('Rechenweg') }}</h4>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="calculation-steps">
+                                            <!-- Hier werden die Rechenschritte eingefügt -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
                             <h4 class="mt-4">{{ _('Dezimale Einheiten (SI)') }}</h4>
                             <table class="table table-striped table-bordered">
@@ -135,8 +176,15 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    const inputTypeSelect = document.getElementById('input_type');
+    const manualInputDiv = document.getElementById('manual-input');
+    const fileInputDiv = document.getElementById('file-input');
     const sizeInput = document.getElementById('size');
     const unitSelect = document.getElementById('unit');
+    const liveCalcCheckbox = document.getElementById('live-calculation');
+    const showCalculationsCheckbox = document.getElementById('show_calculations');
+    const calculationSection = document.getElementById('calculation-section');
+    const calculationSteps = document.getElementById('calculation-steps');
     
     // Format a number with thousands separators and 3 decimal places
     function formatNumber(num) {
@@ -152,42 +200,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }).format(num);
     }
     
+    function updateInputVisibility() {
+        if (inputTypeSelect.value === 'manual') {
+            manualInputDiv.style.display = 'block';
+            fileInputDiv.style.display = 'none';
+        } else {
+            manualInputDiv.style.display = 'none';
+            fileInputDiv.style.display = 'block';
+        }
+    }
+    
+    function updateCalculationVisibility() {
+        if (showCalculationsCheckbox.checked) {
+            calculationSection.style.display = 'block';
+        } else {
+            calculationSection.style.display = 'none';
+        }
+    }
+    
     function convertSize() {
+        if (!liveCalcCheckbox.checked) return;
+        
         const size = parseFloat(sizeInput.value) || 0;
         const unit = unitSelect.value;
         
         // Convert to bytes first
         let bytesValue = 0;
         
-        switch(unit) {
-            case 'bytes':
-                bytesValue = size;
-                break;
-            case 'kb':
-                bytesValue = size * 1000;
-                break;
-            case 'mb':
-                bytesValue = size * 1000 * 1000;
-                break;
-            case 'gb':
-                bytesValue = size * 1000 * 1000 * 1000;
-                break;
-            case 'tb':
-                bytesValue = size * 1000 * 1000 * 1000 * 1000;
-                break;
-            case 'kib':
-                bytesValue = size * 1024;
-                break;
-            case 'mib':
-                bytesValue = size * 1024 * 1024;
-                break;
-            case 'gib':
-                bytesValue = size * 1024 * 1024 * 1024;
-                break;
-            case 'tib':
-                bytesValue = size * 1024 * 1024 * 1024 * 1024;
-                break;
-        }
+        // Die Multiplikatoren für jede Einheit
+        const multipliers = {
+            'bytes': 1,
+            'kb': 1000,
+            'mb': 1000 * 1000,
+            'gb': 1000 * 1000 * 1000,
+            'tb': 1000 * 1000 * 1000 * 1000,
+            'kib': 1024,
+            'mib': 1024 * 1024,
+            'gib': 1024 * 1024 * 1024,
+            'tib': 1024 * 1024 * 1024 * 1024
+        };
+        
+        bytesValue = size * multipliers[unit];
         
         // Convert from bytes to other units
         const kb = bytesValue / 1000;
@@ -211,13 +264,118 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('mib-value').textContent = formatNumber(mib);
         document.getElementById('gib-value').textContent = formatNumber(gib);
         document.getElementById('tib-value').textContent = formatNumber(tib);
+        
+        // Update calculation steps if enabled
+        if (showCalculationsCheckbox.checked) {
+            let calcHtml = '';
+            
+            // Umrechnung in Bytes
+            if (unit !== 'bytes') {
+                const multiplier = multipliers[unit];
+                calcHtml += `<p><strong>${size} ${unit} → Bytes:</strong><br>`;
+                calcHtml += `${size} × ${formatNumber(multiplier)} = ${formatBytes(bytesValue)} Bytes</p>`;
+            }
+            
+            // Umrechnung von Bytes in dezimale Einheiten
+            calcHtml += `<p><strong>Umrechnung in dezimale Einheiten:</strong><br>`;
+            if (unit !== 'kb') {
+                calcHtml += `${formatBytes(bytesValue)} Bytes ÷ 1.000 = ${formatNumber(kb)} KB<br>`;
+            }
+            if (unit !== 'mb') {
+                calcHtml += `${formatNumber(kb)} KB ÷ 1.000 = ${formatNumber(mb)} MB<br>`;
+            }
+            if (unit !== 'gb') {
+                calcHtml += `${formatNumber(mb)} MB ÷ 1.000 = ${formatNumber(gb)} GB<br>`;
+            }
+            if (unit !== 'tb') {
+                calcHtml += `${formatNumber(gb)} GB ÷ 1.000 = ${formatNumber(tb)} TB</p>`;
+            }
+            
+            // Umrechnung von Bytes in binäre Einheiten
+            calcHtml += `<p><strong>Umrechnung in binäre Einheiten:</strong><br>`;
+            if (unit !== 'kib') {
+                calcHtml += `${formatBytes(bytesValue)} Bytes ÷ 1.024 = ${formatNumber(kib)} KiB<br>`;
+            }
+            if (unit !== 'mib') {
+                calcHtml += `${formatNumber(kib)} KiB ÷ 1.024 = ${formatNumber(mib)} MiB<br>`;
+            }
+            if (unit !== 'gib') {
+                calcHtml += `${formatNumber(mib)} MiB ÷ 1.024 = ${formatNumber(gib)} GiB<br>`;
+            }
+            if (unit !== 'tib') {
+                calcHtml += `${formatNumber(gib)} GiB ÷ 1.024 = ${formatNumber(tib)} TiB</p>`;
+            }
+            
+            calculationSteps.innerHTML = calcHtml;
+        }
     }
     
+    // File upload size preview
+    const fileInput = document.getElementById('file');
+    fileInput.addEventListener('change', function() {
+        if (fileInput.files.length > 0 && liveCalcCheckbox.checked) {
+            const file = fileInput.files[0];
+            const sizeInBytes = file.size;
+            
+            // Manuell umrechnen und anzeigen
+            document.getElementById('bytes-value').textContent = formatBytes(sizeInBytes);
+            document.getElementById('kb-value').textContent = formatNumber(sizeInBytes / 1000);
+            document.getElementById('mb-value').textContent = formatNumber(sizeInBytes / (1000 * 1000));
+            document.getElementById('gb-value').textContent = formatNumber(sizeInBytes / (1000 * 1000 * 1000));
+            document.getElementById('tb-value').textContent = formatNumber(sizeInBytes / (1000 * 1000 * 1000 * 1000));
+            
+            document.getElementById('kib-value').textContent = formatNumber(sizeInBytes / 1024);
+            document.getElementById('mib-value').textContent = formatNumber(sizeInBytes / (1024 * 1024));
+            document.getElementById('gib-value').textContent = formatNumber(sizeInBytes / (1024 * 1024 * 1024));
+            document.getElementById('tib-value').textContent = formatNumber(sizeInBytes / (1024 * 1024 * 1024 * 1024));
+            
+            // Update calculation steps if enabled
+            if (showCalculationsCheckbox.checked) {
+                const kb = sizeInBytes / 1000;
+                const mb = kb / 1000;
+                const gb = mb / 1000;
+                const tb = gb / 1000;
+                
+                const kib = sizeInBytes / 1024;
+                const mib = kib / 1024;
+                const gib = mib / 1024;
+                const tib = gib / 1024;
+                
+                let calcHtml = '';
+                calcHtml += `<p><strong>Dateigröße:</strong> ${formatBytes(sizeInBytes)} Bytes (${file.name})</p>`;
+                
+                // Umrechnung von Bytes in dezimale Einheiten
+                calcHtml += `<p><strong>Umrechnung in dezimale Einheiten:</strong><br>`;
+                calcHtml += `${formatBytes(sizeInBytes)} Bytes ÷ 1.000 = ${formatNumber(kb)} KB<br>`;
+                calcHtml += `${formatNumber(kb)} KB ÷ 1.000 = ${formatNumber(mb)} MB<br>`;
+                calcHtml += `${formatNumber(mb)} MB ÷ 1.000 = ${formatNumber(gb)} GB<br>`;
+                calcHtml += `${formatNumber(gb)} GB ÷ 1.000 = ${formatNumber(tb)} TB</p>`;
+                
+                // Umrechnung von Bytes in binäre Einheiten
+                calcHtml += `<p><strong>Umrechnung in binäre Einheiten:</strong><br>`;
+                calcHtml += `${formatBytes(sizeInBytes)} Bytes ÷ 1.024 = ${formatNumber(kib)} KiB<br>`;
+                calcHtml += `${formatNumber(kib)} KiB ÷ 1.024 = ${formatNumber(mib)} MiB<br>`;
+                calcHtml += `${formatNumber(mib)} MiB ÷ 1.024 = ${formatNumber(gib)} GiB<br>`;
+                calcHtml += `${formatNumber(gib)} GiB ÷ 1.024 = ${formatNumber(tib)} TiB</p>`;
+                
+                calculationSteps.innerHTML = calcHtml;
+            }
+        }
+    });
+    
     // Set up event listeners
+    inputTypeSelect.addEventListener('change', updateInputVisibility);
     sizeInput.addEventListener('input', convertSize);
     unitSelect.addEventListener('change', convertSize);
+    liveCalcCheckbox.addEventListener('change', convertSize);
+    showCalculationsCheckbox.addEventListener('change', function() {
+        updateCalculationVisibility();
+        convertSize();
+    });
     
-    // Initial calculation
+    // Initial setup
+    updateInputVisibility();
+    updateCalculationVisibility();
     convertSize();
 });
 </script>
