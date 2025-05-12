@@ -67,20 +67,11 @@
                                 <input type="file" class="form-control" id="file" name="file">
                                 <div class="form-text">{{ _('Laden Sie eine Datei hoch, um deren Größe automatisch zu ermitteln') }}</div>
                             </div>
-                        </div>
-
-                        <div class="mb-3 form-check">
+                        </div>                        <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="show_calculations" name="show_calculations">
                             <label class="form-check-label" for="show_calculations">{{ _('Rechenweg anzeigen') }}</label>
                         </div>
-
-                        <button type="submit" class="btn btn-primary mb-3">{{ _('Berechnen') }}</button>
                     </form>
-
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input" type="checkbox" id="live-calculation" checked>
-                        <label class="form-check-label" for="live-calculation">{{ _('Live-Umrechnung') }}</label>
-                    </div>
                       <div id="conversionResults">
                         <div class="mt-4">
                             <h3>{{ _('Ergebnisse') }}</h3>
@@ -178,10 +169,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const inputTypeSelect = document.getElementById('input_type');
     const manualInputDiv = document.getElementById('manual-input');
-    const fileInputDiv = document.getElementById('file-input');
-    const sizeInput = document.getElementById('size');
+    const fileInputDiv = document.getElementById('file-input');    const sizeInput = document.getElementById('size');
     const unitSelect = document.getElementById('unit');
-    const liveCalcCheckbox = document.getElementById('live-calculation');
     const showCalculationsCheckbox = document.getElementById('show_calculations');
     const calculationSection = document.getElementById('calculation-section');
     const calculationSteps = document.getElementById('calculation-steps');
@@ -217,10 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
             calculationSection.style.display = 'none';
         }
     }
-    
-    function convertSize() {
-        if (!liveCalcCheckbox.checked) return;
-        
+      function convertSize() {
         const size = parseFloat(sizeInput.value) || 0;
         const unit = unitSelect.value;
         
@@ -311,9 +297,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // File upload size preview
-    const fileInput = document.getElementById('file');
-    fileInput.addEventListener('change', function() {
-        if (fileInput.files.length > 0 && liveCalcCheckbox.checked) {
+    const fileInput = document.getElementById('file');    fileInput.addEventListener('change', function() {
+        if (fileInput.files.length > 0) {
             const file = fileInput.files[0];
             const sizeInBytes = file.size;
             
@@ -364,10 +349,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Set up event listeners
-    inputTypeSelect.addEventListener('change', updateInputVisibility);
-    sizeInput.addEventListener('input', convertSize);
+    inputTypeSelect.addEventListener('change', updateInputVisibility);    sizeInput.addEventListener('input', convertSize);
     unitSelect.addEventListener('change', convertSize);
-    liveCalcCheckbox.addEventListener('change', convertSize);
     showCalculationsCheckbox.addEventListener('change', function() {
         updateCalculationVisibility();
         convertSize();
