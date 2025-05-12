@@ -5,7 +5,7 @@ from flask_babel import lazy_gettext as _
 class TestPlaceholderTextTool:
     def test_valid_length(self):
         tool = PlaceholderTextTool()
-        input_params = {_("Textlänge"): "50"}
+        input_params = {"text_length": "50"}
         
         result = tool.execute_tool(input_params)
         
@@ -15,7 +15,7 @@ class TestPlaceholderTextTool:
 
     def test_too_large_length(self):
         tool = PlaceholderTextTool()
-        input_params = {_("Textlänge"): "1001"}
+        input_params = {"text_length": "1001"}
         
         result = tool.execute_tool(input_params)
         
@@ -24,7 +24,7 @@ class TestPlaceholderTextTool:
 
     def test_invalid_length(self):
         tool = PlaceholderTextTool()
-        input_params = {_("Textlänge"): "abc"}
+        input_params = {"text_length": "abc"}
         
         result = tool.execute_tool(input_params)
         
@@ -33,7 +33,7 @@ class TestPlaceholderTextTool:
 
     def test_negative_length(self):
         tool = PlaceholderTextTool()
-        input_params = {_("Textlänge"): "-10"}
+        input_params = {"text_length": "-10"}
         
         result = tool.execute_tool(input_params)
         
@@ -42,7 +42,7 @@ class TestPlaceholderTextTool:
 
     def test_zero_length(self):
         tool = PlaceholderTextTool()
-        input_params = {_("Textlänge"): "0"}
+        input_params = {"text_length": "0"}
         
         result = tool.execute_tool(input_params)
         
@@ -69,7 +69,7 @@ class TestPlaceholderTextTool:
 
     def test_first_word_capitalized(self):
         tool = PlaceholderTextTool()
-        input_params = {_("Textlänge"): "1"}
+        input_params = {"text_length": "1"}
         
         result = tool.execute_tool(input_params)
         
@@ -79,7 +79,7 @@ class TestPlaceholderTextTool:
 
     def test_html_structure(self):
         tool = PlaceholderTextTool()
-        input_params = {_("Textlänge"): "10"}
+        input_params = {"text_length": "10"}
         
         result = tool.execute_tool(input_params)
         
@@ -87,4 +87,4 @@ class TestPlaceholderTextTool:
         assert '<div class="generated-text-container">' in tool.output
         assert '<p id="generatedText">' in tool.output
         assert '<button' in tool.output
-        assert 'Kopieren' in tool.output 
+        assert 'Kopieren' in tool.output
