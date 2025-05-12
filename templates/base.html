@@ -35,8 +35,7 @@
       </ul>
     </div>
   </nav>
-  
-  {% if show_ads %}
+    {% if show_ads %}
   <div class="container my-4 text-center">
     <a href="#searchInput"  class="ad-wrapper">
       <img src="/static/img/Beige.png" class="advertising">
@@ -46,6 +45,7 @@
   {% endif %}
 
   <div class="container">
+    <h1>{% block page_title %}{% endblock %}</h1>
     {% block content %}{% endblock %}
   </div>
 
