@@ -2,6 +2,8 @@ import os
 import base64
 import tempfile
 import pytest
+import qrcode
+from qrcode import constants
 from unittest.mock import patch, MagicMock
 from tools.qr_code_generator.qr_code_generator_tool import QrCodeGeneratorTool
 
@@ -13,16 +15,16 @@ class TestQrCodeGeneratorTool:
 
     def test_init(self):
         """Test that the tool is initialized with correct attributes."""
-        assert self.tool.name == "QR-Code Generator"
+        assert self.tool.name == "QR Code Generator"
         assert self.tool.identifier == "QrCodeGeneratorTool"
-        assert "Erstellt QR-Codes" in self.tool.description
-        assert "text" in self.tool.input_params
-        assert self.tool.input_params["text"] == "string"
+        assert "Erstellt QR\\-Codes" in self.tool.description
+        assert "Text oder URL" in self.tool.input_params
+        assert self.tool.input_params["Text oder URL"] == "string"
 
     def test_empty_input(self):
         """Test that the tool handles empty input correctly."""
         # Test with empty text
-        result = self.tool.execute_tool({"text": ""})
+        result = self.tool.execute_tool({"Text oder URL": ""})
         assert result is False
         assert "Bitte geben Sie einen Text oder eine URL ein" in self.tool.error_message
 
@@ -45,7 +47,7 @@ class TestQrCodeGeneratorTool:
         # Mock the get_image_base64 method to return a test string
         with patch.object(self.tool, '_get_image_base64', return_value='test_base64_string'):
             # Execute the tool
-            result = self.tool.execute_tool({"text": "https://example.com"})
+            result = self.tool.execute_tool({"Text oder URL": "https://example.com"})
 
             # Check the result
             assert result is True
@@ -53,8 +55,7 @@ class TestQrCodeGeneratorTool:
             # Verify QRCode was created with correct parameters
             mock_qrcode.assert_called_once_with(
                 version=1,
-                # ERROR_CORRECT_M is usually 1
-                error_correction=pytest.approx(1),
+                error_correction=qrcode.constants.ERROR_CORRECT_M,
                 box_size=10,
                 border=4
             )
@@ -72,7 +73,7 @@ class TestQrCodeGeneratorTool:
             # Verify output contains the expected elements
             assert "qr-code-result" in self.tool.output
             assert "test_base64_string" in self.tool.output
-            assert "QR-Code herunterladen" in self.tool.output
+            assert "QR\\-Code herunterladen" in self.tool.output
 
     def test_get_image_base64(self):
         """Test the _get_image_base64 method with a real image."""
@@ -99,9 +100,8 @@ class TestQrCodeGeneratorTool:
         """Test that exceptions are handled correctly."""
         # Patch make_image to raise an exception
         with patch('qrcode.QRCode.make_image', side_effect=Exception("Test error")):
-            result = self.tool.execute_tool({"text": "test"})
+            result = self.tool.execute_tool({"Text oder URL": "test"})
 
             # Check the result
             assert result is False
-            assert "Fehler bei der QR-Code Erstellung" in self.tool.error_message
-            assert "Test error" in self.tool.error_message
+            assert "Fehler bei der QR\\-Code Erstellung: Test error" in self.tool.error_message
