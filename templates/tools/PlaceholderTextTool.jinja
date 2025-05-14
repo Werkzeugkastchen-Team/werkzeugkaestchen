@@ -1,0 +1,38 @@
+<div class="alert alert-info">
+    <p>{{ _('Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der gewünschten Länge generieren.') }}</p>
+
+    <p>{{ _('Funktionen:') }}</p>
+    <ul>
+        <li>{{ _('Wählen Sie die gewünschte Textlänge (1-1000 Wörter)') }}</li>
+        <li>{{ _('Generieren Sie professionellen Lorem Ipsum Text') }}</li>
+        <li>{{ _('Kopieren Sie den Text mit einem Klick in die Zwischenablage') }}</li>
+        <li>{{ _('Ideal für Layout- und Designarbeiten') }}</li>
+    </ul>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="form-group">
+            {% for param_key, param_info in input_params.items() %}
+                <label for="{{ param_key }}"><strong>{{ param_info.label }}:</strong></label>
+                <input type="{{ param_info.type }}"
+                       class="form-control"
+                       id="{{ param_key }}"
+                       name="{{ param_key }}"
+                       min="{{ param_info.min }}"
+                       max="{{ param_info.max }}"
+                       placeholder="{{ param_info.placeholder }}"
+                       required>
+                <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.') }}</small>
+            {% endfor %}
+        </div>
+        <input class="btn btn-primary mt-3" type="submit" value="{{ _('Text generieren') }}" id="submitButton">
+    </div>
+</div>
+
+{% if tool.error_message %}
+<div class="alert alert-danger mt-3">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{ tool.error_message }}
+</div>
+{% endif %}

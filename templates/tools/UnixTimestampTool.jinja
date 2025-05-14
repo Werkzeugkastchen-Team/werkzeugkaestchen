@@ -1,0 +1,50 @@
+<div class="alert alert-info">
+    {{ _('Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und Zeitangaben umwandeln und umgekehrt.') }}
+</div>
+
+<div id="conversionTypeContainer" class="form-group">
+    <label for="conversion_type">{{ _('Konvertierungsrichtung:') }}</label>
+    <select name="conversion_type" id="conversion_type" class="form-control" onchange="toggleInputFields()">
+        <option value="timestamp_to_date">{{ _('Timestamp zu Datum') }}</option>
+        <option value="date_to_timestamp">{{ _('Datum zu Timestamp') }}</option>
+    </select>
+</div>
+
+<div id="timestampInputs">
+    <div class="form-group">
+        <label for="timestamp">{{ _('Unix-Timestamp:') }}</label>
+        <input type="text" name="timestamp" id="timestamp" class="form-control" placeholder="{{ _('z.B. 1640995200') }}">
+        <small class="form-text text-muted">{{ _('Geben Sie einen Unix-Timestamp ein (Sekunden seit dem 01.01.1970 00:00:00 UTC).') }}</small>
+    </div>
+</div>
+
+<div id="dateInputs" style="display: none;">
+    <div class="form-group">
+        <label for="date">{{ _('Datum:') }}</label>
+        <input type="text" name="date" id="date" class="form-control" placeholder="{{ _('TT.MM.JJJJ (z.B. 01.01.2022)') }}">
+        <small class="form-text text-muted">{{ _('Geben Sie ein Datum im Format TT.MM.JJJJ ein.') }}</small>
+    </div>
+
+    <div class="form-group">
+        <label for="time">{{ _('Uhrzeit (optional):') }}</label>
+        <input type="text" name="time" id="time" class="form-control" placeholder="{{ _('HH:MM:SS (z.B. 12:30:00)') }}">
+        <small class="form-text text-muted">{{ _('Geben Sie eine Uhrzeit im Format HH:MM:SS ein. Standard ist 00:00:00 wenn leer.') }}</small>
+    </div>
+</div>
+
+<script>
+function toggleInputFields() {
+    const conversionType = document.getElementById('conversion_type').value;
+    const timestampInputs = document.getElementById('timestampInputs');
+    const dateInputs = document.getElementById('dateInputs');
+
+    if (conversionType === 'timestamp_to_date') {
+        timestampInputs.style.display = 'block';
+        dateInputs.style.display = 'none';
+    } else {
+        timestampInputs.style.display = 'none';
+        dateInputs.style.display = 'block';
+    }
+}
+</script>
+

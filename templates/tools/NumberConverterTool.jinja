@@ -1,0 +1,15 @@
+<div class="alert alert-info">
+    {{ _('Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.') }}
+</div>
+
+<label for="number">{{ _('Zahl:') }}</label>
+<input type="text" name="number" id="number" placeholder="{{ _('Geben Sie eine Zahl ein') }}" class="form-control">
+
+<label for="input_type">{{ _('Zahlentyp:') }}</label>
+<select name="input_type" id="input_type" class="form-control">
+    <option value="binary">{{ _('Binär') }}</option>
+    <option value="decimal">{{ _('Dezimal') }}</option>
+    <option value="hexadecimal">{{ _('Hexadezimal') }}</option>
+</select>
+
+<input class="fancy-button mt-3" type="submit" value="{{ _('Ausführen') }}" id="submitButton">

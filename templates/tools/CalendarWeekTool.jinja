@@ -1,0 +1,10 @@
+<div class="alert alert-info">
+    {{ _('Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen.') }}
+</div>
+
+<div class="form-group">
+    <label for="date">{{ _('Datum:') }}</label>
+    <input type="text" name="date" id="date" class="form-control" placeholder="{{ _('TT.MM.JJJJ') }}">
+</div>
+
+<input class="fancy-button mt-3" type="submit" value="{{ _('Ausführen') }}" id="submitButton">

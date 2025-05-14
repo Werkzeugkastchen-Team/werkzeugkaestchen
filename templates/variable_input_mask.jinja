@@ -1,434 +1,63 @@
 {% extends 'base.html' %}
-<h1>{% block page_title %} {{ toolName }} {% endblock %}</h1>
+
+{% block page_title %}
+<h1>{{ toolName }}</h1>
+{% endblock %}
+
 {% block content %}
-    <!-- Debug info -->
-    <div style="display: none;">
-        Tool Name: {{ toolName }}<br>
-        Identifier: {{ identifier }}<br>
-        Tool Description: {{ tool.description }}<br>
-    </div>
 
-    <div class="mb-4">
-        <p class="lead text-secondary">{{ description }}</p>
+<div class="mb-4">
+    <p class="lead text-secondary">{{ description }}</p>
 
-        {% if use_cases %}
-        <div class="mt-4">
-            <p class="mb-2 fw-semibold">{{ _('Anwendungsfälle:') }}</p>
-            <ul class="ps-4 text-dark-emphasis">
-                {% for use_case in use_cases %}
-                <li class="mb-1">{{ use_case }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-    </div>
-
-    
-    {% if identifier == "QrCodeGeneratorTool" %}
-    <div class="alert alert-info">
-        {{ _('Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren.') }}
+    {% if use_cases %}
+    <div class="mt-4">
+        <p class="mb-2 fw-semibold">{{ _('Anwendungsfälle:') }}</p>
+        <ul class="ps-4 text-dark-emphasis">
+            {% for use_case in use_cases %}
+            <li class="mb-1">{{ use_case }}</li>
+            {% endfor %}
+        </ul>
     </div>
     {% endif %}
+</div>
 
-    {% if identifier == "NumberConverterTool" %}
-    <div class="alert alert-info">
-        {{ _('Geben Sie eine Zahl ein und wählen Sie den entsprechenden Zahlentyp aus. Das Tool wird die Zahl automatisch in die anderen Formate konvertieren.') }}
-    </div>
-    {% endif %}
-
-    {% if identifier == "ImageConverterTool" %}
-    <div class="alert alert-info">
-        {{ _('Laden Sie ein Bild hoch und wählen Sie das gewünschte Zielformat aus. Unterstützte Formate sind: PNG, JPEG, GIF, BMP und WEBP.') }}
-    </div>
-    {% endif %}
-
-    {% if identifier == "CalendarWeekTool" %}
-    <div class="alert alert-info">
-        {{ _('Geben Sie ein Datum im Format <strong>TT.MM.JJJJ</strong> ein (z.B. 15.03.2025), um die entsprechende Kalenderwoche zu berechnen.') }}
-    </div>
-    {% endif %}
-
-    {% if identifier == "PasswordGeneratorTool" %}
-    <div class="alert alert-info">
-        {{ _('Wählen Sie die gewünschte Länge und die zu verwendenden Zeichentypen für Ihr sicheres Passwort aus. Ein starkes Passwort sollte mindestens 12 Zeichen lang sein und verschiedene Zeichentypen enthalten.') }}
-    </div>
-    {% endif %}
-
-
-    <br>
-    <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
+<form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
 
-    {% if identifier == "PlaceholderTextTool" %}
-            <div class="alert alert-info">
-                <p>{{ _('Mit diesem Tool können Sie Lorem Ipsum Platzhalter-Text in der gewünschten Länge generieren.') }}</p>
+    {# 🔽 Include template specific pentru tool, dacă există #}
+    {% set tool_template = "tools/" ~ identifier ~ ".jinja" %}
+    {% include tool_template ignore missing %}
 
-                <p>{{ _('Funktionen:') }}</p>
-                <ul>
-                    <li>{{ _('Wählen Sie die gewünschte Textlänge (1-1000 Wörter)') }}</li>
-                    <li>{{ _('Generieren Sie professionellen Lorem Ipsum Text') }}</li>
-                    <li>{{ _('Kopieren Sie den Text mit einem Klick in die Zwischenablage') }}</li>
-                    <li>{{ _('Ideal für Layout- und Designarbeiten') }}</li>
-                </ul>
-            </div>
-        <div class="card mb-4">
-        <div class="card-body">
-            <div class="form-group">
-                {% for param_key, param_info in input_params.items() %}
-                    <label for="{{ param_key }}"><strong>{{ param_info.label }}:</strong></label>
-                    <input type="{{ param_info.type }}"
-                           class="form-control"
-                           id="{{ param_key }}"
-                           name="{{ param_key }}"
-                           min="{{ param_info.min }}"
-                           max="{{ param_info.max }}"
-                           placeholder="{{ param_info.placeholder }}"
-                           required>
-                    <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 1 und 1000 Wörtern.') }}</small>
-                {% endfor %}
-            </div>
-
-            <input class="btn btn-primary mt-3" type="submit" value="{{ _('Text generieren') }}" id="submitButton">
-        </div>
-    </div>
-
-    {% if tool.error_message %}
-    <div class="alert alert-danger mt-3">
-        <i class="fas fa-exclamation-triangle"></i>
-        {{ tool.error_message }}
-    </div>
-    {% endif %}
-    {% endif %}
-
-{% if identifier == "UnitConverterTool" %}
-<div class="alert alert-info">
-    {{ _('Wählen Sie eine Kategorie und geben Sie den Wert sowie die Quell- und Zieleinheit an, um eine Umrechnung durchzuführen.') }}
-</div>
-
-<div class="form-group">
-    <label for="category">{{ _('Kategorie:') }}</label>
-    <select name="category" id="category" class="form-control" onchange="updateUnitOptions()">
-        <option value="length">{{ _('Länge') }}</option>
-        <option value="weight">{{ _('Gewicht') }}</option>
-    </select>
-</div>
-
-<div class="form-group">
-    <label for="value">{{ _('Wert:') }}</label>
-    <input type="text" name="value" id="value" class="form-control" placeholder="{{ _('z.B. 100') }}">
-</div>
-
-<div class="form-group">
-    <label for="from_unit">{{ _('Von Einheit:') }}</label>
-    <select name="from_unit" id="from_unit" class="form-control"></select>
-</div>
-
-<div class="form-group">
-    <label for="to_unit">{{ _('Nach Einheit:') }}</label>
-    <select name="to_unit" id="to_unit" class="form-control"></select>
-</div>
-
-<script>
-function updateUnitOptions() {
-    const category = document.getElementById("category").value;
-    const fromUnit = document.getElementById("from_unit");
-    const toUnit = document.getElementById("to_unit");
-
-    const lengthUnits = ["m", "km", "cm", "mm"];
-    const weightUnits = ["kg", "g", "mg", "t"];
-
-    let units = category === "length" ? lengthUnits : weightUnits;
-
-    fromUnit.innerHTML = "";
-    toUnit.innerHTML = "";
-
-    units.forEach(unit => {
-        const option1 = document.createElement("option");
-        option1.value = unit;
-        option1.textContent = unit;
-        fromUnit.appendChild(option1);
-
-        const option2 = document.createElement("option");
-        option2.value = unit;
-        option2.textContent = unit;
-        toUnit.appendChild(option2);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", updateUnitOptions);
-</script>
-{% endif %}
-
-    {% if identifier == "DateCalculatorTool" %}
-        {% for param, param_info in input_params.items() %}
-        <div class="form-group mb-3">
-            <label for="{{ param }}">{{ param_info.name }}</label>
-            <input
-                type="{{ param_info.type }}"
-                class="form-control"
-                id="{{ param }}"
-                name="{{ param }}"
-                placeholder="{{ param_info.placeholder }}"
-                {% if param_info.required %}required{% endif %}>
-        </div>
-        {% endfor %}
-    {% endif %}
-
-    {% if identifier == "UnixTimestampTool" %}
-    <div class="alert alert-info">
-        {{ _('Mit diesem Tool können Sie Unix-Timestamps in lesbare Datums- und Zeitangaben umwandeln und umgekehrt.') }}
-    </div>
-
-    <div id="conversionTypeContainer" class="form-group">
-        <label for="conversion_type">{{ _('Konvertierungsrichtung:') }}</label>
-        <select name="conversion_type" id="conversion_type" class="form-control" onchange="toggleInputFields()">
-            <option value="timestamp_to_date">{{ _('Timestamp zu Datum') }}</option>
-            <option value="date_to_timestamp">{{ _('Datum zu Timestamp') }}</option>
-        </select>
-    </div>
-
-    <div id="timestampInputs">
-        <div class="form-group">
-            <label for="timestamp">{{ _('Unix-Timestamp:') }}</label>
-            <input type="text" name="timestamp" id="timestamp" class="form-control" placeholder="{{ _('z.B. 1640995200') }}">
-            <small class="form-text text-muted">{{ _('Geben Sie einen Unix-Timestamp ein (Sekunden seit dem 01.01.1970 00:00:00 UTC).') }}</small>
-        </div>
-    </div>
-
-    <div id="dateInputs" style="display: none;">
-        <div class="form-group">
-            <label for="date">{{ _('Datum:') }}</label>
-            <input type="text" name="date" id="date" class="form-control" placeholder="{{ _('TT.MM.JJJJ (z.B. 01.01.2022)') }}">
-            <small class="form-text text-muted">{{ _('Geben Sie ein Datum im Format TT.MM.JJJJ ein.') }}</small>
-        </div>
-
-        <div class="form-group">
-            <label for="time">{{ _('Uhrzeit (optional):') }}</label>
-            <input type="text" name="time" id="time" class="form-control" placeholder="{{ _('HH:MM:SS (z.B. 12:30:00)') }}">
-            <small class="form-text text-muted">{{ _('Geben Sie eine Uhrzeit im Format HH:MM:SS ein. Standard ist 00:00:00 wenn leer.') }}</small>
-        </div>
-    </div>
-
-    <script>
-    function toggleInputFields() {
-        const conversionType = document.getElementById('conversion_type').value;
-        const timestampInputs = document.getElementById('timestampInputs');
-        const dateInputs = document.getElementById('dateInputs');
-
-        if (conversionType === 'timestamp_to_date') {
-            timestampInputs.style.display = 'block';
-            dateInputs.style.display = 'none';
-        } else {
-            timestampInputs.style.display = 'none';
-            dateInputs.style.display = 'block';
-        }
-    }
-    </script>
-    {% endif %}
-
+    {# 🔽 Fallback pentru parametrii neacoperiți în template-uri dedicate #}
     {% for param, param_type in input_params.items() %}
-        {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (identifier != "UnixTimestampTool" or param == "timezone") %}
-            {% if param_type == 'string' %}
-                {% if param == "number" and identifier == "NumberConverterTool" %}
-                    <label for="{{ param }}">{{ _('Zahl:') }}</label>
-                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="{{ _('Geben Sie eine Zahl ein') }}" class="form-control">
-                {% elif param == "input_type" and identifier == "NumberConverterTool" %}
-                    <label for="{{ param }}">{{ _('Zahlentyp:') }}</label>
-                    <select name="{{ param }}" id="{{ param }}" class="form-control">
-                        <option value="binary">{{ _('Binär') }}</option>
-                        <option value="decimal">{{ _('Dezimal') }}</option>
-                        <option value="hexadecimal">{{ _('Hexadezimal') }}</option>
-                    </select>
-                {% elif param == "target_format" and identifier == "ImageConverterTool" %}
-                    <div class="form-group target-format-group" style="display: none;">
-                        <label for="{{ param }}">{{ _('Zielformat:') }}</label>
-                        <select name="{{ param }}" id="{{ param }}" class="form-control">
-                            <option value="" disabled selected>{{ _('Bitte wählen Sie ein Format') }}</option>
-                        </select>
-                    </div>
-                {% elif param == "length" and identifier == "PasswordGeneratorTool" %}
-                    <label for="{{ param }}">{{ _('Passwortlänge:') }}</label>
-                    <input type="number" name="{{ param }}" id="{{ param }}" value="12" min="4" max="128" class="form-control">
-                    <small class="form-text text-muted">{{ _('Wählen Sie eine Länge zwischen 4 und 128 Zeichen (12+ empfohlen)') }}</small>
-                {% elif param == "text" and identifier == "QrCodeGeneratorTool" %}
-                    <label for="{{ param }}">{{ _('Text oder URL:') }}</label>
-                    <input type="text" name="{{ param }}" id="{{ param }}" placeholder="{{ _('Text oder URL eingeben') }}" class="form-control">
-                {% else %}
-                    <label for="{{ param }}">{{ param }}:</label>
+        {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" %}
+            <div class="form-group mb-3">
+                <label for="{{ param }}">{{ param }}</label>
+
+                {% if param_type == 'string' %}
                     <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
-                {% endif %}
-            {% elif param_type == 'boolean' %}
-                {% if identifier == "PasswordGeneratorTool" %}
-                    <div class="form-check mb-2">
-                        <input type="checkbox" class="form-check-input" name="{{ param }}" id="{{ param }}" checked>
-                        {% if param == "include_lowercase" %}
-                            <label class="form-check-label" for="{{ param }}">{{ _('Kleinbuchstaben einschließen (a-z)') }}</label>
-                        {% elif param == "include_uppercase" %}
-                            <label class="form-check-label" for="{{ param }}">{{ _('Großbuchstaben einschließen (A-Z)') }}</label>
-                        {% elif param == "include_numbers" %}
-                            <label class="form-check-label" for="{{ param }}">{{ _('Zahlen einschließen (0-9)') }}</label>
-                        {% elif param == "include_special" %}
-                            <label class="form-check-label" for="{{ param }}">{{ _('Sonderzeichen einschließen (!, @, #, $, usw.)') }}</label>                        {% else %}
-                            <label class="form-check-label" for="{{ param }}">{{ param }}</label>
-                        {% endif %}
-                    </div>
-                {% else %}
-                    <label for="{{ param }}">{{ param }}:</label>
+                {% elif param_type == 'boolean' %}
                     <input type="checkbox" name="{{ param }}" id="{{ param }}">
-                {% endif %}
+                {% elif param_type == 'file' %}
+                    <input type="file" name="{{ param }}" id="{{ param }}" class="form-control">
                 {% elif param_type == 'file[]' %}
-                <div class="form-group">
-                    <label for="{{ param }}"><strong>{{ _('PDF-Dateien hochladen:') }}</strong></label>
-                    <input type="file"
-                        name="{{ param }}"
-                        id="{{ param }}"
-                        multiple
-                        accept=".pdf"
-                        class="form-control"
-                        onchange="handlePdfUpload(this)">
-                    <small class="form-text text-muted">{{ _('Sie können die Reihenfolge nach dem Hochladen anpassen.') }}</small>
-                </div>
-
-                <ul id="pdfList" class="list-group mt-2"></ul>
-                <input type="hidden" name="pdf_order" id="pdf_order">
-
-                <script>
-                function handlePdfUpload(input) {
-                    const list = document.getElementById("pdfList");
-                    const orderInput = document.getElementById("pdf_order");
-                    list.innerHTML = "";
-
-                    Array.from(input.files).forEach((file, index) => {
-                        const li = document.createElement("li");
-                        li.className = "list-group-item d-flex justify-content-between align-items-center";
-                        li.draggable = true;
-                        li.textContent = file.name;
-                        li.dataset.index = index;
-                        list.appendChild(li);
-                    });
-
-                    updateOrderInput();
-                    enableReordering();
-                }
-
-                function updateOrderInput() {
-                    const items = document.querySelectorAll("#pdfList li");
-                    const filenames = Array.from(items).map(li => li.textContent);
-                    document.getElementById("pdf_order").value = JSON.stringify(filenames);
-                }
-
-                function enableReordering() {
-                    let dragging;
-
-                    document.querySelectorAll("#pdfList li").forEach(item => {
-                        item.addEventListener("dragstart", () => dragging = item);
-                        item.addEventListener("dragover", e => e.preventDefault());
-                        item.addEventListener("drop", function () {
-                            if (dragging !== this) {
-                                const list = this.parentNode;
-                                const siblings = Array.from(list.children);
-                                const draggedIndex = siblings.indexOf(dragging);
-                                const droppedIndex = siblings.indexOf(this);
-
-                                list.insertBefore(dragging, draggedIndex < droppedIndex ? this.nextSibling : this);
-                                updateOrderInput();
-                            }
-                        });
-                    });
-                }
-                </script>
-
-            {% elif param_type == 'file' %}
-                {% if identifier == "ImageConverterTool" %}
-                    <div class="form-group">
-                        <label for="{{ param }}">{{ _('Bild auswählen:') }}</label>
-                        <input type="file" name="{{ param }}" id="{{ param }}" class="form-control" accept="image/*" onchange="handleImageSelect(this)">
-                        <small class="form-text text-muted">{{ _('Unterstützte Formate: PNG, JPEG, GIF, BMP, WEBP') }}</small>
-                    </div>
-                    <div id="progressContainer" style="display: none;">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                {% else %}
-                    <label for="{{ param }}">{{ param }}:</label>
-                    <input type="file" name="{{ param }}" id="{{ param }}">
-                {% endif %}
-            {% elif param_type.type == 'enum' %}
-                <div class="form-group">
-                    <label for="{{ param }}">{{ param }}:</label>
+                    <input type="file" name="{{ param }}" id="{{ param }}" class="form-control" multiple>
+                {% elif param_type.type == 'enum' %}
                     <select name="{{ param }}" id="{{ param }}" class="form-control">
                         {% for option in param_type.options %}
-                            <option value="{{ option }}">{{ option }}</option>
+                        <option value="{{ option }}">{{ option }}</option>
                         {% endfor %}
                     </select>
-                </div>
-            {% elif param_type.type == 'textarea'%}
-                <label for="{{ param }}">{{ param }}</label>
-                <textarea name="{{ param }}"></textarea>
-            {% endif %}
-            <br>
+                {% elif param_type.type == 'textarea' %}
+                    <textarea name="{{ param }}" id="{{ param }}" class="form-control"></textarea>
+                {% else %}
+                    <input type="text" name="{{ param }}" id="{{ param }}" class="form-control">
+                {% endif %}
+            </div>
         {% endif %}
     {% endfor %}
 
-    {% if identifier == "PasswordGeneratorTool" %}
-    <div class="alert alert-warning mt-3">
-        <strong>{{ _('Hinweis:') }}</strong> {{ _('Passwörter werden lokal generiert und nicht an den Server übertragen. Kopieren Sie Ihr Passwort sofort nach der Erstellung, es wird nicht gespeichert.') }}
-    </div>
-    <input class="fancy-button" type="submit" value="{{ _('Passwort generieren') }}" id="submitButton">
-    {% elif identifier == "QrCodeGeneratorTool" %}
-    <input class="fancy-button" type="submit" value="{{ _('QR-Code erstellen') }}" id="submitButton">
-    {% elif identifier == "UnixTimestampTool" %}
-    <input class="fancy-button" type="submit" value="{{ _('Konvertieren') }}" id="submitButton">
-    {% else %}
-    <input class="fancy-button" type="submit" value="{{ _('Ausführen') }}" id="submitButton">
-    {% endif %}
-    </form>
-
-    {% if identifier == "ImageConverterTool" %}
-    <script>
-    function handleImageSelect(input) {
-        if (input.files && input.files[0]) {
-            const file = input.files[0];
-            const format = file.name.split('.').pop().toUpperCase();
-            const formatSelect = document.querySelector('select[name="target_format"]');
-            const formatGroup = document.querySelector('.target-format-group');
-            
-            // Clear existing options
-            formatSelect.innerHTML = '<option value="" disabled selected>Bitte wählen Sie ein Format</option>';
-            
-            // Add available formats except the current one
-            const formats = ['PNG', 'JPEG', 'GIF', 'BMP', 'WEBP'];
-            formats.forEach(fmt => {
-                if (fmt !== format) {
-                    const option = document.createElement('option');
-                    option.value = fmt;
-                    option.textContent = fmt;
-                    formatSelect.appendChild(option);
-                }
-            });
-            
-            formatGroup.style.display = 'block';
-        }
-    }
-
-    document.getElementById('toolForm').onsubmit = function() {
-        document.getElementById('progressContainer').style.display = 'block';
-        document.getElementById('submitButton').disabled = true;
-        
-        // Simulate progress (in real application, this would be updated by the server)
-        let progress = 0;
-        const progressBar = document.querySelector('.progress-bar');
-        const interval = setInterval(() => {
-            progress += 5;
-            if (progress <= 90) {
-                progressBar.style.width = progress + '%';
-                progressBar.setAttribute('aria-valuenow', progress);
-            }
-        }, 100);
-        
-        return true;
-    };
-    </script>
-    {% endif %}
+    {# 🔽 Buton implicit de submit dacă nu este inclus deja în template-ul dedicat #}
+    <input class="fancy-button mt-3" type="submit" value="{{ _('Ausführen') }}" id="submitButton">
+</form>
 {% endblock %}

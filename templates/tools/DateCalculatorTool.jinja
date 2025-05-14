@@ -1,0 +1,14 @@
+{% for param, param_info in input_params.items() %}
+<div class="form-group mb-3">
+    <label for="{{ param }}">{{ param_info.name }}</label>
+    <input
+        type="{{ param_info.type }}"
+        class="form-control"
+        id="{{ param }}"
+        name="{{ param }}"
+        placeholder="{{ param_info.placeholder }}"
+        {% if param_info.required %}required{% endif %}>
+</div>
+{% endfor %}
+
+<input class="fancy-button mt-3" type="submit" value="{{ _('Ausführen') }}" id="submitButton">

@@ -1,0 +1,8 @@
+<div class="alert alert-info">
+    {{ _('Geben Sie Text oder eine URL ein, um einen QR-Code zu generieren.') }}
+</div>
+
+<label for="text">{{ _('Text oder URL:') }}</label>
+<input type="text" name="text" id="text" placeholder="{{ _('Text oder URL eingeben') }}" class="form-control">
+
+<input class="fancy-button mt-3" type="submit" value="{{ _('QR-Code erstellen') }}" id="submitButton">
