@@ -3,6 +3,9 @@
     height: auto;
     display: block;
     transition: transform 0.4s ease, box-shadow 0.3s ease;
+    height: 500px;
+    object-fit: cover;
+    width: 1140px;
 }
 .ad-wrapper {
     display: inline-block;
@@ -11,25 +14,3 @@
     cursor: pointer;
   }
   
-  .ad-wrapper:hover .advertising {
-    transform: scale(1.08);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  }
-  
-  .ad-overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px 0;
-    font-weight: bold;
-    font-size: 1.1em;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .ad-wrapper:hover .ad-overlay {
-    opacity: 1;
-  }

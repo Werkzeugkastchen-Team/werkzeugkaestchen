@@ -19,27 +19,29 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <a class="brand" href="{{ url_for('index') }}"> <img class="logo" src="/static/img/Group.svg"></a>
-    <div>
-      <ul class="nav-list">
-        <li class="nav-list-item"><a href="{{ url_for('about') }}">{{ _('Über uns') }}</a></li>
-        <li class="nav-list-item"><a href="{{ url_for('contact') }}">{{ _('Kontakt') }}</a></li>
-        <div class="language-switcher">
-          {% if not request.path.startswith('/download_') and not request.path.startswith('/handle_tool') %}
-            <a href="?language=de" {% if session.get('language') == 'de' %}class="active"{% endif %}>DE</a> |
-            <a href="?language=en" {% if session.get('language') == 'en' %}class="active"{% endif %}>EN</a>
-          {% else %}
-            <span class="disabled-link">DE</span> | <span class="disabled-link">EN</span>
-          {% endif %}
+    <div class="container">
+        <a class="brand" href="{{ url_for('index') }}"> <img class="logo" src="/static/img/logo.png"></a>
+        <div>
+          <ul class="nav-list">
+            <li class="nav-list-item"><a href="{{ url_for('about') }}">{{ _('Über uns') }}</a></li>
+            <li class="nav-list-item"><a href="{{ url_for('contact') }}">{{ _('Kontakt') }}</a></li>
+            <div class="language-switcher">
+              {% if not request.path.startswith('/download_') and not request.path.startswith('/handle_tool') %}
+                <a href="?language=de" {% if session.get('language') == 'de' %}class="active"{% endif %}>DE</a> |
+                <a href="?language=en" {% if session.get('language') == 'en' %}class="active"{% endif %}>EN</a>
+              {% else %}
+                <span class="disabled-link">DE</span> | <span class="disabled-link">EN</span>
+              {% endif %}
+            </div>
+          </ul>
         </div>
-      </ul>
     </div>
+
   </nav>
     {% if show_ads %}
-  <div class="container my-4 text-center">
+  <div class="container mt-4 text-center">
     <a href="#searchInput"  class="ad-wrapper">
-      <img src="/static/img/Beige.png" class="advertising">
-      <div class="ad-overlay">Angebot sehen!</div>
+      <img src="/static/img/hero.jpg" class="advertising">
     </a>
   </div>
   {% endif %}
