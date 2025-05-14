@@ -24,11 +24,9 @@
 <form action="{{ url_for('handle_tool') }}" method="post" enctype="multipart/form-data" id="toolForm">
     <input type="hidden" name="tool_name" value="{{ identifier }}">
 
-    {# 🔽 Include template specific pentru tool, dacă există #}
     {% set tool_template = "tools/" ~ identifier ~ ".jinja" %}
     {% include tool_template ignore missing %}
 
-    {# 🔽 Fallback pentru parametrii neacoperiți în template-uri dedicate #}
     {% for param, param_type in input_params.items() %}
         {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" %}
             <div class="form-group mb-3">
@@ -57,7 +55,6 @@
         {% endif %}
     {% endfor %}
 
-    {# 🔽 Buton implicit de submit dacă nu este inclus deja în template-ul dedicat #}
     <input class="fancy-button mt-3" type="submit" value="{{ _('Ausführen') }}" id="submitButton">
 </form>
 {% endblock %}
