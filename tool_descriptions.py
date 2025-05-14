@@ -101,6 +101,10 @@ TOOL_DESCRIPTIONS = {
     "PdfMergeTool": {
         "description": _("Kombiniert mehrere PDF-Dateien zu einem einzigen Dokument. Perfekt für die Erstellung umfassender Berichte oder die Zusammenführung verwandter Dokumente."),
         "use_cases": [_("Zusammenstellung von Unterlagen"), _("Erstellung von Handbüchern aus Einzeldokumenten"), _("Organisation von digitalem Papierkram")]
+    },
+    "OcrScannerTool": {
+        "description": _("Analysiert und verbessert Bilder, um Text zu erkennen. Die optimierte Bildverarbeitung identifiziert Textbereiche und extrahiert Inhalte, ohne zusätzliche Software zu benötigen. Unterstützt Formate wie PNG, JPG, BMP und TIFF."),
+        "use_cases": [_("Digitalisierung von gedruckten Dokumenten"), _("Identifizierung von Textbereichen in Bildern"), _("Bildoptimierung für bessere Lesbarkeit von Texten")]
     }
 }
 
