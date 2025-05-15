@@ -1716,8 +1716,8 @@ msgstr ""
 #: tools/text_summary/text_summary_tool.py:33
 #: tools/text_summary/text_summary_tool.py:59
 #: tools/text_to_speech/text_to_speech_tool.py:21
-#: tools/text_to_speech/text_to_speech_tool.py:27
-#: tools/text_to_speech/text_to_speech_tool.py:32
+#: tools/text_to_speech/text_to_speech_tool.py:30
+#: tools/text_to_speech/text_to_speech_tool.py:35
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:44
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:71
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:211
@@ -2748,8 +2748,8 @@ msgid "Amount of Rolls"
 msgstr "Anzahl der Würfe"
 
 #: tools/random_number_generator/random_number_generator_tool.py:32
-#: tools/text_to_speech/text_to_speech_tool.py:28
-#: tools/text_to_speech/text_to_speech_tool.py:44
+#: tools/text_to_speech/text_to_speech_tool.py:31
+#: tools/text_to_speech/text_to_speech_tool.py:47
 msgid "Alle Eingabefelder müssen ausgefüllt sein."
 msgstr ""
 
@@ -2776,8 +2776,8 @@ msgstr ""
 #: tools/text_summary/text_summary_tool.py:32
 #: tools/text_summary/text_summary_tool.py:50
 #: tools/text_to_speech/text_to_speech_tool.py:21
-#: tools/text_to_speech/text_to_speech_tool.py:27
-#: tools/text_to_speech/text_to_speech_tool.py:31
+#: tools/text_to_speech/text_to_speech_tool.py:30
+#: tools/text_to_speech/text_to_speech_tool.py:34
 msgid "Text"
 msgstr ""
 
@@ -2806,35 +2806,35 @@ msgstr ""
 msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:35
+#: tools/text_to_speech/text_to_speech_tool.py:38
 #, python-brace-format
 msgid ""
 "Eingabetext darf wegen technischen Limitationen nicht länger als {0} "
 "Zeichen sein."
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:59
+#: tools/text_to_speech/text_to_speech_tool.py:62
 msgid "Sprachausgabe"
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:60
+#: tools/text_to_speech/text_to_speech_tool.py:63
 msgid "Your browser does not support the audio element."
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:61
+#: tools/text_to_speech/text_to_speech_tool.py:64
 msgid "Audio herunterladen"
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:62
+#: tools/text_to_speech/text_to_speech_tool.py:65
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:62
 msgid "Details"
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:63
+#: tools/text_to_speech/text_to_speech_tool.py:66
 msgid "Text:"
 msgstr ""
 
-#: tools/text_to_speech/text_to_speech_tool.py:64
+#: tools/text_to_speech/text_to_speech_tool.py:67
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:64
 msgid "Sprache:"
 msgstr ""

@@ -18,7 +18,10 @@ class TextToSpeechTool(MiniTool):
 
     def __init__(self):
         super().__init__(self.name, "TextToSpeechTool")
-        self.input_params = {_("Text"): "string", _("Sprache"): "string"}
+        self.input_params = {_("Text"): "string", _("Sprache"): {
+            "type": "enum",
+            "options": ["en", "de"]
+        }}
 
     def execute_tool(self, input_params: dict) -> bool:
         try:
