@@ -32,6 +32,7 @@ from tools.pdf_split.pdf_split_tool import PdfSplitTool
 from tools.text_summary.text_summary_tool import TextSummaryTool
 from tools.pdf_merge.pdf_merge_tool import PdfMergeTool
 from tools.file_size_converter.file_size_converter_tool import FileSizeConverterTool
+from tools.ocr_scanner.ocr_scanner_tool import OcrScannerTool
 
 
 # Erstellen einer Flask-Anwendung
@@ -88,6 +89,7 @@ tools = {
     "TextSummaryTool": TextSummaryTool(),
     "PdfMergeTool": PdfMergeTool(),
     "TimezoneConverterTool": TimezoneConverterTool(),
+    "OcrScannerTool": OcrScannerTool(),
 }
 
 
@@ -425,6 +427,38 @@ def download_converted_media(token):
     return response
 
 
+@app.route('/download_text/<token>')
+def download_extracted_text(token):
+    ocr_tool = tools.get("OcrScannerTool")
+    if not ocr_tool:
+        return "Tool nicht gefunden", 404
+
+    extracted_text = ocr_tool.get_extracted_text(token)
+    if not extracted_text:
+        return "Text nicht gefunden oder Token ungültig", 404
+
+    # Create a temporary file with the extracted text
+    temp_file = os.path.join(ocr_tool.temp_dir, f"extracted_text_{token}.txt")
+    with open(temp_file, 'w', encoding='utf-8') as f:
+        f.write(extracted_text)
+
+    # Send the file
+    response = send_file(temp_file, 
+                         as_attachment=True, 
+                         download_name="extracted_text.txt", 
+                         mimetype="text/plain")
+
+    # Schedule cleanup
+    @response.call_on_close
+    def cleanup():
+        if os.path.exists(temp_file):
+            try:
+                os.remove(temp_file)
+                ocr_tool.cleanup_old_files()
+            except Exception as e:
+                print(f"Error cleaning up files: {str(e)}")
+
+    return response
 
 
 if __name__ == "__main__":
