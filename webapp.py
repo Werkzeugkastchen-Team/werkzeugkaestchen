@@ -135,6 +135,21 @@ def contact():
 def about():
     return render_template('about.jinja')
 
+#/privacy
+@app.route('/privacy')
+def privacy():
+    return render_template('legal/privacy.jinja')
+
+#/impressum
+@app.route('/impressum')
+def impressum():
+    return render_template('legal/impressum.jinja')
+
+#/agb
+@app.route('/agb')
+def agb():
+    return render_template('legal/agb.jinja')
+
 # Input
 
 
