@@ -22,7 +22,6 @@
     <a class="brand" href="{{ url_for('index') }}"> <img class="logo" src="/static/img/Group.svg"></a>
     <div>
       <ul class="nav-list">
-        <li class="nav-list-item"><a href="{{ url_for('about') }}">{{ _('Über uns') }}</a></li>
         <li class="nav-list-item"><a href="{{ url_for('contact') }}">{{ _('Kontakt') }}</a></li>
         <div class="language-switcher">
           {% if not request.path.startswith('/download_') and not request.path.startswith('/handle_tool') %}
