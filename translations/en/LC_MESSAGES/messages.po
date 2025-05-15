@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-12 13:04+0200\n"
+"POT-Creation-Date: 2025-05-15 10:21+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -523,12 +523,32 @@ msgstr "Creation of manuals from individual documents"
 msgid "Organisation von digitalem Papierkram"
 msgstr "Organization of digital paperwork"
 
-#: tool_descriptions.py:110
+#: tool_descriptions.py:106
+msgid ""
+"Analysiert und verbessert Bilder, um Text zu erkennen. Die optimierte "
+"Bildverarbeitung identifiziert Textbereiche und extrahiert Inhalte, ohne "
+"zusätzliche Software zu benötigen. Unterstützt Formate wie PNG, JPG, BMP "
+"und TIFF."
+msgstr "Analyzes and enhances images to recognize text. The optimized image processing identifies text areas and extracts content without the need for additional software. Supports formats such as PNG, JPG, BMP, and TIFF."
+
+#: tool_descriptions.py:107
+msgid "Digitalisierung von gedruckten Dokumenten"
+msgstr "Analysis of documents"
+
+#: tool_descriptions.py:107
+msgid "Identifizierung von Textbereichen in Bildern"
+msgstr "Identification of changes in texts"
+
+#: tool_descriptions.py:107
+msgid "Bildoptimierung für bessere Lesbarkeit von Texten"
+msgstr "Opzimizing images for better readability of text"
+
+#: tool_descriptions.py:114
 msgid "Keine Beschreibung verfügbar."
 msgstr "No description available."
 
-#: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:29
-#: templates/base.html:60 templates/base.html:68
+#: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:25
+#: templates/base.html:57 templates/base.html:64
 msgid "Über uns"
 msgstr "About us"
 
@@ -653,41 +673,41 @@ msgstr "What would the penguins do?"
 msgid "Anwendungsfälle:"
 msgstr "Use Cases:"
 
-#: templates/base.html:32 templates/base.html:69
+#: templates/base.html:26 templates/base.html:65
 msgid "Kontakt"
 msgstr "Contact"
 
-#: templates/base.html:61
+#: templates/base.html:58
 msgid ""
 "Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
 " zu erleichtern."
 msgstr "We develop powerful digital tools to make your daily work easier."
 
-#: templates/base.html:65
+#: templates/base.html:61
 msgid "Schnelllinks"
 msgstr "Quick Links"
 
-#: templates/base.html:67
+#: templates/base.html:63
 msgid "Startseite"
 msgstr "Home"
 
-#: templates/base.html:74
+#: templates/base.html:69
 msgid "Rechtliches"
 msgstr "Legal"
 
-#: templates/base.html:76
+#: templates/base.html:71
 msgid "Impressum"
 msgstr "Imprint"
 
-#: templates/base.html:77
+#: templates/base.html:72
 msgid "Datenschutz"
 msgstr "Privacy Policy"
 
-#: templates/base.html:78
+#: templates/base.html:73
 msgid "AGB"
 msgstr "Terms and Conditions"
 
-#: templates/base.html:84
+#: templates/base.html:78
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
 
@@ -1730,16 +1750,6 @@ msgstr "Generate QR Code"
 msgid "Ausführen"
 msgstr "Run"
 
-#: tests/test_placeholder_text_tool.py:8 tests/test_placeholder_text_tool.py:18
-#: tests/test_placeholder_text_tool.py:27
-#: tests/test_placeholder_text_tool.py:36
-#: tests/test_placeholder_text_tool.py:45
-#: tests/test_placeholder_text_tool.py:72
-#: tests/test_placeholder_text_tool.py:82
-#: tools/placeholder_text/placeholder_text_tool.py:16
-msgid "Textlänge"
-msgstr "Text length"
-
 #: tests/test_unit_converter_tool.py:10 tests/test_unit_converter_tool.py:24
 #: tests/test_unit_converter_tool.py:38 tests/test_unit_converter_tool.py:52
 #: tests/test_unit_converter_tool.py:66
@@ -2172,6 +2182,7 @@ msgstr "Converts images to various formats (PNG, JPG, GIF, BMP, WEBP)."
 
 #: tools/image_converter/image_converter_tool.py:59
 #: tools/image_cropper/image_cropper_tool.py:28
+#: tools/ocr_scanner/ocr_scanner_tool.py:76
 msgid "Bitte wählen Sie ein Bild aus."
 msgstr "Please select an image."
 
@@ -2371,6 +2382,143 @@ msgstr "Decimal:"
 #: tools/number_converter/number_converter_tool.py:48
 msgid "Hexadezimal:"
 msgstr "Hexadecimal:"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:19
+msgid "OCR Scanner"
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:20
+msgid "Extrahiert Text aus Bilddateien mittels OCR-Technologie."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:27
+msgid "Deutsch"
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:28
+#, fuzzy
+msgid "Englisch"
+msgstr "Deleted"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:29
+msgid "Französisch"
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:30
+#, fuzzy
+msgid "Spanisch"
+msgstr "Language"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:31
+msgid "Italienisch"
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:84
+msgid ""
+"Das ausgewählte Dateiformat wird nicht unterstützt. Unterstützte Formate:"
+" PNG, JPG, BMP, TIFF."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:89
+msgid "Die ausgewählte Datei ist leer oder beschädigt."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:107
+msgid ""
+"Kein Text konnte im Bild erkannt werden. Versuchen Sie ein Bild mit "
+"deutlicherem Text oder stellen Sie sicher, dass das Bild Text enthält."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:117
+msgid "Text aus Bild extrahiert"
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:118
+#, fuzzy
+msgid "Extrahierten Text herunterladen"
+msgstr "Download converted file"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:119
+#, fuzzy
+msgid "Text kopieren"
+msgstr "Copy"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:120
+#, fuzzy
+msgid "Anderes Bild scannen"
+msgstr "Crop another image"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:121
+msgid "Optimiertes Bild"
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:170
+#, fuzzy, python-format
+msgid "Fehler bei der Bildverarbeitung: %(error)s"
+msgstr "Error during conversion: %(error)s"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:348
+msgid ""
+"Mögliche Textbereiche erkannt:\n"
+"\n"
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:349
+msgid ""
+"Für eine vollständige Texterkennung empfehlen wir die Installation von "
+"Tesseract OCR."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:351
+msgid "Es wurden keine Textbereiche im Bild erkannt."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:356
+msgid "Der einfache OCR-Algorithmus konnte nicht durchgeführt werden."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:372
+#, fuzzy
+msgid "Das Bild konnte nicht gefunden werden."
+msgstr "Input file path could not be determined."
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:389
+msgid "Das Bild konnte nicht geöffnet werden. Es könnte beschädigt sein."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:519
+msgid ""
+"Das Bild konnte nicht verarbeitet werden. Bitte versuchen Sie es mit "
+"einem anderen Bild."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:524
+#, fuzzy
+msgid "Unerwarteter Fehler bei der Bildverarbeitung."
+msgstr "Error during processing:"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:612
+#, python-format
+msgid ""
+"Das Bild hat die Dimensionen %(width)dx%(height)d Pixel. Es wurden keine "
+"Textelemente identifiziert."
+msgstr ""
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:614
+#, fuzzy, python-brace-format
+msgid "Die Bildinformationen konnten nicht ausgelesen werden."
+msgstr "Audio data could not be loaded from '{0}'"
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:651
+#, fuzzy
+msgid "Text nicht gefunden."
+msgstr "No similarities found."
+
+#: tools/ocr_scanner/ocr_scanner_tool.py:658
+#: tools/ocr_scanner/ocr_scanner_tool.py:660
+#, fuzzy
+msgid "Keine Textelemente gefunden."
+msgstr "No differences found."
 
 #: tools/password_generator/password_generator_tool.py:8
 msgid "Passwortgenerator"
@@ -2632,6 +2780,10 @@ msgstr "Placeholder Text Generator"
 #: tools/placeholder_text/placeholder_text_tool.py:15
 msgid "Anzahl der Wörter (1-1000)"
 msgstr "Number of words (1-1000)"
+
+#: tools/placeholder_text/placeholder_text_tool.py:16
+msgid "Textlänge"
+msgstr "Text length"
 
 #: tools/placeholder_text/placeholder_text_tool.py:19
 msgid "Generiert Lorem Ipsum Platzhaltertext in der gewünschten Länge"
