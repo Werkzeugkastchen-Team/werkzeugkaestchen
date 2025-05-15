@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-12 13:04+0200\n"
+"POT-Creation-Date: 2025-05-14 13:48+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -523,12 +523,24 @@ msgstr "Creation of manuals from individual documents"
 msgid "Organisation von digitalem Papierkram"
 msgstr "Organization of digital paperwork"
 
-#: tool_descriptions.py:110
+#: tool_descriptions.py:106
+msgid "Fasst Text mithilfe von Sprachmodellen (LLMs) zusammen"
+msgstr "Summarizes text by utilizing Large Language Models (LLMs)."
+
+#: tool_descriptions.py:107
+msgid "Zusammenfassung von Text"
+msgstr "Compilation of documents"
+
+#: tool_descriptions.py:107
+msgid "Verstehen von komplexen Texten"
+msgstr "Understanding complex texts"
+
+#: tool_descriptions.py:114
 msgid "Keine Beschreibung verfügbar."
 msgstr "No description available."
 
-#: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:29
-#: templates/base.html:60 templates/base.html:68
+#: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:25
+#: templates/base.html:57 templates/base.html:64
 msgid "Über uns"
 msgstr "About us"
 
@@ -653,41 +665,41 @@ msgstr "What would the penguins do?"
 msgid "Anwendungsfälle:"
 msgstr "Use Cases:"
 
-#: templates/base.html:32 templates/base.html:69
+#: templates/base.html:26 templates/base.html:65
 msgid "Kontakt"
 msgstr "Contact"
 
-#: templates/base.html:61
+#: templates/base.html:58
 msgid ""
 "Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
 " zu erleichtern."
 msgstr "We develop powerful digital tools to make your daily work easier."
 
-#: templates/base.html:65
+#: templates/base.html:61
 msgid "Schnelllinks"
 msgstr "Quick Links"
 
-#: templates/base.html:67
+#: templates/base.html:63
 msgid "Startseite"
 msgstr "Home"
 
-#: templates/base.html:74
+#: templates/base.html:69
 msgid "Rechtliches"
 msgstr "Legal"
 
-#: templates/base.html:76
+#: templates/base.html:71
 msgid "Impressum"
 msgstr "Imprint"
 
-#: templates/base.html:77
+#: templates/base.html:72
 msgid "Datenschutz"
 msgstr "Privacy Policy"
 
-#: templates/base.html:78
+#: templates/base.html:73
 msgid "AGB"
 msgstr "Terms and Conditions"
 
-#: templates/base.html:84
+#: templates/base.html:78
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
 
@@ -1730,16 +1742,6 @@ msgstr "Generate QR Code"
 msgid "Ausführen"
 msgstr "Run"
 
-#: tests/test_placeholder_text_tool.py:8 tests/test_placeholder_text_tool.py:18
-#: tests/test_placeholder_text_tool.py:27
-#: tests/test_placeholder_text_tool.py:36
-#: tests/test_placeholder_text_tool.py:45
-#: tests/test_placeholder_text_tool.py:72
-#: tests/test_placeholder_text_tool.py:82
-#: tools/placeholder_text/placeholder_text_tool.py:16
-msgid "Textlänge"
-msgstr "Text length"
-
 #: tests/test_unit_converter_tool.py:10 tests/test_unit_converter_tool.py:24
 #: tests/test_unit_converter_tool.py:38 tests/test_unit_converter_tool.py:52
 #: tests/test_unit_converter_tool.py:66
@@ -1797,8 +1799,8 @@ msgstr "Input file"
 #: tools/text_summary/text_summary_tool.py:33
 #: tools/text_summary/text_summary_tool.py:59
 #: tools/text_to_speech/text_to_speech_tool.py:21
-#: tools/text_to_speech/text_to_speech_tool.py:27
-#: tools/text_to_speech/text_to_speech_tool.py:32
+#: tools/text_to_speech/text_to_speech_tool.py:30
+#: tools/text_to_speech/text_to_speech_tool.py:35
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:44
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:71
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:211
@@ -2633,6 +2635,10 @@ msgstr "Placeholder Text Generator"
 msgid "Anzahl der Wörter (1-1000)"
 msgstr "Number of words (1-1000)"
 
+#: tools/placeholder_text/placeholder_text_tool.py:16
+msgid "Textlänge"
+msgstr "Text length"
+
 #: tools/placeholder_text/placeholder_text_tool.py:19
 msgid "Generiert Lorem Ipsum Platzhaltertext in der gewünschten Länge"
 msgstr "Generates Lorem Ipsum placeholder text in the desired length"
@@ -2709,8 +2715,8 @@ msgid "Amount of Rolls"
 msgstr "Amount of Rolls"
 
 #: tools/random_number_generator/random_number_generator_tool.py:32
-#: tools/text_to_speech/text_to_speech_tool.py:28
-#: tools/text_to_speech/text_to_speech_tool.py:44
+#: tools/text_to_speech/text_to_speech_tool.py:31
+#: tools/text_to_speech/text_to_speech_tool.py:47
 msgid "Alle Eingabefelder müssen ausgefüllt sein."
 msgstr "All input fields must be filled."
 
@@ -2737,8 +2743,8 @@ msgstr "Text summarization Tool"
 #: tools/text_summary/text_summary_tool.py:32
 #: tools/text_summary/text_summary_tool.py:50
 #: tools/text_to_speech/text_to_speech_tool.py:21
-#: tools/text_to_speech/text_to_speech_tool.py:27
-#: tools/text_to_speech/text_to_speech_tool.py:31
+#: tools/text_to_speech/text_to_speech_tool.py:30
+#: tools/text_to_speech/text_to_speech_tool.py:34
 msgid "Text"
 msgstr "Text"
 
@@ -2767,35 +2773,35 @@ msgstr "Text to Speech"
 msgid "Konvertiert Text in gesprochene Sprache (TTS Text To Speech)"
 msgstr "Converts text to spoken language (TTS Text To Speech)"
 
-#: tools/text_to_speech/text_to_speech_tool.py:35
+#: tools/text_to_speech/text_to_speech_tool.py:38
 #, python-brace-format
 msgid ""
 "Eingabetext darf wegen technischen Limitationen nicht länger als {0} "
 "Zeichen sein."
 msgstr "Entry text must not exceed {0} characters due to technical limitations."
 
-#: tools/text_to_speech/text_to_speech_tool.py:59
+#: tools/text_to_speech/text_to_speech_tool.py:62
 msgid "Sprachausgabe"
 msgstr "Language output"
 
-#: tools/text_to_speech/text_to_speech_tool.py:60
+#: tools/text_to_speech/text_to_speech_tool.py:63
 msgid "Your browser does not support the audio element."
 msgstr "Your browser does not support the audio element."
 
-#: tools/text_to_speech/text_to_speech_tool.py:61
+#: tools/text_to_speech/text_to_speech_tool.py:64
 msgid "Audio herunterladen"
 msgstr "Audio download"
 
-#: tools/text_to_speech/text_to_speech_tool.py:62
+#: tools/text_to_speech/text_to_speech_tool.py:65
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:62
 msgid "Details"
 msgstr "Details"
 
-#: tools/text_to_speech/text_to_speech_tool.py:63
+#: tools/text_to_speech/text_to_speech_tool.py:66
 msgid "Text:"
 msgstr "Text:"
 
-#: tools/text_to_speech/text_to_speech_tool.py:64
+#: tools/text_to_speech/text_to_speech_tool.py:67
 #: tools/whisper_subtitle/whisper_subtitle_tool.py:64
 msgid "Sprache:"
 msgstr "Language:"

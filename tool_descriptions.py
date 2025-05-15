@@ -101,6 +101,10 @@ TOOL_DESCRIPTIONS = {
     "PdfMergeTool": {
         "description": _("Kombiniert mehrere PDF-Dateien zu einem einzigen Dokument. Perfekt für die Erstellung umfassender Berichte oder die Zusammenführung verwandter Dokumente."),
         "use_cases": [_("Zusammenstellung von Unterlagen"), _("Erstellung von Handbüchern aus Einzeldokumenten"), _("Organisation von digitalem Papierkram")]
+    },
+    "TextSummaryTool": {
+        "description": _("Fasst Text mithilfe von Sprachmodellen (LLMs) zusammen"),
+        "use_cases": [_("Zusammenfassung von Text"), _("Verstehen von komplexen Texten")]
     }
 }
 
