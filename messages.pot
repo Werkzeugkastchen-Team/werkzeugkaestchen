@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-15 10:21+0200\n"
+"POT-Creation-Date: 2025-05-15 10:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -494,18 +494,21 @@ msgstr ""
 
 #: tool_descriptions.py:107
 msgid "Bildoptimierung für bessere Lesbarkeit von Texten"
+msgstr ""
+
+#: tool_descriptions.py:110
 msgid "Fasst Text mithilfe von Sprachmodellen (LLMs) zusammen"
 msgstr ""
 
-#: tool_descriptions.py:107
+#: tool_descriptions.py:111
 msgid "Zusammenfassung von Text"
 msgstr ""
 
-#: tool_descriptions.py:107
+#: tool_descriptions.py:111
 msgid "Verstehen von komplexen Texten"
 msgstr ""
 
-#: tool_descriptions.py:114
+#: tool_descriptions.py:118
 msgid "Keine Beschreibung verfügbar."
 msgstr ""
 

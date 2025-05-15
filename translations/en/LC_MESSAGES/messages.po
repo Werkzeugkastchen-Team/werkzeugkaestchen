@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-15 10:21+0200\n"
+"POT-Creation-Date: 2025-05-15 10:27+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -529,7 +529,11 @@ msgid ""
 "Bildverarbeitung identifiziert Textbereiche und extrahiert Inhalte, ohne "
 "zusätzliche Software zu benötigen. Unterstützt Formate wie PNG, JPG, BMP "
 "und TIFF."
-msgstr "Analyzes and enhances images to recognize text. The optimized image processing identifies text areas and extracts content without the need for additional software. Supports formats such as PNG, JPG, BMP, and TIFF."
+msgstr ""
+"Analyzes and enhances images to recognize text. The optimized image "
+"processing identifies text areas and extracts content without the need "
+"for additional software. Supports formats such as PNG, JPG, BMP, and "
+"TIFF."
 
 #: tool_descriptions.py:107
 msgid "Digitalisierung von gedruckten Dokumenten"
@@ -543,12 +547,22 @@ msgstr "Identification of changes in texts"
 msgid "Bildoptimierung für bessere Lesbarkeit von Texten"
 msgstr "Opzimizing images for better readability of text"
 
-#: tool_descriptions.py:114
+#: tool_descriptions.py:110
+msgid "Fasst Text mithilfe von Sprachmodellen (LLMs) zusammen"
+msgstr "Summarizes text by utilizing Large Language Models (LLMs)."
+
+#: tool_descriptions.py:111
+msgid "Zusammenfassung von Text"
+msgstr "Compilation of documents"
+
+#: tool_descriptions.py:111
+msgid "Verstehen von komplexen Texten"
+msgstr "Understanding complex texts"
+
+#: tool_descriptions.py:118
 msgid "Keine Beschreibung verfügbar."
 msgstr "No description available."
 
-#: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:25
-#: templates/base.html:57 templates/base.html:64
 #: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:25
 #: templates/base.html:57 templates/base.html:64
 msgid "Über uns"
@@ -676,11 +690,9 @@ msgid "Anwendungsfälle:"
 msgstr "Use Cases:"
 
 #: templates/base.html:26 templates/base.html:65
-#: templates/base.html:26 templates/base.html:65
 msgid "Kontakt"
 msgstr "Contact"
 
-#: templates/base.html:58
 #: templates/base.html:58
 msgid ""
 "Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
@@ -688,36 +700,29 @@ msgid ""
 msgstr "We develop powerful digital tools to make your daily work easier."
 
 #: templates/base.html:61
-#: templates/base.html:61
 msgid "Schnelllinks"
 msgstr "Quick Links"
 
-#: templates/base.html:63
 #: templates/base.html:63
 msgid "Startseite"
 msgstr "Home"
 
 #: templates/base.html:69
-#: templates/base.html:69
 msgid "Rechtliches"
 msgstr "Legal"
 
-#: templates/base.html:71
 #: templates/base.html:71
 msgid "Impressum"
 msgstr "Imprint"
 
 #: templates/base.html:72
-#: templates/base.html:72
 msgid "Datenschutz"
 msgstr "Privacy Policy"
 
 #: templates/base.html:73
-#: templates/base.html:73
 msgid "AGB"
 msgstr "Terms and Conditions"
 
-#: templates/base.html:78
 #: templates/base.html:78
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
@@ -2516,7 +2521,6 @@ msgid ""
 msgstr ""
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:614
-#, fuzzy, python-brace-format
 msgid "Die Bildinformationen konnten nicht ausgelesen werden."
 msgstr "Audio data could not be loaded from '{0}'"
 
@@ -2791,10 +2795,6 @@ msgstr "Placeholder Text Generator"
 #: tools/placeholder_text/placeholder_text_tool.py:15
 msgid "Anzahl der Wörter (1-1000)"
 msgstr "Number of words (1-1000)"
-
-#: tools/placeholder_text/placeholder_text_tool.py:16
-msgid "Textlänge"
-msgstr "Text length"
 
 #: tools/placeholder_text/placeholder_text_tool.py:16
 msgid "Textlänge"
