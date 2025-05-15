@@ -5,7 +5,7 @@ from tools.unix_timestamp.unix_timestamp_tool import UnixTimestampTool
 def test_unix_timestamp_initialization():
     """Test if the tool initializes correctly"""
     tool = UnixTimestampTool()
-    assert tool.name == "Unix-Timestamp Konverter"
+    assert tool.name == "Unix\-Timestamp Konverter"
     assert "timestamp" in tool.input_params
     assert "timezone" in tool.input_params
     assert "conversion_type" in tool.input_params
@@ -59,7 +59,7 @@ def test_empty_timestamp():
     })
 
     assert result == False
-    assert "Bitte geben Sie einen Unix-Timestamp ein" in tool.error_message
+    assert "Bitte geben Sie einen Unix\-Timestamp ein\." in tool.error_message
 
 
 def test_invalid_timestamp():
@@ -72,7 +72,7 @@ def test_invalid_timestamp():
     })
 
     assert result == False
-    assert "kein gültiger Unix-Timestamp" in tool.error_message
+    assert "Der eingegebene Wert ist kein gültiger Unix\-Timestamp\. Bitte geben Sie eine ganze Zahl ein\." in tool.error_message
 
 
 def test_negative_timestamp():
