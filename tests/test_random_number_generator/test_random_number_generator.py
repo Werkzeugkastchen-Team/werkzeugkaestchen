@@ -1,6 +1,7 @@
 import pytest
 from tools.random_number_generator.random_number_generator_tool import RandomNumberGeneratorTool
 import sys
+import re
 
 def test_random_number_generator_initialization():
     """Test if the tool initializes correctly"""
@@ -22,7 +23,7 @@ def test_basic_generation():
     assert result is True
     assert tool.output is not None
     assert len(tool.output.split(", ")) == 1
-    assert 1 <= int(tool.output) <= 10
+    assert 1 <= int(re.sub(r'</?div>', '', tool.output)) <= 10
 
 def test_multiple_rolls():
     """Test generating multiple random numbers"""
@@ -37,7 +38,7 @@ def test_multiple_rolls():
     numbers = tool.output.split(", ")
     assert len(numbers) == 5
     for num in numbers:
-        assert 1 <= int(num) <= 100
+        assert 1 <= int(re.sub(r'</?div>', '', num)) <= 100
 
 def test_negative_numbers():
     """Test generating random numbers with negative minimum"""
@@ -52,7 +53,7 @@ def test_negative_numbers():
     numbers = tool.output.split(", ")
     assert len(numbers) == 3
     for num in numbers:
-        assert -10 <= int(num) <= 10
+        assert -10 <= int(re.sub(r'</?div>', '', num)) <= 10
 
 def test_min_greater_than_max():
     """Test error handling when minimum is greater than maximum"""
