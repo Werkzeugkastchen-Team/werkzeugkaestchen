@@ -3,6 +3,8 @@
     height: auto;
     display: block;
     transition: transform 0.4s ease, box-shadow 0.3s ease;
+    height: 40vh;
+    object-fit: cover;
 }
 .ad-wrapper {
     display: inline-block;
@@ -15,7 +17,7 @@
     transform: scale(1.08);
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   }
-  
+
   .ad-overlay {
     position: absolute;
     bottom: 0;
@@ -29,7 +31,7 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   .ad-wrapper:hover .ad-overlay {
     opacity: 1;
   }

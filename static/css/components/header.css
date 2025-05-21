@@ -1,5 +1,5 @@
 .logo {
-    width: var(--space-l);
+    width: 78px;
 }
 
 .navbar {
@@ -7,18 +7,24 @@
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    padding: 20px 40px;
-    background-color: var(--secondary-color);
+    /*padding: 20px 40px;*/
+    /*background-color: var(--secondary-color);*/
+    border-bottom: 2px;
+    border-bottom-color: var(--accent-color);
+    border-bottom-style: solid;
+    padding: 4px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .nav-list {
     display: flex;
     gap: 20px;
     list-style: none;
+    margin: 0px;
 }
 
 .nav-list-item a {
-    color: var(--primary-color);
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -51,13 +57,12 @@
     margin-left: 20px;
 }
 .language-switcher a {
-    color: var(--primary-color);
+    color: var(--accent-color);
     text-decoration: none;
     padding: 5px;
 }
 .language-switcher a.active {
     font-weight: bold;
-    text-decoration: underline;
 }
 .disabled-link {
     color: #999;  /* Grau */
