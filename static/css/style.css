@@ -71,6 +71,9 @@ textarea {
  .tool-card {
   position: relative;
 }
+.tool-card a{
+  color: black;
+}
 
 .tool-card:hover::after {
   content: attr(data-description);

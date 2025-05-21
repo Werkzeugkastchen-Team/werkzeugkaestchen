@@ -8,12 +8,13 @@
     <div class="row" id="toolsContainer">
         {% for tool in toolsToRender %}
             <div class="col-md-4 mb-4 tool-card" data-title="{{ tool.name }}" data-description="{{ tool.description }}">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ tool.name }}</h5>
-                        <a href="{{ url_for('tool_form', tool_name=tool.__class__.__name__) }}" class="fancy-button">{{ _('Öffnen') }}</a>
+                <a href="{{ url_for('tool_form', tool_name=tool.__class__.__name__) }}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tool.name }}</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         {% endfor %}
 
