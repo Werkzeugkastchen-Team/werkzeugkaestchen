@@ -58,7 +58,7 @@ class RandomNumberGeneratorTool(MiniTool):
                 return False
 
             random_numbers = [str(random.randint(min, max)) for _ in range(amount_of_rolls)]
-            self.output = ", ".join(random_numbers)
+            self.output = "<div>" + ", ".join(random_numbers) + "</div>"
 
             return True
         except Exception as e:

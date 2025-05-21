@@ -32,10 +32,10 @@ def test_random_number_generator_ui_output(client):
     """Test if the random number generator output is displayed correctly"""
     response = client.post('/handle_tool', data={
         'tool_name': 'RandomNumberGeneratorTool',
-        'Minimum Number': '1',
-        'Maximum Number': '10',
-        'Amount of Rolls': '5'
-    })
+        'Kleinste Zahl': '1',
+        'Größte Zahl': '10',
+        'Anzahl der Würfe': '5'
+    }, headers={'Accept-Language': 'de'})
     assert response.status_code == 200
 
     soup = BeautifulSoup(response.data, 'html.parser')
@@ -49,12 +49,12 @@ def test_random_number_generator_ui_output(client):
     assert h1 is not None, "H1 heading not found"
     assert h1.text.strip() == "Zufallszahlengenerator", "Unexpected heading text"
     
-    # The output is the text node right after the h1 element
-    # Get the next sibling of h1 that's a NavigableString (text node)
-    output_node = h1.next_sibling
-    assert output_node is not None, "No output text found after heading"
+    # The output is inside a div that is a sibling of h1
+    output_div = h1.find_next_sibling('div')
+    assert output_div is not None, "Output div not found after heading"
+    print("OUTPUT DIV IS ", output_div)
     
-    output_text = output_node.strip()
+    output_text = output_div.text.strip()
     assert output_text, "Random number output is empty"
     
     # Split by commas and remove any whitespace
