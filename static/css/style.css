@@ -43,36 +43,93 @@ body {
   flex-direction: column;
 }
 
+/* Standard Card Design */
 .card {
-    background: rgba(255, 247, 247, 1);
-    transition: all 0.3s ease;
- }
+  background: rgba(255, 247, 247, 1);
+  transition: all 0.3s ease;
+}
+
+/* Glasmorphismus nur für Tool-Karten auf der Hauptseite */
+#toolsContainer .card {
+  background: linear-gradient(135deg, rgba(202, 6, 18, 0.6) 0%, rgba(187, 48, 48, 0.6) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px 0 rgba(202, 6, 18, 0.15);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Weißer Glanz-Effekt nur für Tool-Karten */
+#toolsContainer .card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.7s ease;
+}
+
+#toolsContainer .card:hover::before {
+  transform: rotate(30deg) translateY(100%);
+}
 
 textarea {
   margin-bottom: 1em;  
   width: 100%;
   height: 30vh;
-} /* Basiseffekt für alle Karten */
- .card:hover {
-     background: rgba(255,255,255,1);
-     transition: all 0.3s ease;
- }
- 
- /* Hervorspring-Effekt nur für Karten auf der Hauptseite im Tools Container */
- #toolsContainer .card:hover {
-     transform: scale(1.05);
-     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
- }
+}
 
- .container {
-     flex: 1;
- }
+/* Standard Hover-Effekt für alle Karten */
+.card:hover {
+  background: rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+}
 
- .tool-card {
+/* Spezifischer Hover-Effekt nur für Tool-Karten */
+#toolsContainer .card:hover {
+  background: linear-gradient(135deg, rgba(202, 6, 18, 0.75) 0%, rgba(187, 48, 48, 0.75) 100%);
+  box-shadow: 0 8px 32px 0 rgba(202, 6, 18, 0.3);
+  transform: scale(1.05) translateY(-5px);
+}
+
+.container {
+  flex: 1;
+}
+
+.tool-card {
   position: relative;
 }
-.tool-card a{
+
+.tool-card a {
   color: black;
+  text-decoration: none;
+}
+
+/* Textfarbe für Tool-Karten auf der Hauptseite */
+#toolsContainer .tool-card a {
+  color: white;
+  text-decoration: none;
+}
+
+.card-title {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Textschatten nur für Tool-Karten auf der Hauptseite */
+#toolsContainer .card-title {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .tool-card:hover::after {
@@ -83,15 +140,18 @@ textarea {
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 10px 15px;
+  border-radius: var(--radius-md);
   width: 80%;
   text-align: center;
   font-size: 14px;
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: 10;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .tool-card::after {
@@ -100,7 +160,16 @@ textarea {
   opacity: 0;
   position: absolute;
 }
-.card-body{
+
+.card-body {
   padding: 2.5rem;
+}
+
+/* Ausrichtung nur für Tool-Karten auf der Hauptseite */
+#toolsContainer .card-body {
+  padding: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
