@@ -37,22 +37,22 @@ def test_random_number_generator_ui_output(client):
         'Anzahl der Würfe': '5'
     }, headers={'Accept-Language': 'de'})
     assert response.status_code == 200
+    print("Response Data:", response.data.decode('utf-8')) # Add this line to debug
 
     soup = BeautifulSoup(response.data, 'html.parser')
-    # Trying to get the h1 output response from the html:
-    # Find the container
-    container = soup.find('div', {'class': 'container'})
-    assert container is not None, "Container div not found"
     
-    # Get the container contents and find the text node after the h1
-    h1 = container.find('h1')
+    # Get the h1 heading directly from soup
+    h1 = soup.find('h1')
     assert h1 is not None, "H1 heading not found"
     assert h1.text.strip() == "Zufallszahlengenerator", "Unexpected heading text"
-    
-    # The output is inside a div that is a sibling of h1
-    output_div = h1.find_next_sibling('div')
-    assert output_div is not None, "Output div not found after heading"
-    print("OUTPUT DIV IS ", output_div)
+
+    # Find the div containing the tool output directly from soup
+    output_div = soup.find('div', {'class': 'tool-output'})
+    assert output_div is not None, "Tool output div not found"
+
+    # Find the container (still needed for other assertions if any, but not for output_div)
+    container = soup.find('div', {'class': 'container'})
+    assert container is not None, "Container div not found"
     
     output_text = output_div.text.strip()
     assert output_text, "Random number output is empty"
