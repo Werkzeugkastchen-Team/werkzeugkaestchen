@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ _('Über uns') }}{% endblock %}
+{% block page_title %}{{ _('Lernen Sie uns besser kennen') }}{% endblock %}
+
+{% block content %}
+<section class="about">
+    <div class="about-description">
+        <p>
+            <strong>Werkzeugkästchen</strong> ist eine moderne Webplattform, die vielseitige Online-Tools an einem zentralen Ort bündelt – einfach, schnell und kostenlos zugänglich.
+            Unser Ziel ist es, komplexe Aufgaben zu vereinfachen und nützliche digitale Werkzeuge für jedermann bereitzustellen – sei es für Entwickler, Designer oder Alltagsnutzer.
+        </p>
+    </div>
+
+    <div class="team-grid">
+        {% for member in team_members %}
+        <div class="team-member">
+            <img src="{{ url_for('static', filename=member.image) }}" alt="{{ member.name }}">
+            <h2>{{ member.name }}</h2>
+            <p>{{ member.role }}</p>
+            <p>{{ member.specialty }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
