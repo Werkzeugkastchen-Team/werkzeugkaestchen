@@ -71,6 +71,9 @@ textarea {
  .tool-card {
   position: relative;
 }
+.tool-card a{
+  color: black;
+}
 
 .tool-card:hover::after {
   content: attr(data-description);
@@ -96,5 +99,8 @@ textarea {
   visibility: hidden;
   opacity: 0;
   position: absolute;
+}
+.card-body{
+  padding: 2.5rem;
 }
 
