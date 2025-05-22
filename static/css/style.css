@@ -100,4 +100,7 @@ textarea {
   opacity: 0;
   position: absolute;
 }
+.card-body{
+  padding: 2.5rem;
+}
 
