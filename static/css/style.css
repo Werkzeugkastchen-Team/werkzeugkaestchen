@@ -51,7 +51,7 @@ body {
 
 /* Glasmorphismus nur für Tool-Karten auf der Hauptseite */
 #toolsContainer .card {
-  background: linear-gradient(135deg, rgba(202, 6, 18, 0.6) 0%, rgba(187, 48, 48, 0.6) 100%);
+  background: linear-gradient(135deg, rgb(202, 0, 0) 0%, rgb(170, 0, 0) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -98,7 +98,7 @@ textarea {
 
 /* Spezifischer Hover-Effekt nur für Tool-Karten */
 #toolsContainer .card:hover {
-  background: linear-gradient(135deg, rgba(202, 6, 18, 0.75) 0%, rgba(187, 48, 48, 0.75) 100%);
+  background: linear-gradient(135deg, rgb(253, 53, 53) 0%, rgb(196, 22, 22) 100%);
   box-shadow: 0 8px 32px 0 rgba(202, 6, 18, 0.3);
   transform: scale(1.05) translateY(-5px);
 }
