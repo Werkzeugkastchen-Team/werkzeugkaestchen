@@ -7,14 +7,11 @@
 <section class="about">
     <div class="about-description">
         <p>
-            <strong>Werkzeugkästchen</strong> ist eine moderne Webplattform, die vielseitige Online-Tools an einem zentralen Ort bündelt – einfach, schnell und kostenlos zugänglich.
-            Unser Ziel ist es, komplexe Aufgaben zu vereinfachen und nützliche digitale Werkzeuge für jedermann bereitzustellen – sei es für Entwickler, Designer oder Alltagsnutzer.
+            <strong>{{ _('Werkzeugkästchen') }}</strong> {{ _('ist eine moderne Webplattform, die vielseitige Online-Tools an einem zentralen Ort bündelt – einfach, schnell und kostenlos zugänglich.
+            Unser Ziel ist es, komplexe Aufgaben zu vereinfachen und nützliche digitale Werkzeuge für jedermann bereitzustellen – sei es für Entwickler, Designer oder Alltagsnutzer.') }}
         </p>
-    </div>
-
-    <div class="team-grid">
-        {% for member in team_members %}
-        <div class="team-member">
+    </div>    <div class="team-grid">
+        {% for member in team_members %}        <div class="team-member">
             <img src="{{ url_for('static', filename=member.image) }}" alt="{{ member.name }}">
             <h2>{{ member.name }}</h2>
             <p>{{ member.role }}</p>

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-Allgemeine Geschäftsbedingungen (AGB)
+{{ _('Allgemeine Geschäftsbedingungen (AGB)') }}
 {% endblock %}
 
 {% block content %}
 
-<p>Diese Website stellt Werkzeuge zur Verfügung, die kostenlos genutzt werden können. Die Nutzung erfolgt auf eigene Verantwortung.</p>
-<p>Wir übernehmen keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse.</p>
-<p>Änderungen an den angebotenen Funktionen oder der Nutzungsbedingungen können jederzeit vorgenommen werden.</p>
+<p>{{ _('Diese Website stellt Werkzeuge zur Verfügung, die kostenlos genutzt werden können. Die Nutzung erfolgt auf eigene Verantwortung.') }}</p>
+<p>{{ _('Wir übernehmen keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse.') }}</p>
+<p>{{ _('Änderungen an den angebotenen Funktionen oder der Nutzungsbedingungen können jederzeit vorgenommen werden.') }}</p>
 {% endblock %}

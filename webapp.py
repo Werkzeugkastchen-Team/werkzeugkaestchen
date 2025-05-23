@@ -277,37 +277,37 @@ def about():
     team_members = [
         {
             "name": "Elias Vincent Simon",
-            "role": "Fullstack Entwickler",
+            "role": _("Fullstack Entwickler"),
             "specialty": "Python | Flask | UI/UX",
             "image": "img/dummy-user.png"
         },
         {
             "name": "David Thomfohrde",
-            "role": "Fullstack Entwickler",
+            "role": _("Fullstack Entwickler"),
             "specialty": "Python | Flask | UI/UX",
             "image": "img/dummy-user.png"
         },
         {
             "name": "Dumitrita Gorgan",
-            "role": "Fullstack Entwickler",
+            "role": _("Fullstack Entwickler"),
             "specialty": "Python | Flask | UI/UX",
             "image": "img/dummy-user.png"
         },  
         {
             "name": "Abdullah Diab",
-            "role": "Fullstack Entwickler",
+            "role": _("Fullstack Entwickler"),
             "specialty": "Python | Flask | UI/UX",
             "image": "img/dummy-user.png"
         }, 
          {
             "name": "Soufiane Hammagi",
-            "role": "Fullstack Entwickler",
+            "role": _("Fullstack Entwickler"),
             "specialty": "Python | Flask | UI/UX",
             "image": "img/dummy-user.png"
         },
         {
             "name": "Ayoub Aalaou",
-            "role": "Fullstack Entwickler",
+            "role": _("Fullstack Entwickler"),
             "specialty": "Python | Flask | UI/UX",
             "image": "img/dummy-user.png"
         }

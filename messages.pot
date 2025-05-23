@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
+"POT-Creation-Date: 2025-05-23 11:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -535,17 +535,41 @@ msgstr ""
 msgid "Keine Beschreibung verfügbar."
 msgstr ""
 
+#: webapp.py:280 webapp.py:286 webapp.py:292 webapp.py:298 webapp.py:304
+#: webapp.py:310
+msgid "Fullstack Entwickler"
+msgstr ""
+
+#: templates/about.jinja:3 templates/base.html:26 templates/base.html:60
+#: templates/base.html:67
+msgid "Über uns"
+msgstr ""
+
+#: templates/about.jinja:4
+msgid "Lernen Sie uns besser kennen"
+msgstr ""
+
+#: templates/about.jinja:10 templates/index.jinja:2 templates/index.jinja:3
+msgid "Werkzeugkästchen"
+msgstr ""
+
+#: templates/about.jinja:10
+msgid ""
+"ist eine moderne Webplattform, die vielseitige Online-Tools an einem "
+"zentralen Ort bündelt – einfach, schnell und kostenlos zugänglich.\n"
+"            Unser Ziel ist es, komplexe Aufgaben zu vereinfachen und "
+"nützliche digitale Werkzeuge für jedermann bereitzustellen – sei es für "
+"Entwickler, Designer oder Alltagsnutzer."
+msgstr ""
+
 #: templates/audio_converter.jinja:10 templates/color_converter.html:18
 #: templates/gif_video_converter.jinja:10 templates/image_cropper.jinja:10
 #: templates/variable_input_mask.jinja:17
 msgid "Anwendungsfälle:"
 msgstr ""
 
-#: templates/base.html:26 templates/base.html:60 templates/base.html:67
-msgid "Über uns"
-msgstr ""
-
 #: templates/base.html:27 templates/base.html:68
+#: templates/legal/privacy.jinja:17
 msgid "Kontakt"
 msgstr ""
 
@@ -571,7 +595,7 @@ msgstr ""
 msgid "Datenschutz"
 msgstr ""
 
-#: templates/base.html:75
+#: templates/base.html:75 templates/legal/impressum.jinja:4
 msgid "Impressum"
 msgstr ""
 
@@ -747,7 +771,7 @@ msgstr ""
 msgid "Kontaktieren Sie uns"
 msgstr ""
 
-#: templates/contact.jinja:15
+#: templates/contact.jinja:15 templates/legal/impressum.jinja:11
 msgid "Werkzeugkästchen GmbH"
 msgstr ""
 
@@ -811,7 +835,7 @@ msgstr ""
 msgid "Ich stimme der"
 msgstr ""
 
-#: templates/contact.jinja:52
+#: templates/contact.jinja:52 templates/legal/privacy.jinja:4
 msgid "Datenschutzerklärung"
 msgstr ""
 
@@ -1285,10 +1309,6 @@ msgstr ""
 msgid "Auswahl übernehmen"
 msgstr ""
 
-#: templates/index.jinja:2 templates/index.jinja:3
-msgid "Werkzeugkästchen"
-msgstr ""
-
 #: templates/index.jinja:6
 msgid "🔍 Suche nach einem Tool..."
 msgstr ""
@@ -1581,6 +1601,172 @@ msgstr ""
 
 #: templates/variable_input_mask.jinja:419
 msgid "Ausführen"
+msgstr ""
+
+#: templates/legal/agb.jinja:4
+msgid "Allgemeine Geschäftsbedingungen (AGB)"
+msgstr ""
+
+#: templates/legal/agb.jinja:9
+msgid ""
+"Diese Website stellt Werkzeuge zur Verfügung, die kostenlos genutzt "
+"werden können. Die Nutzung erfolgt auf eigene Verantwortung."
+msgstr ""
+
+#: templates/legal/agb.jinja:10
+msgid ""
+"Wir übernehmen keine Gewähr für die Richtigkeit, Vollständigkeit oder "
+"Aktualität der Ergebnisse."
+msgstr ""
+
+#: templates/legal/agb.jinja:11
+msgid ""
+"Änderungen an den angebotenen Funktionen oder der Nutzungsbedingungen "
+"können jederzeit vorgenommen werden."
+msgstr ""
+
+#: templates/legal/impressum.jinja:9
+msgid "Angaben gemäß § 5 TMG:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:12 templates/legal/impressum.jinja:42
+msgid "Musterstraße 12"
+msgstr ""
+
+#: templates/legal/impressum.jinja:13 templates/legal/impressum.jinja:43
+msgid "12345 Musterstadt"
+msgstr ""
+
+#: templates/legal/impressum.jinja:14
+msgid "Deutschland"
+msgstr ""
+
+#: templates/legal/impressum.jinja:17
+msgid "Vertreten durch:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:19
+msgid "Max Mustermann, Geschäftsführer"
+msgstr ""
+
+#: templates/legal/impressum.jinja:22
+msgid "Kontakt:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:23
+msgid "Telefon: +49 (0) 123 456 789"
+msgstr ""
+
+#: templates/legal/impressum.jinja:24
+msgid "E-Mail:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:25
+msgid "Webseite:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:28
+msgid "Registereintrag:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:30
+msgid "Eintragung im Handelsregister."
+msgstr ""
+
+#: templates/legal/impressum.jinja:31
+msgid "Registergericht: Amtsgericht Musterstadt"
+msgstr ""
+
+#: templates/legal/impressum.jinja:32
+msgid "Registernummer: HRB 123456"
+msgstr ""
+
+#: templates/legal/impressum.jinja:35
+msgid "Umsatzsteuer-ID:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:36
+msgid ""
+"Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz: "
+"DE123456789"
+msgstr ""
+
+#: templates/legal/impressum.jinja:39
+msgid "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:"
+msgstr ""
+
+#: templates/legal/impressum.jinja:41
+msgid "Max Mustermann"
+msgstr ""
+
+#: templates/legal/impressum.jinja:46
+msgid "Haftungsausschluss (Disclaimer)"
+msgstr ""
+
+#: templates/legal/impressum.jinja:48
+msgid "Haftung für Inhalte"
+msgstr ""
+
+#: templates/legal/impressum.jinja:49
+msgid ""
+"Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf "
+"diesen Seiten nach den allgemeinen Gesetzen verantwortlich.\n"
+"        Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, "
+"übermittelte oder gespeicherte fremde Informationen zu überwachen."
+msgstr ""
+
+#: templates/legal/impressum.jinja:53
+msgid "Haftung für Links"
+msgstr ""
+
+#: templates/legal/impressum.jinja:55
+msgid ""
+"Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
+"Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
+"Inhalte auch keine Gewähr übernehmen."
+msgstr ""
+
+#: templates/legal/impressum.jinja:58
+msgid "Urheberrecht"
+msgstr ""
+
+#: templates/legal/impressum.jinja:60
+msgid ""
+"Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen "
+"Seiten unterliegen dem deutschen Urheberrecht."
+msgstr ""
+
+#: templates/legal/privacy.jinja:9
+msgid ""
+"Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten "
+"werden vertraulich und entsprechend der gesetzlichen "
+"Datenschutzvorschriften behandelt."
+msgstr ""
+
+#: templates/legal/privacy.jinja:11
+msgid "Cookies"
+msgstr ""
+
+#: templates/legal/privacy.jinja:12
+msgid ""
+"Unsere Website verwendet Cookies, um Ihre Nutzererfahrung zu verbessern. "
+"Sie können die Verwendung von Cookies im Cookie-Banner ablehnen."
+msgstr ""
+
+#: templates/legal/privacy.jinja:14
+msgid "Erhebung und Verarbeitung von Daten"
+msgstr ""
+
+#: templates/legal/privacy.jinja:15
+msgid ""
+"Es werden keine personenbezogenen Daten gespeichert oder an Dritte "
+"weitergegeben. Die Nutzung der Werkzeuge erfolgt anonym."
+msgstr ""
+
+#: templates/legal/privacy.jinja:18
+msgid ""
+"Bei Fragen zum Datenschutz wenden Sie sich bitte an: "
+"datenschutz@werkzeugkasten.de"
 msgstr ""
 
 #: tests/test_unit_converter_tool.py:10 tests/test_unit_converter_tool.py:24

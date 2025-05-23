@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-23 10:55+0200\n"
+"POT-Creation-Date: 2025-05-23 11:33+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -565,26 +565,61 @@ msgid ""
 "Berücksichtigt automatisch Sommerzeit und andere zeitzonespezifische "
 "Regeln für präzise Umrechnungen."
 msgstr ""
+"Converts date and time between different time zones worldwide. "
+"Automatically considers daylight saving time and other time zone-specific"
+" rules for precise conversions."
 
 #: tool_descriptions.py:114
 msgid "Planung internationaler Meetings und Anrufe"
-msgstr ""
+msgstr "Planning international meetings and calls"
 
 #: tool_descriptions.py:114
 msgid "Koordination globaler Projekte"
-msgstr ""
+msgstr "Coordination of global projects"
 
 #: tool_descriptions.py:114
 msgid "Umrechnung für Reiseplanung und Flugzeiten"
-msgstr ""
+msgstr "Conversion for travel planning and flight times"
 
 #: tool_descriptions.py:114
 msgid "Synchronisation weltweiter Events"
-msgstr ""
+msgstr "Synchronization of worldwide events"
 
 #: tool_descriptions.py:121
 msgid "Keine Beschreibung verfügbar."
 msgstr "No description available."
+
+#: webapp.py:280 webapp.py:286 webapp.py:292 webapp.py:298 webapp.py:304
+#: webapp.py:310
+msgid "Fullstack Entwickler"
+msgstr "Fullstack Developer"
+
+#: templates/about.jinja:3 templates/base.html:26 templates/base.html:60
+#: templates/base.html:67
+msgid "Über uns"
+msgstr "About us"
+
+#: templates/about.jinja:4
+msgid "Lernen Sie uns besser kennen"
+msgstr "Get to know us better"
+
+#: templates/about.jinja:10 templates/index.jinja:2 templates/index.jinja:3
+msgid "Werkzeugkästchen"
+msgstr "ToolTiles"
+
+#: templates/about.jinja:10
+msgid ""
+"ist eine moderne Webplattform, die vielseitige Online-Tools an einem "
+"zentralen Ort bündelt – einfach, schnell und kostenlos zugänglich.\n"
+"            Unser Ziel ist es, komplexe Aufgaben zu vereinfachen und "
+"nützliche digitale Werkzeuge für jedermann bereitzustellen – sei es für "
+"Entwickler, Designer oder Alltagsnutzer."
+msgstr ""
+"ToolTiles is a modern web platform that consolidates versatile online "
+"tools in one central location - easy, fast, and free to access.\n"
+"            Our goal is to simplify complex tasks and provide useful "
+"digital tools for everyone - whether for developers, designers, or "
+"everyday users."
 
 #: templates/audio_converter.jinja:10 templates/color_converter.html:18
 #: templates/gif_video_converter.jinja:10 templates/image_cropper.jinja:10
@@ -592,11 +627,8 @@ msgstr "No description available."
 msgid "Anwendungsfälle:"
 msgstr "Use Cases:"
 
-#: templates/base.html:26 templates/base.html:60 templates/base.html:67
-msgid "Über uns"
-msgstr "About us"
-
 #: templates/base.html:27 templates/base.html:68
+#: templates/legal/privacy.jinja:17
 msgid "Kontakt"
 msgstr "Contact"
 
@@ -622,7 +654,7 @@ msgstr "Legal"
 msgid "Datenschutz"
 msgstr "Privacy Policy"
 
-#: templates/base.html:75
+#: templates/base.html:75 templates/legal/impressum.jinja:4
 msgid "Impressum"
 msgstr "Imprint"
 
@@ -632,7 +664,7 @@ msgstr "Terms and Conditions"
 
 #: templates/base.html:81
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
-msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
+msgstr "© 2025 HiTec GmbH. All rights reserved."
 
 #: templates/color_converter.html:5 templates/color_converter.html:6
 #: tools/color_converter/color_converter_tool.py:7
@@ -800,7 +832,7 @@ msgstr "hsv(0, 100%%, 100%%) is red"
 msgid "Kontaktieren Sie uns"
 msgstr "Contact Us"
 
-#: templates/contact.jinja:15
+#: templates/contact.jinja:15 templates/legal/impressum.jinja:11
 msgid "Werkzeugkästchen GmbH"
 msgstr "ToolTiles GmbH"
 
@@ -864,7 +896,7 @@ msgstr "Your Inquiry *"
 msgid "Ich stimme der"
 msgstr "I agree to the"
 
-#: templates/contact.jinja:52
+#: templates/contact.jinja:52 templates/legal/privacy.jinja:4
 msgid "Datenschutzerklärung"
 msgstr "Privacy Policy"
 
@@ -1354,10 +1386,6 @@ msgstr "Cropped image"
 msgid "Auswahl übernehmen"
 msgstr "Apply selection"
 
-#: templates/index.jinja:2 templates/index.jinja:3
-msgid "Werkzeugkästchen"
-msgstr "ToolTiles"
-
 #: templates/index.jinja:6
 msgid "🔍 Suche nach einem Tool..."
 msgstr "🔍 Search for a tool..."
@@ -1668,6 +1696,196 @@ msgstr "Generate QR Code"
 #: templates/variable_input_mask.jinja:419
 msgid "Ausführen"
 msgstr "Run"
+
+#: templates/legal/agb.jinja:4
+msgid "Allgemeine Geschäftsbedingungen (AGB)"
+msgstr "Terms and Conditions (AGB)"
+
+#: templates/legal/agb.jinja:9
+msgid ""
+"Diese Website stellt Werkzeuge zur Verfügung, die kostenlos genutzt "
+"werden können. Die Nutzung erfolgt auf eigene Verantwortung."
+msgstr ""
+"This website provides tools that can be used free of charge. Use is at "
+"your own risk."
+
+#: templates/legal/agb.jinja:10
+msgid ""
+"Wir übernehmen keine Gewähr für die Richtigkeit, Vollständigkeit oder "
+"Aktualität der Ergebnisse."
+msgstr ""
+"We do not guarantee the accuracy, completeness or timeliness of the "
+"results."
+
+#: templates/legal/agb.jinja:11
+msgid ""
+"Änderungen an den angebotenen Funktionen oder der Nutzungsbedingungen "
+"können jederzeit vorgenommen werden."
+msgstr "Changes to the offered features or terms of use can be made at any time."
+
+#: templates/legal/impressum.jinja:9
+msgid "Angaben gemäß § 5 TMG:"
+msgstr "Information according to § 5 TMG:"
+
+#: templates/legal/impressum.jinja:12 templates/legal/impressum.jinja:42
+msgid "Musterstraße 12"
+msgstr ""
+
+#: templates/legal/impressum.jinja:13 templates/legal/impressum.jinja:43
+msgid "12345 Musterstadt"
+msgstr ""
+
+#: templates/legal/impressum.jinja:14
+msgid "Deutschland"
+msgstr "Germany"
+
+#: templates/legal/impressum.jinja:17
+msgid "Vertreten durch:"
+msgstr "Represented by:"
+
+#: templates/legal/impressum.jinja:19
+msgid "Max Mustermann, Geschäftsführer"
+msgstr "Max Mustermann, Managing Director"
+
+#: templates/legal/impressum.jinja:22
+msgid "Kontakt:"
+msgstr "Contact:"
+
+#: templates/legal/impressum.jinja:23
+msgid "Telefon: +49 (0) 123 456 789"
+msgstr "Phone: +49 (0) 123 456 789"
+
+#: templates/legal/impressum.jinja:24
+msgid "E-Mail:"
+msgstr "Email:"
+
+#: templates/legal/impressum.jinja:25
+msgid "Webseite:"
+msgstr "Website:"
+
+#: templates/legal/impressum.jinja:28
+msgid "Registereintrag:"
+msgstr "Company registration:"
+
+#: templates/legal/impressum.jinja:30
+msgid "Eintragung im Handelsregister."
+msgstr "Registered in the commercial register."
+
+#: templates/legal/impressum.jinja:31
+msgid "Registergericht: Amtsgericht Musterstadt"
+msgstr "District court: District Court Musterstadt"
+
+#: templates/legal/impressum.jinja:32
+msgid "Registernummer: HRB 123456"
+msgstr "Registration number: HRB 123456"
+
+#: templates/legal/impressum.jinja:35
+msgid "Umsatzsteuer-ID:"
+msgstr "VAT ID:"
+
+#: templates/legal/impressum.jinja:36
+msgid ""
+"Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz: "
+"DE123456789"
+msgstr ""
+"VAT identification number according to §27a of the Value Added Tax Act: "
+"DE123456789"
+
+#: templates/legal/impressum.jinja:39
+msgid "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:"
+msgstr "Responsible for the content according to § 55 Abs. 2 RStV:"
+
+#: templates/legal/impressum.jinja:41
+msgid "Max Mustermann"
+msgstr ""
+
+#: templates/legal/impressum.jinja:46
+msgid "Haftungsausschluss (Disclaimer)"
+msgstr "Disclaimer"
+
+#: templates/legal/impressum.jinja:48
+msgid "Haftung für Inhalte"
+msgstr "Liability for content"
+
+#: templates/legal/impressum.jinja:49
+msgid ""
+"Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf "
+"diesen Seiten nach den allgemeinen Gesetzen verantwortlich.\n"
+"        Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, "
+"übermittelte oder gespeicherte fremde Informationen zu überwachen."
+msgstr ""
+"As a service provider, we are responsible for our own content on these "
+"pages according to § 7 Abs.1 TMG.\n"
+"        According to §§ 8 to 10 TMG, we are not obliged to monitor "
+"transmitted or stored foreign information."
+
+#: templates/legal/impressum.jinja:53
+msgid "Haftung für Links"
+msgstr "Liability for links"
+
+#: templates/legal/impressum.jinja:55
+msgid ""
+"Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
+"Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
+"Inhalte auch keine Gewähr übernehmen."
+msgstr ""
+"\"Our offer contains links to external websites of third parties, over "
+"whose content we have no influence. Therefore, we cannot assume any "
+"liability for these foreign contents."
+
+#: templates/legal/impressum.jinja:58
+msgid "Urheberrecht"
+msgstr "Copyright"
+
+#: templates/legal/impressum.jinja:60
+msgid ""
+"Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen "
+"Seiten unterliegen dem deutschen Urheberrecht."
+msgstr ""
+"The content and works created by the site operators on these pages are "
+"subject to German copyright law."
+
+#: templates/legal/privacy.jinja:9
+msgid ""
+"Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten "
+"werden vertraulich und entsprechend der gesetzlichen "
+"Datenschutzvorschriften behandelt."
+msgstr ""
+"We take the protection of your personal data very seriously. Your data "
+"will be treated confidentially and in accordance with the legal data "
+"protection regulations."
+
+#: templates/legal/privacy.jinja:11
+msgid "Cookies"
+msgstr "Cookies"
+
+#: templates/legal/privacy.jinja:12
+msgid ""
+"Unsere Website verwendet Cookies, um Ihre Nutzererfahrung zu verbessern. "
+"Sie können die Verwendung von Cookies im Cookie-Banner ablehnen."
+msgstr ""
+"Our website uses cookies to improve your user experience. You can refuse "
+"the use of cookies in the cookie banner."
+
+#: templates/legal/privacy.jinja:14
+msgid "Erhebung und Verarbeitung von Daten"
+msgstr "Collection and processing of data"
+
+#: templates/legal/privacy.jinja:15
+msgid ""
+"Es werden keine personenbezogenen Daten gespeichert oder an Dritte "
+"weitergegeben. Die Nutzung der Werkzeuge erfolgt anonym."
+msgstr ""
+"Personal data is not stored or passed on to third parties. The use of the"
+" tools is anonymous."
+
+#: templates/legal/privacy.jinja:18
+msgid ""
+"Bei Fragen zum Datenschutz wenden Sie sich bitte an: "
+"datenschutz@werkzeugkasten.de"
+msgstr ""
+"For questions regarding data protection, please contact: "
+"datenschutz@werkzeugkasten.de"
 
 #: tests/test_unit_converter_tool.py:10 tests/test_unit_converter_tool.py:24
 #: tests/test_unit_converter_tool.py:38 tests/test_unit_converter_tool.py:52
