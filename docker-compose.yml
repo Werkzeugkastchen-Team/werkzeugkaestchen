@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  webapp:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=webapp.py
+      - FLASK_ENV=production
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    command: ollama run gemma3:1b
+
+volumes:
+  ollama:

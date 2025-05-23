@@ -37,7 +37,19 @@ pip install -r requirements.txt
 >Wegen des TTS Tools wird PyTorch mit heruntergeladen und kann bis zu 4GB groß sein!
 
 
-## Server starten
+## Server starten mit Docker Compose
+
+Docker Compose wird empfohlen, da es die Konfiguration und das Starten der Docker-Container vereinfacht.
+
+```sh
+docker-compose up --build
+```
+
+Dieser Befehl erstellt und startet die Docker-Container für die Webanwendung und den Ollama-Server. Der Ollama-Server wird automatisch mit dem Modell `gemma3:1b` gestartet.
+
+## Server starten ohne Docker Compose
+
+### Webanwendung starten
 
 ```sh
 flask --app webapp run
@@ -45,7 +57,7 @@ flask --app webapp run
 
 (`webapp.py` ist die Hauptklasse)
 
-## Ollama aufsetzen (für Texte zusammenfassen Tool)
+### Ollama aufsetzen (für Texte zusammenfassen Tool)
 
 Dies ist ein Docker Container der im Hintergrund ausgeführt werden muss, damit das Tool funktioniert.
 
