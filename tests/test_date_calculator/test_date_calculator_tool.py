@@ -30,8 +30,8 @@ def test_invalid_format():
     """Test mit falschem Format"""
     tool = DateCalculatorTool()
     input_params = {
-        _('Startdatum'): '2024-01-01',
-        _('Enddatum'): '2024-01-02'
+        _('Startdatum'): '2024-01-01:10:00:00',
+        _('Enddatum'): '2024-01-02:10:00:00'
     }
     success = tool.execute_tool(input_params)
     assert success is False

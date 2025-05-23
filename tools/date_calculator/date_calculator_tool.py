@@ -7,16 +7,8 @@ class DateCalculatorTool(MiniTool):
         super().__init__(_("Datumsrechner"), "DateCalculatorTool")
         self.description = _("Berechnet den Unterschied zwischen zwei Daten in Tagen.")
         self.input_params = {
-            _('Startdatum'): {
-                'type': 'text',
-                'required': True,
-                'placeholder': 'DD.MM.YYYY'
-            },
-            _('Enddatum'): {
-                'type': 'text',
-                'required': True,
-                'placeholder': 'DD.MM.YYYY'
-            }
+            _('Startdatum'): "date",
+            _('Enddatum'): "date"
         }
 
     def execute_tool(self, input_params):
@@ -48,8 +40,12 @@ class DateCalculatorTool(MiniTool):
             return False, None, _("Bitte geben Sie ein gültiges Datum ein.")
         try:
             date_obj = datetime.strptime(date_str, '%d.%m.%Y')
-            if date_obj.year < 1900:
-                return False, None, _("Jahresangaben müssen ab 1900 sein.")
-            return True, date_obj, ""
         except ValueError:
-            return False, None, _("Bitte geben Sie ein gültiges Datum im Format DD.MM.YYYY ein.")
+            try:
+                date_obj = datetime.strptime(date_str, '%Y-%m-%d')
+            except ValueError:
+                return False, None, _("Bitte geben Sie ein gültiges Datum im Format TT.MM.JJJJ oder YYYY-MM-DD ein.")
+        
+        if date_obj.year < 1900:
+            return False, None, _("Jahresangaben müssen ab 1900 sein.")
+        return True, date_obj, ""
