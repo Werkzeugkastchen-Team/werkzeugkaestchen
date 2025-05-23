@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-15 10:27+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -496,130 +496,43 @@ msgstr ""
 msgid "Bildoptimierung für bessere Lesbarkeit von Texten"
 msgstr ""
 
-#: tool_descriptions.py:110
+#: tool_descriptions.py:109
 msgid "Fasst Text mithilfe von Sprachmodellen (LLMs) zusammen"
 msgstr ""
 
-#: tool_descriptions.py:111
+#: tool_descriptions.py:110
 msgid "Zusammenfassung von Text"
 msgstr ""
 
-#: tool_descriptions.py:111
+#: tool_descriptions.py:110
 msgid "Verstehen von komplexen Texten"
 msgstr ""
 
-#: tool_descriptions.py:118
+#: tool_descriptions.py:113
+msgid ""
+"Konvertiert Datum und Uhrzeit zwischen verschiedenen Zeitzonen weltweit. "
+"Berücksichtigt automatisch Sommerzeit und andere zeitzonespezifische "
+"Regeln für präzise Umrechnungen."
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Planung internationaler Meetings und Anrufe"
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Koordination globaler Projekte"
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Umrechnung für Reiseplanung und Flugzeiten"
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Synchronisation weltweiter Events"
+msgstr ""
+
+#: tool_descriptions.py:121
 msgid "Keine Beschreibung verfügbar."
-msgstr ""
-
-#: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:25
-#: templates/base.html:57 templates/base.html:64
-msgid "Über uns"
-msgstr ""
-
-#: templates/about.jinja:7 templates/about.jinja:23
-msgid "Unser Team"
-msgstr ""
-
-#: templates/about.jinja:11
-msgid ""
-"Wusstet ihr, dass unser Team ein bisschen wie die Pinguine aus Madagascar"
-" ist? 🐧🐧🐧🐧🐧🐧 Wir sehen vielleicht aus wie ein normales Entwicklerteam, "
-"aber hinter den Kulissen laufen unsere Tools wie eine geheime Operation "
-"ab!"
-msgstr ""
-
-#: templates/about.jinja:14
-msgid "Skipper 🦾"
-msgstr ""
-
-#: templates/about.jinja:14
-msgid ""
-"unser Chefentwickler, der immer einen Plan hat („Lächeln und winken, "
-"Jungs!\")."
-msgstr ""
-
-#: templates/about.jinja:15
-msgid "Kowalski 🧠"
-msgstr ""
-
-#: templates/about.jinja:15
-msgid ""
-"der Analytiker, der Bugs schneller löst als du „JSON-Fehler\" sagen "
-"kannst."
-msgstr ""
-
-#: templates/about.jinja:16
-msgid "Rico 💥"
-msgstr ""
-
-#: templates/about.jinja:16
-msgid ""
-"unser Code-Zerstörer (…und Fixer), der neue Features im Sekundentakt "
-"raushaut."
-msgstr ""
-
-#: templates/about.jinja:17
-msgid "Private 😊"
-msgstr ""
-
-#: templates/about.jinja:17
-msgid ""
-"unser Support, immer freundlich, aber unterschätze ihn nicht – er kann "
-"dein Problem lösen, bevor du es selbst verstehst!"
-msgstr ""
-
-#: templates/about.jinja:18
-msgid "Pinguin 1 1️⃣"
-msgstr ""
-
-#: templates/about.jinja:18
-msgid ""
-"Einer der vergessenden Pinguine, er war immer da auch wenn man es nicht "
-"wahrhaben will."
-msgstr ""
-
-#: templates/about.jinja:19
-msgid "Pinguin 2 2️⃣"
-msgstr ""
-
-#: templates/about.jinja:19
-msgid "Keine ahnung wer das ist."
-msgstr ""
-
-#: templates/about.jinja:28
-msgid "Unsere Mission"
-msgstr ""
-
-#: templates/about.jinja:30
-msgid ""
-"Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihnen den "
-"Arbeitsalltag zu erleichtern. Ob JSON-Validierung, Wortzählung oder "
-"Umwandlungen – unsere Tools sind effizient und benutzerfreundlich."
-msgstr ""
-
-#: templates/about.jinja:34
-msgid "Warum wir?"
-msgstr ""
-
-#: templates/about.jinja:36
-msgid "Präzise und zuverlässige Softwarelösungen"
-msgstr ""
-
-#: templates/about.jinja:37
-msgid "Benutzerfreundliche Oberfläche"
-msgstr ""
-
-#: templates/about.jinja:38
-msgid "Engagiertes und erfahrenes Team"
-msgstr ""
-
-#: templates/about.jinja:42
-msgid "Also, wenn du mal wieder feststeckst… frag dich einfach:"
-msgstr ""
-
-#: templates/about.jinja:43
-msgid "Was würden die Pinguine tun?"
 msgstr ""
 
 #: templates/audio_converter.jinja:10 templates/color_converter.html:18
@@ -628,41 +541,45 @@ msgstr ""
 msgid "Anwendungsfälle:"
 msgstr ""
 
-#: templates/base.html:26 templates/base.html:65
+#: templates/base.html:26 templates/base.html:60 templates/base.html:67
+msgid "Über uns"
+msgstr ""
+
+#: templates/base.html:27 templates/base.html:68
 msgid "Kontakt"
 msgstr ""
 
-#: templates/base.html:58
+#: templates/base.html:61
 msgid ""
 "Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
 " zu erleichtern."
 msgstr ""
 
-#: templates/base.html:61
+#: templates/base.html:64
 msgid "Schnelllinks"
 msgstr ""
 
-#: templates/base.html:63
+#: templates/base.html:66
 msgid "Startseite"
 msgstr ""
 
-#: templates/base.html:69
+#: templates/base.html:72
 msgid "Rechtliches"
 msgstr ""
 
-#: templates/base.html:71
-msgid "Impressum"
-msgstr ""
-
-#: templates/base.html:72
+#: templates/base.html:74
 msgid "Datenschutz"
 msgstr ""
 
-#: templates/base.html:73
+#: templates/base.html:75
+msgid "Impressum"
+msgstr ""
+
+#: templates/base.html:76
 msgid "AGB"
 msgstr ""
 
-#: templates/base.html:78
+#: templates/base.html:81
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr ""
 
@@ -1376,10 +1293,6 @@ msgstr ""
 msgid "🔍 Suche nach einem Tool..."
 msgstr ""
 
-#: templates/index.jinja:14
-msgid "Öffnen"
-msgstr ""
-
 #: templates/output.html:9
 msgid "Fehler beim Verarbeiten:"
 msgstr ""
@@ -1388,7 +1301,7 @@ msgstr ""
 msgid "Zurück und erneut versuchen"
 msgstr ""
 
-#: templates/output.html:24
+#: templates/output.html:26
 msgid "Zurück zu den Tools"
 msgstr ""
 

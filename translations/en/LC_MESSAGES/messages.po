@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-15 10:27+0200\n"
+"POT-Creation-Date: 2025-05-23 10:55+0200\n"
 "PO-Revision-Date: 2025-04-09 14:20+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -547,141 +547,44 @@ msgstr "Identification of changes in texts"
 msgid "Bildoptimierung für bessere Lesbarkeit von Texten"
 msgstr "Opzimizing images for better readability of text"
 
-#: tool_descriptions.py:110
+#: tool_descriptions.py:109
 msgid "Fasst Text mithilfe von Sprachmodellen (LLMs) zusammen"
 msgstr "Summarizes text by utilizing Large Language Models (LLMs)."
 
-#: tool_descriptions.py:111
+#: tool_descriptions.py:110
 msgid "Zusammenfassung von Text"
 msgstr "Compilation of documents"
 
-#: tool_descriptions.py:111
+#: tool_descriptions.py:110
 msgid "Verstehen von komplexen Texten"
 msgstr "Understanding complex texts"
 
-#: tool_descriptions.py:118
+#: tool_descriptions.py:113
+msgid ""
+"Konvertiert Datum und Uhrzeit zwischen verschiedenen Zeitzonen weltweit. "
+"Berücksichtigt automatisch Sommerzeit und andere zeitzonespezifische "
+"Regeln für präzise Umrechnungen."
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Planung internationaler Meetings und Anrufe"
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Koordination globaler Projekte"
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Umrechnung für Reiseplanung und Flugzeiten"
+msgstr ""
+
+#: tool_descriptions.py:114
+msgid "Synchronisation weltweiter Events"
+msgstr ""
+
+#: tool_descriptions.py:121
 msgid "Keine Beschreibung verfügbar."
 msgstr "No description available."
-
-#: templates/about.jinja:2 templates/about.jinja:3 templates/base.html:25
-#: templates/base.html:57 templates/base.html:64
-msgid "Über uns"
-msgstr "About us"
-
-#: templates/about.jinja:7 templates/about.jinja:23
-msgid "Unser Team"
-msgstr "Our Team"
-
-#: templates/about.jinja:11
-msgid ""
-"Wusstet ihr, dass unser Team ein bisschen wie die Pinguine aus Madagascar"
-" ist? 🐧🐧🐧🐧🐧🐧 Wir sehen vielleicht aus wie ein normales Entwicklerteam, "
-"aber hinter den Kulissen laufen unsere Tools wie eine geheime Operation "
-"ab!"
-msgstr ""
-"Did you know that our team is a bit like the penguins from Madagascar? "
-"🐧🐧🐧🐧🐧🐧 We may look like a normal development team, but behind the scenes "
-"our tools run like a secret operation!"
-
-#: templates/about.jinja:14
-msgid "Skipper 🦾"
-msgstr "Skipper 🦾"
-
-#: templates/about.jinja:14
-msgid ""
-"unser Chefentwickler, der immer einen Plan hat („Lächeln und winken, "
-"Jungs!\")."
-msgstr "our lead developer who always has a plan (\"Smile and wave, boys!\")."
-
-#: templates/about.jinja:15
-msgid "Kowalski 🧠"
-msgstr "Kowalski 🧠"
-
-#: templates/about.jinja:15
-msgid ""
-"der Analytiker, der Bugs schneller löst als du „JSON-Fehler\" sagen "
-"kannst."
-msgstr "the analyst who solves bugs faster than you can say \"JSON error\"."
-
-#: templates/about.jinja:16
-msgid "Rico 💥"
-msgstr "Rico 💥"
-
-#: templates/about.jinja:16
-msgid ""
-"unser Code-Zerstörer (…und Fixer), der neue Features im Sekundentakt "
-"raushaut."
-msgstr "our code destroyer (…and fixer) who churns out new features by the second."
-
-#: templates/about.jinja:17
-msgid "Private 😊"
-msgstr "Private 😊"
-
-#: templates/about.jinja:17
-msgid ""
-"unser Support, immer freundlich, aber unterschätze ihn nicht – er kann "
-"dein Problem lösen, bevor du es selbst verstehst!"
-msgstr ""
-"our support, always friendly, but don't underestimate him - he can solve "
-"your problem before you understand it yourself!"
-
-#: templates/about.jinja:18
-msgid "Pinguin 1 1️⃣"
-msgstr "Penguin 1 1️⃣"
-
-#: templates/about.jinja:18
-msgid ""
-"Einer der vergessenden Pinguine, er war immer da auch wenn man es nicht "
-"wahrhaben will."
-msgstr ""
-"One of the forgotten penguins, he was always there even if you don't want"
-" to admit it."
-
-#: templates/about.jinja:19
-msgid "Pinguin 2 2️⃣"
-msgstr "Penguin 2 2️⃣"
-
-#: templates/about.jinja:19
-msgid "Keine ahnung wer das ist."
-msgstr "No idea who this is."
-
-#: templates/about.jinja:28
-msgid "Unsere Mission"
-msgstr "Our Mission"
-
-#: templates/about.jinja:30
-msgid ""
-"Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihnen den "
-"Arbeitsalltag zu erleichtern. Ob JSON-Validierung, Wortzählung oder "
-"Umwandlungen – unsere Tools sind effizient und benutzerfreundlich."
-msgstr ""
-"We develop powerful digital tools to make your daily work easier. Whether"
-" JSON validation, word counting or conversions - our tools are efficient "
-"and user-friendly."
-
-#: templates/about.jinja:34
-msgid "Warum wir?"
-msgstr "Why us?"
-
-#: templates/about.jinja:36
-msgid "Präzise und zuverlässige Softwarelösungen"
-msgstr "Precise and reliable software solutions"
-
-#: templates/about.jinja:37
-msgid "Benutzerfreundliche Oberfläche"
-msgstr "User-friendly interface"
-
-#: templates/about.jinja:38
-msgid "Engagiertes und erfahrenes Team"
-msgstr "Dedicated and experienced team"
-
-#: templates/about.jinja:42
-msgid "Also, wenn du mal wieder feststeckst… frag dich einfach:"
-msgstr "So, if you're ever stuck... just ask yourself:"
-
-#: templates/about.jinja:43
-msgid "Was würden die Pinguine tun?"
-msgstr "What would the penguins do?"
 
 #: templates/audio_converter.jinja:10 templates/color_converter.html:18
 #: templates/gif_video_converter.jinja:10 templates/image_cropper.jinja:10
@@ -689,41 +592,45 @@ msgstr "What would the penguins do?"
 msgid "Anwendungsfälle:"
 msgstr "Use Cases:"
 
-#: templates/base.html:26 templates/base.html:65
+#: templates/base.html:26 templates/base.html:60 templates/base.html:67
+msgid "Über uns"
+msgstr "About us"
+
+#: templates/base.html:27 templates/base.html:68
 msgid "Kontakt"
 msgstr "Contact"
 
-#: templates/base.html:58
+#: templates/base.html:61
 msgid ""
 "Wir entwickeln leistungsstarke digitale Werkzeuge, um Ihren Arbeitsalltag"
 " zu erleichtern."
 msgstr "We develop powerful digital tools to make your daily work easier."
 
-#: templates/base.html:61
+#: templates/base.html:64
 msgid "Schnelllinks"
 msgstr "Quick Links"
 
-#: templates/base.html:63
+#: templates/base.html:66
 msgid "Startseite"
 msgstr "Home"
 
-#: templates/base.html:69
+#: templates/base.html:72
 msgid "Rechtliches"
 msgstr "Legal"
 
-#: templates/base.html:71
-msgid "Impressum"
-msgstr "Imprint"
-
-#: templates/base.html:72
+#: templates/base.html:74
 msgid "Datenschutz"
 msgstr "Privacy Policy"
 
-#: templates/base.html:73
+#: templates/base.html:75
+msgid "Impressum"
+msgstr "Imprint"
+
+#: templates/base.html:76
 msgid "AGB"
 msgstr "Terms and Conditions"
 
-#: templates/base.html:78
+#: templates/base.html:81
 msgid "© 2025 Die Pinguine aus Madagascar. Alle Rechte vorbehalten."
 msgstr "© 2025 The Penguins of Madagascar. All rights reserved."
 
@@ -1455,10 +1362,6 @@ msgstr "ToolTiles"
 msgid "🔍 Suche nach einem Tool..."
 msgstr "🔍 Search for a tool..."
 
-#: templates/index.jinja:14
-msgid "Öffnen"
-msgstr "Open"
-
 #: templates/output.html:9
 msgid "Fehler beim Verarbeiten:"
 msgstr "Error processing:"
@@ -1467,7 +1370,7 @@ msgstr "Error processing:"
 msgid "Zurück und erneut versuchen"
 msgstr "Go back and try again"
 
-#: templates/output.html:24
+#: templates/output.html:26
 msgid "Zurück zu den Tools"
 msgstr "Back to Tools"
 
@@ -2409,109 +2312,106 @@ msgstr ""
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:27
 msgid "Deutsch"
-msgstr ""
+msgstr "German"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:28
-#, fuzzy
 msgid "Englisch"
-msgstr "Deleted"
+msgstr "English"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:29
 msgid "Französisch"
-msgstr ""
+msgstr "French"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:30
-#, fuzzy
 msgid "Spanisch"
-msgstr "Language"
+msgstr "Spanish"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:31
 msgid "Italienisch"
-msgstr ""
+msgstr "Italian"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:84
 msgid ""
 "Das ausgewählte Dateiformat wird nicht unterstützt. Unterstützte Formate:"
 " PNG, JPG, BMP, TIFF."
 msgstr ""
+"The selected file format is not supported. Supported formats: PNG, JPG, "
+"BMP, "
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:89
 msgid "Die ausgewählte Datei ist leer oder beschädigt."
-msgstr ""
+msgstr "The selected file is empty or corrupted."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:107
 msgid ""
 "Kein Text konnte im Bild erkannt werden. Versuchen Sie ein Bild mit "
 "deutlicherem Text oder stellen Sie sicher, dass das Bild Text enthält."
 msgstr ""
+"Could not find any text in the image. Try an image with clearer text or "
+"make sure the image contains text."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:117
 msgid "Text aus Bild extrahiert"
-msgstr ""
+msgstr "Extracted text from image"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:118
-#, fuzzy
 msgid "Extrahierten Text herunterladen"
-msgstr "Download converted file"
+msgstr "Download extracted text"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:119
-#, fuzzy
 msgid "Text kopieren"
-msgstr "Copy"
+msgstr "Copy text"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:120
-#, fuzzy
 msgid "Anderes Bild scannen"
-msgstr "Crop another image"
+msgstr "Scan another image"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:121
 msgid "Optimiertes Bild"
-msgstr ""
+msgstr "Optimized image"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:170
-#, fuzzy, python-format
+#, python-format
 msgid "Fehler bei der Bildverarbeitung: %(error)s"
-msgstr "Error during conversion: %(error)s"
+msgstr "Error during image processing: %(error)s"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:348
 msgid ""
 "Mögliche Textbereiche erkannt:\n"
 "\n"
-msgstr ""
+msgstr "Might be text areas detected:\n"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:349
 msgid ""
 "Für eine vollständige Texterkennung empfehlen wir die Installation von "
 "Tesseract OCR."
-msgstr ""
+msgstr "To perform a full text recognition, we recommend installing Tesseract OCR."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:351
 msgid "Es wurden keine Textbereiche im Bild erkannt."
-msgstr ""
+msgstr "No text areas detected in the image."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:356
 msgid "Der einfache OCR-Algorithmus konnte nicht durchgeführt werden."
-msgstr ""
+msgstr "The simple OCR algorithm could not be performed."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:372
-#, fuzzy
 msgid "Das Bild konnte nicht gefunden werden."
 msgstr "Input file path could not be determined."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:389
 msgid "Das Bild konnte nicht geöffnet werden. Es könnte beschädigt sein."
-msgstr ""
+msgstr "The image could not be opened. It may be corrupted."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:519
 msgid ""
 "Das Bild konnte nicht verarbeitet werden. Bitte versuchen Sie es mit "
 "einem anderen Bild."
-msgstr ""
+msgstr "The image could not be processed. Please try with another image."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:524
-#, fuzzy
 msgid "Unerwarteter Fehler bei der Bildverarbeitung."
-msgstr "Error during processing:"
+msgstr "Unexpected error during image processing."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:612
 #, python-format
@@ -2519,21 +2419,21 @@ msgid ""
 "Das Bild hat die Dimensionen %(width)dx%(height)d Pixel. Es wurden keine "
 "Textelemente identifiziert."
 msgstr ""
+"The image has dimensions %(width)dx%(height)d pixels. No text elements "
+"were identified."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:614
 msgid "Die Bildinformationen konnten nicht ausgelesen werden."
 msgstr "Audio data could not be loaded from '{0}'"
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:651
-#, fuzzy
 msgid "Text nicht gefunden."
-msgstr "No similarities found."
+msgstr "Text not found."
 
 #: tools/ocr_scanner/ocr_scanner_tool.py:658
 #: tools/ocr_scanner/ocr_scanner_tool.py:660
-#, fuzzy
 msgid "Keine Textelemente gefunden."
-msgstr "No differences found."
+msgstr "No text elements found."
 
 #: tools/password_generator/password_generator_tool.py:8
 msgid "Passwortgenerator"

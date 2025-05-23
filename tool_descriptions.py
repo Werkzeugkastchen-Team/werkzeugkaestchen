@@ -105,10 +105,13 @@ TOOL_DESCRIPTIONS = {
     "OcrScannerTool": {
         "description": _("Analysiert und verbessert Bilder, um Text zu erkennen. Die optimierte Bildverarbeitung identifiziert Textbereiche und extrahiert Inhalte, ohne zusätzliche Software zu benötigen. Unterstützt Formate wie PNG, JPG, BMP und TIFF."),
         "use_cases": [_("Digitalisierung von gedruckten Dokumenten"), _("Identifizierung von Textbereichen in Bildern"), _("Bildoptimierung für bessere Lesbarkeit von Texten")]
-    },
-    "TextSummaryTool": {
+    },    "TextSummaryTool": {
         "description": _("Fasst Text mithilfe von Sprachmodellen (LLMs) zusammen"),
         "use_cases": [_("Zusammenfassung von Text"), _("Verstehen von komplexen Texten")]
+    },
+    "TimezoneConverterTool": {
+        "description": _("Konvertiert Datum und Uhrzeit zwischen verschiedenen Zeitzonen weltweit. Berücksichtigt automatisch Sommerzeit und andere zeitzonespezifische Regeln für präzise Umrechnungen."),
+        "use_cases": [_("Planung internationaler Meetings und Anrufe"), _("Koordination globaler Projekte"), _("Umrechnung für Reiseplanung und Flugzeiten"), _("Synchronisation weltweiter Events")]
     }
 }
 
