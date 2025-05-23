@@ -1,0 +1,31 @@
+/* Desktop cards behave as usual */
+@media (min-width: 768px) {
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Mobile specific styles */
+@media (max-width: 767px) {
+    .card {
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .card.first-click {
+        box-shadow: 0 0 0 3px #4a90e2;
+        transform: scale(1.03);
+    }
+      .card.first-click:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(74, 144, 226, 0.1);
+        z-index: 1;
+        border-radius: inherit;
+    }
+}

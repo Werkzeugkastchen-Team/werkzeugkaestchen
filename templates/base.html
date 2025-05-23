@@ -8,20 +8,21 @@
   <!-- Favicon -->
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
-
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/tool-card-mobile.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 
-<body>
-  <!-- Navbar -->
+<body>  <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-        <a class="brand" href="{{ url_for('index') }}"> <img class="logo" src="/static/img/logo.png"></a>
-        <div>
+        <div class="nav-left">
+            <a class="brand" href="{{ url_for('index') }}"><img class="logo" src="/static/img/logo.png"></a>
+        </div>
+        <div class="nav-right">
           <ul class="nav-list">
             <li class="nav-list-item"><a href="{{ url_for('about') }}">{{ _('Über uns') }}</a></li>
             <li class="nav-list-item"><a href="{{ url_for('contact') }}">{{ _('Kontakt') }}</a></li>
@@ -36,7 +37,6 @@
           </ul>
         </div>
     </div>
-
   </nav>
     {% if show_ads %}
   <div class="container mt-4 text-center">
@@ -90,11 +90,11 @@
       <button id="rejectCookies">Nein, ablehnen</button>
     </div>
   </div>
-
   <!-- JS -->
   <script src="/static/js/index.js"></script>
   <script src="/static/js/fancy-button.js"></script>
   <script src="/static/js/cookie.js"></script>
+  <script src="/static/js/tool-click.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
