@@ -128,13 +128,6 @@ def search_tools():
 def contact():
     return render_template('contact.jinja')
 
-# /about
-
-
-@app.route('/about')
-def about():
-    return render_template('about.jinja')
-
 #/privacy
 @app.route('/privacy')
 def privacy():
@@ -278,6 +271,48 @@ def submit_contact():
 @app.route('/contact_success')
 def contact_success():
     return render_template('contact_success.jinja')
+
+@app.route('/about')
+def about():
+    team_members = [
+        {
+            "name": "Elias Vincent Simon",
+            "role": "Fullstack Entwickler",
+            "specialty": "Python | Flask | UI/UX",
+            "image": "img/dummy-user.png"
+        },
+        {
+            "name": "David Thomfohrde",
+            "role": "Fullstack Entwickler",
+            "specialty": "Python | Flask | UI/UX",
+            "image": "img/dummy-user.png"
+        },
+        {
+            "name": "Dumitrita Gorgan",
+            "role": "Fullstack Entwickler",
+            "specialty": "Python | Flask | UI/UX",
+            "image": "img/dummy-user.png"
+        },  
+        {
+            "name": "Abdullah Diab",
+            "role": "Fullstack Entwickler",
+            "specialty": "Python | Flask | UI/UX",
+            "image": "img/dummy-user.png"
+        }, 
+         {
+            "name": "Soufiane Hammagi",
+            "role": "Fullstack Entwickler",
+            "specialty": "Python | Flask | UI/UX",
+            "image": "img/dummy-user.png"
+        },
+        {
+            "name": "Ayoub Aalaou",
+            "role": "Fullstack Entwickler",
+            "specialty": "Python | Flask | UI/UX",
+            "image": "img/dummy-user.png"
+        }
+    ]
+    return render_template('about.jinja', team_members=team_members)
 
 
 @app.route('/download/<token>')

@@ -11,7 +11,7 @@
 @import url("/static/css/components/cookie.css");
 @import url("/static/css/components/footer.css");
 @import url("/static/css/components/advertising.css");
-
+@import url("/static/css/components/about.css");
 h1 {
   position: relative;
   color: var(--secondary-color);
