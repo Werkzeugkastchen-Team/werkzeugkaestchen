@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   webapp:
     build: .
@@ -13,11 +11,14 @@ services:
 
   ollama:
     image: ollama/ollama
+    # To run a model like gemma3:1b, 
+    # use 'docker exec -it werkzeugkaestchen-ollama-1 ollama run gemma3:1b' 
+    # after the service is up.
+    # check for container name of ollama
     ports:
       - "11434:11434"
     volumes:
       - ollama:/root/.ollama
-    command: ollama run gemma3:1b
 
 volumes:
   ollama:
