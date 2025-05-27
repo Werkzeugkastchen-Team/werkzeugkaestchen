@@ -30,13 +30,13 @@ def test_invalid_format():
     """Test mit falschem Format"""
     tool = DateCalculatorTool()
     input_params = {
-        _('Startdatum'): '2024-01-01:10:00:00',
-        _('Enddatum'): '2024-01-02:10:00:00'
+        _('Startdatum'): 'something',
+        _('Enddatum'): 'lala'
     }
     success = tool.execute_tool(input_params)
     assert success is False
     assert not tool.output
-    assert tool.error_message == "Bitte geben Sie ein gültiges Datum im Format DD.MM.YYYY ein."
+    assert tool.error_message == _("Bitte geben Sie ein gültiges Datum im Format TT.MM.JJJJ oder YYYY-MM-DD ein.")
 
 def test_invalid_year():
     """Test mit ungültigem Jahr"""
