@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
 </script>
 {% endif %}
 
-    {% if identifier == "DateCalculatorTool" %}
+    {# {% if identifier == "DateCalculatorTool" %}
         {% for param, param_info in input_params.items() %}
         <div class="form-group mb-3">
             <label for="{{ param }}">{{ param_info.name }}</label>
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
                 {% if param_info.required %}required{% endif %}>
         </div>
         {% endfor %}
-    {% endif %}
+    {% endif %} #}
 
     {% if identifier == "UnixTimestampTool" %}
     <div class="alert alert-info">
@@ -229,6 +229,9 @@ document.addEventListener("DOMContentLoaded", updateUnitOptions);
 
     {% for param, param_type in input_params.items() %}
         {% if param != "conversion_type" and param != "timestamp" and param != "date" and param != "time" and (identifier != "UnixTimestampTool" or param == "timezone") %}
+            {% if param_type == "date" %}
+                <input type="date" name="{{ param }}" id=""{{ param }} class="form-control">
+            {% endif %}
             {% if param_type == 'string' %}
                 {% if param == "number" and identifier == "NumberConverterTool" %}
                     <label for="{{ param }}">{{ _('Zahl:') }}</label>

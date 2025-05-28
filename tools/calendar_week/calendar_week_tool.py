@@ -9,7 +9,7 @@ class CalendarWeekTool(MiniTool):
     def __init__(self):
         super().__init__(self.name, "CalendarWeekTool")
         self.input_params = {
-            _("Datum"): "string"
+            _("Datum"): "date"
         }
 
     def execute_tool(self, input_params: dict) -> bool:
@@ -28,23 +28,27 @@ class CalendarWeekTool(MiniTool):
 
             # Versuche, das Datum zu parsen, und behandle verschiedene gängige Formate
             try:
-                # Versuche zuerst das erwartete Format
+                # Versuche zuerst das Format TT.MM.JJJJ
                 date_obj = datetime.strptime(date_str, "%d.%m.%Y")
             except ValueError:
                 try:
-                    # Versuche alternatives Format mit einstelligen Tagen/Monaten
-                    date_parts = date_str.split('.')
-                    if len(date_parts) == 3:
-                        day = date_parts[0].zfill(2)
-                        month = date_parts[1].zfill(2)
-                        year = date_parts[2].zfill(4)
-                        date_obj = datetime.strptime(f"{day}.{month}.{year}", "%d.%m.%Y")
-                    else:
-                        raise ValueError("Ungültige Anzahl von Teilen im Datum")
+                    # Versuche das Format YYYY-MM-DD (von HTML input type="date")
+                    date_obj = datetime.strptime(date_str, "%Y-%m-%d")
                 except ValueError:
-                    self.error_message = _(
-                        "Ungültiges Datumsformat. Bitte verwenden Sie das Format TT.MM.JJJJ (z.B. 01.12.2025).")
-                    return False
+                    try:
+                        # Versuche alternatives Format mit einstelligen Tagen/Monaten (für TT.MM.JJJJ)
+                        date_parts = date_str.split('.')
+                        if len(date_parts) == 3:
+                            day = date_parts[0].zfill(2)
+                            month = date_parts[1].zfill(2)
+                            year = date_parts[2].zfill(4)
+                            date_obj = datetime.strptime(f"{day}.{month}.{year}", "%d.%m.%Y")
+                        else:
+                            raise ValueError("Ungültige Anzahl von Teilen im Datum")
+                    except ValueError:
+                        self.error_message = _(
+                            "Ungültiges Datumsformat. Bitte verwenden Sie das Format TT.MM.JJJJ oder YYYY-MM-DD.")
+                        return False
 
             # Berechne die Kalenderwoche
             calendar_data = date_obj.isocalendar()
