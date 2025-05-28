@@ -11,13 +11,14 @@ class WordCounterTool(MiniTool):
         super().__init__(self.name, "WordCounterTool")
         self.input_params = {
             "text": "string",
-            "count_hyphens_as_one": "boolean"
+            "Wörter mit Bindestrichen als einzelne Wörter zählen": "boolean"
         }
 
     def execute_tool(self, input_params: dict) -> bool:
         try:
             text = input_params.get("text", "").strip()
-            count_hyphens_as_one = input_params.get("count_hyphens_as_one", False)
+            count_hyphens_as_one = input_params.get(
+                "count_hyphens_as_one", False)
 
             if not text:
                 self.error_message = _("Bitte geben Sie einen Text ein.")
