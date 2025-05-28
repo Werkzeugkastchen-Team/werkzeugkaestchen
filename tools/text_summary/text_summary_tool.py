@@ -2,15 +2,9 @@ from tool_interface import MiniTool
 from pydantic import ConfigDict
 from flask_babel import lazy_gettext as _
 
-import platform
-
 def get_api_base_url():
-    """Get API base URL based on platform. Some combinations require different base URLs."""
-    host = "127.0.0.1"
-    sys = platform.system().lower()
-    if sys.startswith("win"):
-        host = "host.docker.internal"
-    return f"http://{host}:11434"
+    """Get API base URL. Uses the Docker service name 'ollama' to connect to the Ollama server."""
+    return "http://ollama:11434"
 
 METAPROMPT_EN = """
 Summarize the following text. The Summary must be in English. Be short, concise and truthful. Immediately respond with the contents of your summary:

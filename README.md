@@ -37,7 +37,31 @@ pip install -r requirements.txt
 >Wegen des TTS Tools wird PyTorch mit heruntergeladen und kann bis zu 4GB groß sein!
 
 
-## Server starten
+## Server mit Docker Compose
+
+Man kann Werkzeugkästchen mitsamt alles Abhängigkeiten auch als Docker Container laufen lassen.
+
+Um die Dienste (Webanwendung und Ollama-Server) zu starten:
+
+```sh
+docker compose up -d
+```
+
+Dieser Befehl erstellt und startet die Docker-Container im Hintergrund.
+
+Nachdem der Ollama-Server läuft, kann man Modelle darauf per Befehl im Container hinzufügen.
+
+Um ein Modell zu starten/herunterzuladen:
+
+```sh
+docker exec -it werkzeugkaestchen-ollama-1 ollama run gemma3:1b
+```
+
+Weiteres steht im Kapitel `Ollama aufsetzen`.
+
+## Server starten ohne Docker Compose
+
+### Webanwendung starten
 
 ```sh
 flask --app webapp run
@@ -45,7 +69,7 @@ flask --app webapp run
 
 (`webapp.py` ist die Hauptklasse)
 
-## Ollama aufsetzen (für Texte zusammenfassen Tool)
+### Ollama aufsetzen (für Texte zusammenfassen Tool)
 
 Dies ist ein Docker Container der im Hintergrund ausgeführt werden muss, damit das Tool funktioniert.
 
@@ -74,6 +98,8 @@ Wenn man die Modelle ändern will, dann muss man das Tool und den ollama run Bef
 >Gemma 3 1B ist sehr leicht (~1GB), ist aber eher schlecht.
 
 >Gemma 3 4B (it-qat) ist etwas schwerer (~4GB), ist aber besser als 1B. Auf unseren halbwegs aktuellen Laptops sollten beide recht OK laufen.
+
+>Der Name des Containers kann sich ändern, deshalb muss man eventuell den Namen der Container in der Docker Desktop App oder mit `docker ps` nachschlagen.
 
 
 ### Docker Desktop Einstellungen
