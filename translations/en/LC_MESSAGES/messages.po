@@ -143,9 +143,7 @@ msgid "Konvertierung für bessere Kompatibilität"
 msgstr "Conversion for better compatibility"
 
 #: tool_descriptions.py:30
-msgid ""
-"Zählt Wörter, Zeichen und Absätze in einem Text. Perfekt für Autoren, "
-"SEO-Experten und Content-Ersteller zur Analyse von Textinhalten."
+msgid "Zählt die Anzahl der Wörter in einem Text. Einfaches und schnelles Wortzählwerkzeug."
 msgstr "Counts the number of words in a text. Simple and fast word counting tool. "
 
 #: tool_descriptions.py:31
