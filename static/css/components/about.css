@@ -1,44 +1,44 @@
 .about {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #fff;
 }
 
 .about-description {
-    max-width: 800px;
-    margin: 0 auto 40px;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #444;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
 }
 
 .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
 }
 
 .team-member {
-    width: 300px;
-    text-align: center;
+  width: 300px;
+  text-align: center;
 }
 
 .team-member img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .team-member h2 {
-    font-size: 20px;
-    margin: 15px 0 5px;
-    color: #222;
+  font-size: 20px;
+  margin: 15px 0 5px;
+  color: #222;
 }
 
 .team-member p {
-    font-size: 16px;
-    margin: 3px 0;
-    color: #666;
+  font-size: 16px;
+  margin: 3px 0;
+  color: #666;
 }

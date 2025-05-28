@@ -27,8 +27,8 @@ TOOL_DESCRIPTIONS = {
         "use_cases": [_("Optimierung von Bildern für Websites"), _("Anpassung an spezifische Formatanforderungen"), _("Konvertierung für bessere Kompatibilität")]
     },
     "WordCounterTool": {
-        "description": _("Zählt Wörter, Zeichen und Absätze in einem Text. Perfekt für Autoren, SEO-Experten und Content-Ersteller zur Analyse von Textinhalten."),
-        "use_cases": [_("Überprüfung von Texten auf Längenanforderungen"), _("Analyse von Dokumenten"), _("Optimierung von SEO-Content")]
+        "description": _("Zählt die Anzahl der Wörter in einem Text. Einfaches und schnelles Wortzählwerkzeug."),
+        "use_cases": [_("Überprüfung der Wortanzahl für Schreibaufgaben"), _("Einhaltung von Wortbegrenzungen für Aufsätze oder Artikel"), _("Schnelle Wortzahl-Überprüfung")]
     },
     "PasswordGeneratorTool": {
         "description": _("Erstellt sichere, zufällige Passwörter mit anpassbarer Länge und Zeichensatz-Optionen. Erhöht die Sicherheit Ihrer Online-Konten."),
@@ -115,10 +115,12 @@ TOOL_DESCRIPTIONS = {
     }
 }
 
+
 def get_description(tool_name):
     """Returns the description for a given tool name"""
     tool_info = TOOL_DESCRIPTIONS.get(tool_name, {})
     return tool_info.get("description", _("Keine Beschreibung verfügbar."))
+
 
 def get_use_cases(tool_name):
     """Returns the use cases for a given tool name"""

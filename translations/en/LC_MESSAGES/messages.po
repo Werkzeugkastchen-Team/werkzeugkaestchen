@@ -146,19 +146,20 @@ msgstr "Conversion for better compatibility"
 msgid ""
 "Zählt Wörter, Zeichen und Absätze in einem Text. Perfekt für Autoren, "
 "SEO-Experten und Content-Ersteller zur Analyse von Textinhalten."
-msgstr "Counts words, characters, and paragraphs in a text. Perfect for authors, "
+msgstr "Counts the number of words in a text. Simple and fast word counting tool. "
 
 #: tool_descriptions.py:31
-msgid "Überprüfung von Texten auf Längenanforderungen"
-msgstr "Checking texts for length requirements"
+msgid "Überprüfung der Wortanzahl für Schreibaufgaben"
+msgstr "Checking word count for writing assignments"
+
 
 #: tool_descriptions.py:31
-msgid "Analyse von Dokumenten"
-msgstr "Analysis of documents"
+msgid "Einhaltung von Wortbegrenzungen für Aufsätze oder Artikel"
+msgstr "Meeting word limits for essays or articles"
 
 #: tool_descriptions.py:31
-msgid "Optimierung von SEO-Content"
-msgstr "Optimization of SEO content"
+msgid "Schnelle Wortzahl-Überprüfung"
+msgstr "Quick word count verification"
 
 #: tool_descriptions.py:34
 msgid ""
