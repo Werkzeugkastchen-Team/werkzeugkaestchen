@@ -4,7 +4,7 @@ from flask_babel import lazy_gettext as _
 
 def get_api_base_url():
     """Get API base URL. Uses the Docker service name 'ollama' to connect to the Ollama server."""
-    return "http://ollama:11434"
+    return "http://127.0.0.1:11434"
 
 METAPROMPT_EN = """
 Summarize the following text. The Summary must be in English. Be short, concise and truthful. Immediately respond with the contents of your summary:
