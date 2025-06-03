@@ -1,6 +1,6 @@
 import os
 import tempfile
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_file, session
+from flask import Flask, render_template, request, redirect, send_from_directory, url_for, flash, jsonify, send_file, session
 from flask_babel import Babel, gettext as _
 from markupsafe import Markup
 from pytz import all_timezones
@@ -510,6 +510,10 @@ def download_extracted_text(token):
 
     return response
 
+# byebye
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('.', 'robots.txt')
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)  # Change the port if needed
