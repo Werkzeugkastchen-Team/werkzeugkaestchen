@@ -3,6 +3,29 @@
 {% block page_title %}{{ tool.name }}{% endblock %}
 
 {% block content %}
+<style>
+/* Hover-Effekte nur auf dieser Seite entfernen */
+.card:hover {
+    background: rgba(255, 247, 247, 1) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+.form-control:hover,
+.form-select:hover,
+.form-check-input:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: inherit !important;
+    border-color: inherit !important;
+}
+
+.card:hover::before {
+    transform: none !important;
+}
+</style>
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12">
