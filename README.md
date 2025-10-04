@@ -1,3 +1,10 @@
+## Einleitung
+
+Werkzeugkästchen ist eine browserbasierte Toolbox, die mithilfe von Python und dem Flask‑Framework entwickelt wurde. Sie bündelt mehr als 20 Online‑Werkzeuge: von Konvertierern (Base64, Bildformate), über Berechnungen (Einheiten‑, Dateigrößen‑, Zeiteinheiten) bis hin zur Generierung von Passwörtern, Untertiteln für Videos und KI‑Text‑Zusammenfassungen.
+
+Alle Werkzeuge lassen sich über eine einheitliche Kachel‑Ansicht aufrufen. Sie funktioniert sowohl auf Desktop‑ als auch Mobilgeräten. Ziel ist es, schnell und einfach Werkzeuge bereitzustellen, für die viele Nutzer keine dedizierten Programme oder Apps kennen
+
+
 ## Setup
 
 Dies wurde mit **Python 3.10** getestet
